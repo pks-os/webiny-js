@@ -30,10 +30,11 @@ import { PbRenderElementPlugin } from "~/types";
 
 interface PageElementsProviderProps {
     theme?: Theme;
+    enableLoaderCache?: boolean;
     children: React.ReactNode;
 }
 
-export const PageElementsProvider = ({ theme, children }: PageElementsProviderProps) => {
+export const PageElementsProvider = ({ theme, enableLoaderCache, children }: PageElementsProviderProps) => {
     const pageBuilder = usePageBuilder();
 
     const getRenderers = useCallback(() => {
@@ -76,6 +77,7 @@ export const PageElementsProvider = ({ theme, children }: PageElementsProviderPr
             theme={theme ?? (pageBuilder.theme as Theme)}
             renderers={getRenderers}
             modifiers={modifiers}
+            enableLoaderCache={enableLoaderCache}
         >
             {children}
         </PbPageElementsProvider>

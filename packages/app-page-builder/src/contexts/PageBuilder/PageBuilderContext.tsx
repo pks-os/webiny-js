@@ -35,12 +35,13 @@ export interface PageBuilderContext {
 }
 
 export interface PageBuilderProviderProps {
+    enableLoaderCache?: boolean;
     children?: React.ReactChild | React.ReactChild[];
 }
 
 export const PageBuilderContext = React.createContext<PageBuilderContext | undefined>(undefined);
 
-export const PageBuilderProvider = ({ children }: PageBuilderProviderProps) => {
+export const PageBuilderProvider = ({ children, enableLoaderCache }: PageBuilderProviderProps) => {
     const [displayMode, setDisplayMode] = React.useState(DisplayMode.DESKTOP);
     const [revisionType, setRevisionType] = React.useState<PbRevisionType>(
         PbRevisionType.published
@@ -62,7 +63,7 @@ export const PageBuilderProvider = ({ children }: PageBuilderProviderProps) => {
                 }
             }}
         >
-            <PageElementsProvider>{children}</PageElementsProvider>
+            <PageElementsProvider enableLoaderCache={enableLoaderCache}>{children}</PageElementsProvider>
         </PageBuilderContext.Provider>
     );
 };

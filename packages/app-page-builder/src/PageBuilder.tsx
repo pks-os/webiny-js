@@ -25,7 +25,7 @@ export * from "~/admin/views/Pages/hooks";
 const PageBuilderProviderPlugin = createProviderPlugin(Component => {
     return function PageBuilderProvider({ children }) {
         return (
-            <ContextProvider>
+            <ContextProvider enableLoaderCache={false}>
                 <AdminPageBuilderContextProvider>
                     <Component>{children}</Component>
                 </AdminPageBuilderContextProvider>

@@ -38,6 +38,15 @@ const createTailwindConfigCustomizations = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
+
+        // Not in Figma, we're manually setting the values here.
+        fontSize: {
+            xl: "1.25rem",
+            lg: "1rem",
+            md: "0.875rem",
+            sm: "0.75rem"
+        },
+
         margin: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "margin") {
                 acc[variantName] = `var(--margin-${variantName})`;

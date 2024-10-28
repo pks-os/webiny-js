@@ -1,15 +1,8 @@
 # @webiny/admin-ui
-[![](https://img.shields.io/npm/dw/@webiny/admin-ui.svg)](https://www.npmjs.com/package/@webiny/admin-ui) 
-[![](https://img.shields.io/npm/v/@webiny/admin-ui.svg)](https://www.npmjs.com/package/@webiny/admin-ui)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-## Install
-```
-npm install --save @webiny/admin-ui
-```
+> [!NOTE]
+> This package is included in every Webiny project by default, and it's not meant to be used as a standalone package.
 
-Or if you prefer yarn: 
-```
-yarn add @webiny/admin-ui
-```
+This package contains the Admin UI React components and styles. 
+
+ 

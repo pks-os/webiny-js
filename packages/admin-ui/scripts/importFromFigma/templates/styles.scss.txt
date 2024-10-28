@@ -4,8 +4,6 @@
 
 @layer base {
   :root {
-    // New variables from design.
-
     // Background colors.
     {BACKGROUND_COLOR}
 

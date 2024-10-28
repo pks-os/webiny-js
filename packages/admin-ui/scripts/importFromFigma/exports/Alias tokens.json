@@ -89,8 +89,12 @@
     "VariableID:1148:690",
     "VariableID:1148:689",
     "VariableID:528:17123",
+    "VariableID:1516:33864",
     "VariableID:528:17124",
+    "VariableID:1516:33861",
+    "VariableID:1516:33862",
     "VariableID:528:17125",
+    "VariableID:1516:33863",
     "VariableID:528:17126",
     "VariableID:528:17127",
     "VariableID:528:17128",
@@ -100,7 +104,10 @@
     "VariableID:79:236",
     "VariableID:79:237",
     "VariableID:79:238",
+    "VariableID:1516:33865",
+    "VariableID:1516:15576",
     "VariableID:107:716",
+    "VariableID:1516:33674",
     "VariableID:528:17129",
     "VariableID:528:17130",
     "VariableID:528:17131",
@@ -108,7 +115,10 @@
     "VariableID:528:17133",
     "VariableID:528:17134",
     "VariableID:107:713",
+    "VariableID:1516:33668",
+    "VariableID:1516:33671",
     "VariableID:79:232",
+    "VariableID:1516:33672",
     "VariableID:79:233",
     "VariableID:79:234",
     "VariableID:203:4497",
@@ -146,7 +156,9 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -173,7 +185,9 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -200,7 +214,9 @@
           "aliasName": "colors/colors-neutral-50"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -212,7 +228,7 @@
       "valuesByMode": {
         "37:2": {
           "type": "VARIABLE_ALIAS",
-          "id": "VariableID:39:124"
+          "id": "VariableID:823:2"
         }
       },
       "resolvedValuesByMode": {
@@ -223,11 +239,13 @@
             "b": 1,
             "a": 1
           },
-          "alias": "VariableID:39:124",
-          "aliasName": "colors/white-500"
+          "alias": "VariableID:823:2",
+          "aliasName": "colors/colors-neutral-0"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -254,7 +272,9 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -281,7 +301,9 @@
           "aliasName": "colors/colors-neutral-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -308,7 +330,9 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -335,7 +359,9 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -362,7 +388,9 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -389,7 +417,9 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -416,7 +446,9 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -443,7 +475,9 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -465,7 +499,9 @@
           "aliasName": "radius/dimensions-border-radius-2"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -487,7 +523,9 @@
           "aliasName": "radius/dimensions-border-radius-4"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -514,7 +552,9 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -541,7 +581,9 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -568,7 +610,9 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -595,7 +639,9 @@
           "aliasName": "colors/white-500"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -622,7 +668,9 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -649,7 +697,9 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -676,7 +726,9 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -703,7 +755,9 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -730,7 +784,9 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -757,7 +813,9 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -784,7 +842,9 @@
           "aliasName": "colors/colors-destructive-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -811,7 +871,9 @@
           "aliasName": "colors/colors-destructive-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -838,7 +900,9 @@
           "aliasName": "colors/colors-warning-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -865,7 +929,9 @@
           "aliasName": "colors/colors-warning-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -892,7 +958,9 @@
           "aliasName": "colors/colors-warning-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -919,7 +987,9 @@
           "aliasName": "colors/colors-neutral-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -941,7 +1011,10 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -963,7 +1036,9 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -985,7 +1060,9 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1007,7 +1084,9 @@
           "aliasName": "radius/dimensions-border-radius-8"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1029,7 +1108,9 @@
           "aliasName": "radius/dimensions-border-radius-16"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1051,7 +1132,9 @@
           "aliasName": "radius/dimensions-border-radius-24"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1073,7 +1156,9 @@
           "aliasName": "radius/dimensions-border-radius-36"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1095,7 +1180,10 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1117,7 +1205,9 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1139,13 +1229,15 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:79:235",
-      "name": "elevation/elevation-flat",
+      "name": "shadow/shadow-flat",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1157,7 +1249,9 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1179,7 +1273,9 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1201,7 +1297,9 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1223,13 +1321,15 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:79:239",
-      "name": "elevation/elevation-sm",
+      "name": "shadow/shadow-sm",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1241,13 +1341,15 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:80:242",
-      "name": "elevation/elevation-md",
+      "name": "shadow/shadow-md",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1259,13 +1361,15 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:80:243",
-      "name": "elevation/elevation-lg",
+      "name": "shadow/shadow-lg",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1277,13 +1381,15 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:80:244",
-      "name": "elevation/elevation-xl",
+      "name": "shadow/shadow-xl",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1295,13 +1401,15 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:80:245",
-      "name": "elevation/elevation-xxl",
+      "name": "shadow/shadow-xxl",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": {
@@ -1313,7 +1421,9 @@
           "alias": null
         }
       },
-      "scopes": ["EFFECT_FLOAT"],
+      "scopes": [
+        "EFFECT_FLOAT"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1335,7 +1445,10 @@
           "aliasName": "borderWidth/dimensions-border-width-1"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1357,7 +1470,9 @@
           "aliasName": "borderWidth/dimensions-border-width-2"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1384,7 +1499,11 @@
           "aliasName": "colors/colors-neutral-800"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1411,7 +1530,11 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1438,7 +1561,11 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1465,7 +1592,11 @@
           "aliasName": "colors/white-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1487,7 +1618,10 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1509,7 +1643,10 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1536,7 +1673,9 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1563,7 +1702,9 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1590,7 +1731,9 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1617,7 +1760,9 @@
           "aliasName": "colors/colors-neutral-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1644,7 +1789,9 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1671,7 +1818,9 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1693,7 +1842,9 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1715,7 +1866,10 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1737,7 +1891,10 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1759,7 +1916,10 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1781,7 +1941,9 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1803,7 +1965,9 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1825,7 +1989,9 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1847,7 +2013,10 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1869,7 +2038,10 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1891,7 +2063,10 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1913,7 +2088,9 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1935,7 +2112,9 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1957,7 +2136,9 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1984,7 +2165,9 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2011,7 +2194,9 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2038,7 +2223,9 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2065,7 +2252,9 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2092,7 +2281,9 @@
           "aliasName": "colors/colors-primary-700"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2119,7 +2310,9 @@
           "aliasName": "colors/colors-success-700"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2146,7 +2339,9 @@
           "aliasName": "colors/colors-secondary-700"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2173,7 +2368,9 @@
           "aliasName": "colors/colors-destructive-600"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2200,7 +2397,9 @@
           "aliasName": "colors/colors-warning-700"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2227,7 +2426,9 @@
           "aliasName": "colors/colors-primary-900"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2254,7 +2455,9 @@
           "aliasName": "colors/colors-success-900"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2281,7 +2484,9 @@
           "aliasName": "colors/colors-secondary-900"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2308,7 +2513,9 @@
           "aliasName": "colors/colors-destructive-800"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2335,7 +2542,9 @@
           "aliasName": "colors/colors-warning-800"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2362,7 +2571,11 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2389,7 +2602,11 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2416,13 +2633,15 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
     {
       "id": "VariableID:849:784",
-      "name": "borderColor/borderColor-sucess-default",
+      "name": "borderColor/borderColor-success-default",
       "description": "",
       "type": "COLOR",
       "valuesByMode": {
@@ -2443,7 +2662,9 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2470,7 +2691,9 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2497,7 +2720,9 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2524,7 +2749,9 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2551,7 +2778,9 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2578,7 +2807,9 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2605,7 +2836,9 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2632,7 +2865,9 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2659,7 +2894,9 @@
           "aliasName": "colors/colors-success-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2686,7 +2923,9 @@
           "aliasName": "colors/colors-destructive-300"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2713,7 +2952,9 @@
           "aliasName": "colors/colors-warning-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2740,7 +2981,9 @@
           "aliasName": "colors/colors-primary-200"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2762,7 +3005,10 @@
           "aliasName": "space/dimensions-fixed-2"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2784,7 +3030,9 @@
           "aliasName": "space/dimensions-fixed-64"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2806,7 +3054,10 @@
           "aliasName": "space/dimensions-fixed-2"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2828,7 +3079,10 @@
           "aliasName": "space/dimensions-fixed-0"
         }
       },
-      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2855,7 +3109,9 @@
           "aliasName": "colors/colors-neutral-600"
         }
       },
-      "scopes": ["ALL_SCOPES"],
+      "scopes": [
+        "ALL_SCOPES"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2882,7 +3138,11 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2909,7 +3169,11 @@
           "aliasName": "colors/colors-warning-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2936,7 +3200,11 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
+      "scopes": [
+        "FRAME_FILL",
+        "SHAPE_FILL",
+        "STROKE_COLOR"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2963,7 +3231,9 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2990,7 +3260,9 @@
           "aliasName": "colors/colors-destructive-300"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3017,7 +3289,259 @@
           "aliasName": "colors/colors-destructive-100"
         }
       },
-      "scopes": ["TEXT_FILL"],
+      "scopes": [
+        "TEXT_FILL"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:15576",
+      "name": "padding/padding-xxs",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:203:4489"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 2,
+          "alias": "VariableID:203:4489",
+          "aliasName": "space/dimensions-fixed-2"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33668",
+      "name": "padding/padding-sm-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:1516:33669"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 10,
+          "alias": "VariableID:1516:33669",
+          "aliasName": "space/dimensions-fixed-10"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33671",
+      "name": "padding/padding-sm-extra",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:203:5688"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 12,
+          "alias": "VariableID:203:5688",
+          "aliasName": "space/dimensions-fixed-12"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33672",
+      "name": "padding/padding-md plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:203:5689"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 20,
+          "alias": "VariableID:203:5689",
+          "aliasName": "space/dimensions-fixed-20"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33674",
+      "name": "padding/padding-xs-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:1516:33670"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 6,
+          "alias": "VariableID:1516:33670",
+          "aliasName": "space/dimensions-fixed-6"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33861",
+      "name": "spacing/spacing-sm-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:1516:33669"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 10,
+          "alias": "VariableID:1516:33669",
+          "aliasName": "space/dimensions-fixed-10"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33862",
+      "name": "spacing/spacing-sm-extra",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:203:5688"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 12,
+          "alias": "VariableID:203:5688",
+          "aliasName": "space/dimensions-fixed-12"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33863",
+      "name": "spacing/spacing-md-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:203:5689"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 20,
+          "alias": "VariableID:203:5689",
+          "aliasName": "space/dimensions-fixed-20"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33864",
+      "name": "spacing/spacing-xs-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:1516:33670"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 6,
+          "alias": "VariableID:1516:33670",
+          "aliasName": "space/dimensions-fixed-6"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1516:33865",
+      "name": "padding/padding-none",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": {
+        "37:2": {
+          "type": "VARIABLE_ALIAS",
+          "id": "VariableID:1148:691"
+        }
+      },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 0,
+          "alias": "VariableID:1148:691",
+          "aliasName": "space/dimensions-fixed-0"
+        }
+      },
+      "scopes": [
+        "WIDTH_HEIGHT",
+        "GAP"
+      ],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     }

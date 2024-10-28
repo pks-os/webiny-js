@@ -66,7 +66,7 @@
     --border-neutral-strong: 218, 10.7%, 65.3%;
     --border-neutral-subtle: 210, 14.3%, 97.3%;
 
-    --border-sucess-default: 170, 100%, 37.5%;
+    --border-success-default: 170, 100%, 37.5%;
 
     // Border radius.
     --radius-lg: 16px;
@@ -91,19 +91,29 @@
     // Padding.
     --padding-lg: 24px;
     --padding-md: 16px;
+    --padding-md-plus: 20px;
+    --padding-none: 0px;
     --padding-sm: 8px;
+    --padding-sm-extra: 12px;
+    --padding-sm-plus: 10px;
     --padding-xl: 32px;
     --padding-xs: 4px;
+    --padding-xs-plus: 6px;
     --padding-xxl: 48px;
+    --padding-xxs: 2px;
 
     // Spacing.
     --spacing-3xl: 64px;
     --spacing-lg: 24px;
     --spacing-md: 16px;
+    --spacing-md-plus: 20px;
     --spacing-none: 0px;
     --spacing-sm: 8px;
+    --spacing-sm-extra: 12px;
+    --spacing-sm-plus: 10px;
     --spacing-xl: 32px;
     --spacing-xs: 4px;
+    --spacing-xs-plus: 6px;
     --spacing-xxl: 48px;
     --spacing-xxs: 2px;
 

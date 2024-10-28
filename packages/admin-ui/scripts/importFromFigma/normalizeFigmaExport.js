@@ -6,14 +6,25 @@ const VARIABLE_TYPES = [
     "borderColor",
     "textColor",
     "padding",
-    "elevation",
+    "shadow",
     "fill",
     "spacing",
     "margin",
     "borderRadius",
-    "dimension",
     "borderWidth"
 ];
+
+const IGNORED_VARIABLE_TYPES = ["dimension"];
+
+const isIgnoredVariableType = variableName => {
+    for (const type of IGNORED_VARIABLE_TYPES) {
+        if (variableName.startsWith(type + "/")) {
+            return true;
+        }
+    }
+
+    return false;
+};
 
 const getVariableType = variableName => {
     for (const type of VARIABLE_TYPES) {
@@ -32,6 +43,10 @@ const normalizeFigmaExport = () => {
 
             const [, variantName] = variable.name.match(/[a-zA-Z]*?\/[a-zA-Z]*?-(.*)/);
 
+            if (isIgnoredVariableType(variable.name)) {
+                return null;
+            }
+
             const type = getVariableType(variable.name);
 
             return {
@@ -43,6 +58,7 @@ const normalizeFigmaExport = () => {
                 resolvedValue
             };
         })
+        .filter(Boolean)
         .sort((variable1, variable2) => {
             // Order by variable.name, from A to Z.
             return variable1.name.localeCompare(variable2.name);

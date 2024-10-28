@@ -78,9 +78,9 @@ module.exports = {
             strong: "hsl(var(--border-neutral-strong))",
             subtle: "hsl(var(--border-neutral-subtle))"
         },
-        sucess: {
-            DEFAULT: "hsl(var(--border-sucess-default))",
-            default: "hsl(var(--border-sucess-default))"
+        success: {
+            DEFAULT: "hsl(var(--border-success-default))",
+            default: "hsl(var(--border-success-default))"
         }
     },
     borderRadius: {
@@ -112,19 +112,29 @@ module.exports = {
     padding: {
         lg: "var(--padding-lg)",
         md: "var(--padding-md)",
+        "md plus": "var(--padding-md plus)",
+        none: "var(--padding-none)",
         sm: "var(--padding-sm)",
+        "sm-extra": "var(--padding-sm-extra)",
+        "sm-plus": "var(--padding-sm-plus)",
         xl: "var(--padding-xl)",
         xs: "var(--padding-xs)",
-        xxl: "var(--padding-xxl)"
+        "xs-plus": "var(--padding-xs-plus)",
+        xxl: "var(--padding-xxl)",
+        xxs: "var(--padding-xxs)"
     },
     spacing: {
         "3xl": "var(--spacing-3xl)",
         lg: "var(--spacing-lg)",
         md: "var(--spacing-md)",
+        "md-plus": "var(--spacing-md-plus)",
         none: "var(--spacing-none)",
         sm: "var(--spacing-sm)",
+        "sm-extra": "var(--spacing-sm-extra)",
+        "sm-plus": "var(--spacing-sm-plus)",
         xl: "var(--spacing-xl)",
         xs: "var(--spacing-xs)",
+        "xs-plus": "var(--spacing-xs-plus)",
         xxl: "var(--spacing-xxl)",
         xxs: "var(--spacing-xxs)"
     },

@@ -14,7 +14,8 @@ const {
     margin,
     padding,
     spacing,
-    textColor
+    textColor,
+    fontSize
 } = require("./tailwind.config.customizations");
 
 /** @type {import('tailwindcss').Config} */
@@ -34,6 +35,7 @@ module.exports = {
             borderColor,
             borderRadius,
             borderWidth,
+            fontSize,
             margin,
             padding,
             spacing,

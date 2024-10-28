@@ -95,6 +95,12 @@ module.exports = {
         md: "var(--border-width-md)",
         sm: "var(--border-width-sm)"
     },
+    fontSize: {
+        xl: "1.25rem",
+        lg: "1rem",
+        md: "0.875rem",
+        sm: "0.75rem"
+    },
     margin: {
         lg: "var(--margin-lg)",
         md: "var(--margin-md)",

@@ -156,9 +156,7 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -185,9 +183,7 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -214,9 +210,7 @@
           "aliasName": "colors/colors-neutral-50"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -243,9 +237,7 @@
           "aliasName": "colors/colors-neutral-0"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -272,9 +264,7 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -301,9 +291,7 @@
           "aliasName": "colors/colors-neutral-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -330,9 +318,7 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -359,9 +345,7 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -388,9 +372,7 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -417,9 +399,7 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -446,9 +426,7 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -475,9 +453,7 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -499,9 +475,7 @@
           "aliasName": "radius/dimensions-border-radius-2"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -523,9 +497,7 @@
           "aliasName": "radius/dimensions-border-radius-4"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -552,9 +524,7 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -581,9 +551,7 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -610,9 +578,7 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -639,9 +605,7 @@
           "aliasName": "colors/white-500"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -668,9 +632,7 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -697,9 +659,7 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -726,9 +686,7 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -755,9 +713,7 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -784,9 +740,7 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -813,9 +767,7 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -842,9 +794,7 @@
           "aliasName": "colors/colors-destructive-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -871,9 +821,7 @@
           "aliasName": "colors/colors-destructive-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -900,9 +848,7 @@
           "aliasName": "colors/colors-warning-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -929,9 +875,7 @@
           "aliasName": "colors/colors-warning-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -958,9 +902,7 @@
           "aliasName": "colors/colors-warning-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -987,9 +929,7 @@
           "aliasName": "colors/colors-neutral-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1011,10 +951,7 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1036,9 +973,7 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1060,9 +995,7 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1084,9 +1017,7 @@
           "aliasName": "radius/dimensions-border-radius-8"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1108,9 +1039,7 @@
           "aliasName": "radius/dimensions-border-radius-16"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1132,9 +1061,7 @@
           "aliasName": "radius/dimensions-border-radius-24"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1156,9 +1083,7 @@
           "aliasName": "radius/dimensions-border-radius-36"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1180,10 +1105,7 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1205,9 +1127,7 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1229,9 +1149,7 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1249,9 +1167,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1273,9 +1189,7 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1297,9 +1211,7 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1321,9 +1233,7 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1341,9 +1251,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1361,9 +1269,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1381,9 +1287,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1401,9 +1305,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1421,9 +1323,7 @@
           "alias": null
         }
       },
-      "scopes": [
-        "EFFECT_FLOAT"
-      ],
+      "scopes": ["EFFECT_FLOAT"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1445,10 +1345,7 @@
           "aliasName": "borderWidth/dimensions-border-width-1"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1470,9 +1367,7 @@
           "aliasName": "borderWidth/dimensions-border-width-2"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1499,11 +1394,7 @@
           "aliasName": "colors/colors-neutral-800"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1530,11 +1421,7 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1561,11 +1448,7 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1592,11 +1475,7 @@
           "aliasName": "colors/white-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1618,10 +1497,7 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1643,10 +1519,7 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1673,9 +1546,7 @@
           "aliasName": "colors/colors-neutral-900"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1702,9 +1573,7 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1731,9 +1600,7 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1760,9 +1627,7 @@
           "aliasName": "colors/colors-neutral-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1789,9 +1654,7 @@
           "aliasName": "colors/colors-primary-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1818,9 +1681,7 @@
           "aliasName": "colors/colors-primary-100"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1842,9 +1703,7 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1866,10 +1725,7 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1891,10 +1747,7 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1916,10 +1769,7 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1941,9 +1791,7 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1965,9 +1813,7 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -1989,9 +1835,7 @@
           "aliasName": "space/dimensions-fixed-48"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2013,10 +1857,7 @@
           "aliasName": "space/dimensions-fixed-4"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2038,10 +1879,7 @@
           "aliasName": "space/dimensions-fixed-8"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2063,10 +1901,7 @@
           "aliasName": "space/dimensions-fixed-16"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2088,9 +1923,7 @@
           "aliasName": "space/dimensions-fixed-24"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2112,9 +1945,7 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2136,9 +1967,7 @@
           "aliasName": "space/dimensions-fixed-32"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2165,9 +1994,7 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2194,9 +2021,7 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2223,9 +2048,7 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2252,9 +2075,7 @@
           "aliasName": "colors/colors-success-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2281,9 +2102,7 @@
           "aliasName": "colors/colors-primary-700"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2310,9 +2129,7 @@
           "aliasName": "colors/colors-success-700"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2339,9 +2156,7 @@
           "aliasName": "colors/colors-secondary-700"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2368,9 +2183,7 @@
           "aliasName": "colors/colors-destructive-600"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2397,9 +2210,7 @@
           "aliasName": "colors/colors-warning-700"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2426,9 +2237,7 @@
           "aliasName": "colors/colors-primary-900"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2455,9 +2264,7 @@
           "aliasName": "colors/colors-success-900"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2484,9 +2291,7 @@
           "aliasName": "colors/colors-secondary-900"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2513,9 +2318,7 @@
           "aliasName": "colors/colors-destructive-800"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2542,9 +2345,7 @@
           "aliasName": "colors/colors-warning-800"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2571,11 +2372,7 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2602,11 +2399,7 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2633,9 +2426,7 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2662,9 +2453,7 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2691,9 +2480,7 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2720,9 +2507,7 @@
           "aliasName": "colors/colors-neutral-500"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2749,9 +2534,7 @@
           "aliasName": "colors/colors-neutral-400"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2778,9 +2561,7 @@
           "aliasName": "colors/colors-neutral-700"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2807,9 +2588,7 @@
           "aliasName": "colors/colors-neutral-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2836,9 +2615,7 @@
           "aliasName": "colors/colors-primary-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2865,9 +2642,7 @@
           "aliasName": "colors/colors-success-400"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2894,9 +2669,7 @@
           "aliasName": "colors/colors-success-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2923,9 +2696,7 @@
           "aliasName": "colors/colors-destructive-300"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2952,9 +2723,7 @@
           "aliasName": "colors/colors-warning-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -2981,9 +2750,7 @@
           "aliasName": "colors/colors-primary-200"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3005,10 +2772,7 @@
           "aliasName": "space/dimensions-fixed-2"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3030,9 +2794,7 @@
           "aliasName": "space/dimensions-fixed-64"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3054,10 +2816,7 @@
           "aliasName": "space/dimensions-fixed-2"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3079,10 +2838,7 @@
           "aliasName": "space/dimensions-fixed-0"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3109,9 +2865,7 @@
           "aliasName": "colors/colors-neutral-600"
         }
       },
-      "scopes": [
-        "ALL_SCOPES"
-      ],
+      "scopes": ["ALL_SCOPES"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3138,11 +2892,7 @@
           "aliasName": "colors/colors-success-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3169,11 +2919,7 @@
           "aliasName": "colors/colors-warning-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3200,11 +2946,7 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": [
-        "FRAME_FILL",
-        "SHAPE_FILL",
-        "STROKE_COLOR"
-      ],
+      "scopes": ["FRAME_FILL", "SHAPE_FILL", "STROKE_COLOR"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3231,9 +2973,7 @@
           "aliasName": "colors/colors-destructive-500"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3260,9 +3000,7 @@
           "aliasName": "colors/colors-destructive-300"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3289,9 +3027,7 @@
           "aliasName": "colors/colors-destructive-100"
         }
       },
-      "scopes": [
-        "TEXT_FILL"
-      ],
+      "scopes": ["TEXT_FILL"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3313,10 +3049,7 @@
           "aliasName": "space/dimensions-fixed-2"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3338,10 +3071,7 @@
           "aliasName": "space/dimensions-fixed-10"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3363,10 +3093,7 @@
           "aliasName": "space/dimensions-fixed-12"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3388,10 +3115,7 @@
           "aliasName": "space/dimensions-fixed-20"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3413,10 +3137,7 @@
           "aliasName": "space/dimensions-fixed-6"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3438,10 +3159,7 @@
           "aliasName": "space/dimensions-fixed-10"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3463,10 +3181,7 @@
           "aliasName": "space/dimensions-fixed-12"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3488,10 +3203,7 @@
           "aliasName": "space/dimensions-fixed-20"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3513,10 +3225,7 @@
           "aliasName": "space/dimensions-fixed-6"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     },
@@ -3538,10 +3247,7 @@
           "aliasName": "space/dimensions-fixed-0"
         }
       },
-      "scopes": [
-        "WIDTH_HEIGHT",
-        "GAP"
-      ],
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
       "hiddenFromPublishing": false,
       "codeSyntax": {}
     }

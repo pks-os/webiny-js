@@ -80,6 +80,21 @@
     --border-width-md: 2px;
     --border-width-sm: 1px;
 
+    // Fill.
+    --fill-accent-default: 15, 95.6%, 55.9%;
+
+    --fill-destructive: 0, 71%, 48.6%;
+
+    --fill-neutral-base: 0, 0%, 100%;
+    --fill-neutral-dark: 215, 11.1%, 21.2%;
+    --fill-neutral-disabled: 219, 12.1%, 77.3%;
+    --fill-neutral-strong: 218, 10.7%, 65.3%;
+    --fill-neutral-xstrong: 213, 10.1%, 38.8%;
+
+    --fill-success: 170, 100%, 37.5%;
+
+    --fill-warning: 45, 95.7%, 63.7%;
+
     // Margin.
     --margin-lg: 24px;
     --margin-md: 16px;

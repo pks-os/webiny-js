@@ -4,10 +4,10 @@ const { figmaRgbaToHsla } = require("./figmaRgbaToHsla");
 const VARIABLE_TYPES = [
     "backgroundColor",
     "borderColor",
+    "fill",
     "textColor",
     "padding",
     "shadow",
-    "fill",
     "spacing",
     "margin",
     "borderRadius",

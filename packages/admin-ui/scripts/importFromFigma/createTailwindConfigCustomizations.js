@@ -38,6 +38,19 @@ const createTailwindConfigCustomizations = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
+        fill: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
+            if (type === "fill") {
+                const [color, variant] = variantName.split("-");
+                if (!acc[color]) {
+                    acc[color] = {
+                        DEFAULT: `hsl(var(--fill-${color}-default))`
+                    };
+                }
+
+                acc[color][variant] = `hsl(var(--fill-${variantName}))`;
+            }
+            return acc;
+        }, {}),
 
         // Not in Figma, we're manually setting the values here.
         fontSize: {
@@ -77,7 +90,7 @@ const createTailwindConfigCustomizations = normalizedFigmaExport => {
                 acc[color][variant] = `hsl(var(--text-${variantName}))`;
             }
             return acc;
-        }, {}),
+        }, {})
     };
 };
 

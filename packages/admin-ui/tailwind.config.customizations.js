@@ -95,6 +95,32 @@ module.exports = {
         md: "var(--border-width-md)",
         sm: "var(--border-width-sm)"
     },
+    fill: {
+        accent: {
+            DEFAULT: "hsl(var(--fill-accent-default))",
+            default: "hsl(var(--fill-accent-default))"
+        },
+        destructive: {
+            DEFAULT: "hsl(var(--fill-destructive-default))",
+            undefined: "hsl(var(--fill-destructive))"
+        },
+        neutral: {
+            DEFAULT: "hsl(var(--fill-neutral-default))",
+            base: "hsl(var(--fill-neutral-base))",
+            dark: "hsl(var(--fill-neutral-dark))",
+            disabled: "hsl(var(--fill-neutral-disabled))",
+            strong: "hsl(var(--fill-neutral-strong))",
+            xstrong: "hsl(var(--fill-neutral-xstrong))"
+        },
+        success: {
+            DEFAULT: "hsl(var(--fill-success-default))",
+            undefined: "hsl(var(--fill-success))"
+        },
+        warning: {
+            DEFAULT: "hsl(var(--fill-warning-default))",
+            undefined: "hsl(var(--fill-warning))"
+        }
+    },
     fontSize: {
         xl: "1.25rem",
         lg: "1rem",
@@ -112,7 +138,7 @@ module.exports = {
     padding: {
         lg: "var(--padding-lg)",
         md: "var(--padding-md)",
-        "md plus": "var(--padding-md plus)",
+        "md-plus": "var(--padding-md-plus)",
         none: "var(--padding-none)",
         sm: "var(--padding-sm)",
         "sm-extra": "var(--padding-sm-extra)",

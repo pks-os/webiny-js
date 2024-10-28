@@ -76,7 +76,32 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{BORDER_WIDTH}", borderWidth.join("\n"));
     }
 
-    // 5. Margin.
+    // 5. Fill.
+    {
+        let currentFillColorGroup = null;
+        const fillColors = normalizedFigmaExport
+            .filter(item => item.type === "fill")
+            .map(variable => {
+                const [colorGroup] = variable.variantName.split("-");
+                const cssVar = `--fill-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+
+                if (!currentFillColorGroup) {
+                    currentFillColorGroup = colorGroup;
+                    return cssVar;
+                }
+
+                if (!currentFillColorGroup || currentFillColorGroup !== colorGroup) {
+                    currentFillColorGroup = colorGroup;
+                    return ["", cssVar];
+                }
+                return cssVar;
+            })
+            .flat();
+
+        stylesScss = stylesScss.replace("{FILL}", fillColors.join("\n"));
+    }
+
+    // 6. Margin.
     {
         const margin = normalizedFigmaExport
             .filter(item => item.type === "margin")
@@ -85,7 +110,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{MARGIN}", margin.join("\n"));
     }
 
-    // 6. Padding.
+    // 7. Padding.
     {
         const padding = normalizedFigmaExport
             .filter(item => item.type === "padding")
@@ -94,7 +119,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{PADDING}", padding.join("\n"));
     }
 
-    // 7. Spacing.
+    // 8. Spacing.
     {
         const spacing = normalizedFigmaExport
             .filter(item => item.type === "spacing")
@@ -103,7 +128,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{SPACING}", spacing.join("\n"));
     }
 
-    // 8. Text color.
+    // 9. Text color.
     {
         let currentTextColor = null;
         const textColors = normalizedFigmaExport

@@ -18,6 +18,9 @@
     // Border width.
     {BORDER_WIDTH}
 
+    // Fill.
+    {FILL}
+
     // Margin.
     {MARGIN}
 

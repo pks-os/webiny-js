@@ -122,10 +122,76 @@ module.exports = {
         }
     },
     fontSize: {
-        xl: "1.25rem",
-        lg: "1rem",
-        md: "0.875rem",
-        sm: "0.75rem"
+        h1: [
+            "var(--text-h1)",
+            {
+                lineHeight: "var(--text-h1-leading)",
+                letterSpacing: "var(--text-h1-tracking)"
+            }
+        ],
+        h2: [
+            "var(--text-h2)",
+            {
+                lineHeight: "var(--text-h2-leading)",
+                letterSpacing: "var(--text-h2-tracking)"
+            }
+        ],
+        h3: [
+            "var(--text-h3)",
+            {
+                lineHeight: "var(--text-h3-leading)",
+                letterSpacing: "var(--text-h3-tracking)"
+            }
+        ],
+        h4: [
+            "var(--text-h4)",
+            {
+                lineHeight: "var(--text-h4-leading)",
+                letterSpacing: "var(--text-h4-tracking)"
+            }
+        ],
+        h5: [
+            "var(--text-h5)",
+            {
+                lineHeight: "var(--text-h5-leading)",
+                letterSpacing: "var(--text-h5-tracking)"
+            }
+        ],
+        h6: [
+            "var(--text-h6)",
+            {
+                lineHeight: "var(--text-h6-leading)",
+                letterSpacing: "var(--text-h6-tracking)"
+            }
+        ],
+        xl: [
+            "var(--text-xl)",
+            {
+                lineHeight: "var(--text-xl-leading)",
+                letterSpacing: "var(--text-xl-tracking)"
+            }
+        ],
+        lg: [
+            "var(--text-lg)",
+            {
+                lineHeight: "var(--text-lg-leading)",
+                letterSpacing: "var(--text-lg-tracking)"
+            }
+        ],
+        md: [
+            "var(--text-md)",
+            {
+                lineHeight: "var(--text-md-leading)",
+                letterSpacing: "var(--text-md-tracking)"
+            }
+        ],
+        sm: [
+            "var(--text-sm)",
+            {
+                lineHeight: "var(--text-sm-leading)",
+                letterSpacing: "var(--text-sm-tracking)"
+            }
+        ]
     },
     margin: {
         lg: "var(--margin-lg)",

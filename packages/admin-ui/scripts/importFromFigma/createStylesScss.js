@@ -167,6 +167,57 @@ const createStylesScss = normalizedFigmaExport => {
 
         stylesScss = stylesScss.replace("{TEXT_COLOR}", textColors.join("\n"));
     }
+
+    // 12. Text size.
+    {
+        // Not in Figma export, so we're manually setting the values here.
+        stylesScss = stylesScss.replace(
+            "{TEXT_SIZE}",
+            [
+                "// Headings.",
+                "--text-h1: 3rem;",
+                "--text-h1-leading: 3.75rem;",
+                "--text-h1-tracking: -2%;",
+                "",
+                "--text-h2: 2.25rem;",
+                "--text-h2-leading: 2.75rem;",
+                "--text-h2-tracking: -2%;",
+                "",
+                "--text-h3: 1.875rem;",
+                "--text-h3-leading: 2.375rem;",
+                "--text-h3-tracking: inherit;",
+                "",
+                "--text-h4: 1.25rem;",
+                "--text-h4-leading: 1.875rem;",
+                "--text-h4-tracking: inherit;",
+                "",
+                "--text-h5: 1rem;",
+                "--text-h5-leading: 1.5rem;",
+                "--text-h5-tracking: inherit;",
+                "",
+                "--text-h6: 0.875rem;",
+                "--text-h6-leading: 1.25rem;",
+                "--text-h6-tracking: inherit;",
+                "",
+                "// Text.",
+                "--text-xl: 1.25rem;",
+                "--text-xl-leading: 1.875rem;",
+                "--text-xl-tracking: inherit;",
+                "",
+                "--text-lg: 1rem;",
+                "--text-lg-leading: 1.5rem;",
+                "--text-lg-tracking: inherit;",
+                "",
+                "--text-md: 0.875rem;",
+                "--text-md-leading: 1.375rem;",
+                "--text-md-tracking: inherit;",
+                "",
+                "--text-sm: 0.75rem;",
+                "--text-sm-leading: 1.125rem;",
+                "--text-sm-tracking: inherit;"
+            ].join("\n")
+        );
+    }
     return stylesScss;
 };
 

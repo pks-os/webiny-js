@@ -1,4 +1,4 @@
-const createTailwindConfigCustomizations = normalizedFigmaExport => {
+const createTailwindConfigTheme = normalizedFigmaExport => {
     return {
         backgroundColor: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "backgroundColor") {
@@ -100,4 +100,4 @@ const createTailwindConfigCustomizations = normalizedFigmaExport => {
     };
 };
 
-module.exports = { createTailwindConfigCustomizations };
+module.exports = { createTailwindConfigTheme };

@@ -12,8 +12,8 @@ module.exports = {
                 fs.cpSync(from, to);
             }
             {
-                const from = path.join(__dirname, "tailwind.config.customizations.js");
-                const to = path.join(__dirname, "dist/tailwind.config.customizations.js");
+                const from = path.join(__dirname, "tailwind.config.theme.js");
+                const to = path.join(__dirname, "dist/tailwind.config.theme.js");
                 fs.cpSync(from, to);
             }
         },

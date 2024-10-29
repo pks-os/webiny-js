@@ -4,8 +4,8 @@ const path = require("path");
 const aliasTokensExport = require("./importFromFigma/exports/Alias tokens.json");
 const { normalizeFigmaExport } = require("./importFromFigma/normalizeFigmaExport");
 const {
-    createTailwindConfigCustomizations
-} = require("./importFromFigma/createTailwindConfigCustomizations");
+    createTailwindConfigTheme
+} = require("./importFromFigma/createTailwindConfigTheme");
 const { createStylesScss } = require("./importFromFigma/createStylesScss");
 const { formatCode } = require("./importFromFigma/formatCode");
 
@@ -16,13 +16,13 @@ const saveFileAndFormat = async (filePath, content) => {
 
 (async () => {
     const normalizedFigmaExport = normalizeFigmaExport(aliasTokensExport);
-    const tailwindConfigCustomizations = createTailwindConfigCustomizations(normalizedFigmaExport);
+    const tailwindConfigTheme = createTailwindConfigTheme(normalizedFigmaExport);
     const stylesScss = createStylesScss(normalizedFigmaExport);
 
     const paths = {
         cwd: process.cwd(),
         normalizedFigmaExport: path.join(__dirname, "../.normalizedFigmaExport.json"),
-        tailwindConfigCustomizations: path.join(__dirname, "../tailwind.config.customizations.js"),
+        createTailwindConfigTheme: path.join(__dirname, "../tailwind.config.theme.js"),
         stylesScss: path.join(__dirname, "../src/styles.scss")
     };
 
@@ -33,8 +33,8 @@ const saveFileAndFormat = async (filePath, content) => {
         )}).`
     );
     console.log(
-        `‣ Tailwind config customizations (${green(
-            path.relative(paths.cwd, paths.tailwindConfigCustomizations)
+        `‣ Tailwind config theme (${green(
+            path.relative(paths.cwd, paths.createTailwindConfigTheme)
         )}).`
     );
     console.log(`‣ styles.scss (${green(path.relative(paths.cwd, paths.stylesScss))}).`);
@@ -45,8 +45,8 @@ const saveFileAndFormat = async (filePath, content) => {
     );
 
     await saveFileAndFormat(
-        paths.tailwindConfigCustomizations,
-        `module.exports = ${JSON.stringify(tailwindConfigCustomizations, null, 2)};`
+        paths.createTailwindConfigTheme,
+        `module.exports = ${JSON.stringify(tailwindConfigTheme, null, 2)};`
     );
 
     await saveFileAndFormat(paths.stylesScss, stylesScss);

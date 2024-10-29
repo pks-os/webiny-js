@@ -18,7 +18,7 @@ const {
     spacing,
     textColor,
     fontSize
-} = require("./tailwind.config.customizations");
+} = require("./tailwind.config.theme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

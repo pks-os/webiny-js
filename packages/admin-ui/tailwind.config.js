@@ -12,12 +12,12 @@ const {
     borderRadius,
     borderWidth,
     fill,
+    fontSize,
     margin,
     padding,
     shadow,
     spacing,
     textColor,
-    fontSize
 } = require("./tailwind.config.theme");
 
 /** @type {import('tailwindcss').Config} */

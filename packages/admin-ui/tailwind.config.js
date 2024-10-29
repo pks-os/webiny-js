@@ -14,6 +14,7 @@ const {
     fill,
     margin,
     padding,
+    shadow,
     spacing,
     textColor,
     fontSize
@@ -40,6 +41,7 @@ module.exports = {
             fontSize,
             margin,
             padding,
+            shadow,
             spacing,
             textColor,
 

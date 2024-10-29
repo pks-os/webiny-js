@@ -72,6 +72,12 @@ const createTailwindConfigCustomizations = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
+        shadow: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
+            if (type === "shadow") {
+                acc[variantName] = `var(--shadow-${variantName})`;
+            }
+            return acc;
+        }, {}),
         spacing: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "spacing") {
                 acc[variantName] = `var(--spacing-${variantName})`;

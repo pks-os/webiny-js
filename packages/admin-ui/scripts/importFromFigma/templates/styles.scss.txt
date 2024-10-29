@@ -25,11 +25,13 @@
     // Padding.
     {PADDING}
 
+    // Shadow.
+    {SHADOW}
+
     // Spacing.
     {SPACING}
 
     // Text color.
     {TEXT_COLOR}
   }
-
 }

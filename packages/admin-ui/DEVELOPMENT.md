@@ -18,7 +18,7 @@ Since manually transferring values from the mentioned Figma file into code has s
 Once the export is downloaded, we place it in `packages/admin-ui/scripts/importFromFigma/exports/Alias tokens.json`, and then we run the following command from project root:
 
 ```bash
-yarn webinyn-admin-import-from-figma
+yarn webiny-admin-import-from-figma
 ```
 
 This will generate a new `tailwind.config.customizations.js` file, which will contain all the necessary Tailwind CSS configuration. On top of that, it will also generate a `src/styles.scss` file, which contains actual values for CSS variables that are referenced in the `tailwind.config.customizations.js` file.

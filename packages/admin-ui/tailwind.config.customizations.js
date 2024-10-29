@@ -149,6 +149,14 @@ module.exports = {
         xxl: "var(--padding-xxl)",
         xxs: "var(--padding-xxs)"
     },
+    shadow: {
+        flat: "var(--shadow-flat)",
+        lg: "var(--shadow-lg)",
+        md: "var(--shadow-md)",
+        sm: "var(--shadow-sm)",
+        xl: "var(--shadow-xl)",
+        xxl: "var(--shadow-xxl)"
+    },
     spacing: {
         "3xl": "var(--spacing-3xl)",
         lg: "var(--spacing-lg)",

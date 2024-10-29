@@ -119,6 +119,15 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{PADDING}", padding.join("\n"));
     }
 
+    // 8. Shadow.
+    {
+        const shadow = normalizedFigmaExport
+            .filter(item => item.type === "shadow")
+            .map(variable => `--shadow-${variable.variantName}: ${variable.resolvedValue}px;`);
+
+        stylesScss = stylesScss.replace("{SHADOW}", shadow.join("\n"));
+    }
+
     // 8. Spacing.
     {
         const spacing = normalizedFigmaExport

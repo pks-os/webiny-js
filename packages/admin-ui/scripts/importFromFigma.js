@@ -3,9 +3,7 @@ const { green } = require("chalk");
 const path = require("path");
 const aliasTokensExport = require("./importFromFigma/exports/Alias tokens.json");
 const { normalizeFigmaExport } = require("./importFromFigma/normalizeFigmaExport");
-const {
-    createTailwindConfigTheme
-} = require("./importFromFigma/createTailwindConfigTheme");
+const { createTailwindConfigTheme } = require("./importFromFigma/createTailwindConfigTheme");
 const { createStylesScss } = require("./importFromFigma/createStylesScss");
 const { formatCode } = require("./importFromFigma/formatCode");
 

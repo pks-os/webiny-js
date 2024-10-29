@@ -52,9 +52,7 @@ const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref)
     return (
         <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...rest}>
             {iconPosition !== "end" && icon}
-            <Text text={text} size={size}>
-                {text}
-            </Text>
+            <Text text={text} size={size}/>
             {iconPosition === "end" && icon}
         </Comp>
     );

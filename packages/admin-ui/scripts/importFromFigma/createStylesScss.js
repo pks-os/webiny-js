@@ -101,7 +101,13 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{FILL}", fillColors.join("\n"));
     }
 
-    // 6. Margin.
+    // 6. Font.
+    {
+        // Font is not in Figma, we're manually setting the values here.
+        stylesScss = stylesScss.replace("{FONT}", `--font-sans: 'Inter', sans-serif;`);
+    }
+
+    // 7. Margin.
     {
         const margin = normalizedFigmaExport
             .filter(item => item.type === "margin")
@@ -110,7 +116,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{MARGIN}", margin.join("\n"));
     }
 
-    // 7. Padding.
+    // 8. Padding.
     {
         const padding = normalizedFigmaExport
             .filter(item => item.type === "padding")
@@ -119,7 +125,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{PADDING}", padding.join("\n"));
     }
 
-    // 8. Shadow.
+    // 9. Shadow.
     {
         const shadow = normalizedFigmaExport
             .filter(item => item.type === "shadow")
@@ -128,7 +134,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{SHADOW}", shadow.join("\n"));
     }
 
-    // 8. Spacing.
+    // 10. Spacing.
     {
         const spacing = normalizedFigmaExport
             .filter(item => item.type === "spacing")
@@ -137,7 +143,7 @@ const createStylesScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{SPACING}", spacing.join("\n"));
     }
 
-    // 9. Text color.
+    // 11. Text color.
     {
         let currentTextColor = null;
         const textColors = normalizedFigmaExport

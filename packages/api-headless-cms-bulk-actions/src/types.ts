@@ -2,6 +2,10 @@ import { CmsContext } from "@webiny/api-headless-cms/types";
 import { Context as BaseContext } from "@webiny/handler/types";
 import {
     Context as TasksContext,
+    ITaskOnAbortParams,
+    ITaskOnErrorParams,
+    ITaskOnMaxIterationsParams,
+    ITaskOnSuccessParams,
     ITaskResponseDoneResultOutput,
     ITaskRunParams
 } from "@webiny/tasks/types";
@@ -37,16 +41,21 @@ export type IBulkActionOperationTaskParams = ITaskRunParams<
  * Bulk Action Operation By Model
  */
 
+export enum BulkActionOperationByModelAction {
+    CREATE_SUBTASKS = "CREATE_SUBTASKS",
+    CHECK_MORE_SUBTASKS = "CHECK_MORE_SUBTASKS",
+    PROCESS_SUBTASKS = "PROCESS_SUBTASKS",
+    END_TASK = "END_TASK"
+}
+
 export interface IBulkActionOperationByModelInput {
     modelId: string;
     identity?: SecurityIdentity;
     where?: Record<string, any>;
     search?: string;
-    data?: Record<string, any>;
     after?: string | null;
-    currentBatch?: number;
-    processing?: boolean;
-    totalCount?: number;
+    data?: Record<string, any>;
+    action?: BulkActionOperationByModelAction;
 }
 
 export interface IBulkActionOperationByModelOutput extends ITaskResponseDoneResultOutput {
@@ -59,3 +68,13 @@ export type IBulkActionOperationByModelTaskParams = ITaskRunParams<
     IBulkActionOperationByModelInput,
     IBulkActionOperationByModelOutput
 >;
+
+/**
+ * Trash Bin
+ */
+
+export type TrashBinCleanUpParams =
+    | ITaskOnSuccessParams<HcmsBulkActionsContext>
+    | ITaskOnErrorParams<HcmsBulkActionsContext>
+    | ITaskOnAbortParams<HcmsBulkActionsContext>
+    | ITaskOnMaxIterationsParams<HcmsBulkActionsContext>;

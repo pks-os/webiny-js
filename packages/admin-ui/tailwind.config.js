@@ -32,39 +32,38 @@ module.exports = {
                 "2xl": "1400px"
             }
         },
-        extend: {
-            backgroundColor,
-            borderColor,
-            borderRadius,
-            borderWidth,
-            fill,
-            fontSize,
-            margin,
-            padding,
-            shadow,
-            spacing,
-            textColor,
 
-            fontFamily: {
-                sans: ["var(--font-sans)", ...fontFamily.sans],
-                serif: ["var(--font-serif)", ...fontFamily.serif],
-                mono: ["var(--font-mono)", ...fontFamily.mono]
-            },
+        backgroundColor,
+        borderColor,
+        borderRadius,
+        borderWidth,
+        fill,
+        fontSize,
+        margin,
+        padding,
+        shadow,
+        spacing,
+        textColor,
 
-            keyframes: {
-                "accordion-down": {
-                    from: { height: "0" },
-                    to: { height: "var(--radix-accordion-content-height)" }
-                },
-                "accordion-up": {
-                    from: { height: "var(--radix-accordion-content-height)" },
-                    to: { height: "0" }
-                }
+        fontFamily: {
+            sans: ["var(--font-sans)", ...fontFamily.sans],
+            serif: ["var(--font-serif)", ...fontFamily.serif],
+            mono: ["var(--font-mono)", ...fontFamily.mono]
+        },
+
+        keyframes: {
+            "accordion-down": {
+                from: { height: "0" },
+                to: { height: "var(--radix-accordion-content-height)" }
             },
-            animation: {
-                "accordion-down": "accordion-down 0.2s ease-out",
-                "accordion-up": "accordion-up 0.2s ease-out"
+            "accordion-up": {
+                from: { height: "var(--radix-accordion-content-height)" },
+                to: { height: "0" }
             }
+        },
+        animation: {
+            "accordion-down": "accordion-down 0.2s ease-out",
+            "accordion-up": "accordion-up 0.2s ease-out"
         }
     },
     plugins: [require("tailwindcss-animate")]

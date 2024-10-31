@@ -1,8 +1,6 @@
 import React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "~/utils";
-import { makeDecoratable } from "@webiny/react-composition";
+import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
 
 const buttonVariants = cva(
     "font-sans inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none rounded",
@@ -14,7 +12,7 @@ const buttonVariants = cva(
                 secondary:
                     "bg-neutral-dimmed text-neutral-strong hover:bg-neutral-muted active:bg-neutral-strong disabled:bg-neutral-disabled disabled:text-neutral-disabled [&>svg]:fill-white",
                 tertiary:
-                    "bg-neutral-base text-neutral-strong border border-neutral-muted hover:bg-neutral-light active:bg-neutral-muted disabled:bg-neutral-disabled disabled:border-none box-border disabled:text-neutral-disabled [&>svg]:fill-white",
+                    "bg-neutral-base text-neutral-strong border-sm border-neutral-muted hover:bg-neutral-light active:bg-neutral-muted disabled:bg-neutral-disabled disabled:border-none box-border disabled:text-neutral-disabled [&>svg]:fill-white",
                 ghost: " text-neutral-strong hover:bg-neutral-dimmed active:bg-neutral-muted disabled:text-neutral-disabled [&>svg]:fill-white",
             },
             size: {

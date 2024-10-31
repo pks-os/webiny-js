@@ -8,7 +8,6 @@ const meta: Meta<typeof Button> = {
     title: "Components/Button",
     component: Button,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-    tags: ["autodocs"],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
         variant: { control: "select", options: ["primary", "secondary", "outline", "ghost"] },

@@ -1,0 +1,71 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Button } from './Button';
+
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+- [Overview](#overview)
+- [Props](#props)
+- [Anatomy](#anatomy)
+  - [Construction](#construction)
+  - [Type](#type)
+  - [Size](#size)
+  - [States](#states)
+  - [Button icon variants](#button-icon-variants)
+- [Usage](#usage)
+  - [Icon Usage](#icon-usage)
+  - [Use primary buttons sparingly](#use-primary-buttons-sparingly)
+  - [Button Group](#button-group)
+
+## Overview
+
+The Button component is a key UI element that enables users to trigger actions or events, such as submitting forms, navigating pages, or interacting with system functionality. Its purpose is to provide a clear, intuitive way for users to interact with an system. Buttons are relevant in virtually all interfaces, ensuring user engagement by offering a simple, recognizable mechanism for executing commands. They are essential for usability, guiding user behavior and driving application workflows.
+
+<Canvas of={ButtonStories.Primary}/>
+
+## Props
+
+<ArgsTable of={Button.Primary} />
+
+## Anatomy
+
+### Construction
+<img src="/images/storybook/button/contruction.png" alt="Construction"/>
+
+### Type
+<img src="/images/storybook/button/type.png" alt="Type"/>
+
+### Size
+Buttons come in four different sizes: small, medium, large, and xl. The medium size is the default and most frequently used option. Use the other sizes sparingly; they should be used to create a hierarchy of importance within the page.
+
+<img src="/images/storybook/button/size.png" alt="Size"/>
+
+### States
+<img src="/images/storybook/button/states.png" alt="States"/>
+
+### Button icon variants
+It is recommended that buttons display a label for accessibility purposes with an optional icon addition as a leading and trailing icon option. An icon should only be used in a button when it's absolutely necessary and when it has a strong association with the label text.
+
+Webiny Design system also supports the usage of buttons with icon only. Icon only buttons should be used as a space saving option and within dense interface space, for common and repeated actions and for clutter reduction. For accessibility and recognition purposes an **icon button is required to provide a tooltip** with the button title.
+
+<img src="/images/storybook/button/icon-variant.png" alt="Icon Variant"/>
+
+## Usage
+
+### Icon Usage
+An icon should only be used in a button when it's benefitial and when it has a meaningful association with the label.
+
+<img src="/images/storybook/button/icon-usage.png" alt="Icon Usage"/>
+
+### Use primary buttons sparingly
+Use primary buttons as the desired action for users. Competing primary buttons may leave the user unsure of next steps in their user journey. As a rule of thumb limit primary buttons to 1 in contained UIs and 3 in full page UIs.
+
+<img src="/images/storybook/button/primary-button-usage.png" alt="Primary Button Usage"/>
+
+### Button Group
+When used in groups, buttons should support only maximum of two type variants, with an exception of third variant being ghost extension button (eg. ellipsis). Avoid using random type and icon options within the button groups. Avoid using different sizes within the same group.
+
+<img src="/images/storybook/button/button-group.png" alt="Button Group"/>

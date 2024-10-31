@@ -66,6 +66,7 @@ jobs:
 
       # Create or update a comment on PR with the Storybook URL
       - name: Comment on PR with Storybook URL
+        if: github.event_name != 'workflow_dispatch' || github.event.issue.number
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

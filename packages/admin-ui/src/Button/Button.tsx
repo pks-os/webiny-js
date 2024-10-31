@@ -5,23 +5,23 @@ import { cn } from "~/utils";
 import { makeDecoratable } from "@webiny/react-composition";
 
 const buttonVariants = cva(
-    "font-sans inline-flex items-center justify-center whitespace-nowrap leading-tight ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    "font-sans inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none rounded",
     {
         variants: {
             variant: {
                 primary:
-                    "bg-primary text-primary-foreground hover:bg-primary/90 [&>svg]:fill-white",
+                    "bg-primary text-neutral-light hover:bg-primary-strong active:bg-primary-xstrong disabled:bg-primary-disabled [&>svg]:fill-white",
                 secondary:
-                    "bg-gray-200 text-gray-900 fill-gray-900 border border-gray-200 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-800",
-                outline:
-                    "bg-white text-gray-900 fill-gray-900 border border-gray-400 hover:bg-gray-100 hover:text-gray-900",
-                ghost: "bg-transparent border border-transparent text-gray-900 fill-gray-900 hover:bg-gray-200"
+                    "bg-neutral-dimmed text-neutral-strong hover:bg-neutral-muted active:bg-neutral-strong disabled:bg-neutral-disabled disabled:text-neutral-disabled [&>svg]:fill-white",
+                tertiary:
+                    "bg-neutral-base text-neutral-strong border border-neutral-muted hover:bg-neutral-light active:bg-neutral-muted disabled:bg-neutral-disabled disabled:border-none box-border disabled:text-neutral-disabled [&>svg]:fill-white",
+                ghost: " text-neutral-strong hover:bg-neutral-dimmed active:bg-neutral-muted disabled:text-neutral-disabled [&>svg]:fill-white",
             },
             size: {
-                sm: "p-1 rounded text-sm font-normal",
-                md: "py-1.5 px-2 rounded text-md font-normal",
-                lg: "py-2.5 px-3 rounded-lg text-base font-medium",
-                xl: "py-3.5 px-4 rounded-lg text-lg font-medium"
+                sm: "py-xs-plus px-sm-extra rounded-sm text-md font-normal",
+                md: "py-xs-plus px-sm-extra rounded-sm  text-md font-normal",
+                lg: "py-sm-plus px-md rounded-sm text-base font-medium",
+                xl: "py-md px-md-plus rounded-md text-lg font-medium"
             }
         },
         defaultVariants: {

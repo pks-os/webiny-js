@@ -17,7 +17,7 @@ const {
     padding,
     shadow,
     spacing,
-    textColor,
+    textColor
 } = require("./tailwind.config.theme");
 
 /** @type {import('tailwindcss').Config} */

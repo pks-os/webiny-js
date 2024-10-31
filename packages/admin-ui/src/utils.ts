@@ -1,6 +1,13 @@
 import { clsx, type ClassValue } from "clsx";
 import { generateId as baseGenerateId } from "@webiny/utils/generateId";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const twMerge = extendTailwindMerge({
+    override: {
+        theme: { borderWidth: ["sm", "md"] }
+    }
+});
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
@@ -12,3 +19,5 @@ export const generateId = (initialId?: string) => {
     }
     return "wby-" + baseGenerateId(4);
 };
+
+export { cva, type VariantProps };

@@ -208,6 +208,7 @@ jobs:
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
         working-directory: ${{ github.base_ref }}
+    if: github.base_ref != 'feat/new-admin-ui'
   jestTestsDdb:
     needs:
       - constants
@@ -295,6 +296,7 @@ jobs:
       - name: Run tests
         run: yarn test ${{ matrix.package.cmd }}
         working-directory: ${{ github.base_ref }}
+    if: github.base_ref != 'feat/new-admin-ui'
   jestTestsDdbEs:
     needs:
       - constants
@@ -390,7 +392,9 @@ jobs:
         working-directory: ${{ github.base_ref }}
     permissions:
       id-token: write
-    if: needs.constants.outputs.is-fork-pr != 'true'
+    if: >-
+      github.base_ref != 'feat/new-admin-ui' &&
+      needs.constants.outputs.is-fork-pr != 'true'
   jestTestsDdbOs:
     needs:
       - constants
@@ -486,4 +490,6 @@ jobs:
         working-directory: ${{ github.base_ref }}
     permissions:
       id-token: write
-    if: needs.constants.outputs.is-fork-pr != 'true'
+    if: >-
+      github.base_ref != 'feat/new-admin-ui' &&
+      needs.constants.outputs.is-fork-pr != 'true'

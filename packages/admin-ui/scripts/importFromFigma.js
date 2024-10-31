@@ -4,7 +4,7 @@ const path = require("path");
 const aliasTokensExport = require("./importFromFigma/exports/Alias tokens.json");
 const { normalizeFigmaExport } = require("./importFromFigma/normalizeFigmaExport");
 const { createTailwindConfigTheme } = require("./importFromFigma/createTailwindConfigTheme");
-const { createStylesScss } = require("./importFromFigma/createStylesScss");
+const { createThemeScss } = require("./importFromFigma/createThemeScss");
 const { formatCode } = require("./importFromFigma/formatCode");
 
 const saveFileAndFormat = async (filePath, content) => {
@@ -15,13 +15,13 @@ const saveFileAndFormat = async (filePath, content) => {
 (async () => {
     const normalizedFigmaExport = normalizeFigmaExport(aliasTokensExport);
     const tailwindConfigTheme = createTailwindConfigTheme(normalizedFigmaExport);
-    const stylesScss = createStylesScss(normalizedFigmaExport);
+    const stylesScss = createThemeScss(normalizedFigmaExport);
 
     const paths = {
         cwd: process.cwd(),
         normalizedFigmaExport: path.join(__dirname, "../.normalizedFigmaExport.json"),
         createTailwindConfigTheme: path.join(__dirname, "../tailwind.config.theme.js"),
-        stylesScss: path.join(__dirname, "../src/styles.scss")
+        stylesScss: path.join(__dirname, "../src/theme.scss")
     };
 
     console.log("Storing...");

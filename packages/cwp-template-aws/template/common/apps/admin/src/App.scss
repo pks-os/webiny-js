@@ -1,3 +1,5 @@
+// OLD - Will probably be removed.
+
 // Webiny theme variables
 $webiny-theme-light-primary: #fa5723;
 $webiny-theme-light-secondary: #00ccb0;
@@ -15,3 +17,10 @@ $webiny-theme-typography-font-family: "Source Sans Pro";
 
 // Import admin app styles
 @import "~@webiny/app-serverless-cms/styles.scss";
+
+// NEW
+// Base styles.
+@import "~@webiny/admin-ui/styles.scss";
+
+// The default theme. Learn more: https://webiny.link/admin-themes.
+@import "~@webiny/admin-ui/theme.scss";

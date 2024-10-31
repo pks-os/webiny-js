@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const createStylesScss = normalizedFigmaExport => {
-    // Generate `styles.scss` file.
-    let stylesScss = fs.readFileSync(__dirname + "/templates/styles.scss.txt", "utf8");
+const createThemeScss = normalizedFigmaExport => {
+    // Generate `theme.scss` file.
+    let stylesScss = fs.readFileSync(__dirname + "/templates/theme.scss.txt", "utf8");
 
     // 1. Background color.
     {
@@ -221,4 +221,4 @@ const createStylesScss = normalizedFigmaExport => {
     return stylesScss;
 };
 
-module.exports = { createStylesScss };
+module.exports = { createThemeScss };

@@ -125,7 +125,41 @@ const createThemeScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{PADDING}", padding.join("\n"));
     }
 
-    // 9. Shadow.
+    // 9. Ring color.
+    {
+        let currentRingColorGroup = null;
+        const ringColors = normalizedFigmaExport
+            .filter(item => item.type === "ringColor")
+            .map(variable => {
+                const [colorGroup] = variable.variantName.split("-");
+                const cssVar = `--ring-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+
+                if (!currentRingColorGroup) {
+                    currentRingColorGroup = colorGroup;
+                    return cssVar;
+                }
+
+                if (!currentRingColorGroup || currentRingColorGroup !== colorGroup) {
+                    currentRingColorGroup = colorGroup;
+                    return ["", cssVar];
+                }
+                return cssVar;
+            })
+            .flat();
+
+        stylesScss = stylesScss.replace("{RING_COLOR}", ringColors.join("\n"));
+    }
+
+    // 10. Ring width.
+    {
+        const ringWidth = normalizedFigmaExport
+            .filter(item => item.type === "ringWidth")
+            .map(variable => `--ring-width-${variable.variantName}: ${variable.resolvedValue}px;`);
+
+        stylesScss = stylesScss.replace("{RING_WIDTH}", ringWidth.join("\n"));
+    }
+
+    // 11. Shadow.
     {
         const shadow = normalizedFigmaExport
             .filter(item => item.type === "shadow")
@@ -134,7 +168,7 @@ const createThemeScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{SHADOW}", shadow.join("\n"));
     }
 
-    // 10. Spacing.
+    // 12. Spacing.
     {
         const spacing = normalizedFigmaExport
             .filter(item => item.type === "spacing")
@@ -143,7 +177,7 @@ const createThemeScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{SPACING}", spacing.join("\n"));
     }
 
-    // 11. Text color.
+    // 13. Text color.
     {
         let currentTextColor = null;
         const textColors = normalizedFigmaExport
@@ -168,56 +202,30 @@ const createThemeScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{TEXT_COLOR}", textColors.join("\n"));
     }
 
-    // 12. Text size.
+    // 14. Text size.
     {
-        // Not in Figma export, so we're manually setting the values here.
-        stylesScss = stylesScss.replace(
-            "{TEXT_SIZE}",
-            [
-                "// Headings.",
-                "--text-h1: 3rem;",
-                "--text-h1-leading: 3.75rem;",
-                "--text-h1-tracking: -2%;",
-                "",
-                "--text-h2: 2.25rem;",
-                "--text-h2-leading: 2.75rem;",
-                "--text-h2-tracking: -2%;",
-                "",
-                "--text-h3: 1.875rem;",
-                "--text-h3-leading: 2.375rem;",
-                "--text-h3-tracking: initial;",
-                "",
-                "--text-h4: 1.25rem;",
-                "--text-h4-leading: 1.875rem;",
-                "--text-h4-tracking: initial;",
-                "",
-                "--text-h5: 1rem;",
-                "--text-h5-leading: 1.5rem;",
-                "--text-h5-tracking: initial;",
-                "",
-                "--text-h6: 0.875rem;",
-                "--text-h6-leading: 1.25rem;",
-                "--text-h6-tracking: initial;",
-                "",
-                "// Text.",
-                "--text-xl: 1.25rem;",
-                "--text-xl-leading: 1.875rem;",
-                "--text-xl-tracking: initial;",
-                "",
-                "--text-lg: 1rem;",
-                "--text-lg-leading: 1.5rem;",
-                "--text-lg-tracking: initial;",
-                "",
-                "--text-md: 0.875rem;",
-                "--text-md-leading: 1.375rem;",
-                "--text-md-tracking: initial;",
-                "",
-                "--text-sm: 0.75rem;",
-                "--text-sm-leading: 1.125rem;",
-                "--text-sm-tracking: initial;"
-            ].join("\n")
-        );
+        const textSize = normalizedFigmaExport
+            .filter(item => item.type === "textFont" && item.variantName.startsWith("font-size-"))
+            .sort((a, b) => a.resolvedValue - b.resolvedValue)
+            .reduce((acc, { variantName, resolvedValue }) => {
+                const size = variantName.replace("font-size-", "");
+                const { resolvedValue: lineHeight } = normalizedFigmaExport.find(item => {
+                    return item.variantName === `line-height-${size}`;
+                });
+
+                return [
+                    ...acc,
+                    [
+                        `--text-${size}: ${resolvedValue}px;`,
+                        `--text-${size}-leading: ${lineHeight}px;`,
+                        `--text-${size}-tracking: initial;`
+                    ]
+                ];
+            }, []);
+
+        stylesScss = stylesScss.replace("{TEXT_SIZE}", textSize.flat().join("\n"));
     }
+
     return stylesScss;
 };
 

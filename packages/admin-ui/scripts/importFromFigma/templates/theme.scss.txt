@@ -30,6 +30,12 @@
     // Padding.
     {PADDING}
 
+    // Ring color.
+    {RING_COLOR}
+
+    // Ring width.
+    {RING_WIDTH}
+
     // Shadow.
     {SHADOW}
 

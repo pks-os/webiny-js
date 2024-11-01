@@ -15,7 +15,7 @@ const saveFileAndFormat = async (filePath, content) => {
 (async () => {
     const normalizedFigmaExport = normalizeFigmaExport(aliasTokensExport);
     const tailwindConfigTheme = createTailwindConfigTheme(normalizedFigmaExport);
-    const stylesScss = createThemeScss(normalizedFigmaExport);
+    const stylesScss = createThemeScss(normalizedFigmaExport, tailwindConfigTheme);
 
     const paths = {
         cwd: process.cwd(),

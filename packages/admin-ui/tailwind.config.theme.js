@@ -93,6 +93,7 @@ module.exports = {
     },
     borderWidth: {
         md: "var(--border-width-md)",
+        none: "var(--border-width-none)",
         sm: "var(--border-width-sm)"
     },
     fill: {
@@ -122,53 +123,18 @@ module.exports = {
         }
     },
     fontSize: {
-        h1: [
-            "var(--text-h1)",
+        "3xl": [
+            "var(--text-3xl)",
             {
-                lineHeight: "var(--text-h1-leading)",
-                letterSpacing: "var(--text-h1-tracking)"
+                lineHeight: "var(--text-3xl-leading)",
+                letterSpacing: "var(--text-3xl-tracking)"
             }
         ],
-        h2: [
-            "var(--text-h2)",
+        "4xl": [
+            "var(--text-4xl)",
             {
-                lineHeight: "var(--text-h2-leading)",
-                letterSpacing: "var(--text-h2-tracking)"
-            }
-        ],
-        h3: [
-            "var(--text-h3)",
-            {
-                lineHeight: "var(--text-h3-leading)",
-                letterSpacing: "var(--text-h3-tracking)"
-            }
-        ],
-        h4: [
-            "var(--text-h4)",
-            {
-                lineHeight: "var(--text-h4-leading)",
-                letterSpacing: "var(--text-h4-tracking)"
-            }
-        ],
-        h5: [
-            "var(--text-h5)",
-            {
-                lineHeight: "var(--text-h5-leading)",
-                letterSpacing: "var(--text-h5-tracking)"
-            }
-        ],
-        h6: [
-            "var(--text-h6)",
-            {
-                lineHeight: "var(--text-h6-leading)",
-                letterSpacing: "var(--text-h6-tracking)"
-            }
-        ],
-        xl: [
-            "var(--text-xl)",
-            {
-                lineHeight: "var(--text-xl-leading)",
-                letterSpacing: "var(--text-xl-tracking)"
+                lineHeight: "var(--text-4xl-leading)",
+                letterSpacing: "var(--text-4xl-tracking)"
             }
         ],
         lg: [
@@ -190,6 +156,20 @@ module.exports = {
             {
                 lineHeight: "var(--text-sm-leading)",
                 letterSpacing: "var(--text-sm-tracking)"
+            }
+        ],
+        xl: [
+            "var(--text-xl)",
+            {
+                lineHeight: "var(--text-xl-leading)",
+                letterSpacing: "var(--text-xl-tracking)"
+            }
+        ],
+        xxl: [
+            "var(--text-xxl)",
+            {
+                lineHeight: "var(--text-xxl-leading)",
+                letterSpacing: "var(--text-xxl-tracking)"
             }
         ]
     },
@@ -214,6 +194,25 @@ module.exports = {
         "xs-plus": "var(--padding-xs-plus)",
         xxl: "var(--padding-xxl)",
         xxs: "var(--padding-xxs)"
+    },
+    ringColor: {
+        primary: {
+            DEFAULT: "hsl(var(--ring-primary-default))",
+            dimmed: "hsl(var(--ring-primary-dimmed))",
+            strong: "hsl(var(--ring-primary-strong))",
+            subtle: "hsl(var(--ring-primary-subtle))"
+        },
+        success: {
+            DEFAULT: "hsl(var(--ring-success-default))",
+            dimmed: "hsl(var(--ring-success-dimmed))",
+            strong: "hsl(var(--ring-success-strong))",
+            subtle: "hsl(var(--ring-success-subtle))"
+        }
+    },
+    ringWidth: {
+        lg: "var(--ring-width-lg)",
+        md: "var(--ring-width-md)",
+        sm: "var(--ring-width-sm)"
     },
     shadow: {
         flat: "var(--shadow-flat)",
@@ -260,11 +259,11 @@ module.exports = {
             primary: "hsl(var(--text-neutral-primary))",
             strong: "hsl(var(--text-neutral-strong))"
         },
-        sucess: {
-            DEFAULT: "hsl(var(--text-sucess-default))",
-            muted: "hsl(var(--text-sucess-muted))",
-            primary: "hsl(var(--text-sucess-primary))",
-            subtle: "hsl(var(--text-sucess-subtle))"
+        success: {
+            DEFAULT: "hsl(var(--text-success-default))",
+            muted: "hsl(var(--text-success-muted))",
+            primary: "hsl(var(--text-success-primary))",
+            subtle: "hsl(var(--text-success-subtle))"
         }
     }
 };

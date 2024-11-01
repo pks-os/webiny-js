@@ -78,6 +78,7 @@
 
     // Border width.
     --border-width-md: 2px;
+    --border-width-none: 0px;
     --border-width-sm: 1px;
 
     // Fill.
@@ -104,7 +105,7 @@
     --margin-sm: 8px;
     --margin-xl: 32px;
     --margin-xs: 4px;
-    --margin-xxl: 32px;
+    --margin-xxl: 48px;
 
     // Padding.
     --padding-lg: 24px;
@@ -119,6 +120,20 @@
     --padding-xs-plus: 6px;
     --padding-xxl: 48px;
     --padding-xxs: 2px;
+
+    // Ring color.
+    --ring-primary-dimmed: 15, 94.2%, 86.5%;
+    --ring-primary-strong: 15, 95.6%, 55.9%;
+    --ring-primary-subtle: 5, 100%, 97.5%;
+
+    --ring-success-dimmed: 170, 57.1%, 91.8%;
+    --ring-success-strong: 170, 100%, 37.5%;
+    --ring-success-subtle: 168, 50%, 96.1%;
+
+    // Ring width.
+    --ring-width-lg: 4px;
+    --ring-width-md: 2px;
+    --ring-width-sm: 1px;
 
     // Shadow.
     --shadow-flat: 0px;
@@ -159,51 +174,31 @@
     --text-neutral-primary: 214, 12.3%, 11.2%;
     --text-neutral-strong: 213, 10.1%, 38.8%;
 
-    --text-sucess-muted: 169, 59.8%, 64.9%;
-    --text-sucess-primary: 170, 100%, 37.5%;
-    --text-sucess-subtle: 170, 57.1%, 91.8%;
+    --text-success-muted: 169, 59.8%, 64.9%;
+    --text-success-primary: 170, 100%, 37.5%;
+    --text-success-subtle: 170, 57.1%, 91.8%;
 
     // Text size.
-    // Headings.
-    --text-h1: 3rem;
-    --text-h1-leading: 3.75rem;
-    --text-h1-tracking: -2%;
-
-    --text-h2: 2.25rem;
-    --text-h2-leading: 2.75rem;
-    --text-h2-tracking: -2%;
-
-    --text-h3: 1.875rem;
-    --text-h3-leading: 2.375rem;
-    --text-h3-tracking: initial;
-
-    --text-h4: 1.25rem;
-    --text-h4-leading: 1.875rem;
-    --text-h4-tracking: initial;
-
-    --text-h5: 1rem;
-    --text-h5-leading: 1.5rem;
-    --text-h5-tracking: initial;
-
-    --text-h6: 0.875rem;
-    --text-h6-leading: 1.25rem;
-    --text-h6-tracking: initial;
-
-    // Text.
-    --text-xl: 1.25rem;
-    --text-xl-leading: 1.875rem;
-    --text-xl-tracking: initial;
-
-    --text-lg: 1rem;
-    --text-lg-leading: 1.5rem;
-    --text-lg-tracking: initial;
-
-    --text-md: 0.875rem;
-    --text-md-leading: 1.375rem;
-    --text-md-tracking: initial;
-
-    --text-sm: 0.75rem;
-    --text-sm-leading: 1.125rem;
+    --text-sm: 12px;
+    --text-sm-leading: 16px;
     --text-sm-tracking: initial;
+    --text-md: 14px;
+    --text-md-leading: 20px;
+    --text-md-tracking: initial;
+    --text-lg: 16px;
+    --text-lg-leading: 22px;
+    --text-lg-tracking: initial;
+    --text-xl: 20px;
+    --text-xl-leading: 30px;
+    --text-xl-tracking: initial;
+    --text-xxl: 30px;
+    --text-xxl-leading: 38px;
+    --text-xxl-tracking: initial;
+    --text-3xl: 36px;
+    --text-3xl-leading: 44px;
+    --text-3xl-tracking: initial;
+    --text-4xl: 48px;
+    --text-4xl-leading: 60px;
+    --text-4xl-tracking: initial;
   }
 }

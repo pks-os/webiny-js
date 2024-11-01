@@ -15,6 +15,8 @@ const {
     fontSize,
     margin,
     padding,
+    ringColor,
+    ringWidth,
     shadow,
     spacing,
     textColor
@@ -41,6 +43,8 @@ module.exports = {
         fontSize,
         margin,
         padding,
+        ringColor,
+        ringWidth,
         shadow,
         spacing,
         textColor,

@@ -4,14 +4,17 @@ const { figmaRgbaToHsla } = require("./figmaRgbaToHsla");
 const VARIABLE_TYPES = [
     "backgroundColor",
     "borderColor",
+    "borderRadius",
+    "borderWidth",
     "fill",
-    "textColor",
+    "margin",
     "padding",
+    "ringColor",
+    "ringWidth",
     "shadow",
     "spacing",
-    "margin",
-    "borderRadius",
-    "borderWidth"
+    "textColor",
+    "textFont"
 ];
 
 const IGNORED_VARIABLE_TYPES = ["dimension"];

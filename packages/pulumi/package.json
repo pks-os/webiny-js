@@ -14,13 +14,11 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@pulumi/pulumi": "^3.128.0",
+    "@pulumi/pulumi": "^3.136.1",
     "find-up": "^5.0.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
     "@types/lodash": "^4.14.190",
     "@webiny/cli": "0.0.0",
     "@webiny/project-utils": "0.0.0",

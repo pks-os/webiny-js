@@ -11,6 +11,13 @@ import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevision
 import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete";
 import { EditorProps, EditorRenderer } from "./admin/components/Editor";
 import { PagesModule } from "~/admin/views/Pages/PagesModule";
+import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
+import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";
+import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
+import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
+import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
+import { ConvertIconSettings as EditorConvertIconSettings } from "~/editor/prepareEditorContent/ConvertIconSettings";
+import { ConvertIconSettings as RendererConvertIconSettings } from "~/render/plugins/elementSettings/icon";
 
 export type { EditorProps };
 export { EditorRenderer };
@@ -131,6 +138,18 @@ export const PageBuilder = () => {
                 <DefaultOnPageUnpublish />
                 <DefaultOnPageDelete />
             </Plugins>
+            {/* Element renderer plugins. */}
+            <LexicalParagraphRenderer />
+            <LexicalHeadingRenderer />
+            <AddButtonLinkComponent />
+            <AddButtonClickHandlers />
+            <InjectElementVariables />
+            {/* Ensure data is in the correct shape when editor is mounting. */}
+            {/* This works only within the block/template/page editor. */}
+            <EditorConvertIconSettings />
+            {/* Ensure each element renderer is receiving data in the correct shape.  */}
+            {/* This works for page previews, block previews, etc. */}
+            <RendererConvertIconSettings />
         </Fragment>
     );
 };

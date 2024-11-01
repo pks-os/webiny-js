@@ -14,19 +14,17 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@pulumi/aws": "^6.48.0",
-    "@pulumi/pulumi": "^3.128.0",
+    "@pulumi/aws": "^6.55.0",
+    "@pulumi/pulumi": "^3.136.1",
     "decompress": "^4.2.1",
     "execa": "^5.0.0",
     "fs-extra": "^11.2.0",
     "lodash": "^4.17.21",
-    "node-fetch": "^2.6.9",
+    "node-fetch": "2.6.7",
     "semver": "^7.3.5",
     "tar": "^6.2.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
     "@types/lodash": "^4.14.190",
     "@webiny/cli": "0.0.0",
     "@webiny/project-utils": "0.0.0",

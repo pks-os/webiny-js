@@ -11,8 +11,9 @@ const meta: Meta<typeof Button> = {
     tags: ["autodocs"],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        variant: { control: "select", options: ["primary", "secondary", "outline", "ghost"] },
+        variant: { control: "select", options: ["primary", "secondary", "tertiary", "ghost"] },
         size: { control: "select", options: ["sm", "md", "lg", "xl"] },
+        disabled: { control: "boolean" },
         text: { control: "text" },
         // Note: after upgrading to Storybook 8.X, use `fn`from `@storybook/test` to spy on the onClick argument.
         onClick: { action: "onClick" }
@@ -37,10 +38,10 @@ export const Secondary: Story = {
     }
 };
 
-export const Outline: Story = {
+export const Tertiary: Story = {
     args: {
         ...Primary.args,
-        variant: "outline"
+        variant: "tertiary"
     }
 };
 

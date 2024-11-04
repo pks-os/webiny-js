@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
 
 const buttonVariants = cva(
-    "box-border font-sans inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors disabled:pointer-events-none rounded focus-visible:outline-none",
+    "border-transparent border-sm font-sans inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors disabled:pointer-events-none rounded box-border",
     {
         variants: {
             variant: {

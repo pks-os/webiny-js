@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { AddMenu as Menu } from "@webiny/app-admin";
 import { ReactComponent as HeadlessCmsIcon } from "~/admin/icons/devices_other-black-24px.svg";
-import GlobalSearchPlugins from "./GlobalSearchPlugins";
 import usePermission from "~/admin/hooks/usePermission";
 import { ContentGroupsMenuItems } from "./ContentGroupsMenuItems";
 
@@ -62,7 +61,6 @@ const CmsMenuLoaderComponent = () => {
                 )}
                 <ContentGroupsMenuItems />
             </Menu>
-            <GlobalSearchPlugins />
         </Fragment>
     );
 };

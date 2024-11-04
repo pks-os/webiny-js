@@ -5,21 +5,6 @@ import { ItemProps, MenuProps, SectionProps } from "~/plugins/MenuPlugin";
 
 export { Icon } from "~/components/IconPicker/types";
 
-export type AdminGlobalSearchPlugin = Plugin & {
-    type: "admin-global-search";
-    label: string;
-    route: string;
-    search?: {
-        operator?: "and" | "or";
-        fields?: Array<string>;
-    };
-};
-
-export type AdminGlobalSearchPreventHotkeyPlugin = Plugin & {
-    type: "admin-global-search-prevent-hotkey";
-    preventOpen(e: React.KeyboardEvent): boolean | void;
-};
-
 /**
  * LEGACY TYPE. Only for backwards compatibility.
  */

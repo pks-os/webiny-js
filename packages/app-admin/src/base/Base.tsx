@@ -9,12 +9,11 @@ import { ReactComponent as DocsIcon } from "~/assets/icons/icon-documentation.sv
 import { ReactComponent as SlackIcon } from "~/assets/icons/slack-logo.svg";
 import { ReactComponent as GithubIcon } from "~/assets/icons/github-brands.svg";
 import { FileManager } from "~/base/ui/FileManager";
-import { globalSearchHotkey } from "~/plugins/globalSearch";
 import { uiLayoutPlugin } from "~/plugins/uiLayoutRenderer";
 import { Version } from "~/base/Version";
 
 const BaseExtension = () => {
-    plugins.register([globalSearchHotkey, uiLayoutPlugin]);
+    plugins.register([uiLayoutPlugin]);
 
     return (
         <Plugin>

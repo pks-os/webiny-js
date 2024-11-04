@@ -6821,7 +6821,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.2.0, @babel/runtime@npm:^7.4.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
+"@babel/runtime@npm:^7.1.2, @babel/runtime@npm:^7.10.3, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.14.6, @babel/runtime@npm:^7.2.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.8.7, @babel/runtime@npm:^7.9.2":
   version: 7.20.13
   resolution: "@babel/runtime@npm:7.20.13"
   dependencies:
@@ -19406,7 +19406,6 @@ __metadata:
     apollo-utilities: ^1.3.4
     classnames: ^2.2.6
     dot-prop-immutable: ^2.1.0
-    downshift: ^3.1.2
     emotion: ^10.0.17
     graphlib: ^2.1.7
     graphql: ^15.7.2
@@ -19418,7 +19417,6 @@ __metadata:
     prop-types: ^15.7.2
     react: 18.2.0
     react-dom: 18.2.0
-    react-hotkeyz: ^1.0.4
     react-resizable-panels: ^2.0.19
     react-transition-group: ^4.3.0
     react-virtualized: ^9.22.5
@@ -25655,7 +25653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compute-scroll-into-view@npm:^1.0.2, compute-scroll-into-view@npm:^1.0.9":
+"compute-scroll-into-view@npm:^1.0.2":
   version: 1.0.20
   resolution: "compute-scroll-into-view@npm:1.0.20"
   checksum: f15fab29221953620735393ac1866541aab0d27d28078bedbba071a291ee9c8cc1a72bee302cf0bc06ed83c5e55afb74ebcbd634a63671ba33cf1fb1c51d3308
@@ -27857,20 +27855,6 @@ __metadata:
   peerDependencies:
     react: ">=0.14.9"
   checksum: b3e1c96bf4adfe3d7b91f769aad4d0792df0c0e42332e22b0a902e81d0fe44e6c71e9ee9e4249b9d0728ed85a9f703f09b1da6eb16afb54b0808ff6a29bf8ab2
-  languageName: node
-  linkType: hard
-
-"downshift@npm:^3.1.2":
-  version: 3.4.8
-  resolution: "downshift@npm:3.4.8"
-  dependencies:
-    "@babel/runtime": ^7.4.5
-    compute-scroll-into-view: ^1.0.9
-    prop-types: ^15.7.2
-    react-is: ^16.9.0
-  peerDependencies:
-    react: ">=0.14.9"
-  checksum: abdca620e8dc3c117e5184fd4f731fe4914e64ecdcabe3f7483dc7b8ee24c38a55cd5551fdaab89ffe03b701be918a8c812df46c7b14b9a004c6f6d369f79520
   languageName: node
   linkType: hard
 
@@ -40612,7 +40596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.4, react-is@npm:^16.9.0":
+"react-is@npm:^16.13.1, react-is@npm:^16.7.0, react-is@npm:^16.8.4":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f

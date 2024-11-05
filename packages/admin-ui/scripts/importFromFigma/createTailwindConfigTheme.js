@@ -13,19 +13,22 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
-        borderColor: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "borderColor") {
-                const [color, variant] = variantName.split("-");
-                if (!acc[color]) {
-                    acc[color] = {
-                        DEFAULT: `hsl(var(--border-${color}-default))`
-                    };
-                }
+        borderColor: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "borderColor") {
+                    const [color, variant] = variantName.split("-");
+                    if (!acc[color]) {
+                        acc[color] = {
+                            DEFAULT: `hsl(var(--border-${color}-default))`
+                        };
+                    }
 
-                acc[color][variant] = `hsl(var(--border-${variantName}))`;
-            }
-            return acc;
-        }, {}),
+                    acc[color][variant] = `hsl(var(--border-${variantName}))`;
+                }
+                return acc;
+            },
+            { transparent: "transparent" }
+        ),
         borderRadius: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "borderRadius") {
                 acc[variantName] = `var(--radius-${variantName})`;

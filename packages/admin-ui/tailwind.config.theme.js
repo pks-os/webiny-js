@@ -59,6 +59,7 @@ module.exports = {
         }
     },
     borderColor: {
+        transparent: "transparent",
         accent: {
             DEFAULT: "hsl(var(--border-accent-default))",
             default: "hsl(var(--border-accent-default))",

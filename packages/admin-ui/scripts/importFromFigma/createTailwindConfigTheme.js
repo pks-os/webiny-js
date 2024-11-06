@@ -49,7 +49,6 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         fill: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "fill") {
-                    console.log("color", "variantName", variantName);
                     const [color, variant] = variantName.split("-");
                     if (!acc[color]) {
                         acc[color] = {
@@ -79,6 +78,20 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
                         letterSpacing: `var(--text-${size}-tracking)`
                     }
                 ];
+
+                return acc;
+            }
+
+            return acc;
+        }, {}),
+        fontWeight: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
+            if (type === "textFont") {
+                if (!variantName.startsWith("font-weight-")) {
+                    return acc;
+                }
+
+                const weight = variantName.replace("font-weight-", "");
+                acc[weight] = `var(--font-weight-${weight})`;
 
                 return acc;
             }

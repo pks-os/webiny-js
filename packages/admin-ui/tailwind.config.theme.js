@@ -179,13 +179,23 @@ module.exports = {
             }
         ]
     },
+    fontWeight: {
+        regular: "var(--font-weight-regular)",
+        semibold: "var(--font-weight-semibold)"
+    },
     margin: {
         lg: "var(--margin-lg)",
         md: "var(--margin-md)",
+        "md-plus": "var(--margin-md-plus)",
+        none: "var(--margin-none)",
         sm: "var(--margin-sm)",
+        "sm-extra": "var(--margin-sm-extra)",
+        "sm-plus": "var(--margin-sm-plus)",
         xl: "var(--margin-xl)",
         xs: "var(--margin-xs)",
-        xxl: "var(--margin-xxl)"
+        "xs-plus": "var(--margin-xs-plus)",
+        xxl: "var(--margin-xxl)",
+        xxs: "var(--margin-xxs)"
     },
     padding: {
         lg: "var(--padding-lg)",

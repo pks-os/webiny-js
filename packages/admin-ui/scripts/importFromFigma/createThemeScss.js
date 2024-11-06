@@ -107,6 +107,15 @@ const createThemeScss = normalizedFigmaExport => {
         stylesScss = stylesScss.replace("{FONT}", `--font-sans: 'Inter', sans-serif;`);
     }
 
+    // 6. Font weight.
+    {
+        const weight = normalizedFigmaExport
+            .filter(item => item.type === "textFont" && item.variantName.startsWith("font-weight-"))
+            .map(variable => `--${variable.variantName}: ${variable.resolvedValue};`);
+
+        stylesScss = stylesScss.replace("{FONT_WEIGHT}", weight.join("\n"));
+    }
+
     // 7. Margin.
     {
         const margin = normalizedFigmaExport

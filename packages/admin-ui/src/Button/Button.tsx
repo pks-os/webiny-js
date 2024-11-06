@@ -41,19 +41,19 @@ const buttonVariants = cva(
             },
             size: {
                 sm: [
-                    "text-sm border-sm rounded-sm [&>svg]:size-4",
+                    "text-sm border-sm rounded-sm [&>svg]:size-md",
                     "py-[calc(theme(padding.xs)-theme(borderWidth.sm))] px-[calc(theme(padding.sm)-theme(borderWidth.sm))]"
                 ],
                 md: [
-                    "text-md border-sm rounded-sm [&>svg]:size-4",
+                    "text-md border-sm rounded-sm [&>svg]:size-md",
                     "py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 lg: [
-                    "text-md border-sm rounded-sm [&>svg]:size-4",
+                    "text-md border-sm rounded-sm [&>svg]:size-md",
                     "py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
                 ],
                 xl: [
-                    "text-lg border-md rounded-md [&>svg]:size-6",
+                    "text-lg font-semibold border-md rounded-md [&>svg]:size-lg",
                     "py-[calc(theme(padding.md-plus)-theme(borderWidth.md))] px-[calc(theme(padding.md)-theme(borderWidth.md))]"
                 ]
             },
@@ -68,6 +68,7 @@ const buttonVariants = cva(
                 variant: "ghost",
                 className: "focus-visible:border-md"
             },
+            // Margins between text and icon (all sizes / both positions).
             {
                 size: "sm",
                 iconPosition: "start",

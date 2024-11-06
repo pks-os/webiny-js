@@ -41,15 +41,19 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
             .catch(() => null);
 
         if (pageState) {
-            for (let i = 0; i < pageState.length; i++) {
-                const { query, variables, data } = pageState[i];
-                apolloClient.writeQuery({
-                    query: gql`
+            const { apolloGraphQl } = pageState;
+            if (Array.isArray(apolloGraphQl)) {
+                console.log('apolloGraphQl', apolloGraphQl);
+                for (let i = 0; i < apolloGraphQl.length; i++) {
+                    const { query, variables, data } = apolloGraphQl[i];
+                    apolloClient.writeQuery({
+                        query: gql`
                         ${query}
                     `,
-                    data,
-                    variables
-                });
+                        data,
+                        variables
+                    });
+                }
             }
         } else {
             const finalPath = getPreloadPagePath(pathname);

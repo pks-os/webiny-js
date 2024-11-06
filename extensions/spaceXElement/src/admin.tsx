@@ -2,19 +2,28 @@ import React from "react";
 import {
     PbEditorPageElementAdvancedSettingsPlugin,
     PbEditorPageElementPlugin,
-    PbRenderElementPlugin
+    PbRenderElementPlugin,
+    PageEditorConfig
 } from "@webiny/app-page-builder";
 import { SpaceX, SpaceXElementData } from "./SpaceX";
 import { OnCreateActions } from "@webiny/app-page-builder/types";
 import { Element } from "@webiny/app-page-builder-elements/types";
-import { AdvancedSettings } from "./admin/AdvancedSettings";
+import { SpaceXDataSourceSettings } from "./admin/AdvancedSettings";
 
 const INITIAL_ELEMENT_DATA: SpaceXElementData = {
     variables: { type: "rockets", limit: "10", offset: "0" }
 };
 
+const {ElementProperty } = PageEditorConfig;
+
 export const Extension = () => (
     <>
+        <PageEditorConfig>
+            {/*<ElementProperty name={"myProperty"} group={ElementProperty.STYLE} element={<MyProperty />} />*/}
+            {/*Element definicija */}
+
+
+        </PageEditorConfig>
         <PbRenderElementPlugin elementType={"spaceX"} render={SpaceX} />
         <PbEditorPageElementPlugin
             elementType={"spaceX"}
@@ -56,7 +65,7 @@ export const Extension = () => (
         />
         <PbEditorPageElementAdvancedSettingsPlugin
             elementType={"spaceX"}
-            element={<AdvancedSettings />}
+            element={<SpaceXDataSourceSettings />}
         />
     </>
 );

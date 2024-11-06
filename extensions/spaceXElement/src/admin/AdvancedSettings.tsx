@@ -6,7 +6,7 @@ import { ButtonPrimary } from "@webiny/ui/Button";
 import { Cell, Grid } from "@webiny/ui/Grid";
 import { Select } from "@webiny/ui/Select";
 
-export const AdvancedSettings = () => {
+export const SpaceXDataSourceSettings = () => {
     // In order to construct the settings form, we're using the
     // `@webiny/form`, `@webiny/ui`, and `@webiny/validation` packages.
     const { submit } = useForm();

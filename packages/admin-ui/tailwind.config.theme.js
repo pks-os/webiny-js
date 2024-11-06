@@ -1,5 +1,7 @@
 module.exports = {
     backgroundColor: {
+        transparent: "transparent",
+        white: "white",
         destructive: {
             DEFAULT: "hsl(var(--bg-destructive-default))",
             default: "hsl(var(--bg-destructive-default))",
@@ -60,6 +62,7 @@ module.exports = {
     },
     borderColor: {
         transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--border-accent-default))",
             default: "hsl(var(--border-accent-default))",
@@ -98,6 +101,8 @@ module.exports = {
         sm: "var(--border-width-sm)"
     },
     fill: {
+        transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--fill-accent-default))",
             default: "hsl(var(--fill-accent-default))"
@@ -197,6 +202,8 @@ module.exports = {
         xxs: "var(--padding-xxs)"
     },
     ringColor: {
+        transparent: "transparent",
+        white: "white",
         primary: {
             DEFAULT: "hsl(var(--ring-primary-default))",
             dimmed: "hsl(var(--ring-primary-dimmed))",
@@ -239,6 +246,8 @@ module.exports = {
         xxs: "var(--spacing-xxs)"
     },
     textColor: {
+        transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--text-accent-default))",
             muted: "hsl(var(--text-accent-muted))",

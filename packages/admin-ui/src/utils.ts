@@ -9,6 +9,8 @@ const twMerge = extendTailwindMerge({
     override: {
         classGroups: {
             "border-color": [
+                "border-transparent",
+                "border-white",
                 "border-accent",
                 "border-accent-default",
                 "border-accent-dimmed",
@@ -36,7 +38,7 @@ const twMerge = extendTailwindMerge({
                 "ring-success-strong",
                 "ring-success-subtle"
             ],
-            "ring-w": ["ring-sm", "ring-sm", "ring-md"]
+            "ring-w": ["ring-sm", "ring-md", "ring-lg"]
         }
     }
 });

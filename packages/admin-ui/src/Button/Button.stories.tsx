@@ -83,7 +83,7 @@ export const ExtraLarge: Story = {
 export const WithIcon: Story = {
     args: {
         ...Primary.args,
-        size: 'lg',
+        size: "lg",
         variant: "tertiary",
         icon: <PencilIcon />
     }

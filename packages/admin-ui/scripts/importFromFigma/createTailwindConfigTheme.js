@@ -49,6 +49,7 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         fill: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "fill") {
+                    console.log("color", "variantName", variantName);
                     const [color, variant] = variantName.split("-");
                     if (!acc[color]) {
                         acc[color] = {
@@ -56,7 +57,9 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
                         };
                     }
 
-                    acc[color][variant] = `hsl(var(--fill-${variantName}))`;
+                    // `variant || color` was needed because we have some colors that don't have variants.
+                    // Like, `destructive` only has `destructive` variant. No `muted`, `strong`, etc.
+                    acc[color][variant || color] = `hsl(var(--fill-${variantName}))`;
                 }
                 return acc;
             },

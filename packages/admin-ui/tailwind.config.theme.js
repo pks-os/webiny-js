@@ -109,7 +109,7 @@ module.exports = {
         },
         destructive: {
             DEFAULT: "hsl(var(--fill-destructive-default))",
-            undefined: "hsl(var(--fill-destructive))"
+            destructive: "hsl(var(--fill-destructive))"
         },
         neutral: {
             DEFAULT: "hsl(var(--fill-neutral-default))",
@@ -121,11 +121,11 @@ module.exports = {
         },
         success: {
             DEFAULT: "hsl(var(--fill-success-default))",
-            undefined: "hsl(var(--fill-success))"
+            success: "hsl(var(--fill-success))"
         },
         warning: {
             DEFAULT: "hsl(var(--fill-warning-default))",
-            undefined: "hsl(var(--fill-warning))"
+            warning: "hsl(var(--fill-warning))"
         }
     },
     fontSize: {

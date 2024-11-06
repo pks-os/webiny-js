@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
 
@@ -57,58 +57,82 @@ const buttonVariants = cva(
                     "py-[calc(theme(padding.md-plus)-theme(borderWidth.md))] px-[calc(theme(padding.md)-theme(borderWidth.md))]"
                 ]
             },
-            iconPosition: {
-                start: "",
-                end: ""
+            contentLayout: {
+                text: "",
+                icon: "",
+                "text-icon-start": "",
+                "text-icon-end": ""
             }
         },
         compoundVariants: [
+            // When xl/ghost variant is focused, we also show a border.
             {
                 size: "xl",
                 variant: "ghost",
                 className: "focus-visible:border-md"
             },
-            // Margins between text and icon (all sizes / both positions).
+
+            // Margins and paddings between text and icon (all sizes / both icon positions).
             {
                 size: "sm",
-                iconPosition: "start",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.xs)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "sm",
+                contentLayout: "text-icon-start",
                 className: "pl-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:mr-xs"
             },
             {
                 size: "sm",
-                iconPosition: "end",
+                contentLayout: "text-icon-end",
                 className: "pr-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:ml-xs"
             },
             {
                 size: "md",
-                iconPosition: "start",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.sm)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "md",
+                contentLayout: "text-icon-start",
                 className: "pl-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:mr-xs"
             },
             {
                 size: "md",
-                iconPosition: "end",
+                contentLayout: "text-icon-end",
                 className: "pr-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:ml-xs"
             },
             {
                 size: "lg",
-                iconPosition: "start",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "lg",
+                contentLayout: "text-icon-start",
                 className:
                     "pl-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:mr-xs-plus"
             },
             {
                 size: "lg",
-                iconPosition: "end",
+                contentLayout: "text-icon-end",
                 className:
                     "pr-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:ml-xs-plus"
             },
             {
                 size: "xl",
-                iconPosition: "start",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.md)-theme(borderWidth.md))]"
+            },
+            {
+                size: "xl",
+                contentLayout: "text-icon-start",
                 className: "pl-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:mr-sm"
             },
             {
                 size: "xl",
-                iconPosition: "end",
+                contentLayout: "text-icon-end",
                 className: "pr-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:ml-sm"
             }
         ],
@@ -131,6 +155,8 @@ interface ButtonProps
     asChild?: boolean;
 }
 
+type ContentLayout = "text" | "icon" | "text-icon-start" | "text-icon-end";
+
 const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         className,
@@ -144,11 +170,23 @@ const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref)
     } = props;
     const Comp = asChild ? Slot : "button";
 
+    const contentLayout = useMemo<ContentLayout>(() => {
+        if (!text) {
+            return "icon";
+        }
+
+        if (!icon) {
+            return "text";
+        }
+
+        return `text-icon-${iconPosition}` as ContentLayout;
+    }, [text, icon, iconPosition]);
+
     const cssClasses = cn(
         buttonVariants({
             variant,
             size,
-            iconPosition: icon ? iconPosition : undefined,
+            contentLayout,
             className
         })
     );

@@ -83,8 +83,6 @@ export const ExtraLarge: Story = {
 export const WithIcon: Story = {
     args: {
         ...Primary.args,
-        size: "lg",
-        variant: "tertiary",
         icon: <PencilIcon />
     }
 };
@@ -92,6 +90,15 @@ export const WithIcon: Story = {
 export const WithIconPositionEnd: Story = {
     args: {
         ...Primary.args,
+        icon: <PencilIcon />,
+        iconPosition: "end"
+    }
+};
+
+export const OnlyIcon: Story = {
+    args: {
+        ...Primary.args,
+        text: null,
         icon: <PencilIcon />,
         iconPosition: "end"
     }

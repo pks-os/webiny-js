@@ -1,18 +1,23 @@
+const { DEFAULTS } = require("./defaults");
+
 const createTailwindConfigTheme = normalizedFigmaExport => {
     return {
-        backgroundColor: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "backgroundColor") {
-                const [color, variant] = variantName.split("-");
-                if (!acc[color]) {
-                    acc[color] = {
-                        DEFAULT: `hsl(var(--bg-${color}-default))`
-                    };
-                }
+        backgroundColor: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "backgroundColor") {
+                    const [color, variant] = variantName.split("-");
+                    if (!acc[color]) {
+                        acc[color] = {
+                            DEFAULT: `hsl(var(--bg-${color}-default))`
+                        };
+                    }
 
-                acc[color][variant] = `hsl(var(--bg-${variantName}))`;
-            }
-            return acc;
-        }, {}),
+                    acc[color][variant] = `hsl(var(--bg-${variantName}))`;
+                }
+                return acc;
+            },
+            { ...DEFAULTS.COLORS }
+        ),
         borderColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "borderColor") {
@@ -27,7 +32,7 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
                 }
                 return acc;
             },
-            { transparent: "transparent" }
+            { ...DEFAULTS.COLORS }
         ),
         borderRadius: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "borderRadius") {
@@ -41,19 +46,22 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
-        fill: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "fill") {
-                const [color, variant] = variantName.split("-");
-                if (!acc[color]) {
-                    acc[color] = {
-                        DEFAULT: `hsl(var(--fill-${color}-default))`
-                    };
-                }
+        fill: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "fill") {
+                    const [color, variant] = variantName.split("-");
+                    if (!acc[color]) {
+                        acc[color] = {
+                            DEFAULT: `hsl(var(--fill-${color}-default))`
+                        };
+                    }
 
-                acc[color][variant] = `hsl(var(--fill-${variantName}))`;
-            }
-            return acc;
-        }, {}),
+                    acc[color][variant] = `hsl(var(--fill-${variantName}))`;
+                }
+                return acc;
+            },
+            { ...DEFAULTS.COLORS }
+        ),
         fontSize: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "textFont") {
                 if (!variantName.startsWith("font-size-")) {
@@ -86,19 +94,22 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
-        ringColor: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "ringColor") {
-                const [color, variant] = variantName.split("-");
-                if (!acc[color]) {
-                    acc[color] = {
-                        DEFAULT: `hsl(var(--ring-${color}-default))`
-                    };
-                }
+        ringColor: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "ringColor") {
+                    const [color, variant] = variantName.split("-");
+                    if (!acc[color]) {
+                        acc[color] = {
+                            DEFAULT: `hsl(var(--ring-${color}-default))`
+                        };
+                    }
 
-                acc[color][variant] = `hsl(var(--ring-${variantName}))`;
-            }
-            return acc;
-        }, {}),
+                    acc[color][variant] = `hsl(var(--ring-${variantName}))`;
+                }
+                return acc;
+            },
+            { ...DEFAULTS.COLORS }
+        ),
         ringWidth: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "ringWidth") {
                 acc[variantName] = `var(--ring-width-${variantName})`;
@@ -117,19 +128,22 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             }
             return acc;
         }, {}),
-        textColor: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "textColor") {
-                const [color, variant] = variantName.split("-");
-                if (!acc[color]) {
-                    acc[color] = {
-                        DEFAULT: `hsl(var(--text-${color}-default))`
-                    };
-                }
+        textColor: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "textColor") {
+                    const [color, variant] = variantName.split("-");
+                    if (!acc[color]) {
+                        acc[color] = {
+                            DEFAULT: `hsl(var(--text-${color}-default))`
+                        };
+                    }
 
-                acc[color][variant] = `hsl(var(--text-${variantName}))`;
-            }
-            return acc;
-        }, {})
+                    acc[color][variant] = `hsl(var(--text-${variantName}))`;
+                }
+                return acc;
+            },
+            { ...DEFAULTS.COLORS }
+        )
     };
 };
 module.exports = { createTailwindConfigTheme };

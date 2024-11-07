@@ -1,3 +1,5 @@
+TEST
+
 <p align="center">
   <img src="./docs/static/webiny-logo.svg" width="250">
   <br><br>

@@ -78,7 +78,7 @@ jobs:
           echo "changed-packages=$(node
           .github/workflows/wac/utils/runNodeScripts/listChangedPackages.js '${{
           steps.detect-changed-files.outputs.changed_files }}') >>
-          $GITHUB_OUTPUT
+          $GITHUB_OUTPUT"
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'

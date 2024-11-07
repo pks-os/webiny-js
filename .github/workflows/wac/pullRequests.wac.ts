@@ -163,8 +163,8 @@ export const pullRequests = createWorkflow({
             checkout: { path: DIR_WEBINY_JS },
             steps: [
                 {
-                    name: 'test',
-                    run: 'echo ${{ needs.constants.outputs.changed-packages }}'
+                    name: "test",
+                    run: "echo ${{ needs.constants.outputs.changed-packages }}"
                 },
                 ...yarnCacheSteps,
                 ...globalBuildCacheSteps,

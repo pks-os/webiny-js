@@ -137,12 +137,13 @@ export const pullRequests = createWorkflow({
                     id: "detect-changed-packages",
                     uses: "dorny/paths-filter@v3",
                     with: {
-                        filters: "changed-packages:\n  - 'packages/**/*'\n"
+                        filters: "changed-packages:\n  - 'packages/**/*'\n",
+                        "list-files": "json"
                     }
                 },
                 {
                     name: "Extract changed package names",
-                    run: 'echo "Changed packages:"\necho "${{ steps.detect-changed-packages.outputs.changed-packages }}"\n'
+                    run: 'echo "Changed packages:"\necho "${{ steps.detect-changed-packages.outputs.changed-packages_files }}"\n'
                 }
             ]
         }),

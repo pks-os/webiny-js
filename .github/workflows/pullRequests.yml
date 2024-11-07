@@ -77,8 +77,8 @@ jobs:
         run: >-
           echo "changed-packages=$(node
           .github/workflows/wac/utils/runNodeScripts/listChangedPackages.js '${{
-          steps.detect-changed-files.outputs.changed_files }}') >>
-          $GITHUB_OUTPUT"
+          steps.detect-changed-files.outputs.changed_files }}')" >>
+          $GITHUB_OUTPUT
     runs-on: ubuntu-latest
     env:
       NODE_OPTIONS: '--max_old_space_size=4096'
@@ -95,7 +95,7 @@ jobs:
         with:
           path: ${{ github.base_ref }}
       - name: test
-        run: echo ${{ needs.constants.outputs.changed-packages }}
+        run: echo "${{ needs.constants.outputs.changed-packages }}"
       - uses: actions/cache@v4
         with:
           path: ${{ github.base_ref }}/.yarn/cache

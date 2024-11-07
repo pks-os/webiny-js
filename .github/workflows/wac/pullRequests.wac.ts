@@ -164,7 +164,7 @@ export const pullRequests = createWorkflow({
             steps: [
                 {
                     name: "test",
-                    run: "echo ${{ needs.constants.outputs.changed-packages }}"
+                    run: `echo "\${{ needs.constants.outputs.changed-packages }}"`
                 },
                 ...yarnCacheSteps,
                 ...globalBuildCacheSteps,

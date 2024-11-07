@@ -24,6 +24,8 @@ const getParameters = async (context: CmsContext): Promise<CmsParametersPluginRe
             return result;
         }
     }
+
+    // TEST.
     throw new WebinyError(
         "Could not determine locale and/or type of the CMS.",
         "CMS_LOCALE_AND_TYPE_ERROR"

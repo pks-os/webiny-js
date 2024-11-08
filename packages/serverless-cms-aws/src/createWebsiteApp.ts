@@ -4,7 +4,8 @@ import {
     generateCommonHandlers,
     lambdaEdgeWarning,
     renderWebsite,
-    telemetryNoLongerNewUser
+    telemetryNoLongerNewUser,
+    ensureApiDeployedBeforeBuild
 } from "./website/plugins";
 import { uploadAppToS3 } from "./react/plugins";
 
@@ -18,7 +19,8 @@ export function createWebsiteApp(projectAppParams: CreateWebsiteAppParams = {}) 
         generateCommonHandlers,
         lambdaEdgeWarning,
         renderWebsite,
-        telemetryNoLongerNewUser
+        telemetryNoLongerNewUser,
+        ensureApiDeployedBeforeBuild
     ];
 
     const customPlugins = projectAppParams.plugins ? [...projectAppParams.plugins] : [];

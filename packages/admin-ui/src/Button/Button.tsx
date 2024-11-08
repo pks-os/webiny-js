@@ -1,29 +1,141 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "~/utils";
-import { makeDecoratable } from "@webiny/react-composition";
+import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
 
 const buttonVariants = cva(
-    "font-sans inline-flex items-center justify-center whitespace-nowrap leading-tight ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    [
+        "border-transparent rounded font-sans inline-flex items-center justify-center whitespace-nowrap ring-offset-background transition-colors",
+        "disabled:pointer-events-none",
+        "focus-visible:outline-none focus-visible:border-accent-default"
+    ],
     {
         variants: {
             variant: {
-                primary:
-                    "bg-primary text-primary-foreground hover:bg-primary/90 [&>svg]:fill-white",
-                secondary:
-                    "bg-gray-200 text-gray-900 fill-gray-900 border border-gray-200 hover:bg-gray-300 hover:border-gray-300 hover:text-gray-800",
-                outline:
-                    "bg-white text-gray-900 fill-gray-900 border border-gray-400 hover:bg-gray-100 hover:text-gray-900",
-                ghost: "bg-transparent border border-transparent text-gray-900 fill-gray-900 hover:bg-gray-200"
+                primary: [
+                    "bg-primary text-neutral-light [&>svg]:fill-neutral-base",
+                    "hover:bg-primary-strong",
+                    "active:bg-primary-xstrong",
+                    "disabled:bg-primary-disabled",
+                    "focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+                ],
+                secondary: [
+                    "bg-neutral-dimmed text-neutral-strong [&>svg]:fill-neutral-xstrong",
+                    "hover:bg-neutral-muted",
+                    "active:bg-neutral-strong",
+                    "disabled:bg-neutral-disabled disabled:text-neutral-disabled",
+                    "focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+                ],
+                tertiary: [
+                    "bg-neutral-base text-neutral-strong border-neutral-muted [&>svg]:fill-neutral-xstrong",
+                    "hover:bg-neutral-light",
+                    "active:bg-neutral-muted",
+                    "disabled:bg-neutral-disabled disabled:border-none disabled:text-neutral-disabled",
+                    "focus-visible:ring-lg focus-visible:ring-primary-dimmed"
+                ],
+                ghost: [
+                    "text-neutral-strong [&>svg]:fill-neutral-xstrong",
+                    "hover:bg-neutral-dimmed",
+                    "active:bg-neutral-muted",
+                    "disabled:text-neutral-disabled"
+                ]
             },
             size: {
-                sm: "p-1 rounded text-sm font-normal",
-                md: "py-1.5 px-2 rounded text-md font-normal",
-                lg: "py-2.5 px-3 rounded-lg text-base font-medium",
-                xl: "py-3.5 px-4 rounded-lg text-lg font-medium"
+                sm: [
+                    "text-sm border-sm rounded-sm [&>svg]:size-md",
+                    "py-[calc(theme(padding.xs)-theme(borderWidth.sm))] px-[calc(theme(padding.sm)-theme(borderWidth.sm))]"
+                ],
+                md: [
+                    "text-md border-sm rounded-sm [&>svg]:size-md",
+                    "py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
+                ],
+                lg: [
+                    "text-md border-sm rounded-sm [&>svg]:size-md",
+                    "py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
+                ],
+                xl: [
+                    "text-lg font-semibold border-md rounded-md [&>svg]:size-lg",
+                    "py-[calc(theme(padding.md-plus)-theme(borderWidth.md))] px-[calc(theme(padding.md)-theme(borderWidth.md))]"
+                ]
+            },
+            contentLayout: {
+                text: "",
+                icon: "",
+                "text-icon-start": "",
+                "text-icon-end": ""
             }
         },
+        compoundVariants: [
+            // When xl/ghost variant is focused, we also show a border.
+            {
+                size: "xl",
+                variant: "ghost",
+                className: "focus-visible:border-md"
+            },
+
+            // Margins and paddings between text and icon (all sizes / both icon positions).
+            {
+                size: "sm",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.xs)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "sm",
+                contentLayout: "text-icon-start",
+                className: "pl-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:mr-xs"
+            },
+            {
+                size: "sm",
+                contentLayout: "text-icon-end",
+                className: "pr-[calc(theme(padding.xs)-theme(borderWidth.sm))] [&>svg]:ml-xs"
+            },
+            {
+                size: "md",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.sm)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "md",
+                contentLayout: "text-icon-start",
+                className: "pl-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:mr-xs"
+            },
+            {
+                size: "md",
+                contentLayout: "text-icon-end",
+                className: "pr-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] [&>svg]:ml-xs"
+            },
+            {
+                size: "lg",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))]"
+            },
+            {
+                size: "lg",
+                contentLayout: "text-icon-start",
+                className:
+                    "pl-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:mr-xs-plus"
+            },
+            {
+                size: "lg",
+                contentLayout: "text-icon-end",
+                className:
+                    "pr-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))] [&>svg]:ml-xs-plus"
+            },
+            {
+                size: "xl",
+                contentLayout: "icon",
+                className: "p-[calc(theme(padding.md)-theme(borderWidth.md))]"
+            },
+            {
+                size: "xl",
+                contentLayout: "text-icon-start",
+                className: "pl-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:mr-sm"
+            },
+            {
+                size: "xl",
+                contentLayout: "text-icon-end",
+                className: "pr-[calc(theme(padding.sm-extra)-theme(borderWidth.md))] [&>svg]:ml-sm"
+            }
+        ],
         defaultVariants: {
             variant: "primary",
             size: "md"
@@ -43,12 +155,44 @@ interface ButtonProps
     asChild?: boolean;
 }
 
+type ContentLayout = "text" | "icon" | "text-icon-start" | "text-icon-end";
+
 const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-    const { className, variant, size, asChild = false, text, icon, iconPosition, ...rest } = props;
+    const {
+        className,
+        variant,
+        size,
+        asChild = false,
+        text,
+        icon,
+        iconPosition = "start",
+        ...rest
+    } = props;
     const Comp = asChild ? Slot : "button";
 
+    const contentLayout = useMemo<ContentLayout>(() => {
+        if (!text) {
+            return "icon";
+        }
+
+        if (!icon) {
+            return "text";
+        }
+
+        return `text-icon-${iconPosition}` as ContentLayout;
+    }, [text, icon, iconPosition]);
+
+    const cssClasses = cn(
+        buttonVariants({
+            variant,
+            size,
+            contentLayout,
+            className
+        })
+    );
+
     return (
-        <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...rest}>
+        <Comp className={cssClasses} ref={ref} {...rest}>
             {iconPosition !== "end" && icon}
             {text}
             {iconPosition === "end" && icon}

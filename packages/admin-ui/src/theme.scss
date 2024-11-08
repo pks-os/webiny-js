@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+@layer base {
+  :root {
+    // Background colors.
+    --bg-destructive-default: 0, 71%, 48.6%;
+    --bg-destructive-disabled: 1, 83.2%, 76.7%;
+    --bg-destructive-muted: 0, 66.3%, 62.7%;
+    --bg-destructive-strong: 0, 76.4%, 38.2%;
+    --bg-destructive-subtle: 0, 100%, 96.9%;
+    --bg-destructive-xstrong: 0, 83.6%, 21.6%;
+
+    --bg-neutral-base: 0, 0%, 100%;
+    --bg-neutral-dark: 214, 12.3%, 11.2%;
+    --bg-neutral-dimmed: 220, 11.1%, 94.7%;
+    --bg-neutral-disabled: 220, 11.1%, 94.7%;
+    --bg-neutral-light: 210, 14.3%, 97.3%;
+    --bg-neutral-muted: 225, 16.7%, 90.6%;
+    --bg-neutral-strong: 219, 12.1%, 77.3%;
+    --bg-neutral-subtle: 180, 11.1%, 98.2%;
+    --bg-neutral-xstrong: 213, 10.1%, 38.8%;
+
+    --bg-primary-default: 15, 95.6%, 55.9%;
+    --bg-primary-disabled: 14, 94.7%, 77.8%;
+    --bg-primary-muted: 14, 94.7%, 77.8%;
+    --bg-primary-strong: 14, 94.1%, 40%;
+    --bg-primary-subtle: 5, 100%, 97.5%;
+    --bg-primary-xstrong: 14, 100%, 25.5%;
+
+    --bg-secondary-default: 170, 100%, 37.5%;
+    --bg-secondary-disabled: 169, 59.8%, 64.9%;
+    --bg-secondary-muted: 169, 59.8%, 64.9%;
+    --bg-secondary-strong: 165, 100%, 28.6%;
+    --bg-secondary-subtle: 170, 57.1%, 91.8%;
+    --bg-secondary-xstrong: 160, 100%, 14.5%;
+
+    --bg-success-default: 170, 100%, 37.5%;
+    --bg-success-disabled: 168, 58.1%, 79.4%;
+    --bg-success-muted: 169, 59.8%, 64.9%;
+    --bg-success-strong: 165, 100%, 28.6%;
+    --bg-success-subtle: 170, 57.1%, 91.8%;
+    --bg-success-xstrong: 160, 100%, 14.5%;
+
+    --bg-warning-default: 45, 95.7%, 63.7%;
+    --bg-warning-disabled: 45, 96.9%, 87.5%;
+    --bg-warning-muted: 45, 95.1%, 75.9%;
+    --bg-warning-strong: 45, 100%, 37.3%;
+    --bg-warning-subtle: 43, 100%, 96.5%;
+    --bg-warning-xstrong: 45, 98.2%, 21.6%;
+
+    // Border color.
+    --border-accent-default: 15, 95.6%, 55.9%;
+    --border-accent-dimmed: 15, 94.2%, 86.5%;
+    --border-accent-subtle: 5, 100%, 97.5%;
+
+    --border-destructive-default: 0, 71%, 48.6%;
+
+    --border-neutral-black: 214, 12.3%, 11.2%;
+    --border-neutral-dark: 215, 9.6%, 51%;
+    --border-neutral-dimmed: 220, 11.1%, 94.7%;
+    --border-neutral-muted: 219, 12.1%, 77.3%;
+    --border-neutral-strong: 218, 10.7%, 65.3%;
+    --border-neutral-subtle: 210, 14.3%, 97.3%;
+
+    --border-success-default: 170, 100%, 37.5%;
+
+    // Border radius.
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --radius-xl: 24px;
+    --radius-xs: 2px;
+    --radius-xxl: 36px;
+
+    // Border width.
+    --border-width-md: 2px;
+    --border-width-none: 0px;
+    --border-width-sm: 1px;
+
+    // Fill.
+    --fill-accent-default: 15, 95.6%, 55.9%;
+
+    --fill-destructive: 0, 71%, 48.6%;
+
+    --fill-neutral-base: 0, 0%, 100%;
+    --fill-neutral-dark: 215, 11.1%, 21.2%;
+    --fill-neutral-disabled: 219, 12.1%, 77.3%;
+    --fill-neutral-strong: 218, 10.7%, 65.3%;
+    --fill-neutral-xstrong: 213, 10.1%, 38.8%;
+
+    --fill-success: 170, 100%, 37.5%;
+
+    --fill-warning: 45, 95.7%, 63.7%;
+
+    // Font.
+    --font-sans: "Inter", sans-serif;
+
+    // Font weight.
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+
+    // Margin.
+    --margin-lg: 24px;
+    --margin-md: 16px;
+    --margin-md-plus: 20px;
+    --margin-none: 0px;
+    --margin-sm: 8px;
+    --margin-sm-extra: 12px;
+    --margin-sm-plus: 10px;
+    --margin-xl: 32px;
+    --margin-xs: 4px;
+    --margin-xs-plus: 6px;
+    --margin-xxl: 48px;
+    --margin-xxs: 2px;
+
+    // Padding.
+    --padding-lg: 24px;
+    --padding-md: 16px;
+    --padding-md-plus: 20px;
+    --padding-none: 0px;
+    --padding-sm: 8px;
+    --padding-sm-extra: 12px;
+    --padding-sm-plus: 10px;
+    --padding-xl: 32px;
+    --padding-xs: 4px;
+    --padding-xs-plus: 6px;
+    --padding-xxl: 48px;
+    --padding-xxs: 2px;
+
+    // Ring color.
+    --ring-primary-dimmed: 15, 94.2%, 86.5%;
+    --ring-primary-strong: 15, 95.6%, 55.9%;
+    --ring-primary-subtle: 5, 100%, 97.5%;
+
+    --ring-success-dimmed: 170, 57.1%, 91.8%;
+    --ring-success-strong: 170, 100%, 37.5%;
+    --ring-success-subtle: 168, 50%, 96.1%;
+
+    // Ring width.
+    --ring-width-lg: 4px;
+    --ring-width-md: 2px;
+    --ring-width-sm: 1px;
+
+    // Shadow.
+    --shadow-flat: 0px;
+    --shadow-lg: 16px;
+    --shadow-md: 8px;
+    --shadow-sm: 4px;
+    --shadow-xl: 24px;
+    --shadow-xxl: 48px;
+
+    // Spacing.
+    --spacing-3xl: 64px;
+    --spacing-lg: 24px;
+    --spacing-md: 16px;
+    --spacing-md-plus: 20px;
+    --spacing-none: 0px;
+    --spacing-sm: 8px;
+    --spacing-sm-extra: 12px;
+    --spacing-sm-plus: 10px;
+    --spacing-xl: 32px;
+    --spacing-xs: 4px;
+    --spacing-xs-plus: 6px;
+    --spacing-xxl: 48px;
+    --spacing-xxs: 2px;
+
+    // Text color.
+    --text-accent-muted: 14, 94.7%, 77.8%;
+    --text-accent-primary: 15, 95.6%, 55.9%;
+    --text-accent-subtle: 5, 100%, 97.5%;
+
+    --text-destructive-muted: 1, 83.2%, 76.7%;
+    --text-destructive-primary: 0, 71%, 48.6%;
+    --text-destructive-subtle: 0, 100%, 96.9%;
+
+    --text-neutral-dimmed: 219, 12.1%, 77.3%;
+    --text-neutral-disabled: 219, 12.1%, 77.3%;
+    --text-neutral-light: 0, 0%, 100%;
+    --text-neutral-muted: 218, 10.7%, 65.3%;
+    --text-neutral-primary: 214, 12.3%, 11.2%;
+    --text-neutral-strong: 213, 10.1%, 38.8%;
+
+    --text-success-muted: 169, 59.8%, 64.9%;
+    --text-success-primary: 170, 100%, 37.5%;
+    --text-success-subtle: 170, 57.1%, 91.8%;
+
+    // Text size.
+    --text-sm: 12px;
+    --text-sm-leading: 16px;
+    --text-sm-tracking: initial;
+    --text-md: 14px;
+    --text-md-leading: 20px;
+    --text-md-tracking: initial;
+    --text-lg: 16px;
+    --text-lg-leading: 22px;
+    --text-lg-tracking: initial;
+    --text-xl: 20px;
+    --text-xl-leading: 30px;
+    --text-xl-tracking: initial;
+    --text-xxl: 30px;
+    --text-xxl-leading: 38px;
+    --text-xxl-tracking: initial;
+    --text-3xl: 36px;
+    --text-3xl-leading: 44px;
+    --text-3xl-tracking: initial;
+    --text-4xl: 48px;
+    --text-4xl-leading: 60px;
+    --text-4xl-tracking: initial;
+  }
+}

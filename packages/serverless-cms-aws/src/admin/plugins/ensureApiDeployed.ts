@@ -1,8 +1,8 @@
 import { getStackOutput } from "@webiny/cli-plugin-deploy-pulumi/utils";
-import { BeforeBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
+import { createBeforeBuildPlugin } from "@webiny/cli-plugin-deploy-pulumi/plugins";
 import { GracefulError } from "@webiny/cli-plugin-deploy-pulumi/utils";
 
-export const ensureApiDeployed = new BeforeBuildPlugin(({ env }, ctx) => {
+export const ensureApiDeployedBeforeBuild = createBeforeBuildPlugin(({ env }, ctx) => {
     const output = getStackOutput({ folder: "apps/api", env });
     const apiDeployed = output && Object.keys(output).length > 0;
     if (apiDeployed) {
@@ -22,4 +22,4 @@ export const ensureApiDeployed = new BeforeBuildPlugin(({ env }, ctx) => {
     );
 });
 
-ensureApiDeployed.name = "api.before-deploy.ensure-api-deployed";
+ensureApiDeployedBeforeBuild.name = "admin.before-build.ensure-api-deployed";

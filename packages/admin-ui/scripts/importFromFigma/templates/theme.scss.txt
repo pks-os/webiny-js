@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+@layer base {
+  :root {
+    // Background colors.
+    {BACKGROUND_COLOR}
+
+    // Border color.
+    {BORDER_COLOR}
+
+    // Border radius.
+    {BORDER_RADIUS}
+
+    // Border width.
+    {BORDER_WIDTH}
+
+    // Fill.
+    {FILL}
+
+    // Font.
+    {FONT}
+
+    // Font weight.
+    {FONT_WEIGHT}
+
+    // Margin.
+    {MARGIN}
+
+    // Padding.
+    {PADDING}
+
+    // Ring color.
+    {RING_COLOR}
+
+    // Ring width.
+    {RING_WIDTH}
+
+    // Shadow.
+    {SHADOW}
+
+    // Spacing.
+    {SPACING}
+
+    // Text color.
+    {TEXT_COLOR}
+
+    // Text size.
+    {TEXT_SIZE}
+  }
+}

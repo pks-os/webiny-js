@@ -3,20 +3,7 @@ import { Plugin } from "@webiny/plugins/types";
 import { ApolloClient } from "apollo-client";
 import { ItemProps, MenuProps, SectionProps } from "~/plugins/MenuPlugin";
 
-export type AdminGlobalSearchPlugin = Plugin & {
-    type: "admin-global-search";
-    label: string;
-    route: string;
-    search?: {
-        operator?: "and" | "or";
-        fields?: Array<string>;
-    };
-};
-
-export type AdminGlobalSearchPreventHotkeyPlugin = Plugin & {
-    type: "admin-global-search-prevent-hotkey";
-    preventOpen(e: React.KeyboardEvent): boolean | void;
-};
+export { Icon } from "~/components/IconPicker/types";
 
 /**
  * LEGACY TYPE. Only for backwards compatibility.

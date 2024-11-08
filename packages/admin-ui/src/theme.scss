@@ -99,13 +99,23 @@
     // Font.
     --font-sans: "Inter", sans-serif;
 
+    // Font weight.
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+
     // Margin.
     --margin-lg: 24px;
     --margin-md: 16px;
+    --margin-md-plus: 20px;
+    --margin-none: 0px;
     --margin-sm: 8px;
+    --margin-sm-extra: 12px;
+    --margin-sm-plus: 10px;
     --margin-xl: 32px;
     --margin-xs: 4px;
+    --margin-xs-plus: 6px;
     --margin-xxl: 48px;
+    --margin-xxs: 2px;
 
     // Padding.
     --padding-lg: 24px;

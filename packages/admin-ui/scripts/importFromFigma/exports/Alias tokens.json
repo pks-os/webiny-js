@@ -31,6 +31,22 @@
     "VariableID:841:780",
     "VariableID:841:785",
     "VariableID:52:22",
+    "VariableID:1522:9133",
+    "VariableID:1658:621",
+    "VariableID:1658:638",
+    "VariableID:1522:9134",
+    "VariableID:1522:9135",
+    "VariableID:1522:9136",
+    "VariableID:1522:9137",
+    "VariableID:1522:9138",
+    "VariableID:1522:9139",
+    "VariableID:1522:9140",
+    "VariableID:1522:9141",
+    "VariableID:1522:9142",
+    "VariableID:1522:9143",
+    "VariableID:1522:9144",
+    "VariableID:1522:9145",
+    "VariableID:1522:9146",
     "VariableID:52:23",
     "VariableID:851:2608",
     "VariableID:52:24",
@@ -42,8 +58,8 @@
     "VariableID:52:31",
     "VariableID:52:32",
     "VariableID:529:17319",
-    "VariableID:183:122214",
     "VariableID:1335:7762",
+    "VariableID:183:122214",
     "VariableID:1335:7763",
     "VariableID:1335:7764",
     "VariableID:1152:342",
@@ -56,8 +72,8 @@
     "VariableID:183:122219",
     "VariableID:849:783",
     "VariableID:849:784",
-    "VariableID:1639:554",
     "VariableID:52:18",
+    "VariableID:1639:554",
     "VariableID:81:1904",
     "VariableID:81:1905",
     "VariableID:52:19",
@@ -85,6 +101,7 @@
     "VariableID:841:787",
     "VariableID:1148:687",
     "VariableID:79:7",
+    "VariableID:1699:9362",
     "VariableID:1148:690",
     "VariableID:1148:689",
     "VariableID:528:17123",
@@ -99,7 +116,10 @@
     "VariableID:528:17128",
     "VariableID:1148:688",
     "VariableID:79:8",
+    "VariableID:1699:9360",
+    "VariableID:1699:9361",
     "VariableID:79:12",
+    "VariableID:1699:9359",
     "VariableID:79:236",
     "VariableID:79:237",
     "VariableID:79:238",
@@ -107,9 +127,15 @@
     "VariableID:1516:15576",
     "VariableID:107:716",
     "VariableID:1516:33674",
+    "VariableID:1751:787",
+    "VariableID:1751:786",
     "VariableID:528:17129",
+    "VariableID:1751:788",
     "VariableID:528:17130",
+    "VariableID:1751:789",
+    "VariableID:1751:790",
     "VariableID:528:17131",
+    "VariableID:1751:791",
     "VariableID:528:17132",
     "VariableID:528:17133",
     "VariableID:528:17134",
@@ -130,22 +156,6 @@
     "VariableID:1227:21660",
     "VariableID:1227:21661",
     "VariableID:95:1560",
-    "VariableID:1522:9133",
-    "VariableID:1522:9134",
-    "VariableID:1522:9135",
-    "VariableID:1522:9136",
-    "VariableID:1522:9137",
-    "VariableID:1522:9138",
-    "VariableID:1522:9139",
-    "VariableID:1522:9140",
-    "VariableID:1522:9141",
-    "VariableID:1522:9142",
-    "VariableID:1522:9143",
-    "VariableID:1522:9144",
-    "VariableID:1522:9145",
-    "VariableID:1522:9146",
-    "VariableID:1522:9147",
-    "VariableID:1522:9192",
     "VariableID:1639:2",
     "VariableID:1639:3",
     "VariableID:1639:540",
@@ -154,7 +164,9 @@
     "VariableID:1639:549",
     "VariableID:1639:551",
     "VariableID:1639:552",
-    "VariableID:1639:553"
+    "VariableID:1639:553",
+    "VariableID:1751:924",
+    "VariableID:1751:925"
   ],
   "variables": [
     {
@@ -2772,28 +2784,6 @@
       "codeSyntax": {}
     },
     {
-      "id": "VariableID:1522:9147",
-      "name": "textFont/text-font-weight-default",
-      "description": "",
-      "type": "STRING",
-      "valuesByMode": { "37:2": "Regular" },
-      "resolvedValuesByMode": { "37:2": { "resolvedValue": "Regular", "alias": null } },
-      "scopes": ["ALL_SCOPES"],
-      "hiddenFromPublishing": false,
-      "codeSyntax": {}
-    },
-    {
-      "id": "VariableID:1522:9192",
-      "name": "textFont/text-font-weight-bold",
-      "description": "",
-      "type": "STRING",
-      "valuesByMode": { "37:2": "Semi Bold" },
-      "resolvedValuesByMode": { "37:2": { "resolvedValue": "Semi Bold", "alias": null } },
-      "scopes": ["ALL_SCOPES"],
-      "hiddenFromPublishing": false,
-      "codeSyntax": {}
-    },
-    {
       "id": "VariableID:1639:2",
       "name": "ringWidth/ringWidth-sm",
       "description": "",
@@ -2977,6 +2967,244 @@
           "resolvedValue": 0,
           "alias": "VariableID:529:17331",
           "aliasName": "borderWidth/dimensions-border-width-0"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1658:621",
+      "name": "textLetterspacing/text-letter-spacing-sm",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1658:637" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": -1,
+          "alias": "VariableID:1658:637",
+          "aliasName": "fontSpacing/font-letter-spacing-1"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1658:638",
+      "name": "textLetterspacing/text-letter-spacing-md",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1658:610" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": -2,
+          "alias": "VariableID:1658:610",
+          "aliasName": "fontSpacing/font-letter-spacing-2"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1699:9359",
+      "name": "dimension/dimension-md-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:203:5689" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 20,
+          "alias": "VariableID:203:5689",
+          "aliasName": "space/dimensions-fixed-20"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1699:9360",
+      "name": "dimension/dimension-sm-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1516:33669" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 10,
+          "alias": "VariableID:1516:33669",
+          "aliasName": "space/dimensions-fixed-10"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1699:9361",
+      "name": "dimension/dimension-sm-extra",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:203:5688" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 12,
+          "alias": "VariableID:203:5688",
+          "aliasName": "space/dimensions-fixed-12"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1699:9362",
+      "name": "dimension/dimension-xs-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1516:33670" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 6,
+          "alias": "VariableID:1516:33670",
+          "aliasName": "space/dimensions-fixed-6"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:786",
+      "name": "margin/margin-xxs",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:203:4489" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 2,
+          "alias": "VariableID:203:4489",
+          "aliasName": "space/dimensions-fixed-2"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:787",
+      "name": "margin/margin-none",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1148:691" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 0,
+          "alias": "VariableID:1148:691",
+          "aliasName": "space/dimensions-fixed-0"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:788",
+      "name": "margin/margin-xs-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1516:33670" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 6,
+          "alias": "VariableID:1516:33670",
+          "aliasName": "space/dimensions-fixed-6"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:789",
+      "name": "margin/margin-sm-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1516:33669" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 10,
+          "alias": "VariableID:1516:33669",
+          "aliasName": "space/dimensions-fixed-10"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:790",
+      "name": "margin/margin-sm-extra",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:203:5688" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 12,
+          "alias": "VariableID:203:5688",
+          "aliasName": "space/dimensions-fixed-12"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:791",
+      "name": "margin/margin-md-plus",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:203:5689" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 20,
+          "alias": "VariableID:203:5689",
+          "aliasName": "space/dimensions-fixed-20"
+        }
+      },
+      "scopes": ["WIDTH_HEIGHT", "GAP"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:924",
+      "name": "textFont/text-font-weight-regular",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1751:921" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 400,
+          "alias": "VariableID:1751:921",
+          "aliasName": "fontWeight/font-weigh-400"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:1751:925",
+      "name": "textFont/text-font-weight-semibold",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:1751:922" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 600,
+          "alias": "VariableID:1751:922",
+          "aliasName": "fontWeight/font-weigh-600"
         }
       },
       "scopes": ["ALL_SCOPES"],

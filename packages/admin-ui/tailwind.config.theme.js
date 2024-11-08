@@ -1,5 +1,7 @@
 module.exports = {
     backgroundColor: {
+        transparent: "transparent",
+        white: "white",
         destructive: {
             DEFAULT: "hsl(var(--bg-destructive-default))",
             default: "hsl(var(--bg-destructive-default))",
@@ -59,6 +61,8 @@ module.exports = {
         }
     },
     borderColor: {
+        transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--border-accent-default))",
             default: "hsl(var(--border-accent-default))",
@@ -97,13 +101,15 @@ module.exports = {
         sm: "var(--border-width-sm)"
     },
     fill: {
+        transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--fill-accent-default))",
             default: "hsl(var(--fill-accent-default))"
         },
         destructive: {
             DEFAULT: "hsl(var(--fill-destructive-default))",
-            undefined: "hsl(var(--fill-destructive))"
+            destructive: "hsl(var(--fill-destructive))"
         },
         neutral: {
             DEFAULT: "hsl(var(--fill-neutral-default))",
@@ -115,11 +121,11 @@ module.exports = {
         },
         success: {
             DEFAULT: "hsl(var(--fill-success-default))",
-            undefined: "hsl(var(--fill-success))"
+            success: "hsl(var(--fill-success))"
         },
         warning: {
             DEFAULT: "hsl(var(--fill-warning-default))",
-            undefined: "hsl(var(--fill-warning))"
+            warning: "hsl(var(--fill-warning))"
         }
     },
     fontSize: {
@@ -173,13 +179,23 @@ module.exports = {
             }
         ]
     },
+    fontWeight: {
+        regular: "var(--font-weight-regular)",
+        semibold: "var(--font-weight-semibold)"
+    },
     margin: {
         lg: "var(--margin-lg)",
         md: "var(--margin-md)",
+        "md-plus": "var(--margin-md-plus)",
+        none: "var(--margin-none)",
         sm: "var(--margin-sm)",
+        "sm-extra": "var(--margin-sm-extra)",
+        "sm-plus": "var(--margin-sm-plus)",
         xl: "var(--margin-xl)",
         xs: "var(--margin-xs)",
-        xxl: "var(--margin-xxl)"
+        "xs-plus": "var(--margin-xs-plus)",
+        xxl: "var(--margin-xxl)",
+        xxs: "var(--margin-xxs)"
     },
     padding: {
         lg: "var(--padding-lg)",
@@ -196,6 +212,8 @@ module.exports = {
         xxs: "var(--padding-xxs)"
     },
     ringColor: {
+        transparent: "transparent",
+        white: "white",
         primary: {
             DEFAULT: "hsl(var(--ring-primary-default))",
             dimmed: "hsl(var(--ring-primary-dimmed))",
@@ -238,6 +256,8 @@ module.exports = {
         xxs: "var(--spacing-xxs)"
     },
     textColor: {
+        transparent: "transparent",
+        white: "white",
         accent: {
             DEFAULT: "hsl(var(--text-accent-default))",
             muted: "hsl(var(--text-accent-muted))",

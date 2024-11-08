@@ -1,8 +1,6 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
 const { getProject } = require("@webiny/cli/utils");
-
 const project = getProject();
-
 const webinyPackagesGlob = `${project.root}/node_modules/@webiny/app*/**/*.js`;
 const webinyAdminUiPackageGlob = `${project.root}/node_modules/@webiny/admin-ui/**/*.js`;
 const adminAppSourceGlob = `${project.root}/apps/admin`;
@@ -53,22 +51,8 @@ module.exports = {
             sans: ["var(--font-sans)", ...fontFamily.sans],
             serif: ["var(--font-serif)", ...fontFamily.serif],
             mono: ["var(--font-mono)", ...fontFamily.mono]
-        },
-
-        keyframes: {
-            "accordion-down": {
-                from: { height: "0" },
-                to: { height: "var(--radix-accordion-content-height)" }
-            },
-            "accordion-up": {
-                from: { height: "var(--radix-accordion-content-height)" },
-                to: { height: "0" }
-            }
-        },
-        animation: {
-            "accordion-down": "accordion-down 0.2s ease-out",
-            "accordion-up": "accordion-up 0.2s ease-out"
         }
     },
+
     plugins: [require("tailwindcss-animate")]
 };

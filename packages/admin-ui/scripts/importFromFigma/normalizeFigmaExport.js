@@ -17,7 +17,7 @@ const VARIABLE_TYPES = [
     "textFont"
 ];
 
-const IGNORED_VARIABLE_TYPES = ["dimension"];
+const IGNORED_VARIABLE_TYPES = ["dimension", "textLetterspacing"];
 
 const isIgnoredVariableType = variableName => {
     for (const type of IGNORED_VARIABLE_TYPES) {

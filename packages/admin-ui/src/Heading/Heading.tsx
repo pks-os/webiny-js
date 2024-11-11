@@ -19,12 +19,12 @@ const TAG_MAP: Record<HeadingLevels, HeadingTags> = {
 const headingVariants = cva("font-sans font-semibold", {
     variants: {
         level: {
-            1: "text-5xl leading-tight",
-            2: "text-4xl leading-tight",
-            3: "text-3xl leading-tight",
-            4: "text-xl leading-normal",
-            5: "text-base leading-normal",
-            6: "text-sm leading-normal"
+            1: "text-4xl",
+            2: "text-3xl",
+            3: "text-xxl",
+            4: "text-xl",
+            5: "text-lg",
+            6: "text-md"
         }
     },
     defaultVariants: {

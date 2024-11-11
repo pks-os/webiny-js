@@ -1,6 +1,6 @@
 import React from "react";
 import { Toast } from "~/Toast";
-import { TooltipProvider } from "~/Tooltip";
+import { Tooltip } from "~/Tooltip";
 
 export interface ProvidersProps {
     children?: React.ReactNode;
@@ -9,7 +9,7 @@ export interface ProvidersProps {
 export const Providers = ({ children }: ProvidersProps) => {
     return (
         <Toast.Provider>
-            <TooltipProvider>{children}</TooltipProvider>
+            <Tooltip.Provider>{children}</Tooltip.Provider>
             <Toast.Viewport />
         </Toast.Provider>
     );

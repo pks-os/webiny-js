@@ -1,3 +1,4 @@
+import React from "react";
 import { clsx, type ClassValue } from "clsx";
 import { generateId as baseGenerateId } from "@webiny/utils/generateId";
 import { extendTailwindMerge } from "tailwind-merge";

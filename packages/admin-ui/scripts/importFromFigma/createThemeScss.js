@@ -216,21 +216,62 @@ const createThemeScss = normalizedFigmaExport => {
         const textSize = normalizedFigmaExport
             .filter(item => item.type === "textFont" && item.variantName.startsWith("font-size-"))
             .sort((a, b) => a.resolvedValue - b.resolvedValue)
-            .reduce((acc, { variantName, resolvedValue }) => {
-                const size = variantName.replace("font-size-", "");
-                const { resolvedValue: lineHeight } = normalizedFigmaExport.find(item => {
-                    return item.variantName === `line-height-${size}`;
-                });
+            .reduce(
+                (acc, { variantName, resolvedValue }) => {
+                    const size = variantName.replace("font-size-", "");
+                    const { resolvedValue: lineHeight } = normalizedFigmaExport.find(item => {
+                        return item.variantName === `line-height-${size}`;
+                    });
 
-                return [
-                    ...acc,
+                    return [
+                        ...acc,
+                        [
+                            `--text-${size}: ${resolvedValue}px;`,
+                            `--text-${size}-leading: ${lineHeight}px;`,
+                            `--text-${size}-tracking: initial;`,
+                            `--text-${size}-weight: normal;`
+                        ]
+                    ];
+                },
+                [
                     [
-                        `--text-${size}: ${resolvedValue}px;`,
-                        `--text-${size}-leading: ${lineHeight}px;`,
-                        `--text-${size}-tracking: initial;`
+                        `--text-h1: var(--text-4xl);`,
+                        `--text-h1-leading: var(--text-4xl-leading);`,
+                        `--text-h1-tracking: var(--text-4xl-tracking);`,
+                        `--text-h1-weight: var(--font-weight-semibold);`
+                    ],
+                    [
+                        `--text-h2: var(--text-3xl);`,
+                        `--text-h2-leading: var(--text-3xl-leading);`,
+                        `--text-h2-tracking: var(--text-3xl-tracking);`,
+                        `--text-h2-weight: var(--font-weight-semibold);`
+                    ],
+                    [
+                        `--text-h3: var(--text-xxl);`,
+                        `--text-h3-leading: var(--text-xxl-leading);`,
+                        `--text-h3-tracking: var(--text-xxl-tracking);`,
+                        `--text-h3-weight: var(--font-weight-semibold);`
+                    ],
+                    [
+                        `--text-h4: 20px;`,
+                        `--text-h4-leading: 30px;`,
+                        `--text-h4-tracking: initial;`,
+                        `--text-h4-weight: var(--font-weight-semibold);`
+                    ],
+                    [
+                        `--text-h5: 16px;`,
+                        `--text-h5-leading: 20px;`,
+                        `--text-h5-tracking: initial;`,
+                        `--text-h5-weight: var(--font-weight-semibold);`
+                    ],
+                    [
+                        `--text-h6: 14px;`,
+                        `--text-h6-leading: 20px;`,
+                        `--text-h6-tracking: initial;`,
+                        `--text-h6-weight: var(--font-weight-semibold);`
                     ]
-                ];
-            }, []);
+                ]
+            );
 
         stylesScss = stylesScss.replace("{TEXT_SIZE}", textSize.flat().join("\n"));
     }

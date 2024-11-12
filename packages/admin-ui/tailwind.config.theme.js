@@ -129,6 +129,54 @@ module.exports = {
         }
     },
     fontSize: {
+        h1: [
+            "var(--text-h1)",
+            {
+                lineHeight: "var(--text-h1-leading)",
+                letterSpacing: "var(--text-h1-tracking)",
+                fontWeight: "var(--text-h1-weight)"
+            }
+        ],
+        h2: [
+            "var(--text-h2)",
+            {
+                lineHeight: "var(--text-h2-leading)",
+                letterSpacing: "var(--text-h2-tracking)",
+                fontWeight: "var(--text-h2-weight)"
+            }
+        ],
+        h3: [
+            "var(--text-h3)",
+            {
+                lineHeight: "var(--text-h3-leading)",
+                letterSpacing: "var(--text-h3-tracking)",
+                fontWeight: "var(--text-h3-weight)"
+            }
+        ],
+        h4: [
+            "var(--text-h4)",
+            {
+                lineHeight: "var(--text-h4-leading)",
+                letterSpacing: "var(--text-h4-tracking)",
+                fontWeight: "var(--text-h4-weight)"
+            }
+        ],
+        h5: [
+            "var(--text-h5)",
+            {
+                lineHeight: "var(--text-h5-leading)",
+                letterSpacing: "var(--text-h5-tracking)",
+                fontWeight: "var(--text-h5-weight)"
+            }
+        ],
+        h6: [
+            "var(--text-h6)",
+            {
+                lineHeight: "var(--text-h6-leading)",
+                letterSpacing: "var(--text-h6-tracking)",
+                fontWeight: "var(--text-h6-weight)"
+            }
+        ],
         "3xl": [
             "var(--text-3xl)",
             {

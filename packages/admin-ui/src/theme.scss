@@ -189,26 +189,57 @@
     --text-success-subtle: 170, 57.1%, 91.8%;
 
     // Text size.
+    --text-h1: var(--text-4xl);
+    --text-h1-leading: var(--text-4xl-leading);
+    --text-h1-tracking: var(--text-4xl-tracking);
+    --text-h1-weight: var(--font-weight-semibold);
+    --text-h2: var(--text-3xl);
+    --text-h2-leading: var(--text-3xl-leading);
+    --text-h2-tracking: var(--text-3xl-tracking);
+    --text-h2-weight: var(--font-weight-semibold);
+    --text-h3: var(--text-xxl);
+    --text-h3-leading: var(--text-xxl-leading);
+    --text-h3-tracking: var(--text-xxl-tracking);
+    --text-h3-weight: var(--font-weight-semibold);
+    --text-h4: 20px;
+    --text-h4-leading: 30px;
+    --text-h4-tracking: initial;
+    --text-h4-weight: var(--font-weight-semibold);
+    --text-h5: 16px;
+    --text-h5-leading: 20px;
+    --text-h5-tracking: initial;
+    --text-h5-weight: var(--font-weight-semibold);
+    --text-h6: 14px;
+    --text-h6-leading: 20px;
+    --text-h6-tracking: initial;
+    --text-h6-weight: var(--font-weight-semibold);
     --text-sm: 12px;
     --text-sm-leading: 16px;
     --text-sm-tracking: initial;
+    --text-sm-weight: normal;
     --text-md: 14px;
     --text-md-leading: 20px;
     --text-md-tracking: initial;
+    --text-md-weight: normal;
     --text-lg: 16px;
     --text-lg-leading: 22px;
     --text-lg-tracking: initial;
+    --text-lg-weight: normal;
     --text-xl: 20px;
     --text-xl-leading: 30px;
     --text-xl-tracking: initial;
+    --text-xl-weight: normal;
     --text-xxl: 30px;
     --text-xxl-leading: 38px;
     --text-xxl-tracking: initial;
+    --text-xxl-weight: normal;
     --text-3xl: 36px;
     --text-3xl-leading: 44px;
     --text-3xl-tracking: initial;
+    --text-3xl-weight: normal;
     --text-4xl: 48px;
     --text-4xl-leading: 60px;
     --text-4xl-tracking: initial;
+    --text-4xl-weight: normal;
   }
 }

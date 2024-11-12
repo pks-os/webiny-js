@@ -64,26 +64,40 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
             },
             { ...DEFAULTS.COLORS }
         ),
-        fontSize: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
-            if (type === "textFont") {
-                if (!variantName.startsWith("font-size-")) {
+        fontSize: normalizedFigmaExport.reduce(
+            (acc, { type, variantName }) => {
+                if (type === "textFont") {
+                    if (!variantName.startsWith("font-size-")) {
+                        return acc;
+                    }
+
+                    const size = variantName.replace("font-size-", "");
+                    acc[size] = [
+                        `var(--text-${size})`,
+                        {
+                            lineHeight: `var(--text-${size}-leading)`,
+                            letterSpacing: `var(--text-${size}-tracking)`
+                        }
+                    ];
+
                     return acc;
                 }
 
-                const size = variantName.replace("font-size-", "");
-                acc[size] = [
-                    `var(--text-${size})`,
+                return acc;
+            },
+            // On top of what will be imported from Figma, we also add the default heading sizes.
+            [1, 2, 3, 4, 5, 6].reduce((acc, lvl) => {
+                acc[`h${lvl}`] = [
+                    `var(--text-h${lvl})`,
                     {
-                        lineHeight: `var(--text-${size}-leading)`,
-                        letterSpacing: `var(--text-${size}-tracking)`
+                        lineHeight: `var(--text-h${lvl}-leading)`,
+                        letterSpacing: `var(--text-h${lvl}-tracking)`,
+                        fontWeight: `var(--text-h${lvl}-weight)`
                     }
                 ];
-
                 return acc;
-            }
-
-            return acc;
-        }, {}),
+            }, {})
+        ),
         fontWeight: normalizedFigmaExport.reduce((acc, { type, variantName }) => {
             if (type === "textFont") {
                 if (!variantName.startsWith("font-weight-")) {

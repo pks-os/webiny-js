@@ -1,13 +1,17 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tooltip, TooltipProvider } from "./Tooltip";
+import { Tooltip } from "./Tooltip";
 
 const meta: Meta<typeof Tooltip> = {
     title: "Components/Tooltip",
     component: Tooltip,
     tags: ["autodocs"],
     argTypes: {
+        variant: {
+            control: "select",
+            options: ["accent", "subtle"]
+        },
         align: {
             control: "select",
             options: ["start", "center", "end"]
@@ -15,15 +19,19 @@ const meta: Meta<typeof Tooltip> = {
         side: {
             control: "select",
             options: ["top", "right", "bottom", "left"]
+        },
+        showArrow: {
+            control: "boolean",
+            defaultValue: true
         }
     },
     decorators: [
         Story => (
-            <TooltipProvider>
+            <Tooltip.Provider>
                 <div className="flex justify-center items-center h-48">
                     <Story />
                 </div>
-            </TooltipProvider>
+            </Tooltip.Provider>
         )
     ]
 };

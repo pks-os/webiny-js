@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Label } from "./Label";
-import { TooltipProvider } from "~/Tooltip";
+import { Tooltip } from "~/Tooltip";
 
 const meta: Meta<typeof Label> = {
     title: "Components/Label",
@@ -10,11 +10,11 @@ const meta: Meta<typeof Label> = {
     tags: ["autodocs"],
     decorators: [
         Story => (
-            <TooltipProvider>
+            <Tooltip.Provider>
                 <div className="flex justify-center items-center h-48">
                     <Story />
                 </div>
-            </TooltipProvider>
+            </Tooltip.Provider>
         )
     ]
 };

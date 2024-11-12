@@ -39,18 +39,21 @@ module.exports = {
         borderWidth,
         fill,
         fontSize,
-        margin,
-        padding,
         ringColor,
         ringWidth,
         shadow,
-        spacing,
         textColor,
 
         fontFamily: {
             sans: ["var(--font-sans)", ...fontFamily.sans],
             serif: ["var(--font-serif)", ...fontFamily.serif],
             mono: ["var(--font-mono)", ...fontFamily.mono]
+        },
+
+        extend: {
+            margin,
+            padding,
+            spacing
         }
     },
 

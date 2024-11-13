@@ -1,0 +1,111 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { Alert } from "./Alert";
+import React from "react";
+
+const meta: Meta<typeof Alert> = {
+    title: "Components/Alert",
+    component: Alert,
+    tags: ["autodocs"],
+    argTypes: {},
+    decorators: [
+        Story => (
+            <div className="w-[700px]">
+                <Story />
+            </div>
+        )
+    ]
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Alert>;
+
+export const Default: Story = {
+    args: {
+        children: "This is an alert. Play around with different properties to see how it looks."
+    },
+    argTypes: {
+        type: {
+            control: "select",
+            options: ["info", "success", "warning", "danger"]
+        },
+        variant: {
+            control: "select",
+            options: ["strong", "subtle"]
+        }
+    }
+};
+
+export const Info: Story = {
+    args: {
+        ...Default.args,
+        type: "info",
+        children:
+            "This type of notification is suitable for general usage where there’s no need for accent."
+    }
+};
+
+export const InfoStrong: Story = {
+    name: "Info (strong)",
+    args: {
+        ...Info.args,
+        variant: "strong",
+        children:
+            "This type of notification is suitable for general usage where there is a need for strong accent."
+    }
+};
+
+export const Success: Story = {
+    args: {
+        ...Default.args,
+        type: "success",
+        children:
+            "This is a success alert, used when something occurred successfully."
+    }
+};
+
+export const SuccessStrong: Story = {
+    name: "Success (strong)",
+    args: {
+        ...Success.args,
+        variant: "strong",
+        children:
+            "This is a success alert, used when something occurred successfully and needs to be prominent."
+    }
+};
+
+export const Warning: Story = {
+    args: {
+        ...Default.args,
+        children:
+            "This is a warning alert, used when something of strong relevance needs to be communicated.",
+        type: "warning"
+    }
+};
+
+export const WarningStrong: Story = {
+    name: "Warning (strong)",
+    args: {
+        ...Warning.args,
+        children:
+            "This is a warning alert, used when something of strong relevance needs to be communicated.",
+        variant: "strong"
+    }
+};
+
+export const Danger: Story = {
+    args: {
+        ...Default.args,
+        children:
+            "This is a danger alert, used when something critical needs to be prominently communicated.",
+        type: "danger"
+    }
+};
+
+export const DangerStrong: Story = {
+    name: "Danger (strong)",
+    args: {
+        ...Danger.args,
+        variant: "strong"
+    }
+};

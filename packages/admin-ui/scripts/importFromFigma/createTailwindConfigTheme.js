@@ -52,7 +52,7 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
                     const [color, variant] = variantName.split("-");
                     if (!acc[color]) {
                         acc[color] = {
-                            DEFAULT: `hsl(var(--fill-${color}-default))`
+                            DEFAULT: `hsl(var(--fill-${color}))`
                         };
                     }
 

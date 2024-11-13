@@ -5,7 +5,7 @@ import { cn } from "~/utils";
 
 type TextTags = "span" | "div";
 
-const textVariants = cva("font-sans font-normal", {
+const textVariants = cva("font-sans", {
     variants: {
         size: {
             xl: "text-xl",

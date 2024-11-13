@@ -20,6 +20,19 @@ const columnVariants = cva("", {
             11: "col-span-11",
             12: "col-span-12"
         },
+        offset: {
+            1: "col-start-2",
+            2: "col-start-3",
+            3: "col-start-4",
+            4: "col-start-5",
+            5: "col-start-6",
+            6: "col-start-7",
+            7: "col-start-8",
+            8: "col-start-9",
+            9: "col-start-10",
+            10: "col-start-11",
+            11: "col-start-12"
+        },
         align: {
             top: "self-start",
             middle: "self-center",
@@ -34,57 +47,36 @@ const columnVariants = cva("", {
 interface ColumnProps
     extends React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof columnVariants> {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
-const ColumnBase = React.forwardRef<HTMLDivElement, ColumnProps>(
-    ({ span, align, children, className, ...props }, ref) => {
+const ColBase = React.forwardRef<HTMLDivElement, ColumnProps>(
+    ({ span, align, children, className, offset, ...props }, ref) => {
         return (
-            <div {...props} className={cn(columnVariants({ span, align, className }))} ref={ref}>
+            <div
+                {...props}
+                className={cn(columnVariants({ span, offset, align, className }))}
+                ref={ref}
+            >
                 {children}
             </div>
         );
     }
 );
 
-ColumnBase.displayName = "Column";
+ColBase.displayName = "Col";
 
-const Column = makeDecoratable("Column", ColumnBase);
+const Col = makeDecoratable("Col", ColBase);
 
 const gridVariants = cva("grid", {
     variants: {
-        columns: {
-            1: "grid-cols-1",
-            2: "grid-cols-2",
-            3: "grid-cols-3",
-            4: "grid-cols-4",
-            5: "grid-cols-5",
-            6: "grid-cols-6",
-            7: "grid-cols-7",
-            8: "grid-cols-8",
-            9: "grid-cols-9",
-            10: "grid-cols-10",
-            11: "grid-cols-11",
-            12: "grid-cols-12"
-        },
         gap: {
-            1: "gap-1",
-            2: "gap-2",
-            3: "gap-3",
-            4: "gap-4",
-            5: "gap-5",
-            6: "gap-6",
-            7: "gap-7",
-            8: "gap-8",
-            9: "gap-9",
-            10: "gap-10",
-            11: "gap-11",
-            12: "gap-12"
+            comfortable: "px-xl gap-lg",
+            spacious: "px-xxl gap-xl"
         }
     },
     defaultVariants: {
-        columns: 12,
-        gap: 4
+        gap: "comfortable"
     }
 });
 
@@ -92,14 +84,18 @@ interface GridProps
     extends React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof gridVariants> {
     children:
-        | React.ReactElement<ColumnProps, typeof Column>
-        | Array<React.ReactElement<ColumnProps, typeof Column>>;
+        | React.ReactElement<ColumnProps, typeof Col>
+        | Array<React.ReactElement<ColumnProps, typeof Col>>;
 }
 
 const GridBase = React.forwardRef<HTMLDivElement, GridProps>(
-    ({ columns, gap, children, className, ...props }, ref) => {
+    ({ gap, children, className, ...props }, ref) => {
         return (
-            <div {...props} className={cn(gridVariants({ columns, gap, className }))} ref={ref}>
+            <div
+                {...props}
+                className={cn("grid-cols-12", gridVariants({ gap }), className)}
+                ref={ref}
+            >
                 {children}
             </div>
         );
@@ -110,6 +106,6 @@ GridBase.displayName = "Grid";
 
 const DecoratableGrid = makeDecoratable("Grid", GridBase);
 
-const Grid = withStaticProps(DecoratableGrid, { Column });
+const Grid = withStaticProps(DecoratableGrid, { Col });
 
 export { Grid, type GridProps, type ColumnProps };

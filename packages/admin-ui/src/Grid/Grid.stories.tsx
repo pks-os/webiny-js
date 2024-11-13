@@ -13,39 +13,76 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
+const StyledCol = ({ ...props }) => (
+    <Grid.Col className="bg-primary text-neutral-light p-2 text-md rounded-sm" {...props} />
+);
+
 export const Default: Story = {
     args: {
-        gap: 2,
+        className: "bg-neutral-light p-4",
         children: (
             <>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 1</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"} span={3}>
-                    Column 2 with <code>span</code> set to <code>3</code>
-                </Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 3</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 4</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 5</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 6</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"} span={2}>
-                    Column 7 with <code>span</code> set to <code>2</code>
-                </Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 8</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 9</Grid.Column>
+                <StyledCol>Col 1</StyledCol>
+                <StyledCol span={3}>
+                    Col 2 (<code>span: 3</code>)
+                </StyledCol>
+                <StyledCol>Col 3</StyledCol>
+                <StyledCol>Col 4</StyledCol>
+                <StyledCol>Col 5</StyledCol>
+                <StyledCol>Col 6</StyledCol>
+                <StyledCol span={2}>
+                    Col 7 (<code>span: 2</code>)
+                </StyledCol>
+                <StyledCol>Col 8</StyledCol>
+                <StyledCol>Col 9</StyledCol>
             </>
         )
     }
 };
 
-export const DifferentNumberOfColumns: Story = {
+export const SpaciousGap: Story = {
     args: {
-        columns: 4,
-        gap: 2,
+        ...Default.args,
+        gap: "spacious"
+    }
+};
+
+export const WithOffset: Story = {
+    parameters: {
+        layout: "padded"
+    },
+    decorators: [
+        Story => (
+            <div className="w-full">
+                <Story />
+            </div>
+        )
+    ],
+    args: {
+        ...Default.args,
         children: (
             <>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 1</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 2</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 3</Grid.Column>
-                <Grid.Column className={"bg-muted rounded p-2"}>Column 4</Grid.Column>
+                {/* Row 1 */}
+                <StyledCol span={8} offset={2}>
+                    Col (<code>span: 8</code>, <code>offset: 2</code>)
+                </StyledCol>
+                <Grid.Col span={2} />
+
+                {/* Row 2 */}
+                <StyledCol span={8} offset={4}>
+                    Col (<code>span: 8</code>, <code>offset: 4</code>)
+                </StyledCol>
+
+                {/* Row 3 */}
+                <StyledCol span={10} offset={1}>
+                    Col (<code>span: 10</code>, <code>offset: 1</code>)
+                </StyledCol>
+                <Grid.Col span={1} />
+
+                {/* Row 4 */}
+                <StyledCol span={12}>
+                    Col (<code>span: 12</code>)
+                </StyledCol>
             </>
         )
     }

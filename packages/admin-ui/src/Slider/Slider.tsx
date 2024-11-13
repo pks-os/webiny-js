@@ -20,7 +20,10 @@ const DecoratableSliderRoot = React.forwardRef<
     <SliderPrimitive.Root
         ref={ref}
         className={cn(
-            "relative flex w-full touch-none select-none items-center cursor-pointer data-[disabled]:cursor-auto",
+            [
+                "relative flex w-full touch-none select-none items-center cursor-pointer",
+                "data-[disabled]:cursor-not-allowed"
+            ],
             className
         )}
         {...props}
@@ -35,8 +38,20 @@ const SliderRoot = makeDecoratable("SliderRoot", DecoratableSliderRoot);
  * Slider Track
  */
 const DecoratableSliderTrack = () => (
-    <SliderPrimitive.Track className="relative h-xxs w-full grow overflow-hidden rounded-full bg-neutral-strong data-[disabled]:bg-neutral-muted">
-        <SliderPrimitive.Range className="absolute h-full bg-primary-default data-[disabled]:bg-primary-disabled" />
+    <SliderPrimitive.Track
+        className={cn(
+            "relative h-0.5 w-full grow overflow-hidden rounded-full",
+            "bg-neutral-strong",
+            "data-[disabled]:bg-neutral-muted"
+        )}
+    >
+        <SliderPrimitive.Range
+            className={cn([
+                "absolute h-full",
+                "bg-primary-default",
+                "data-[disabled]:bg-primary-disabled"
+            ])}
+        />
     </SliderPrimitive.Track>
 );
 
@@ -46,7 +61,7 @@ const SliderTrack = makeDecoratable("SliderTrack", DecoratableSliderTrack);
  * Slider Tooltip
  */
 const sliderTooltipVariants = cva(
-    "bg-neutral-muted px-xs-plus py-xxs rounded-sm absolute left-1/2 -translate-x-1/2",
+    ["px-xs-plus py-xxs rounded-sm absolute left-1/2 -translate-x-1/2", "bg-neutral-muted"],
     {
         variants: {
             side: {
@@ -73,7 +88,7 @@ const DecoratableSliderTooltip = ({ value, showTooltip, tooltipSide }: SliderToo
 
     return (
         <div className={cn(sliderTooltipVariants({ side: tooltipSide }))}>
-            <Text text={value} size={"sm"} />
+            <Text text={value} size={"sm"} as={"div"} />
         </div>
     );
 };
@@ -86,7 +101,15 @@ const SliderTooltip = makeDecoratable("SliderTooltip", DecoratableSliderTooltip)
 type SliderThumbVm = SliderTooltipProps;
 
 const DecoratableSliderThumb = ({ value, showTooltip, tooltipSide }: SliderThumbVm) => (
-    <SliderPrimitive.Thumb className="inline-block mt-xs-plus h-md w-md rounded-xxl border-md border-white bg-primary-default transition-colors outline-none hover:bg-primary-strong active:bg-primary-default data-[disabled]:pointer-events-none data-[disabled]:bg-primary-disabled">
+    <SliderPrimitive.Thumb
+        className={cn(
+            "inline-block w-4 h-4 mt-xs-plus rounded-xxl border-md transition-colors outline-none",
+            "bg-primary-default border-white",
+            "hover:bg-primary-strong",
+            "active:bg-primary-default",
+            "data-[disabled]:pointer-events-none data-[disabled]:bg-primary-disabled"
+        )}
+    >
         <SliderTooltip showTooltip={showTooltip} value={value} tooltipSide={tooltipSide} />
     </SliderPrimitive.Thumb>
 );

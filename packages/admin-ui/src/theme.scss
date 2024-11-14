@@ -7,66 +7,72 @@
 @layer base {
   :root {
     // Background colors.
-    --bg-destructive-default: 0, 71%, 48.6%;
-    --bg-destructive-disabled: 1, 83.2%, 76.7%;
-    --bg-destructive-muted: 0, 66.3%, 62.7%;
-    --bg-destructive-strong: 0, 76.4%, 38.2%;
-    --bg-destructive-subtle: 0, 100%, 96.9%;
-    --bg-destructive-xstrong: 0, 83.6%, 21.6%;
+    --bg-destructive-default: 0 71% 48.6%;
+    --bg-destructive-disabled: 1 83.2% 76.7%;
+    --bg-destructive-muted: 0 66.3% 62.7%;
+    --bg-destructive-strong: 0 76.4% 38.2%;
+    --bg-destructive-subtle: 0 100% 96.9%;
+    --bg-destructive-xstrong: 0 83.6% 21.6%;
 
-    --bg-neutral-base: 0, 0%, 100%;
-    --bg-neutral-dark: 214, 12.3%, 11.2%;
-    --bg-neutral-dimmed: 220, 11.1%, 94.7%;
-    --bg-neutral-disabled: 220, 11.1%, 94.7%;
-    --bg-neutral-light: 210, 14.3%, 97.3%;
-    --bg-neutral-muted: 225, 16.7%, 90.6%;
-    --bg-neutral-strong: 219, 12.1%, 77.3%;
-    --bg-neutral-subtle: 180, 11.1%, 98.2%;
-    --bg-neutral-xstrong: 213, 10.1%, 38.8%;
+    --bg-neutral-base: 0 0% 100%;
+    --bg-neutral-base-a1: 0 0% 100%;
+    --bg-neutral-base-a2: 0 0% 100%;
+    --bg-neutral-dark: 214 12.3% 11.2%;
+    --bg-neutral-dark-a50: 214 12.3% 11.2%;
+    --bg-neutral-dimmed: 220 11.1% 94.7%;
+    --bg-neutral-dimmed-a1: 214 12.3% 11.2%;
+    --bg-neutral-disabled: 220 11.1% 94.7%;
+    --bg-neutral-light: 210 14.3% 97.3%;
+    --bg-neutral-muted: 225 16.7% 90.6%;
+    --bg-neutral-muted-a1: 214 12.3% 11.2%;
+    --bg-neutral-strong: 219 12.1% 77.3%;
+    --bg-neutral-subtle: 180 11.1% 98.2%;
+    --bg-neutral-xstrong: 213 10.1% 38.8%;
 
-    --bg-primary-default: 15, 95.6%, 55.9%;
-    --bg-primary-disabled: 14, 94.7%, 77.8%;
-    --bg-primary-muted: 14, 94.7%, 77.8%;
-    --bg-primary-strong: 14, 94.1%, 40%;
-    --bg-primary-subtle: 5, 100%, 97.5%;
-    --bg-primary-xstrong: 14, 100%, 25.5%;
+    --bg-primary-default: 15 95.6% 55.9%;
+    --bg-primary-disabled: 14 94.7% 77.8%;
+    --bg-primary-muted: 14 94.7% 77.8%;
+    --bg-primary-strong: 14 94.1% 40%;
+    --bg-primary-subtle: 5 100% 97.5%;
+    --bg-primary-xstrong: 14 100% 25.5%;
 
-    --bg-secondary-default: 170, 100%, 37.5%;
-    --bg-secondary-disabled: 169, 59.8%, 64.9%;
-    --bg-secondary-muted: 169, 59.8%, 64.9%;
-    --bg-secondary-strong: 165, 100%, 28.6%;
-    --bg-secondary-subtle: 170, 57.1%, 91.8%;
-    --bg-secondary-xstrong: 160, 100%, 14.5%;
+    --bg-secondary-default: 170 100% 37.5%;
+    --bg-secondary-disabled: 169 59.8% 64.9%;
+    --bg-secondary-muted: 169 59.8% 64.9%;
+    --bg-secondary-strong: 165 100% 28.6%;
+    --bg-secondary-subtle: 170 57.1% 91.8%;
+    --bg-secondary-xstrong: 160 100% 14.5%;
 
-    --bg-success-default: 170, 100%, 37.5%;
-    --bg-success-disabled: 168, 58.1%, 79.4%;
-    --bg-success-muted: 169, 59.8%, 64.9%;
-    --bg-success-strong: 165, 100%, 28.6%;
-    --bg-success-subtle: 170, 57.1%, 91.8%;
-    --bg-success-xstrong: 160, 100%, 14.5%;
+    --bg-success-default: 170 100% 37.5%;
+    --bg-success-disabled: 168 58.1% 79.4%;
+    --bg-success-muted: 169 59.8% 64.9%;
+    --bg-success-strong: 165 100% 28.6%;
+    --bg-success-subtle: 170 57.1% 91.8%;
+    --bg-success-xstrong: 160 100% 14.5%;
 
-    --bg-warning-default: 45, 95.7%, 63.7%;
-    --bg-warning-disabled: 45, 96.9%, 87.5%;
-    --bg-warning-muted: 45, 95.1%, 75.9%;
-    --bg-warning-strong: 45, 100%, 37.3%;
-    --bg-warning-subtle: 43, 100%, 96.5%;
-    --bg-warning-xstrong: 45, 98.2%, 21.6%;
+    --bg-warning-default: 45 95.7% 63.7%;
+    --bg-warning-disabled: 45 96.9% 87.5%;
+    --bg-warning-muted: 45 95.1% 75.9%;
+    --bg-warning-strong: 45 100% 37.3%;
+    --bg-warning-subtle: 43 100% 96.5%;
+    --bg-warning-xstrong: 45 98.2% 21.6%;
 
     // Border color.
-    --border-accent-default: 15, 95.6%, 55.9%;
-    --border-accent-dimmed: 15, 94.2%, 86.5%;
-    --border-accent-subtle: 5, 100%, 97.5%;
+    --border-accent-default: 15 95.6% 55.9%;
+    --border-accent-dimmed: 15 94.2% 86.5%;
+    --border-accent-subtle: 5 100% 97.5%;
 
-    --border-destructive-default: 0, 71%, 48.6%;
+    --border-destructive-default: 0 71% 48.6%;
 
-    --border-neutral-black: 214, 12.3%, 11.2%;
-    --border-neutral-dark: 215, 9.6%, 51%;
-    --border-neutral-dimmed: 220, 11.1%, 94.7%;
-    --border-neutral-muted: 219, 12.1%, 77.3%;
-    --border-neutral-strong: 218, 10.7%, 65.3%;
-    --border-neutral-subtle: 210, 14.3%, 97.3%;
+    --border-neutral-base: 0 0% 100%;
+    --border-neutral-black: 214 12.3% 11.2%;
+    --border-neutral-dark: 215 9.6% 51%;
+    --border-neutral-dimmed: 220 11.1% 94.7%;
+    --border-neutral-muted: 219 12.1% 77.3%;
+    --border-neutral-strong: 218 10.7% 65.3%;
+    --border-neutral-subtle: 210 14.3% 97.3%;
 
-    --border-success-default: 170, 100%, 37.5%;
+    --border-success-default: 170 100% 37.5%;
 
     // Border radius.
     --radius-lg: 16px;
@@ -82,19 +88,19 @@
     --border-width-sm: 1px;
 
     // Fill.
-    --fill-accent-default: 15, 95.6%, 55.9%;
+    --fill-accent-default: 15 95.6% 55.9%;
 
-    --fill-destructive: 0, 71%, 48.6%;
+    --fill-destructive: 0 71% 48.6%;
 
-    --fill-neutral-base: 0, 0%, 100%;
-    --fill-neutral-dark: 215, 11.1%, 21.2%;
-    --fill-neutral-disabled: 219, 12.1%, 77.3%;
-    --fill-neutral-strong: 218, 10.7%, 65.3%;
-    --fill-neutral-xstrong: 213, 10.1%, 38.8%;
+    --fill-neutral-base: 0 0% 100%;
+    --fill-neutral-dark: 215 11.1% 21.2%;
+    --fill-neutral-disabled: 219 12.1% 77.3%;
+    --fill-neutral-strong: 218 10.7% 65.3%;
+    --fill-neutral-xstrong: 213 10.1% 38.8%;
 
-    --fill-success: 170, 100%, 37.5%;
+    --fill-success: 170 100% 37.5%;
 
-    --fill-warning: 45, 95.7%, 63.7%;
+    --fill-warning: 45 95.7% 63.7%;
 
     // Font.
     --font-sans: "Inter", sans-serif;
@@ -120,7 +126,7 @@
     // Padding.
     --padding-lg: 24px;
     --padding-md: 16px;
-    --padding-md-plus: 20px;
+    --padding-md-extra: 20px;
     --padding-none: 0px;
     --padding-sm: 8px;
     --padding-sm-extra: 12px;
@@ -132,13 +138,13 @@
     --padding-xxs: 2px;
 
     // Ring color.
-    --ring-primary-dimmed: 15, 94.2%, 86.5%;
-    --ring-primary-strong: 15, 95.6%, 55.9%;
-    --ring-primary-subtle: 5, 100%, 97.5%;
+    --ring-primary-dimmed: 15 94.2% 86.5%;
+    --ring-primary-strong: 15 95.6% 55.9%;
+    --ring-primary-subtle: 5 100% 97.5%;
 
-    --ring-success-dimmed: 170, 57.1%, 91.8%;
-    --ring-success-strong: 170, 100%, 37.5%;
-    --ring-success-subtle: 168, 50%, 96.1%;
+    --ring-success-dimmed: 170 57.1% 91.8%;
+    --ring-success-strong: 170 100% 37.5%;
+    --ring-success-subtle: 168 50% 96.1%;
 
     // Ring width.
     --ring-width-lg: 4px;
@@ -169,24 +175,24 @@
     --spacing-xxs: 2px;
 
     // Text color.
-    --text-accent-muted: 14, 94.7%, 77.8%;
-    --text-accent-primary: 15, 95.6%, 55.9%;
-    --text-accent-subtle: 5, 100%, 97.5%;
+    --text-accent-muted: 14 94.7% 77.8%;
+    --text-accent-primary: 15 95.6% 55.9%;
+    --text-accent-subtle: 5 100% 97.5%;
 
-    --text-destructive-muted: 1, 83.2%, 76.7%;
-    --text-destructive-primary: 0, 71%, 48.6%;
-    --text-destructive-subtle: 0, 100%, 96.9%;
+    --text-destructive-muted: 1 83.2% 76.7%;
+    --text-destructive-primary: 0 71% 48.6%;
+    --text-destructive-subtle: 0 100% 96.9%;
 
-    --text-neutral-dimmed: 219, 12.1%, 77.3%;
-    --text-neutral-disabled: 219, 12.1%, 77.3%;
-    --text-neutral-light: 0, 0%, 100%;
-    --text-neutral-muted: 218, 10.7%, 65.3%;
-    --text-neutral-primary: 214, 12.3%, 11.2%;
-    --text-neutral-strong: 213, 10.1%, 38.8%;
+    --text-neutral-dimmed: 219 12.1% 77.3%;
+    --text-neutral-disabled: 219 12.1% 77.3%;
+    --text-neutral-light: 0 0% 100%;
+    --text-neutral-muted: 218 10.7% 65.3%;
+    --text-neutral-primary: 214 12.3% 11.2%;
+    --text-neutral-strong: 213 10.1% 38.8%;
 
-    --text-success-muted: 169, 59.8%, 64.9%;
-    --text-success-primary: 170, 100%, 37.5%;
-    --text-success-subtle: 170, 57.1%, 91.8%;
+    --text-success-muted: 169 59.8% 64.9%;
+    --text-success-primary: 170 100% 37.5%;
+    --text-success-subtle: 170 57.1% 91.8%;
 
     // Text size.
     --text-h1: var(--text-4xl);

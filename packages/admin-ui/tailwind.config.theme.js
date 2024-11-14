@@ -75,6 +75,7 @@ module.exports = {
         },
         neutral: {
             DEFAULT: "hsl(var(--border-neutral-default))",
+            base: "hsl(var(--border-neutral-base))",
             black: "hsl(var(--border-neutral-black))",
             dark: "hsl(var(--border-neutral-dark))",
             dimmed: "hsl(var(--border-neutral-dimmed))",
@@ -248,7 +249,7 @@ module.exports = {
     padding: {
         lg: "var(--padding-lg)",
         md: "var(--padding-md)",
-        "md-plus": "var(--padding-md-plus)",
+        "md-extra": "var(--padding-md-extra)",
         none: "var(--padding-none)",
         sm: "var(--padding-sm)",
         "sm-extra": "var(--padding-sm-extra)",

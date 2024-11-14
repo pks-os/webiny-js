@@ -5,7 +5,15 @@ const createTailwindConfigTheme = normalizedFigmaExport => {
         backgroundColor: normalizedFigmaExport.reduce(
             (acc, { type, variantName }) => {
                 if (type === "backgroundColor") {
-                    const [color, variant] = variantName.split("-");
+                    // We don't need tokens that end with `-a{one or two numbers}` because they are used for
+                    // alpha colors. We don't need these because we can use the /alpha function in Tailwind CSS.
+                    const isColorWithAlpha = variantName.match(/^.*-a\d{1,2}$/);
+                    if (isColorWithAlpha) {
+                        return acc;
+                    }
+
+                    const [, color, variant] = variantName.match("(.*?)-(.*)");
+
                     if (!acc[color]) {
                         acc[color] = {
                             DEFAULT: `hsl(var(--bg-${color}-default))`

@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
     tags: ["autodocs"],
     // More on argTypes: https://storybook.js.org/docs/api/argtypes
     argTypes: {
-        variant: { control: "select", options: ["primary", "secondary", "tertiary", "ghost"] },
+        variant: { control: "select", options: ["primary", "secondary", "tertiary", "ghost", "ghost-negative"] },
         size: { control: "select", options: ["sm", "md", "lg", "xl"] },
         disabled: { control: "boolean" },
         text: { control: "text" },

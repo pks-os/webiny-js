@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "emotion";
+import { Alert as AdminUiAlert } from "@webiny/admin-ui";
 
 const alertStyles = css({
     borderLeft: "3px solid red",

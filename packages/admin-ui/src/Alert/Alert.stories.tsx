@@ -40,8 +40,12 @@ export const Info: Story = {
     args: {
         ...Default.args,
         type: "info",
-        children:
-            "This type of notification is suitable for general usage where there’s no need for accent."
+        children: (
+            <>
+                This type of notification is suitable for general usage where there’s no need for
+                accent. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        )
     }
 };
 
@@ -50,8 +54,12 @@ export const InfoStrong: Story = {
     args: {
         ...Info.args,
         variant: "strong",
-        children:
-            "This type of notification is suitable for general usage where there is a need for strong accent."
+        children: (
+            <>
+                This type of notification is suitable for general usage where there is a need for
+                strong accent. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        )
     }
 };
 
@@ -59,8 +67,12 @@ export const Success: Story = {
     args: {
         ...Default.args,
         type: "success",
-        children:
-            "This is a success alert, used when something occurred successfully."
+        children: (
+            <>
+                This is a success alert, used when something occurred successfully. And{" "}
+                <a href={"#"}>this thing here</a> is a short link.
+            </>
+        )
     }
 };
 
@@ -69,16 +81,24 @@ export const SuccessStrong: Story = {
     args: {
         ...Success.args,
         variant: "strong",
-        children:
-            "This is a success alert, used when something occurred successfully and needs to be prominent."
+        children: (
+            <>
+                This is a success alert, used when something occurred successfully and needs to be
+                prominent. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        )
     }
 };
 
 export const Warning: Story = {
     args: {
         ...Default.args,
-        children:
-            "This is a warning alert, used when something of strong relevance needs to be communicated.",
+        children: (
+            <>
+                This is a warning alert, used when something of strong relevance needs to be
+                communicated. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        ),
         type: "warning"
     }
 };
@@ -87,8 +107,12 @@ export const WarningStrong: Story = {
     name: "Warning (strong)",
     args: {
         ...Warning.args,
-        children:
-            "This is a warning alert, used when something of strong relevance needs to be communicated.",
+        children: (
+            <>
+                This is a warning alert, used when something of strong relevance needs to be
+                prominently communicated. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        ),
         variant: "strong"
     }
 };
@@ -96,8 +120,12 @@ export const WarningStrong: Story = {
 export const Danger: Story = {
     args: {
         ...Default.args,
-        children:
-            "This is a danger alert, used when something critical needs to be prominently communicated.",
+        children: (
+            <>
+                This is a danger alert, used when something critical needs to be communicated. And{" "}
+                <a href={"#"}>this thing here</a> is a short link.
+            </>
+        ),
         type: "danger"
     }
 };
@@ -106,6 +134,12 @@ export const DangerStrong: Story = {
     name: "Danger (strong)",
     args: {
         ...Danger.args,
+        children: (
+            <>
+                This is a danger alert, used when something critical needs to be prominently
+                communicated. And <a href={"#"}>this thing here</a> is a short link.
+            </>
+        ),
         variant: "strong"
     }
 };

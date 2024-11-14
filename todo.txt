@@ -1,0 +1,3 @@
+2. close button / onClose callback
+3. cta
+6. bc

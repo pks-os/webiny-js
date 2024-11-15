@@ -58,7 +58,7 @@ export const Ghost: Story = {
 export const GhostNegative: Story = {
     decorators: [
         Story => (
-            <div className="bg-[#25292e] p-[300px]">
+            <div className="bg-[#25292e] p-[300px] rounded-[5px]">
                 <Story />
             </div>
         )

@@ -27,7 +27,7 @@ const defaultVariants = {
 } as const;
 
 const alertVariants = cva(
-    "flex items-center w-full rounded-sm text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
+    "flex items-start w-full rounded-sm text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
     {
         variants,
         defaultVariants,
@@ -122,12 +122,12 @@ const AlertBase = React.forwardRef<HTMLDivElement, AlertProps>(
                 className={cn(alertVariants({ type, variant }), className)}
                 {...props}
             >
-                <div className={"shrink-0 self-stretch py-xs"}>
+                <div className={"shrink-0 py-xs"}>
                     <IconComponent className={alertIconVariants({ type, variant })} />
                 </div>
-                <span className={"flex-grow px-sm-plus"}>{children}</span>
+                <span className={"flex-grow px-sm-plus py-xxs"}>{children}</span>
                 {showCloseButton && (
-                    <div className={"shrink-0 self-stretch"}>
+                    <div className={"shrink-0"}>
                         <Button
                             onClick={onClose}
                             icon={<XIcon />}

@@ -28,6 +28,7 @@
     "@rmwc/menu": "^14.2.2",
     "@rmwc/radio": "^14.2.2",
     "@rmwc/select": "^14.2.2",
+    "@rmwc/switch": "^14.2.2",
     "@rmwc/textfield": "^14.2.2",
     "@rmwc/top-app-bar": "^14.2.2",
     "@rmwc/touch-target": "^14.2.2",

@@ -154,3 +154,15 @@ export const WithCloseButton: Story = {
         onClose: () => alert("Close button clicked.")
     }
 };
+
+export const WithAction: Story = {
+    name: "With action",
+    args: {
+        ...WithCloseButton.args,
+        children: <>An alert that can be closed and also has .</>,
+        showCloseButton: true,
+        actions: (
+            <Alert.Action text={"Button"} onClick={() => alert("Custom action button clicked.")} />
+        )
+    }
+};

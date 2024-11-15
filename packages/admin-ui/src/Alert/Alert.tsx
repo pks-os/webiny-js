@@ -1,6 +1,6 @@
 import * as React from "react";
-import { cva, type VariantProps, cn, makeDecoratable } from "~/utils";
-import { Button } from "~/Button";
+import { cva, type VariantProps, cn, makeDecoratable, withStaticProps } from "~/utils";
+import { Button, type ButtonProps } from "~/Button";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
 import { ReactComponent as WarningIcon } from "@material-design-icons/svg/outlined/warning_amber.svg";
 import { ReactComponent as SuccessIcon } from "@material-design-icons/svg/outlined/check_circle.svg";
@@ -109,39 +109,68 @@ export interface AlertProps
         VariantProps<typeof alertVariants> {
     showCloseButton?: boolean;
     onClose?: () => void;
+    actions?: React.ReactElement<typeof AlertAction>;
 }
 
+const AlertContext = React.createContext<Pick<AlertProps, "variant">>({});
+
+const AlertActionBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ className, ...props }, ref) => {
+        const { variant: alertVariant } = React.useContext(AlertContext);
+        return (
+            <Button
+                text={"Button"}
+                variant={alertVariant === 'strong' ? "secondary" : "tertiary"}
+                size={"sm"}
+                className={'mr-sm-plus'}
+                ref={ref}
+                {...props}
+            />
+        );
+    }
+);
+
+AlertActionBase.displayName = "AlertAction";
+
+const AlertAction = makeDecoratable("AlertAction", AlertActionBase);
+
 const AlertBase = React.forwardRef<HTMLDivElement, AlertProps>(
-    ({ className, type, variant, showCloseButton, onClose, children, ...props }, ref) => {
+    ({ className, type, variant, showCloseButton, onClose, actions, children, ...props }, ref) => {
         const IconComponent = VARIANT_ICON_MAP[type || "info"];
 
         return (
-            <div
-                ref={ref}
-                role="alert"
-                className={cn(alertVariants({ type, variant }), className)}
-                {...props}
-            >
-                <div className={"shrink-0 py-xs"}>
-                    <IconComponent className={alertIconVariants({ type, variant })} />
-                </div>
-                <span className={"flex-grow px-sm-plus py-xxs"}>{children}</span>
-                {showCloseButton && (
-                    <div className={"shrink-0"}>
+            <AlertContext.Provider value={{ variant }}>
+                <div
+                    ref={ref}
+                    role="alert"
+                    className={cn(alertVariants({ type, variant }), className)}
+                    {...props}
+                >
+                    <div className={"py-xs"}>
+                        <IconComponent className={alertIconVariants({ type, variant })} />
+                    </div>
+                    <div className={"flex-grow px-sm-plus py-xxs"}>{children}</div>
+                    {actions && <div>{actions}</div>}
+                    {showCloseButton && (
                         <Button
                             onClick={onClose}
                             icon={<XIcon />}
                             size={"sm"}
                             variant={closeButtonVariants({ type, variant })}
                         />
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
+            </AlertContext.Provider>
         );
     }
 );
+
 AlertBase.displayName = "Alert";
 
-const Alert = makeDecoratable("Alert", AlertBase);
+const DecoratableAvatar = makeDecoratable("AlertBase", AlertBase);
+
+const Alert = withStaticProps(DecoratableAvatar, {
+    Action: AlertAction
+});
 
 export { Alert };

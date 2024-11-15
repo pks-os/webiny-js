@@ -19,6 +19,7 @@ import { Extension } from "~/extensions/Extension";
 import { CliContext } from "@webiny/cli/types";
 import { Ora } from "ora";
 import { updateDependencies } from "./utils";
+import { setWebinyPackageVersions } from "~/utils/setWebinyPackageVersions";
 
 const EXTENSIONS_ROOT_FOLDER = "extensions";
 
@@ -114,6 +115,10 @@ export const generateExtension = async ({ input, ora, context }: GenerateExtensi
             location,
             packageName
         });
+
+        // Although we already have @webiny/* dependencies in generated extension's
+        // `package.json` file, we still need to ensure correct package versions are used.
+        await setWebinyPackageVersions(extension, context.version);
 
         await extension.link();
 

@@ -22,6 +22,7 @@ type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
     args: {
+        showCloseButton: true,
         children: "This is an alert. Play around with different properties to see how it looks."
     },
     argTypes: {
@@ -141,5 +142,15 @@ export const DangerStrong: Story = {
             </>
         ),
         variant: "strong"
+    }
+};
+
+export const WithCloseButton: Story = {
+    name: "With close button",
+    args: {
+        ...Default.args,
+        children: <>An alert that can be closed.</>,
+        showCloseButton: true,
+        onClose: () => alert("Close button clicked.")
     }
 };

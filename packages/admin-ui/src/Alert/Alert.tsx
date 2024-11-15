@@ -120,9 +120,9 @@ const AlertActionBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Button
                 text={"Button"}
-                variant={alertVariant === 'strong' ? "secondary" : "tertiary"}
+                variant={alertVariant === "strong" ? "secondary" : "tertiary"}
                 size={"sm"}
-                className={'mr-sm-plus'}
+                className={"mr-sm-plus"}
                 ref={ref}
                 {...props}
             />

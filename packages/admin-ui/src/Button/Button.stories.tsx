@@ -55,6 +55,20 @@ export const Ghost: Story = {
     }
 };
 
+export const GhostNegative: Story = {
+    decorators: [
+        Story => (
+            <div className="bg-[#25292e] p-[300px]">
+                <Story />
+            </div>
+        )
+    ],
+    args: {
+        ...Primary.args,
+        variant: "ghost-negative"
+    }
+};
+
 export const Small: Story = {
     args: {
         ...Primary.args,

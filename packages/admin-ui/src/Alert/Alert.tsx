@@ -27,7 +27,7 @@ const defaultVariants = {
 } as const;
 
 const alertVariants = cva(
-    "flex items-start w-full rounded-sm text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
+    "flex gap-sm-plus items-start w-full rounded-sm text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
     {
         variants,
         defaultVariants,
@@ -122,7 +122,6 @@ const AlertActionBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 text={"Button"}
                 variant={alertVariant === "strong" ? "secondary" : "tertiary"}
                 size={"sm"}
-                className={"mr-sm-plus"}
                 ref={ref}
                 {...props}
             />
@@ -149,7 +148,7 @@ const AlertBase = React.forwardRef<HTMLDivElement, AlertProps>(
                     <div className={"py-xs"}>
                         <IconComponent className={alertIconVariants({ type, variant })} />
                     </div>
-                    <div className={"flex-grow px-sm-plus py-xxs"}>{children}</div>
+                    <div className={"flex-grow py-xxs"}>{children}</div>
                     {actions && <div>{actions}</div>}
                     {showCloseButton && (
                         <Button

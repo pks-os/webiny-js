@@ -1,14 +1,14 @@
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { Switch } from "./Switch";
 
 const meta: Meta<typeof Switch> = {
     title: "Components/Switch",
     component: Switch,
     tags: ["autodocs"],
-    argTypes: {
-        // Note: after upgrading to Storybook 8.X, use `fn`from `@storybook/test` to spy on the onCheckedChange argument.
-        onCheckedChange: { action: "onCheckedChange" }
+    render: args => {
+        const [checked, setChecked] = useState(args.checked);
+        return <Switch {...args} checked={checked} onCheckedChange={value => setChecked(value)} />;
     }
 };
 
@@ -17,22 +17,14 @@ type Story = StoryObj<typeof Switch>;
 
 export const Default: Story = {};
 
-export const WithLabel: Story = {
+export const Checked: Story = {
     args: {
-        label: "Label"
+        checked: true
     }
 };
 
-export const WithLeadingLabel: Story = {
+export const Disabled: Story = {
     args: {
-        label: "Leading label",
-        labelPosition: "start"
-    }
-};
-
-export const WithTrailingLabel: Story = {
-    args: {
-        label: "Trailing label",
-        labelPosition: "end"
+        disabled: true
     }
 };

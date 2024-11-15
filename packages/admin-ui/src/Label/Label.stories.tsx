@@ -49,23 +49,40 @@ export const Required: Story = {
     }
 };
 
-export const Optional: Story = {
+export const WithDescription: Story = {
     args: {
         ...Default.args,
-        optional: true
+        description: "(description)"
     }
 };
 
-export const WithInfo: Story = {
+export const WithHint: Story = {
     args: {
         ...Default.args,
-        info: "An informative text"
+        hint: "This is an additional message in case context to this label needs to be added"
     }
 };
 
 export const WithValue: Story = {
     args: {
         ...Default.args,
+        value: 24
+    },
+    render: args => (
+        <div className="w-64">
+            <Label {...args} />
+        </div>
+    )
+};
+
+export const Disabled: Story = {
+    args: {
+        htmlFor: "test-field-disabled",
+        text: "Test label",
+        description: "(description)",
+        hint: "This is an additional message in case context to this label needs to be added",
+        required: true,
+        disabled: true,
         value: 24
     },
     render: args => (

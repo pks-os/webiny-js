@@ -1,56 +1,61 @@
 import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
-import { makeDecoratable } from "@webiny/react-composition";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn, generateId } from "~/utils";
-import { Label } from "~/Label";
+import { cn, makeDecoratable } from "~/utils";
+import { useSwitch } from "~/Switch/useSwitch";
 
-const switchVariants = cva("flex items-center space-x-2", {
-    variants: {
-        labelPosition: {
-            start: "",
-            end: "flex-row-reverse space-x-reverse "
-        }
-    },
-    defaultVariants: {
-        labelPosition: "start"
-    }
-});
+type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>;
 
-interface SwitchProps
-    extends React.ComponentPropsWithoutRef<typeof SwitchPrimitives.Root>,
-        VariantProps<typeof switchVariants> {
-    label: React.ReactNode;
+type SwitchVm = Omit<SwitchPrimitives.SwitchProps, "checked" | "disabled" | "onCheckedChange"> & {
+    checked: boolean;
+    disabled: boolean;
+};
+
+interface SwitchRendererProps {
+    switchVm: SwitchVm;
+    onCheckedChange: (checked: boolean) => void;
+    className?: string;
 }
+const DecoratableSwitchRenderer = React.forwardRef<
+    React.ElementRef<typeof SwitchPrimitives.Root>,
+    SwitchRendererProps
+>(({ switchVm, onCheckedChange, className }, ref) => {
+    return (
+        <SwitchPrimitives.Root
+            className={cn([
+                "peer inline-flex h-4 w-[26px] shrink-0 cursor-pointer items-center rounded-xxl border-sm transition-colors",
+                "border-transparent data-[state=checked]:bg-secondary-default data-[state=unchecked]:bg-neutral-strong",
+                "focus-visible:outline-none focus-visible:border-success-default focus-visible:ring-lg focus-visible:ring-primary-dimmed",
+                "disabled:cursor-not-allowed disabled:bg-neutral-muted disabled:data-[state=checked]:bg-neutral-muted",
+                className
+            ])}
+            onCheckedChange={onCheckedChange}
+            {...switchVm}
+            ref={ref}
+        >
+            <SwitchPrimitives.Thumb
+                className={cn(
+                    "pointer-events-none block h-2.5 w-2.5 rounded-xxl bg-neutral-base shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-3 data-[state=unchecked]:translate-x-0.5"
+                )}
+            />
+        </SwitchPrimitives.Root>
+    );
+});
+DecoratableSwitchRenderer.displayName = "SwitchRenderer";
 
-const SwitchBase = React.forwardRef<React.ElementRef<typeof SwitchPrimitives.Root>, SwitchProps>(
-    ({ id: initialId, className, label, labelPosition, ...props }, ref) => {
-        const id = React.useMemo(() => generateId(initialId), [initialId]);
+const SwitchRenderer = makeDecoratable("SwitchRenderer", DecoratableSwitchRenderer);
 
-        return (
-            <div className={cn(switchVariants({ labelPosition, className }))}>
-                {label && <Label text={label} htmlFor={id} />}
-                <SwitchPrimitives.Root
-                    className={cn(
-                        "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input"
-                    )}
-                    {...props}
-                    ref={ref}
-                    id={id}
-                    aria-label={React.isValidElement(label) ? "Switch" : String(label)}
-                >
-                    <SwitchPrimitives.Thumb
-                        className={cn(
-                            "pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0"
-                        )}
-                    />
-                </SwitchPrimitives.Root>
-            </div>
-        );
-    }
-);
-SwitchBase.displayName = SwitchPrimitives.Root.displayName;
+const DecoratableSwitch = (props: SwitchProps) => {
+    const { vm, changeValue } = useSwitch(props);
 
-const Switch = makeDecoratable("Switch", SwitchBase);
+    return (
+        <SwitchRenderer
+            switchVm={vm.switchVm}
+            onCheckedChange={changeValue}
+            className={props.className}
+        />
+    );
+};
 
-export { Switch, type SwitchProps };
+const Switch = makeDecoratable("Switch", DecoratableSwitch);
+
+export { Switch, type SwitchProps, type SwitchVm };

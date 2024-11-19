@@ -11,7 +11,7 @@ const createThemeScss = normalizedFigmaExport => {
             .filter(item => item.type === "backgroundColor")
             .map(variable => {
                 const [colorGroup] = variable.variantName.split("-");
-                const cssVar = `--bg-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+                const cssVar = `--bg-${variable.variantName}: ${variable.hsla.h} ${variable.hsla.s}% ${variable.hsla.l}%;`;
 
                 if (!currentBgColorGroup) {
                     currentBgColorGroup = colorGroup;
@@ -36,7 +36,7 @@ const createThemeScss = normalizedFigmaExport => {
             .filter(item => item.type === "borderColor")
             .map(variable => {
                 const [colorGroup] = variable.variantName.split("-");
-                const cssVar = `--border-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+                const cssVar = `--border-${variable.variantName}: ${variable.hsla.h} ${variable.hsla.s}% ${variable.hsla.l}%;`;
 
                 if (!currentBorderColor) {
                     currentBorderColor = colorGroup;
@@ -83,7 +83,7 @@ const createThemeScss = normalizedFigmaExport => {
             .filter(item => item.type === "fill")
             .map(variable => {
                 const [colorGroup] = variable.variantName.split("-");
-                const cssVar = `--fill-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+                const cssVar = `--fill-${variable.variantName}: ${variable.hsla.h} ${variable.hsla.s}% ${variable.hsla.l}%;`;
 
                 if (!currentFillColorGroup) {
                     currentFillColorGroup = colorGroup;
@@ -141,7 +141,7 @@ const createThemeScss = normalizedFigmaExport => {
             .filter(item => item.type === "ringColor")
             .map(variable => {
                 const [colorGroup] = variable.variantName.split("-");
-                const cssVar = `--ring-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+                const cssVar = `--ring-${variable.variantName}: ${variable.hsla.h} ${variable.hsla.s}% ${variable.hsla.l}%;`;
 
                 if (!currentRingColorGroup) {
                     currentRingColorGroup = colorGroup;
@@ -193,7 +193,7 @@ const createThemeScss = normalizedFigmaExport => {
             .filter(item => item.type === "textColor")
             .map(variable => {
                 const [colorGroup] = variable.variantName.split("-");
-                const cssVar = `--text-${variable.variantName}: ${variable.hsla.h}, ${variable.hsla.s}%, ${variable.hsla.l}%;`;
+                const cssVar = `--text-${variable.variantName}: ${variable.hsla.h} ${variable.hsla.s}% ${variable.hsla.l}%;`;
 
                 if (!currentTextColor) {
                     currentTextColor = colorGroup;

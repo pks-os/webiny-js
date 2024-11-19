@@ -37,6 +37,13 @@ const buttonVariants = cva(
                     "hover:bg-neutral-dimmed",
                     "active:bg-neutral-muted",
                     "disabled:text-neutral-disabled"
+                ],
+                "ghost-negative": [
+                    "text-neutral-light [&>svg]:fill-neutral-base",
+                    "hover:bg-neutral-base/20",
+                    "active:bg-neutral-base/30",
+                    "disabled:text-neutral-disabled",
+                    "focus-visible:!border-neutral-base"
                 ]
             },
             size: {

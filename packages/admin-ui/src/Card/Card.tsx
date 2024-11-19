@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "~/utils";
+import { cn, withStaticProps } from "~/utils";
 import { makeDecoratable } from "@webiny/react-composition";
 import { Heading } from "~/Heading";
 import { Text } from "~/Text";
@@ -171,6 +171,12 @@ const CardBase = (props: CardProps) => {
     );
 };
 
-const Card = makeDecoratable("Card", CardBase);
+const DecoratableCard = makeDecoratable("Card", CardBase);
 
-export { Card, CardHeader, CardContent, CardFooter, type CardProps };
+const Card = withStaticProps(DecoratableCard, {
+    Header: CardHeader,
+    Content: CardContent,
+    Footer: CardFooter
+});
+
+export { Card, type CardProps };

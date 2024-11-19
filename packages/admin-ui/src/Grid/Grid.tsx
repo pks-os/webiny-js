@@ -71,8 +71,8 @@ const Column = makeDecoratable("Col", ColumnBase);
 const gridVariants = cva("grid", {
     variants: {
         gap: {
-            comfortable: "px-xl gap-lg",
-            spacious: "px-xxl gap-xl"
+            comfortable: "gap-lg",
+            spacious: "gap-xl"
         }
     },
     defaultVariants: {

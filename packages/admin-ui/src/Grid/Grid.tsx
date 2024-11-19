@@ -50,7 +50,7 @@ interface ColumnProps
     children?: React.ReactNode;
 }
 
-const ColBase = React.forwardRef<HTMLDivElement, ColumnProps>(
+const ColumnBase = React.forwardRef<HTMLDivElement, ColumnProps>(
     ({ span, align, children, className, offset, ...props }, ref) => {
         return (
             <div
@@ -64,9 +64,9 @@ const ColBase = React.forwardRef<HTMLDivElement, ColumnProps>(
     }
 );
 
-ColBase.displayName = "Col";
+ColumnBase.displayName = "Col";
 
-const Col = makeDecoratable("Col", ColBase);
+const Column = makeDecoratable("Col", ColumnBase);
 
 const gridVariants = cva("grid", {
     variants: {
@@ -84,8 +84,8 @@ interface GridProps
     extends React.HTMLAttributes<HTMLDivElement>,
         VariantProps<typeof gridVariants> {
     children:
-        | React.ReactElement<ColumnProps, typeof Col>
-        | Array<React.ReactElement<ColumnProps, typeof Col>>;
+        | React.ReactElement<ColumnProps, typeof Column>
+        | Array<React.ReactElement<ColumnProps, typeof Column>>;
 }
 
 const GridBase = React.forwardRef<HTMLDivElement, GridProps>(
@@ -106,6 +106,6 @@ GridBase.displayName = "Grid";
 
 const DecoratableGrid = makeDecoratable("Grid", GridBase);
 
-const Grid = withStaticProps(DecoratableGrid, { Col });
+const Grid = withStaticProps(DecoratableGrid, { Column });
 
 export { Grid, type GridProps, type ColumnProps };

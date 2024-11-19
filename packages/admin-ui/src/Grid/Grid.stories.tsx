@@ -13,8 +13,8 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-const StyledCol = ({ ...props }) => (
-    <Grid.Col className="bg-primary text-neutral-light p-2 text-md rounded-sm" {...props} />
+const StyledColumn = ({ ...props }) => (
+    <Grid.Column className="bg-primary text-neutral-light p-2 text-md rounded-sm" {...props} />
 );
 
 export const Default: Story = {
@@ -22,19 +22,19 @@ export const Default: Story = {
         className: "bg-neutral-light p-4",
         children: (
             <>
-                <StyledCol>Col 1</StyledCol>
-                <StyledCol span={3}>
+                <StyledColumn>Col 1</StyledColumn>
+                <StyledColumn span={3}>
                     Col 2 (<code>span: 3</code>)
-                </StyledCol>
-                <StyledCol>Col 3</StyledCol>
-                <StyledCol>Col 4</StyledCol>
-                <StyledCol>Col 5</StyledCol>
-                <StyledCol>Col 6</StyledCol>
-                <StyledCol span={2}>
+                </StyledColumn>
+                <StyledColumn>Col 3</StyledColumn>
+                <StyledColumn>Col 4</StyledColumn>
+                <StyledColumn>Col 5</StyledColumn>
+                <StyledColumn>Col 6</StyledColumn>
+                <StyledColumn span={2}>
                     Col 7 (<code>span: 2</code>)
-                </StyledCol>
-                <StyledCol>Col 8</StyledCol>
-                <StyledCol>Col 9</StyledCol>
+                </StyledColumn>
+                <StyledColumn>Col 8</StyledColumn>
+                <StyledColumn>Col 9</StyledColumn>
             </>
         )
     }
@@ -63,26 +63,26 @@ export const WithOffset: Story = {
         children: (
             <>
                 {/* Row 1 */}
-                <StyledCol span={8} offset={2}>
+                <StyledColumn span={8} offset={2}>
                     Col (<code>span: 8</code>, <code>offset: 2</code>)
-                </StyledCol>
-                <Grid.Col span={2} />
+                </StyledColumn>
+                <Grid.Column span={2} />
 
                 {/* Row 2 */}
-                <StyledCol span={8} offset={4}>
+                <StyledColumn span={8} offset={4}>
                     Col (<code>span: 8</code>, <code>offset: 4</code>)
-                </StyledCol>
+                </StyledColumn>
 
                 {/* Row 3 */}
-                <StyledCol span={10} offset={1}>
+                <StyledColumn span={10} offset={1}>
                     Col (<code>span: 10</code>, <code>offset: 1</code>)
-                </StyledCol>
-                <Grid.Col span={1} />
+                </StyledColumn>
+                <Grid.Column span={1} />
 
                 {/* Row 4 */}
-                <StyledCol span={12}>
+                <StyledColumn span={12}>
                     Col (<code>span: 12</code>)
-                </StyledCol>
+                </StyledColumn>
             </>
         )
     }

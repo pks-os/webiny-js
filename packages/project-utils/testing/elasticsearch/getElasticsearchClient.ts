@@ -13,6 +13,7 @@ import { getDocumentClient, simulateStream } from "../dynamodb";
 import { PluginCollection } from "../environment";
 import { ElasticsearchContext } from "../../../api-elasticsearch/src/types";
 import { getElasticsearchIndexPrefix } from "../../../api-elasticsearch/src/indexPrefix";
+import { createMockApiLogContextPlugin } from "../mockApiLog";
 
 interface GetElasticsearchClientParams {
     name: string;
@@ -79,7 +80,11 @@ export class ElasticsearchClientConfig {
         });
 
         const dynamoDbHandler = createHandler({
-            plugins: [simulationContext, createDynamoDBToElasticsearchEventHandler()]
+            plugins: [
+                simulationContext,
+                createMockApiLogContextPlugin(),
+                createDynamoDBToElasticsearchEventHandler()
+            ]
         });
         simulateStream(documentClient, dynamoDbHandler);
 

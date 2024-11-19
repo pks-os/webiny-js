@@ -2,6 +2,7 @@ import { ContextPlugin } from "@webiny/api";
 import { HcmsBulkActionsContext } from "~/types";
 import { CmsGraphQLSchemaPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
 import { Response } from "@webiny/handler-graphql";
+import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants";
 
 export interface CreateBulkActionGraphQL {
     name: string;
@@ -10,17 +11,28 @@ export interface CreateBulkActionGraphQL {
 
 export const createBulkActionGraphQL = (config: CreateBulkActionGraphQL) => {
     return new ContextPlugin<HcmsBulkActionsContext>(async context => {
-        if (!(await isHeadlessCmsReady(context))) {
+        const tenant = context.tenancy.getCurrentTenant();
+        const locale = context.i18n.getContentLocale();
+
+        if (!locale || !(await isHeadlessCmsReady(context))) {
             return;
         }
 
         const models = await context.security.withoutAuthorization(async () => {
             const allModels = await context.cms.listModels();
-            return allModels.filter(
-                model =>
-                    !model.isPrivate &&
-                    (!config.modelIds?.length || config.modelIds.includes(model.modelId))
-            );
+            return allModels.filter(model => {
+                if (model.isPrivate) {
+                    return false;
+                }
+                const tags = Array.isArray(model.tags) ? model.tags : [];
+                if (tags.includes(CMS_MODEL_SINGLETON_TAG)) {
+                    return false;
+                }
+                if (config.modelIds?.length) {
+                    return config.modelIds.includes(model.modelId);
+                }
+                return true;
+            });
         });
 
         const plugins: CmsGraphQLSchemaPlugin<HcmsBulkActionsContext>[] = [];
@@ -53,7 +65,10 @@ export const createBulkActionGraphQL = (config: CreateBulkActionGraphQL) => {
                             });
                         }
                     }
-                }
+                },
+                isApplicable: context =>
+                    context.tenancy.getCurrentTenant().id === tenant.id &&
+                    context.i18n.getContentLocale()?.code === locale.code
             });
 
             plugin.name = `headless-cms.graphql.schema.bulkAction.${model.modelId}.${config.name}`;

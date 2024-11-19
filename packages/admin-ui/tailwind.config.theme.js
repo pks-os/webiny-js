@@ -75,6 +75,7 @@ module.exports = {
         },
         neutral: {
             DEFAULT: "hsl(var(--border-neutral-default))",
+            base: "hsl(var(--border-neutral-base))",
             black: "hsl(var(--border-neutral-black))",
             dark: "hsl(var(--border-neutral-dark))",
             dimmed: "hsl(var(--border-neutral-dimmed))",
@@ -104,15 +105,15 @@ module.exports = {
         transparent: "transparent",
         white: "white",
         accent: {
-            DEFAULT: "hsl(var(--fill-accent-default))",
+            DEFAULT: "hsl(var(--fill-accent))",
             default: "hsl(var(--fill-accent-default))"
         },
         destructive: {
-            DEFAULT: "hsl(var(--fill-destructive-default))",
+            DEFAULT: "hsl(var(--fill-destructive))",
             destructive: "hsl(var(--fill-destructive))"
         },
         neutral: {
-            DEFAULT: "hsl(var(--fill-neutral-default))",
+            DEFAULT: "hsl(var(--fill-neutral))",
             base: "hsl(var(--fill-neutral-base))",
             dark: "hsl(var(--fill-neutral-dark))",
             disabled: "hsl(var(--fill-neutral-disabled))",
@@ -120,11 +121,11 @@ module.exports = {
             xstrong: "hsl(var(--fill-neutral-xstrong))"
         },
         success: {
-            DEFAULT: "hsl(var(--fill-success-default))",
+            DEFAULT: "hsl(var(--fill-success))",
             success: "hsl(var(--fill-success))"
         },
         warning: {
-            DEFAULT: "hsl(var(--fill-warning-default))",
+            DEFAULT: "hsl(var(--fill-warning))",
             warning: "hsl(var(--fill-warning))"
         }
     },
@@ -248,7 +249,7 @@ module.exports = {
     padding: {
         lg: "var(--padding-lg)",
         md: "var(--padding-md)",
-        "md-plus": "var(--padding-md-plus)",
+        "md-extra": "var(--padding-md-extra)",
         none: "var(--padding-none)",
         sm: "var(--padding-sm)",
         "sm-extra": "var(--padding-sm-extra)",

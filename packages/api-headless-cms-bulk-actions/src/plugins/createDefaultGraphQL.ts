@@ -1,10 +1,14 @@
 import { ContextPlugin } from "@webiny/api";
 import { HcmsBulkActionsContext } from "~/types";
 import { CmsGraphQLSchemaPlugin, isHeadlessCmsReady } from "@webiny/api-headless-cms";
+import { CMS_MODEL_SINGLETON_TAG } from "@webiny/api-headless-cms/constants";
 
 export const createDefaultGraphQL = () => {
     return new ContextPlugin<HcmsBulkActionsContext>(async context => {
-        if (!(await isHeadlessCmsReady(context))) {
+        const tenant = context.tenancy.getCurrentTenant();
+        const locale = context.i18n.getContentLocale();
+
+        if (!locale || !(await isHeadlessCmsReady(context))) {
             return;
         }
 
@@ -24,7 +28,16 @@ export const createDefaultGraphQL = () => {
 
         const models = await context.security.withoutAuthorization(async () => {
             const allModels = await context.cms.listModels();
-            return allModels.filter(model => !model.isPrivate);
+            return allModels.filter(model => {
+                if (model.isPrivate) {
+                    return false;
+                }
+                const tags = Array.isArray(model.tags) ? model.tags : [];
+                if (tags.includes(CMS_MODEL_SINGLETON_TAG)) {
+                    return false;
+                }
+                return true;
+            });
         });
 
         const modelPlugins: CmsGraphQLSchemaPlugin<HcmsBulkActionsContext>[] = [];
@@ -44,7 +57,10 @@ export const createDefaultGraphQL = () => {
                             data: JSON
                         ): BulkActionResponse
                     }
-                `
+                `,
+                isApplicable: context =>
+                    context.tenancy.getCurrentTenant().id === tenant.id &&
+                    context.i18n.getContentLocale()?.code === locale.code
             });
 
             plugin.name = `headless-cms.graphql.schema.bulkAction.default.${model.modelId}`;

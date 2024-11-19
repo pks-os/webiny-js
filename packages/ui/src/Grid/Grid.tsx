@@ -21,14 +21,14 @@ export type CellProps = RmwcGridCellProps & {
 export const Cell = (props: CellProps) => {
     const { children, style, className, align } = props;
     return (
-        <AdminUiGrid.Col
+        <AdminUiGrid.Column
             className={className}
             style={style}
             span={props.span as AdminUiColumnProps["span"]}
             align={align}
         >
             {children}
-        </AdminUiGrid.Col>
+        </AdminUiGrid.Column>
     );
 };
 
@@ -68,7 +68,7 @@ export const Grid = (props: GridProps) => {
 
     return (
         <AdminUiGrid className={className} style={style}>
-            {children as React.ReactElement<AdminUiColumnProps, typeof AdminUiGrid.Col>}
+            {children as React.ReactElement<AdminUiColumnProps, typeof AdminUiGrid.Column>}
         </AdminUiGrid>
     );
 };

@@ -64,9 +64,9 @@ const ColumnBase = React.forwardRef<HTMLDivElement, ColumnProps>(
     }
 );
 
-ColumnBase.displayName = "Col";
+ColumnBase.displayName = "Column";
 
-const Column = makeDecoratable("Col", ColumnBase);
+const Column = makeDecoratable("Column", ColumnBase);
 
 const gridVariants = cva("grid", {
     variants: {

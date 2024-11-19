@@ -114,20 +114,18 @@ export interface AlertProps
 
 const AlertContext = React.createContext<Pick<AlertProps, "variant">>({});
 
-const AlertActionBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, ...props }, ref) => {
-        const { variant: alertVariant } = React.useContext(AlertContext);
-        return (
-            <Button
-                text={"Button"}
-                variant={alertVariant === "strong" ? "secondary" : "tertiary"}
-                size={"sm"}
-                ref={ref}
-                {...props}
-            />
-        );
-    }
-);
+const AlertActionBase = React.forwardRef<HTMLButtonElement, ButtonProps>(({ ...props }, ref) => {
+    const { variant: alertVariant } = React.useContext(AlertContext);
+    return (
+        <Button
+            text={"Button"}
+            variant={alertVariant === "strong" ? "secondary" : "tertiary"}
+            size={"sm"}
+            ref={ref}
+            {...props}
+        />
+    );
+});
 
 AlertActionBase.displayName = "AlertAction";
 

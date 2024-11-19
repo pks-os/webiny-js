@@ -49,8 +49,8 @@ export default (content: string): PeLoaderCacheEntry[] => {
 
     if (cachedData.length > 0) {
         const uniqueMap: Record<string, PeLoaderCacheEntry> = cachedData.reduce(
-            (collection, psTag) => {
-                collection[`${psTag.key || ""}${psTag.value || ""}`] = psTag;
+            (collection, peLoaderDataCache) => {
+                collection[`${peLoaderDataCache.key || ""}${peLoaderDataCache.value || ""}`] = peLoaderDataCache;
 
                 return collection;
             },

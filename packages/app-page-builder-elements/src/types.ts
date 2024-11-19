@@ -6,6 +6,7 @@ import React, { HTMLAttributes } from "react";
 import { type CSSObject } from "@emotion/react";
 import { StylesObject, ThemeBreakpoints, Theme } from "@webiny/theme/types";
 import { ElementInputs, ElementInputValues } from "~/inputs/ElementInput";
+import {ILoaderCache} from "~/hooks/useLoader/ILoaderCache";
 
 export interface Page {
     id: string;
@@ -34,7 +35,7 @@ export interface PageElementsProviderProps {
     beforeRenderer?: React.ComponentType | null;
     afterRenderer?: React.ComponentType | null;
     children?: React.ReactNode;
-    enableLoaderCache?: boolean;
+    loaderCache: ILoaderCache
 }
 
 export type AttributesObject = React.ComponentProps<any>;
@@ -151,8 +152,6 @@ export type ElementStylesModifier = (args: {
     renderers?: PageElementsProviderProps["renderers"];
     modifiers?: PageElementsProviderProps["modifiers"];
 }) => StylesObject | null;
-
-export type LinkComponent = React.ComponentType<React.HTMLProps<HTMLAnchorElement>>;
 
 declare global {
     // eslint-disable-next-line

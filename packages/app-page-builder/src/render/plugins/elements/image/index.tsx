@@ -12,14 +12,6 @@ export default (args: PbRenderElementPluginArgs = {}): PbRenderElementPlugin => 
         name: `pb-render-page-element-${elementType}`,
         type: "pb-render-page-element",
         elementType: elementType,
-        render: createImage({
-            linkComponent: ({ href, children, ...rest }) => {
-                return (
-                    <Link to={href!} {...rest}>
-                        {children}
-                    </Link>
-                );
-            }
-        })
+        render: createImage()
     };
 };

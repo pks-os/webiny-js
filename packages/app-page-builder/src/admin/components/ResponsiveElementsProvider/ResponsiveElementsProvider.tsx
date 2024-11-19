@@ -4,6 +4,7 @@ import { usePageBuilder } from "~/hooks/usePageBuilder";
 import { mediaToContainer } from "./mediaToContainer";
 import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider";
 import styled from "@emotion/styled";
+import { NoCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
 
 const ResponsiveContainer = styled.div`
     container-type: inline-size;
@@ -39,9 +40,13 @@ export const ResponsiveElementsProvider = ({ children }: { children: React.React
         } as Theme;
     }, [pageBuilder.theme]);
 
+    const noLoaderCache = new NoCache();
+
     return (
         <ResponsiveContainer>
-            <PageElementsProvider theme={containerizedTheme!}>{children}</PageElementsProvider>
+            <PageElementsProvider theme={containerizedTheme!} loaderCache={noLoaderCache}>
+                {children}
+            </PageElementsProvider>
         </ResponsiveContainer>
     );
 };

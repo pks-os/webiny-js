@@ -4,6 +4,7 @@ import { DisplayMode, PbTheme } from "~/types";
 import { Theme } from "@webiny/app-theme/types";
 import { useTheme } from "@webiny/app-theme";
 import { PageElementsProvider } from "./PageElementsProvider";
+import {ILoaderCache} from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
 
 export interface ResponsiveDisplayMode {
     displayMode: DisplayMode;
@@ -35,13 +36,13 @@ export interface PageBuilderContext {
 }
 
 export interface PageBuilderProviderProps {
-    enableLoaderCache?: boolean;
+    loaderCache: ILoaderCache;
     children?: React.ReactChild | React.ReactChild[];
 }
 
 export const PageBuilderContext = React.createContext<PageBuilderContext | undefined>(undefined);
 
-export const PageBuilderProvider = ({ children, enableLoaderCache }: PageBuilderProviderProps) => {
+export const PageBuilderProvider = ({ children, loaderCache }: PageBuilderProviderProps) => {
     const [displayMode, setDisplayMode] = React.useState(DisplayMode.DESKTOP);
     const [revisionType, setRevisionType] = React.useState<PbRevisionType>(
         PbRevisionType.published
@@ -63,7 +64,7 @@ export const PageBuilderProvider = ({ children, enableLoaderCache }: PageBuilder
                 }
             }}
         >
-            <PageElementsProvider enableLoaderCache={enableLoaderCache}>{children}</PageElementsProvider>
+            <PageElementsProvider loaderCache={loaderCache}>{children}</PageElementsProvider>
         </PageBuilderContext.Provider>
     );
 };

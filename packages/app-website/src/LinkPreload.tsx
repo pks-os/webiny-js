@@ -5,6 +5,7 @@ import { makeDecoratable } from "@webiny/app";
 import { Link, To } from "@webiny/react-router";
 import { getPrerenderId, isPrerendering } from "@webiny/app/utils";
 import { GET_PUBLISHED_PAGE } from "./Page/graphql";
+import { usePageElements } from "@webiny/app-page-builder-elements";
 
 const preloadedPaths: string[] = [];
 
@@ -22,6 +23,8 @@ const defaultGetPreloadPagePath: GetPreloadPagePath = path => {
 
 const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
     const getPreloadPagePath = options.getPreloadPagePath ?? defaultGetPreloadPagePath;
+
+    const {loaderCache} = usePageElements();
 
     const apolloClient = useApolloClient();
     const preloadPath = async (pathname: string) => {
@@ -41,7 +44,7 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
             .catch(() => null);
 
         if (pageState) {
-            const { apolloGraphQl } = pageState;
+            const { apolloGraphQl, peLoaders } = pageState;
             if (Array.isArray(apolloGraphQl)) {
                 console.log('apolloGraphQl', apolloGraphQl);
                 for (let i = 0; i < apolloGraphQl.length; i++) {
@@ -53,6 +56,15 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
                         data,
                         variables
                     });
+                }
+            }
+
+            if (Array.isArray(peLoaders)) {
+                console.log('peLoaders 22', peLoaders);
+                for (let i = 0; i < peLoaders.length; i++) {
+                    const { key, value } = peLoaders[i];
+                    console.log('setamo 11 key value', key, value);
+                    loaderCache.write(key, value);
                 }
             }
         } else {

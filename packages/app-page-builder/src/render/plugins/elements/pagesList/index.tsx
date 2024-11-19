@@ -1,6 +1,4 @@
-import React from "react";
 import kebabCase from "lodash/kebabCase";
-import { Link } from "@webiny/react-router";
 import { PluginCollection } from "@webiny/plugins/types";
 import { createDefaultPagesListComponent } from "@webiny/app-page-builder-elements/renderers/pagesList/pagesListComponents";
 import { PePagesList } from "./PePagesList";
@@ -25,15 +23,7 @@ export default (args: PbRenderElementPluginArgs = {}): PluginCollection => {
             type: "pb-page-element-pages-list-component",
             title: "Grid list",
             componentName: "default",
-            component: createDefaultPagesListComponent({
-                linkComponent: ({ href, children, ...rest }) => {
-                    return (
-                        <Link to={href!} {...rest}>
-                            {children}
-                        </Link>
-                    );
-                }
-            })
+            component: createDefaultPagesListComponent()
         } as PbPageElementPagesListComponentPlugin
     ];
 };

@@ -27,14 +27,19 @@ import { Theme } from "@webiny/app-theme/types";
 
 import { plugins } from "@webiny/plugins";
 import { PbRenderElementPlugin } from "~/types";
+import { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
 
 interface PageElementsProviderProps {
     theme?: Theme;
-    enableLoaderCache?: boolean;
+    loaderCache: ILoaderCache;
     children: React.ReactNode;
 }
 
-export const PageElementsProvider = ({ theme, enableLoaderCache, children }: PageElementsProviderProps) => {
+export const PageElementsProvider = ({
+    theme,
+    loaderCache,
+    children
+}: PageElementsProviderProps) => {
     const pageBuilder = usePageBuilder();
 
     const getRenderers = useCallback(() => {
@@ -77,7 +82,7 @@ export const PageElementsProvider = ({ theme, enableLoaderCache, children }: Pag
             theme={theme ?? (pageBuilder.theme as Theme)}
             renderers={getRenderers}
             modifiers={modifiers}
-            enableLoaderCache={enableLoaderCache}
+            loaderCache={loaderCache}
         >
             {children}
         </PbPageElementsProvider>

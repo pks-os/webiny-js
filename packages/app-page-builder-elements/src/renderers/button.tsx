@@ -3,8 +3,7 @@ import styled, { CSSObject } from "@emotion/styled";
 import { ClassNames } from "@emotion/react";
 import isEqual from "lodash/isEqual";
 import { usePageElements } from "~/hooks/usePageElements";
-import { LinkComponent } from "~/types";
-import { DefaultLinkComponent } from "~/renderers/components";
+import { Link } from "@webiny/react-router";
 import { createRenderer } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";
 import { ElementInput } from "~/inputs/ElementInput";
@@ -92,7 +91,6 @@ export interface ButtonElementData {
 }
 
 export interface Props {
-    linkComponent?: LinkComponent;
     clickHandlers?: Array<ButtonClickHandler>;
 }
 
@@ -159,7 +157,6 @@ export const elementInputs = {
 
 export const ButtonRenderer = createRenderer<Props, typeof elementInputs>(
     props => {
-        const LinkComponent = props.linkComponent || DefaultLinkComponent;
         const { getStyles } = usePageElements();
         const { getElement, getInputValues } = useRenderer();
         const element = getElement<ButtonElementData>();
@@ -224,20 +221,18 @@ export const ButtonRenderer = createRenderer<Props, typeof elementInputs>(
                 href = link.href;
                 newTab = link?.newTab;
             } else {
-                if (action.actionType === "link") {
+                if (action.actionType === "link" && action.href) {
                     href = action.href;
                     newTab = action.newTab;
-                }
-
-                if (action.actionType === "scrollToElement") {
+                } else if (action.actionType === "scrollToElement") {
                     href = "#" + action.scrollToElement;
                 }
             }
 
             return (
-                <LinkComponent href={href} target={newTab ? "_blank" : "_self"}>
+                <Link to={href} target={newTab ? "_blank" : "_self"}>
                     <StyledButtonBody>{buttonInnerContent}</StyledButtonBody>
-                </LinkComponent>
+                </Link>
             );
         }
 

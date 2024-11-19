@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { request } from "graphql-request";
 import { createRenderer, useRenderer, useLoader } from "@webiny/app-page-builder-elements";
 
@@ -57,7 +57,7 @@ export const SpaceX = createRenderer(() => {
 
     console.log(getLocaleCode())
     // This is where we fetch the data and store it into component's state.
-    const { data, loading } = useLoader<Spacecraft[]>(async () => {
+    const { data, loading } = useLoader(async () => {
         return request(GQL_API_URL, QUERIES[type], {
             limit: parseInt(limit),
             offset: parseInt(offset)

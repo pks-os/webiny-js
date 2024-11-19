@@ -11,11 +11,11 @@ import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevision
 import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete";
 import { EditorProps, EditorRenderer } from "./admin/components/Editor";
 import { PagesModule } from "~/admin/views/Pages/PagesModule";
-import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
 import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";
 import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
 import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
 import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
+import {NoCache} from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
 
 export type { EditorProps };
 export { EditorRenderer };
@@ -23,9 +23,10 @@ export * from "~/admin/config/pages";
 export * from "~/admin/views/Pages/hooks";
 
 const PageBuilderProviderPlugin = createProviderPlugin(Component => {
+    const noLoaderCache = new NoCache();
     return function PageBuilderProvider({ children }) {
         return (
-            <ContextProvider enableLoaderCache={false}>
+            <ContextProvider loaderCache={noLoaderCache}>
                 <AdminPageBuilderContextProvider>
                     <Component>{children}</Component>
                 </AdminPageBuilderContextProvider>
@@ -139,7 +140,6 @@ export const PageBuilder = () => {
             {/* Element renderer plugins. */}
             <LexicalParagraphRenderer />
             <LexicalHeadingRenderer />
-            <AddButtonLinkComponent />
             <AddButtonClickHandlers />
             <InjectElementVariables />
         </Fragment>

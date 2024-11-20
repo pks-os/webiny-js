@@ -135,7 +135,6 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     // a full replacement of the Cloudfront distribution, which is not acceptable.
                     // Note that we've seen this being especially problematic in cases where a user already
                     // has a custom domain associated with the Cloudfront distribution.
-
                     ignoreChanges: ["staging"]
                 }
             });

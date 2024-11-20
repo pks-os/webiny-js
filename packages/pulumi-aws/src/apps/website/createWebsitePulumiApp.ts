@@ -132,9 +132,10 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     // that, because this property did not exist before, it will always be considered as a change
                     // upon deployment.
                     // We might think this is fine, but, the problem is that a change in this property causes
-                    // a full replacement of the Cloudfront distribution, which is not acceptable.
-                    // Note that we've seen this being especially problematic in cases where a user already
-                    // has a custom domain associated with the Cloudfront distribution.
+                    // a full replacement of the Cloudfront distribution, which is not acceptable. Especially
+                    // if a custom domain has already been associated with the distribution. This then would
+                    // require the user to disassociate the domain, wait for the distribution to be replaced,
+                    // and then re-associate the domain. This is not a good experience.
                     ignoreChanges: ["staging"]
                 }
             });

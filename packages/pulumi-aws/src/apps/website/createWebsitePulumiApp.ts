@@ -122,6 +122,21 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     viewerCertificate: {
                         cloudfrontDefaultCertificate: true
                     }
+                },
+                opts: {
+                    // We are ignoring changes to the "staging" property. This is because of the following.
+                    // With the 5.41.0 release of Webiny, we also upgraded Pulumi to v6. This introduced a change
+                    // with how Cloudfront distributions are deployed, where Pulumi now also controls the new
+                    // `staging` property.
+                    // If not set, Pulumi will default it to `false`. Which is fine, but, the problem is
+                    // that, because this property did not exist before, it will always be considered as a change
+                    // upon deployment.
+                    // We might think this is fine, but, the problem is that a change in this property causes
+                    // a full replacement of the Cloudfront distribution, which is not acceptable.
+                    // Note that we've seen this being especially problematic in cases where a user already
+                    // has a custom domain associated with the Cloudfront distribution.
+
+                    ignoreChanges: ["staging"]
                 }
             });
 

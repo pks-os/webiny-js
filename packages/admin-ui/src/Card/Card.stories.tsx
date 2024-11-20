@@ -2,6 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Card } from "./Card";
+import { Button } from "~/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Card> = {
@@ -16,9 +17,15 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 const defaultContentProps = {
-    header: <Card.Header title="This is a card title" description="This is a card description" />,
-    content: <Card.Content>This is card content. Anything can go in here.</Card.Content>,
-    footer: <Card.Footer>This is card footer. Anything can go in here.</Card.Footer>
+    title: "Card title goes here",
+    description: "Card description goes here",
+    children: <>This is card content. Anything can go in here.</>,
+    actions: (
+        <>
+            <Button variant={"secondary"} text={"Cancel"} />
+            <Button variant={"primary"} text={"Confirm"} />
+        </>
+    )
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
@@ -26,7 +33,7 @@ export const Default: Story = {
     args: {
         ...defaultContentProps,
         padding: "standard",
-        elevation: "none",
+        elevation: "md",
         borderRadius: "md"
     },
     argTypes: {
@@ -47,20 +54,7 @@ export const Default: Story = {
 
 export const WithoutHeaderAndFooter: Story = {
     args: {
-        content: <>This is card content. Anything can go in here.</>
-    }
-};
-
-export const WithCloseButton: Story = {
-    args: {
-        ...defaultContentProps,
-        header: (
-            <Card.Header
-                title="This is a card that can be closed."
-                description="This is a description of a card that can be closed."
-                showCloseButton
-            />
-        )
+        children: <>This is card content. Anything can go in here.</>
     }
 };
 
@@ -82,25 +76,5 @@ export const NoBorderRadius: Story = {
     args: {
         ...defaultContentProps,
         borderRadius: "none"
-    }
-};
-
-export const WithCustomHeader: Story = {
-    args: {
-        ...defaultContentProps,
-        header: (
-            <Card.Header
-                content={
-                    <>
-                        <div>
-                            Custom header title in a <code>div</code>
-                        </div>
-                        <span>
-                            Custom header description in a <code>span</code>
-                        </span>
-                    </>
-                }
-            />
-        )
     }
 };

@@ -3,23 +3,19 @@ import { getPrerenderId, isPrerendering } from "@webiny/app/utils";
 import { PeLoaderHtmlCache } from "~/utils/WebsiteLoaderCache/PeLoaderHtmlCache";
 
 export class WebsiteLoaderCache implements ILoaderCache {
-    private loaderCache: Record<string, unknown | null> = {};
+    private loaderCache: Record<string, any> = {};
 
-    
     read<TData = unknown>(key: string) {
         if (key in this.loaderCache) {
             return this.loaderCache[key];
         }
 
         if (getPrerenderId()) {
-            const cacheFromHtml = PeLoaderHtmlCache.read<TData>(key);
-            if (cacheFromHtml) {
-                this.loaderCache[key] = cacheFromHtml;
-            }
-        } else {
-            this.loaderCache[key] = null;
+            this.loaderCache[key] = PeLoaderHtmlCache.read<TData>(key);
+            return this.loaderCache[key];
         }
 
+        this.loaderCache[key] = null;
         return this.loaderCache[key];
     }
 

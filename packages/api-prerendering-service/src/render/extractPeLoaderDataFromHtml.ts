@@ -1,4 +1,5 @@
 import { PeLoaderCacheEntry } from "./types";
+import he from "he";
 
 const parsePeLoaderDataCacheTag = (content: string): PeLoaderCacheEntry | null => {
     const regex =
@@ -12,7 +13,11 @@ const parsePeLoaderDataCacheTag = (content: string): PeLoaderCacheEntry | null =
         }
 
         const [, key, value] = m;
-        return { key, value };
+
+        // JSON in `data-value` is HTML Entities-encoded. So, we need to decode it here first.
+        const heParsedValue = he.decode(value);
+        const parsedValue = JSON.parse(heParsedValue);
+        return { key, value: parsedValue };
     }
 
     return null;
@@ -50,7 +55,8 @@ export default (content: string): PeLoaderCacheEntry[] => {
     if (cachedData.length > 0) {
         const uniqueMap: Record<string, PeLoaderCacheEntry> = cachedData.reduce(
             (collection, peLoaderDataCache) => {
-                collection[`${peLoaderDataCache.key || ""}${peLoaderDataCache.value || ""}`] = peLoaderDataCache;
+                collection[`${peLoaderDataCache.key || ""}${peLoaderDataCache.value || ""}`] =
+                    peLoaderDataCache;
 
                 return collection;
             },

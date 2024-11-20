@@ -2,8 +2,6 @@ import React from "react";
 import { request } from "graphql-request";
 import { createRenderer, useRenderer, useLoader } from "@webiny/app-page-builder-elements";
 
-import {getLocaleCode} from "@webiny/app-website";
-
 // For simplicity, we're hard-coding the GraphQL HTTP API URL here.
 const GQL_API_URL = "https://spacex-production.up.railway.app/";
 
@@ -55,9 +53,8 @@ export const SpaceX = createRenderer(() => {
     const element = getElement<SpaceXElementData>();
     const { limit, offset, type } = element.data.variables;
 
-    console.log(getLocaleCode())
     // This is where we fetch the data and store it into component's state.
-    const { data, loading } = useLoader(async () => {
+    const { data, loading } = useLoader<Spacecraft[]>(async () => {
         return request(GQL_API_URL, QUERIES[type], {
             limit: parseInt(limit),
             offset: parseInt(offset)

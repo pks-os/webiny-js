@@ -235,6 +235,10 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     viewerCertificate: {
                         cloudfrontDefaultCertificate: true
                     }
+                },
+                opts: {
+                    // Check the comment in the `appCloudfront` resource above for more info.
+                    ignoreChanges: ["staging"]
                 }
             });
 

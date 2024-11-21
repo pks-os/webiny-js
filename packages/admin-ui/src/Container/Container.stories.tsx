@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Text } from "~/Text";
-import {  Grid } from "~/Grid";
+import { Grid } from "~/Grid";
 import { StyledColumn } from "./stories/StyledColumn";
 
 import { Container } from "./Container";
@@ -77,10 +77,10 @@ export const WithGridFluid: Story = {
         className: "bg-neutral-light",
         children: (
             <Grid className={"bg-neutral-light"}>
-                <StyledColumn span={3} index={1}/>
-                <StyledColumn span={3} index={2}/>
-                <StyledColumn span={3} index={3}/>
-                <StyledColumn span={3} index={4}/>
+                <StyledColumn span={3} index={1} />
+                <StyledColumn span={3} index={2} />
+                <StyledColumn span={3} index={3} />
+                <StyledColumn span={3} index={4} />
             </Grid>
         )
     }
@@ -93,10 +93,10 @@ export const WithGridFixed: Story = {
         className: "w-[500px] bg-neutral-light",
         children: (
             <Grid>
-                <StyledColumn span={3} index={1}/>
-                <StyledColumn span={3} index={2}/>
-                <StyledColumn span={3} index={3}/>
-                <StyledColumn span={3} index={4}/>
+                <StyledColumn span={3} index={1} />
+                <StyledColumn span={3} index={2} />
+                <StyledColumn span={3} index={3} />
+                <StyledColumn span={3} index={4} />
             </Grid>
         )
     }

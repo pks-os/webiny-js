@@ -58,20 +58,24 @@ interface CardProps extends CardRootProps, VariantProps<typeof cardRootVariants>
     options?: React.ReactNode;
 }
 
-interface CardHeaderProps {
-    title?: React.ReactNode | string;
-    description?: React.ReactNode | string;
-}
+type CardHeaderProps = Pick<CardProps, "title" | "description" | "options">;
 
-const CardHeaderBase = ({ title, description }: CardHeaderProps) => {
+const CardHeaderBase = ({ title, description, options }: CardHeaderProps) => {
+    if (!title && !description && !options) {
+        return null;
+    }
+
     return (
-        <div className={"flex flex-col gap-y-xs"}>
-            {typeof title === "string" ? <Heading level={6} as={"h1"} text={title} /> : title}
-            {typeof description === "string" ? (
-                <Text text={description} size="sm" className={"text-neutral-strong"} />
-            ) : (
-                description
-            )}
+        <div className={"flex flex-row justify-between"}>
+            <div className={"flex flex-col gap-y-xs"}>
+                {typeof title === "string" ? <Heading level={6} as={"h1"} text={title} /> : title}
+                {typeof description === "string" ? (
+                    <Text text={description} size="sm" className={"text-neutral-strong"} />
+                ) : (
+                    description
+                )}
+            </div>
+            <div>{options}</div>
         </div>
     );
 };
@@ -80,11 +84,13 @@ CardHeaderBase.displayName = "CardHeader";
 
 const CardHeader = makeDecoratable("CardHeader", CardHeaderBase);
 
-interface CardFooterProps {
-    actions?: React.ReactNode;
-}
+type CardFooterProps = Pick<CardProps, "actions">;
 
 const CardFooterBase = ({ actions }: CardFooterProps) => {
+    if (!actions) {
+        return null;
+    }
+
     return <div className={"flex justify-end gap-sm"}>{actions}</div>;
 };
 
@@ -97,7 +103,7 @@ const CardBase = (props: CardProps) => {
 
     return (
         <CardRoot {...rest}>
-            <CardHeader title={title} description={description} />
+            <CardHeader title={title} description={description} options={options} />
             {children}
             <CardFooter actions={actions} />
         </CardRoot>

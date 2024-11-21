@@ -1,0 +1,3 @@
+1. check width of cards
+2. check text size in card body
+3. check option.. do we need another btn icon variant?

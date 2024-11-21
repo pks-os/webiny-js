@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
+import { ReactComponent as PencilIcon } from "@material-design-icons/svg/filled/edit.svg";
 import { Card } from "./Card";
 import { Button } from "~/Button";
 
@@ -12,11 +12,11 @@ const meta: Meta<typeof Card> = {
     tags: ["autodocs"],
     decorators: [
         Story => (
-            <div className="bg-[#fafbfb] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
+            <div className="bg-[#f4f4f4] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
                 <Story />
             </div>
         )
-    ],
+    ]
 };
 
 export default meta;
@@ -25,11 +25,15 @@ type Story = StoryObj<typeof Card>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
-
     args: {
         title: "Card title goes here",
         description: "Card description goes here",
-        children: <>This is card content. Anything can go in here. This is card content. Anything can go in here.</>,
+        children: (
+            <>
+                This is card content. Anything can go in here. This is card content. Anything can go
+                in here.
+            </>
+        ),
         actions: (
             <>
                 <Button variant={"secondary"} text={"Cancel"} />
@@ -37,7 +41,7 @@ export const Default: Story = {
             </>
         ),
         padding: "standard",
-        elevation: "md",
+        elevation: "sm",
         borderRadius: "md"
     },
     argTypes: {
@@ -56,7 +60,8 @@ export const Default: Story = {
     }
 };
 
-export const WithoutHeaderAndFooter: Story = {
+export const NoTitleDescriptionActionsHeaderAndFooter: Story = {
+    name: "Only Body (Without Body, Title, Actions)",
     args: {
         children: <>This is card content. Anything can go in here.</>
     }
@@ -69,10 +74,17 @@ export const WithMorePadding: Story = {
     }
 };
 
-export const WithElevation: Story = {
+export const WithMoreElevation: Story = {
     args: {
         ...Default.args,
         elevation: "md"
+    }
+};
+
+export const NoElevation: Story = {
+    args: {
+        ...Default.args,
+        elevation: "none"
     }
 };
 
@@ -80,5 +92,18 @@ export const NoBorderRadius: Story = {
     args: {
         ...Default.args,
         borderRadius: "none"
+    }
+};
+
+export const WithOptions: Story = {
+    args: {
+        ...Default.args,
+        options: (
+            <Button
+                variant={"ghost"}
+                icon={<PencilIcon />}
+                onClick={() => alert("Custom action button clicked.")}
+            />
+        )
     }
 };

@@ -9,6 +9,7 @@ export * from "./Label";
 export * from "./Progress";
 export * from "./Providers";
 export * from "./RangeSlider";
+export * from "./Select";
 export * from "./Slider";
 export * from "./Switch";
 export * from "./Tabs";

@@ -3,9 +3,10 @@ import { makeDecoratable } from "@webiny/react-composition";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/utils";
 
-const containerVariants = cva("container", {
+const containerVariants = cva("m-auto", {
     variants: {
         padding: {
+            none: "px-none",
             comfortable: "px-xl",
             spacious: "px-xxl"
         }

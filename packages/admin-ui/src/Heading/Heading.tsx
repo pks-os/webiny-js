@@ -16,7 +16,7 @@ const TAG_MAP: Record<HeadingLevels, HeadingTags> = {
     6: "h6"
 };
 
-const headingVariants = cva("font-sans font-semibold", {
+const headingVariants = cva("font-sans", {
     variants: {
         level: {
             1: "text-h1",

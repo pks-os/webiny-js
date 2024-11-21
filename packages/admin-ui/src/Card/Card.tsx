@@ -5,7 +5,7 @@ import { Heading } from "~/Heading";
 import { Text } from "~/Text";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const cardRootVariants = cva("space-y-6 border bg-card text-card-foreground", {
+const cardRootVariants = cva("flex flex-col bg-neutral-base gap-y-md", {
     variants: {
         padding: {
             standard: "p-lg",
@@ -65,7 +65,7 @@ interface CardHeaderProps {
 
 const CardHeaderBase = ({ title, description }: CardHeaderProps) => {
     return (
-        <div className={"flex flex-col mb-md"}>
+        <div className={"flex flex-col gap-y-xs"}>
             {typeof title === "string" ? <Heading level={6} as={"h1"} text={title} /> : title}
             {typeof description === "string" ? (
                 <Text text={description} size="sm" className={"text-neutral-strong"} />

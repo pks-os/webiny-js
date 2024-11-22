@@ -59,7 +59,7 @@ export const SpaceX = createRenderer(() => {
             limit: parseInt(limit),
             offset: parseInt(offset)
         }).then(res => res.data);
-    });
+    }, [limit, offset]);
 
     if (loading) {
         return <>Loading...</>;

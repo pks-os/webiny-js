@@ -5,7 +5,7 @@ import { Heading } from "~/Heading";
 import { Text } from "~/Text";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const cardRootVariants = cva("flex flex-col bg-neutral-base gap-y-md", {
+const cardRootVariants = cva("flex flex-col bg-neutral-base gap-y-md-plus text-sm", {
     variants: {
         padding: {
             standard: "p-lg",

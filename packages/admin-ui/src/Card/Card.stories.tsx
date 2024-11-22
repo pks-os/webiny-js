@@ -1,8 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ReactComponent as PencilIcon } from "@material-design-icons/svg/filled/edit.svg";
+import { ReactComponent as MoreVertical } from "@material-design-icons/svg/filled/more_vert.svg";
 import { Card } from "./Card";
 import { Button } from "~/Button";
+import { Container } from "~/Container";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Card> = {
@@ -13,7 +14,9 @@ const meta: Meta<typeof Card> = {
     decorators: [
         Story => (
             <div className="bg-[#f4f4f4] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
-                <Story />
+                <Container className={"w-[300px]"} padding={"none"}>
+                    <Story />
+                </Container>
             </div>
         )
     ]
@@ -28,12 +31,7 @@ export const Default: Story = {
     args: {
         title: "Card title goes here",
         description: "Card description goes here",
-        children: (
-            <>
-                This is card content. Anything can go in here. This is card content. Anything can go
-                in here.
-            </>
-        ),
+        children: <>This is card content. Anything can go in here.</>,
         actions: (
             <>
                 <Button variant={"secondary"} text={"Cancel"} />
@@ -70,6 +68,7 @@ export const NoTitleDescriptionActionsHeaderAndFooter: Story = {
 export const WithMorePadding: Story = {
     args: {
         ...Default.args,
+        actions: null,
         padding: "comfortable"
     }
 };
@@ -77,6 +76,7 @@ export const WithMorePadding: Story = {
 export const WithMoreElevation: Story = {
     args: {
         ...Default.args,
+        actions: null,
         elevation: "md"
     }
 };
@@ -84,6 +84,7 @@ export const WithMoreElevation: Story = {
 export const NoElevation: Story = {
     args: {
         ...Default.args,
+        actions: null,
         elevation: "none"
     }
 };
@@ -91,6 +92,7 @@ export const NoElevation: Story = {
 export const NoBorderRadius: Story = {
     args: {
         ...Default.args,
+        actions: null,
         borderRadius: "none"
     }
 };
@@ -101,9 +103,15 @@ export const WithOptions: Story = {
         options: (
             <Button
                 variant={"ghost"}
-                icon={<PencilIcon />}
+                icon={<MoreVertical />}
+                iconSize={"lg"}
                 onClick={() => alert("Custom action button clicked.")}
             />
         )
     }
 };
+
+export const WithActions: Story = {
+    args: Default.args
+};
+

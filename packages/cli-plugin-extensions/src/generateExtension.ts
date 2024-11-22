@@ -116,8 +116,11 @@ export const generateExtension = async ({ input, ora, context }: GenerateExtensi
             packageName
         });
 
-        // Although we already have @webiny/* dependencies in generated extension's
-        // `package.json` file, we still need to ensure correct package versions are used.
+        // Despite the fact that the above code ensures that correct Webiny package versions are
+        // used, note that it only handles the `input.dependencies` field. We still need to run
+        // this because the `package.json` file that the selected template creates might also have
+        // Webiny packages that need to be updated. For example, this is the case with the `pbElement`
+        // extension (see: `packages/cli-plugin-extensions/templates/pbElement/package.json`).
         await setWebinyPackageVersions(extension, context.version);
 
         await extension.link();

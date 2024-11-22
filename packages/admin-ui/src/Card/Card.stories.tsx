@@ -5,11 +5,9 @@ import { Card } from "./Card";
 import { Button } from "~/Button";
 import { Container } from "~/Container";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Card> = {
     title: "Components/Card",
     component: Card,
-    // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
     tags: ["autodocs"],
     decorators: [
         Story => (
@@ -26,7 +24,6 @@ export default meta;
 
 type Story = StoryObj<typeof Card>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
     args: {
         title: "Card title goes here",

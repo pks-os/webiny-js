@@ -100,6 +100,7 @@ export const NoBorderRadius: Story = {
 export const WithOptions: Story = {
     args: {
         ...Default.args,
+        actions: null,
         options: (
             <Button
                 variant={"ghost"}

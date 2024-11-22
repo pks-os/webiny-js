@@ -14371,6 +14371,7 @@ __metadata:
     "@webiny/api-wcp": 0.0.0
     "@webiny/aws-sdk": 0.0.0
     "@webiny/cli": 0.0.0
+    "@webiny/db-dynamodb": 0.0.0
     "@webiny/error": 0.0.0
     "@webiny/handler": 0.0.0
     "@webiny/handler-aws": 0.0.0
@@ -15539,6 +15540,7 @@ __metadata:
     "@webiny/cli": 0.0.0
     "@webiny/form": 0.0.0
     "@webiny/lexical-editor": 0.0.0
+    "@webiny/lexical-theme": 0.0.0
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/react-composition": 0.0.0
@@ -16279,7 +16281,6 @@ __metadata:
     react-images: ^0.5.19
     react-in-viewport: ^1.0.0-alpha.30
     react-sortable: ^2.0.0
-    react-transition-group: ^4.3.0
     react-virtualized: ^9.21.0
     recoil: ^0.7.7
     rimraf: ^5.0.5
@@ -18007,6 +18008,7 @@ __metadata:
     "@webiny/app-theme": 0.0.0
     "@webiny/cli": 0.0.0
     "@webiny/lexical-editor": 0.0.0
+    "@webiny/lexical-theme": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/react-composition": 0.0.0
     identity-obj-proxy: ^3.0.0

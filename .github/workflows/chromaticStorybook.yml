@@ -21,7 +21,6 @@ jobs:
 
       - name: Install hub
         run: |
-          sudo apt-get update
           sudo apt-get install -y hub
 
       # Fetch pull request details if event is issue_comment and it's a pull request

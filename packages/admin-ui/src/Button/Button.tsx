@@ -93,7 +93,8 @@ const buttonVariants = cva(
                 size: "sm",
                 contentLayout: "icon",
                 iconSize: "lg",
-                className: "!p-[calc(theme(padding.xxs)-theme(borderWidth.sm))] [&>svg]:!size-md-plus"
+                className:
+                    "!p-[calc(theme(padding.xxs)-theme(borderWidth.sm))] [&>svg]:!size-md-plus"
             },
             {
                 size: "sm",
@@ -158,7 +159,8 @@ const buttonVariants = cva(
                 size: "xl",
                 contentLayout: "icon",
                 iconSize: "lg",
-                className: "!p-[calc(theme(padding.md-plus)-theme(borderWidth.md))] [&>svg]:!size-lg"
+                className:
+                    "!p-[calc(theme(padding.md-plus)-theme(borderWidth.md))] [&>svg]:!size-lg"
             },
             {
                 size: "xl",

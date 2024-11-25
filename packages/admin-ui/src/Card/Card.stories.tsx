@@ -112,4 +112,3 @@ export const WithOptions: Story = {
 export const WithActions: Story = {
     args: Default.args
 };
-

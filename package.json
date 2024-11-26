@@ -55,7 +55,7 @@
     "@octokit/rest": "^20.0.2",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.11",
-    "@types/node": "^20.0.0",
+    "@types/node": "^22.0.0",
     "@types/prettier": "^2.7.3",
     "@types/react": "18.2.79",
     "@types/react-dom": "18.2.25",
@@ -256,6 +256,6 @@
     "@types/hoist-non-react-statics": "^3.3.5"
   },
   "engines": {
-    "node": "~20.0.0"
+    "node": ">=22.0.0 <23.0.0"
   }
 }

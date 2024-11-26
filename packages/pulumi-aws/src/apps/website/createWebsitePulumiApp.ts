@@ -122,6 +122,21 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     viewerCertificate: {
                         cloudfrontDefaultCertificate: true
                     }
+                },
+                opts: {
+                    // We are ignoring changes to the "staging" property. This is because of the following.
+                    // With the 5.41.0 release of Webiny, we also upgraded Pulumi to v6. This introduced a change
+                    // with how Cloudfront distributions are deployed, where Pulumi now also controls the new
+                    // `staging` property.
+                    // If not set, Pulumi will default it to `false`. Which is fine, but, the problem is
+                    // that, because this property did not exist before, it will always be considered as a change
+                    // upon deployment.
+                    // We might think this is fine, but, the problem is that a change in this property causes
+                    // a full replacement of the Cloudfront distribution, which is not acceptable. Especially
+                    // if a custom domain has already been associated with the distribution. This then would
+                    // require the user to disassociate the domain, wait for the distribution to be replaced,
+                    // and then re-associate the domain. This is not a good experience.
+                    ignoreChanges: ["staging"]
                 }
             });
 
@@ -186,6 +201,23 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                             minTtl: 0,
                             defaultTtl: 2592000, // 30 days
                             maxTtl: 2592000
+                        },
+                        // This forward is necessary for non-WCP projects. For WCP projects, the
+                        // forwarding is performed by the `website-router` Lambda@Edge function.
+                        {
+                            compress: true,
+                            allowedMethods: ["GET", "HEAD", "OPTIONS"],
+                            cachedMethods: ["GET", "HEAD", "OPTIONS"],
+                            forwardedValues: {
+                                cookies: {
+                                    forward: "none"
+                                },
+                                headers: [],
+                                queryString: false
+                            },
+                            pathPattern: "/robots.txt",
+                            viewerProtocolPolicy: "allow-all",
+                            targetOriginId: appBucket.origin.originId
                         }
                     ],
                     customErrorResponses: [
@@ -204,6 +236,10 @@ export const createWebsitePulumiApp = (projectAppParams: CreateWebsitePulumiAppP
                     viewerCertificate: {
                         cloudfrontDefaultCertificate: true
                     }
+                },
+                opts: {
+                    // Check the comment in the `appCloudfront` resource above for more info.
+                    ignoreChanges: ["staging"]
                 }
             });
 

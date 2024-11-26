@@ -38,7 +38,7 @@ const separatorVariants = cva("shrink-0", {
     ],
     defaultVariants: {
         orientation: "horizontal",
-        variant: "strong",
+        variant: "dimmed",
         margin: "md"
     }
 });

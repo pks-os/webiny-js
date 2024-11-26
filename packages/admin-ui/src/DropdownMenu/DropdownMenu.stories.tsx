@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 const meta: Meta<typeof DropdownMenu> = {
-    title: "Components/Menu",
+    title: "Components/DropdownMenu",
     component: DropdownMenu,
     tags: ["autodocs"],
     argTypes: {}
@@ -53,7 +53,6 @@ export const Default: Story = {
                 </Trigger>
                 <Content className="w-56">
                     <Label>My Account</Label>
-                    <Separator />
                     <Group>
                         <Item>
                             <User />

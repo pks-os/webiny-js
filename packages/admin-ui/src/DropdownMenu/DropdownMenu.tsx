@@ -1,16 +1,18 @@
-"use client";
-
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { ReactComponent as Check } from "@material-design-icons/svg/filled/check.svg";
 import { ReactComponent as ChevronRight } from "@material-design-icons/svg/filled/chevron_right.svg";
 import { ReactComponent as Circle } from "@material-design-icons/svg/filled/circle.svg";
 
-import { cn } from "~/utils";
+import { cn, makeDecoratable, withStaticProps } from "~/utils";
 
-const DropdownMenu = DropdownMenuPrimitive.Root;
+const DropdownMenuBase = DropdownMenuPrimitive.Root;
 
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+const DecoratableDropdownMenu = makeDecoratable("DropdownMenu", DropdownMenuBase);
+
+const DropdownMenuTriggerBase = DropdownMenuPrimitive.Trigger;
+
+const DropdownMenuTrigger = makeDecoratable("DropdownMenuTrigger", DropdownMenuTriggerBase);
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
@@ -170,20 +172,21 @@ const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTML
 };
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 
-export {
-    DropdownMenu,
-    DropdownMenuTrigger,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuCheckboxItem,
-    DropdownMenuRadioItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuGroup,
-    DropdownMenuPortal,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
-    DropdownMenuRadioGroup
-};
+const DropdownMenu = withStaticProps(DecoratableDropdownMenu, {
+    Trigger: DropdownMenuTrigger,
+    Group: DropdownMenuGroup,
+    Portal: DropdownMenuPortal,
+    Sub: DropdownMenuSub,
+    SubContent: DropdownMenuSubContent,
+    Content: DropdownMenuContent,
+    Item: DropdownMenuItem,
+    CheckboxItem: DropdownMenuCheckboxItem,
+    RadioItem: DropdownMenuRadioItem,
+    Label: DropdownMenuLabel,
+    Separator: DropdownMenuSeparator,
+    Shortcut: DropdownMenuShortcut,
+    SubTrigger: DropdownMenuSubTrigger,
+    RadioGroup: DropdownMenuRadioGroup
+});
+
+export { DropdownMenu };

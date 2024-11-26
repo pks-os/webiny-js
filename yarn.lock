@@ -14750,6 +14750,7 @@ __metadata:
     css-loader: ^6.10.0
     file-loader: 6.2.0
     lodash: ^4.17.21
+    lucide-react: ^0.461.0
     mobx: ^6.9.0
     postcss-loader: ^6.2.1
     prettier: ^2.8.3
@@ -32248,6 +32249,15 @@ __metadata:
   version: 2.2.1
   resolution: "ltgt@npm:2.2.1"
   checksum: 7e3874296f7538bc8087b428ac4208008d7b76916354b34a08818ca7c83958c1df10ec427eeeaad895f6b81e41e24745b18d30f89abcc21d228b94f6961d50a2
+  languageName: node
+  linkType: hard
+
+"lucide-react@npm:^0.461.0":
+  version: 0.461.0
+  resolution: "lucide-react@npm:0.461.0"
+  peerDependencies:
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
+  checksum: 5930ad26c99a007a2fcb13b2b0f87b9656b36f3c4a1f69eaf4d4dfa90a3694221bfc674452ec19bb52d4cc6c742ae9c59daa2a059eaf641a1afdff203d879bf4
   languageName: node
   linkType: hard
 

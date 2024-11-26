@@ -164,7 +164,7 @@ interface ButtonProps
 
 type ContentLayout = "text" | "icon" | "text-icon-start" | "text-icon-end";
 
-export const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         className,
         variant,

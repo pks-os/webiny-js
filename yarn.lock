@@ -8331,21 +8331,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/aws@npm:^6.55.0":
-  version: 6.55.0
-  resolution: "@pulumi/aws@npm:6.55.0"
+"@pulumi/aws@npm:^6.61.0":
+  version: 6.61.0
+  resolution: "@pulumi/aws@npm:6.61.0"
   dependencies:
-    "@pulumi/pulumi": ^3.42.0
+    "@pulumi/pulumi": ^3.136.0
     builtin-modules: 3.0.0
     mime: ^2.0.0
     resolve: ^1.7.1
-  checksum: 5e62483ebf656ec21985eca03516b9a00602e9dc93a1f850dd28e98baabe05a67c463b98223e0b9c4253e48c882b3f8d2918b36f50983388fdd198984e00381f
+  checksum: f212a4484e427015c65a5fa9501642c6a55a61636ef4f7cd50b94840ce7ec23dc07b50ad1b62c4459bd0e6f7cce8be6fc77a63e602ee9d95d6f9ef378ae6373d
   languageName: node
   linkType: hard
 
-"@pulumi/pulumi@npm:^3.0.0":
-  version: 3.128.0
-  resolution: "@pulumi/pulumi@npm:3.128.0"
+"@pulumi/pulumi@npm:^3.136.0, @pulumi/pulumi@npm:^3.141.0":
+  version: 3.141.0
+  resolution: "@pulumi/pulumi@npm:3.141.0"
   dependencies:
     "@grpc/grpc-js": ^1.10.1
     "@logdna/tail-file": ^2.0.6
@@ -8385,53 +8385,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: a668f2fc9eaa523dea8773827668a872c561ebf047af60676a943b66d01e605191ddc7fded13cf02b7c7cf4683022905a41f4a7c5b06cabfa2f4cdf7be2f75c4
-  languageName: node
-  linkType: hard
-
-"@pulumi/pulumi@npm:^3.136.1, @pulumi/pulumi@npm:^3.42.0":
-  version: 3.136.1
-  resolution: "@pulumi/pulumi@npm:3.136.1"
-  dependencies:
-    "@grpc/grpc-js": ^1.10.1
-    "@logdna/tail-file": ^2.0.6
-    "@npmcli/arborist": ^7.3.1
-    "@opentelemetry/api": ^1.9
-    "@opentelemetry/exporter-zipkin": ^1.25
-    "@opentelemetry/instrumentation": ^0.52
-    "@opentelemetry/instrumentation-grpc": ^0.52
-    "@opentelemetry/resources": ^1.25
-    "@opentelemetry/sdk-trace-base": ^1.25
-    "@opentelemetry/sdk-trace-node": ^1.25
-    "@opentelemetry/semantic-conventions": ^1.25
-    "@pulumi/query": ^0.3.0
-    "@types/google-protobuf": ^3.15.5
-    "@types/semver": ^7.5.6
-    "@types/tmp": ^0.2.6
-    execa: ^5.1.0
-    fdir: ^6.1.1
-    google-protobuf: ^3.5.0
-    got: ^11.8.6
-    ini: ^2.0.0
-    js-yaml: ^3.14.0
-    minimist: ^1.2.6
-    normalize-package-data: ^6.0.0
-    picomatch: ^3.0.1
-    pkg-dir: ^7.0.0
-    require-from-string: ^2.0.1
-    semver: ^7.5.2
-    source-map-support: ^0.5.6
-    tmp: ^0.2.1
-    upath: ^1.1.0
-  peerDependencies:
-    ts-node: ">= 7.0.1 < 12"
-    typescript: ">= 3.8.3 < 6"
-  peerDependenciesMeta:
-    ts-node:
-      optional: true
-    typescript:
-      optional: true
-  checksum: 19692882f9ca97bd77c3b75780be0f83a5288918debace7d89418d1f9f8ab15517285645ee6041b2b87d654055ed440a0fdbee439e16ba9e32b9900a58c75b35
+  checksum: e629b5d167a25eddba45fd07bf26d8824529e8c30a7cb0cad322dec2159c111fdadc9e2e2578fe61c4fd66474fb6e16c6e3c94c180288792ef4608edd9f0d733
   languageName: node
   linkType: hard
 
@@ -8442,12 +8396,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/random@npm:^4.16.3":
-  version: 4.16.3
-  resolution: "@pulumi/random@npm:4.16.3"
+"@pulumi/random@npm:^4.16.7":
+  version: 4.16.7
+  resolution: "@pulumi/random@npm:4.16.7"
   dependencies:
-    "@pulumi/pulumi": ^3.0.0
-  checksum: a82b8a78c011134cf55063a4f5bd43bd9cdd5496a7d3959b376ec753b939adbcd55734c63b958417b3bcb03716821705150440ea36cd018d76b96a5b22f69ca5
+    "@pulumi/pulumi": ^3.136.0
+  checksum: da44d3e62e389f6484201fee2e3dea0a160ef9d7feef1c5e1b6f75ab94525c295101f652938cc65f322f2f6eb3c65f56e10134f418ddf48dcaad385e8192823e
   languageName: node
   linkType: hard
 
@@ -15803,9 +15757,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-aws@workspace:packages/pulumi-aws"
   dependencies:
-    "@pulumi/aws": ^6.55.0
-    "@pulumi/pulumi": ^3.136.1
-    "@pulumi/random": ^4.16.3
+    "@pulumi/aws": ^6.61.0
+    "@pulumi/pulumi": ^3.141.0
+    "@pulumi/random": ^4.16.7
     "@webiny/api-page-builder": 0.0.0
     "@webiny/aws-layers": 0.0.0
     "@webiny/aws-sdk": 0.0.0
@@ -15829,8 +15783,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-sdk@workspace:packages/pulumi-sdk"
   dependencies:
-    "@pulumi/aws": ^6.55.0
-    "@pulumi/pulumi": ^3.136.1
+    "@pulumi/aws": ^6.61.0
+    "@pulumi/pulumi": ^3.141.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
@@ -15850,7 +15804,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi@workspace:packages/pulumi"
   dependencies:
-    "@pulumi/pulumi": ^3.136.1
+    "@pulumi/pulumi": ^3.141.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
@@ -15953,8 +15907,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/serverless-cms-aws@workspace:packages/serverless-cms-aws"
   dependencies:
-    "@pulumi/aws": ^6.55.0
-    "@pulumi/pulumi": ^3.136.1
+    "@pulumi/aws": ^6.61.0
+    "@pulumi/pulumi": ^3.141.0
     "@webiny/api-aco": 0.0.0
     "@webiny/api-apw": 0.0.0
     "@webiny/api-apw-scheduler-so-ddb": 0.0.0

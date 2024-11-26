@@ -171,8 +171,8 @@ export const createReactPulumiApp = (projectAppParams: CreateReactPulumiAppParam
                             "M": {
                               "appUrl": {
                                 "S": "${cloudfront.output.domainName.apply(
-                        value => `https://${value}`
-                    )}"
+                                    value => `https://${value}`
+                                )}"
                               }
                             }
                           }

@@ -2,22 +2,19 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { DropdownMenu } from "./DropdownMenu";
 import { ButtonBase as Button } from "~/Button";
-import {
-    Cloud,
-    CreditCard,
-    Github,
-    Keyboard,
-    LifeBuoy,
-    LogOut,
-    Mail,
-    MessageSquare,
-    Plus,
-    PlusCircle,
-    Settings,
-    User,
-    UserPlus,
-    Users
-} from "lucide-react";
+import { ReactComponent as Cloud } from "@material-design-icons/svg/outlined/cloud.svg";
+import { ReactComponent as LogOut } from "@material-design-icons/svg/outlined/logout.svg";
+import { ReactComponent as LifeBuoy } from "@material-design-icons/svg/outlined/safety_check.svg";
+import { ReactComponent as CreditCard } from "@material-design-icons/svg/outlined/credit_score.svg";
+import { ReactComponent as Plus } from "@material-design-icons/svg/outlined/add.svg";
+import { ReactComponent as PlusCircle } from "@material-design-icons/svg/outlined/add_circle.svg";
+import { ReactComponent as Settings } from "@material-design-icons/svg/outlined/settings.svg";
+import { ReactComponent as Users } from "@material-design-icons/svg/outlined/people.svg";
+import { ReactComponent as UserPlus } from "@material-design-icons/svg/outlined/person_add.svg";
+import { ReactComponent as User } from "@material-design-icons/svg/outlined/person.svg";
+import { ReactComponent as Keyboard } from "@material-design-icons/svg/outlined/keyboard.svg";
+import { ReactComponent as Mail } from "@material-design-icons/svg/outlined/mail.svg";
+import { ReactComponent as MessageSquare } from "@material-design-icons/svg/outlined/chat_bubble.svg";
 
 const meta: Meta<typeof DropdownMenu> = {
     title: "Components/DropdownMenu",
@@ -41,7 +38,6 @@ const {
     SubTrigger,
     Portal,
     SubContent,
-    Shortcut
 } = DropdownMenu;
 
 export const Default: Story = {
@@ -54,81 +50,58 @@ export const Default: Story = {
                 <Content className="w-56">
                     <Label>My Account</Label>
                     <Group>
-                        <Item>
-                            <User />
-                            <span>Profile</span>
-                            <Shortcut>⇧⌘P</Shortcut>
+                        <Item icon={<User />} shortcut={"⇧⌘P"}>
+                            Profile
                         </Item>
-                        <Item>
-                            <CreditCard />
-                            <span>Billing</span>
-                            <Shortcut>⌘B</Shortcut>
+                        <Item icon={<CreditCard />} shortcut={"⌘B"}>
+                            Billing
                         </Item>
-                        <Item>
-                            <Settings />
-                            <span>Settings</span>
-                            <Shortcut>⌘S</Shortcut>
+                        <Item icon={<Settings />} shortcut={"⌘S"}>
+                            Settings
                         </Item>
-                        <Item>
-                            <Keyboard />
-                            <span>Keyboard shortcuts</span>
-                            <Shortcut>⌘K</Shortcut>
+                        <Item icon={<Keyboard />} shortcut={"⌘K"}>
+                            Keyboard shortcuts
                         </Item>
                     </Group>
                     <Separator />
                     <Group>
-                        <Item>
-                            <Users />
-                            <span>Team</span>
-                        </Item>
-                        <Sub>
-                            <SubTrigger>
-                                <UserPlus />
-                                <span>Invite users</span>
-                            </SubTrigger>
-                            <Portal>
-                                <SubContent>
-                                    <Item>
-                                        <Mail />
-                                        <span>Email</span>
-                                    </Item>
-                                    <Item>
-                                        <MessageSquare />
-                                        <span>Message</span>
-                                    </Item>
-                                    <Separator />
-                                    <Item>
-                                        <PlusCircle />
-                                        <span>More...</span>
-                                    </Item>
-                                </SubContent>
-                            </Portal>
-                        </Sub>
-                        <Item>
-                            <Plus />
-                            <span>New Team</span>
-                            <Shortcut>⌘+T</Shortcut>
+                        <Item icon={<Users />}>Team</Item>
+
+                        {/*<Sub>*/}
+                        {/*    <SubTrigger>*/}
+                        {/*        <UserPlus />*/}
+                        {/*        <span>Invite users</span>*/}
+                        {/*    </SubTrigger>*/}
+                        {/*    <Portal>*/}
+                        {/*        <SubContent>*/}
+                        {/*            <Item>*/}
+                        {/*                <Mail />*/}
+                        {/*                <span>Email</span>*/}
+                        {/*            </Item>*/}
+                        {/*            <Item>*/}
+                        {/*                <MessageSquare />*/}
+                        {/*                <span>Message</span>*/}
+                        {/*            </Item>*/}
+                        {/*            <Separator />*/}
+                        {/*            <Item>*/}
+                        {/*                <PlusCircle />*/}
+                        {/*                <span>More...</span>*/}
+                        {/*            </Item>*/}
+                        {/*        </SubContent>*/}
+                        {/*    </Portal>*/}
+                        {/*</Sub>*/}
+
+                        <Item icon={<Plus />} shortcut={"⌘+T"}>
+                            New Team
                         </Item>
                     </Group>
                     <Separator />
-                    <Item>
-                        <Github />
-                        <span>GitHub</span>
-                    </Item>
-                    <Item>
-                        <LifeBuoy />
-                        <span>Support</span>
-                    </Item>
-                    <Item disabled>
-                        <Cloud />
-                        <span>API</span>
+                    <Item icon={<LifeBuoy />}>Support</Item>
+                    <Item icon={<Cloud />} disabled>
+                        API
                     </Item>
                     <Separator />
-                    <Item>
-                        <LogOut />
-                        <span>Log out</span>
-                        <Shortcut>⇧⌘Q</Shortcut>
-                    </Item>
+                    <Item icon={<LogOut />}>Log out</Item>
                 </Content>
             </>
         )

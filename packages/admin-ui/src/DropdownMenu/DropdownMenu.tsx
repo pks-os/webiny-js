@@ -14,6 +14,16 @@ const DropdownMenuTriggerBase = DropdownMenuPrimitive.Trigger;
 
 const DropdownMenuTrigger = makeDecoratable("DropdownMenuTrigger", DropdownMenuTriggerBase);
 
+const DropdownMenuShortcutBase = ({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
+    return <span className={cn("ml-auto text-xs opacity-60", className)} {...props} />;
+};
+DropdownMenuShortcutBase.displayName = "DropdownMenuShortcut";
+
+const DropdownMenuShortcut = makeDecoratable("DropdownMenuShortcut", DropdownMenuShortcutBase);
+
 const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
@@ -25,14 +35,12 @@ const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 const DropdownMenuSubTrigger = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-        inset?: boolean;
     }
->(({ className, inset, children, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
         className={cn(
             "flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-md outline-none focus:bg-neutral-dimmed data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-            inset && "pl-8",
             className
         )}
         {...props}
@@ -76,21 +84,27 @@ const DropdownMenuContent = React.forwardRef<
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
+type DropdownMenuItemProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+    icon?: React.ReactNode;
+    shortcut?: string;
+};
+
 const DropdownMenuItemBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-        inset?: boolean;
-    }
->(({ className, inset, ...props }, ref) => (
+    DropdownMenuItemProps
+>(({ className, icon, shortcut, children, ...props }, ref) => (
     <DropdownMenuPrimitive.Item
         ref={ref}
         className={cn(
-            "relative flex cursor-default select-none items-center gap-2 rounded-sm p-sm text-md outline-none transition-colors focus:bg-neutral-dimmed focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-            inset && "pl-8",
+            "relative flex cursor-default select-none items-center gap-2 rounded-sm p-sm text-md outline-none transition-colors focus:bg-neutral-dimmed focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
             className
         )}
         {...props}
-    />
+    >
+        {icon}
+        {children}
+        {shortcut && <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>}
+    </DropdownMenuPrimitive.Item>
 ));
 DropdownMenuItemBase.displayName = DropdownMenuPrimitive.Item.displayName;
 
@@ -144,12 +158,15 @@ DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 const DropdownMenuLabelBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Label>,
     React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-        inset?: boolean;
+
     }
->(({ className, inset, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
     <DropdownMenuPrimitive.Label
         ref={ref}
-        className={cn("py-sm pl-sm-extra pr-md text-sm uppercase text-neutral-strong font-semibold", inset && "pl-8", className)}
+        className={cn(
+            "py-sm pl-sm-extra pr-md text-sm uppercase text-neutral-strong font-semibold",
+            className
+        )}
         {...props}
     />
 ));
@@ -171,13 +188,6 @@ DropdownMenuSeparatorBase.displayName = DropdownMenuPrimitive.Separator.displayN
 
 const DropdownMenuSeparator = makeDecoratable("DropdownMenuSeparator", DropdownMenuSeparatorBase);
 
-const DropdownMenuShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
-    return (
-        <span className={cn("ml-auto text-xs opacity-60", className)} {...props} />
-    );
-};
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
-
 const DropdownMenu = withStaticProps(DecoratableDropdownMenu, {
     Trigger: DropdownMenuTrigger,
     Group: DropdownMenuGroup,
@@ -190,7 +200,6 @@ const DropdownMenu = withStaticProps(DecoratableDropdownMenu, {
     RadioItem: DropdownMenuRadioItem,
     Label: DropdownMenuLabel,
     Separator: DropdownMenuSeparator,
-    Shortcut: DropdownMenuShortcut,
     SubTrigger: DropdownMenuSubTrigger,
     RadioGroup: DropdownMenuRadioGroup
 });

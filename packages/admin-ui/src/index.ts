@@ -6,7 +6,6 @@ export * from "./Grid";
 export * from "./Heading";
 export * from "./Input";
 export * from "./Label";
-export * from "./DropdownMenu";
 export * from "./Progress";
 export * from "./Providers";
 export * from "./RangeSlider";

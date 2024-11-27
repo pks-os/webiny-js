@@ -52,3 +52,9 @@
     {TEXT_SIZE}
   }
 }
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}

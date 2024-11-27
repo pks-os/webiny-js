@@ -108,19 +108,19 @@ const inputVariants = cva(
                     "bg-neutral-base border-neutral-muted text-neutral-strong placeholder:text-neutral-dimmed",
                     "hover:border-neutral-strong",
                     "focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-muted disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
                 ],
                 secondary: [
                     "bg-neutral-light border-neutral-subtle text-neutral-strong placeholder:text-neutral-dimmed",
                     "hover:bg-neutral-dimmed",
-                    "focus:bg-accent-default focus:border-neutral-black",
+                    "focus:bg-neutral-base focus:border-neutral-black",
                     "disabled:bg-neutral-disabled disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
                 ],
                 ghost: [
-                    "bg-neutral-base border-transparent text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-light",
-                    "focus:bg-neutral-light",
-                    "disabled:bg-neutral-disabled disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
+                    "bg-transparent border-transparent text-neutral-strong placeholder:text-neutral-dimmed",
+                    "hover:bg-neutral-dimmed/95",
+                    "focus:bg-neutral-base focus:border-neutral-black",
+                    "disabled:bg-transparent disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
                 ]
             },
             iconPosition: {
@@ -183,10 +183,10 @@ const inputVariants = cva(
                 variant: "ghost",
                 invalid: true,
                 class: [
-                    "border-none bg-destructive-subtle",
-                    "hover:bg-destructive-subtle",
-                    "focus:bg-destructive-subtle",
-                    "disabled:bg-destructive-subtle"
+                    "border-destructive-subtle bg-destructive-subtle",
+                    "hover:border-destructive-subtle",
+                    "focus:border-destructive-subtle",
+                    "disabled:bg-destructive-subtle disabled:border-destructive-subtle"
                 ]
             }
         ],

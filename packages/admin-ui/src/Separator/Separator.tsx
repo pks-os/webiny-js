@@ -26,19 +26,19 @@ const separatorVariants = cva("shrink-0", {
     },
     compoundVariants: [
         { orientation: "horizontal", margin: "xs", className: "my-px" },
-        { orientation: "horizontal", margin: "sm", className: "my-[2px]" },
-        { orientation: "horizontal", margin: "md", className: "my-[4px]" },
-        { orientation: "horizontal", margin: "lg", className: "my-[8px]" },
-        { orientation: "horizontal", margin: "xl", className: "my-[16px]" },
+        { orientation: "horizontal", margin: "sm", className: "my-xxs" },
+        { orientation: "horizontal", margin: "md", className: "my-xs" },
+        { orientation: "horizontal", margin: "lg", className: "my-sm" },
+        { orientation: "horizontal", margin: "xl", className: "my-md" },
         { orientation: "vertical", margin: "xs", className: "mx-px" },
-        { orientation: "vertical", margin: "sm", className: "mx-[2px]" },
-        { orientation: "vertical", margin: "md", className: "mx-[4px]" },
-        { orientation: "vertical", margin: "lg", className: "mx-[8px]" },
-        { orientation: "vertical", margin: "xl", className: "mx-[16px]" }
+        { orientation: "vertical", margin: "sm", className: "mx-xxs" },
+        { orientation: "vertical", margin: "md", className: "mx-xs" },
+        { orientation: "vertical", margin: "lg", className: "mx-sm" },
+        { orientation: "vertical", margin: "xl", className: "mx-md" }
     ],
     defaultVariants: {
         orientation: "horizontal",
-        variant: "strong",
+        variant: "dimmed",
         margin: "md"
     }
 });

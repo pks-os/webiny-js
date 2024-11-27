@@ -24,7 +24,7 @@ type Story = StoryObj<typeof Separator>;
 
 export const Default: Story = {
     args: {
-        orientation: "horizontal",
+        variant: "subtle",
         margin: "lg"
     },
     render: props => {

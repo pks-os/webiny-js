@@ -968,9 +968,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-s3@npm:3.700.0, @aws-sdk/client-s3@npm:^3.700.0":
-  version: 3.700.0
-  resolution: "@aws-sdk/client-s3@npm:3.700.0"
+"@aws-sdk/client-s3@npm:3.701.0, @aws-sdk/client-s3@npm:^3.701.0":
+  version: 3.701.0
+  resolution: "@aws-sdk/client-s3@npm:3.701.0"
   dependencies:
     "@aws-crypto/sha1-browser": 5.2.0
     "@aws-crypto/sha256-browser": 5.2.0
@@ -981,7 +981,7 @@ __metadata:
     "@aws-sdk/credential-provider-node": 3.699.0
     "@aws-sdk/middleware-bucket-endpoint": 3.696.0
     "@aws-sdk/middleware-expect-continue": 3.696.0
-    "@aws-sdk/middleware-flexible-checksums": 3.697.0
+    "@aws-sdk/middleware-flexible-checksums": 3.701.0
     "@aws-sdk/middleware-host-header": 3.696.0
     "@aws-sdk/middleware-location-constraint": 3.696.0
     "@aws-sdk/middleware-logger": 3.696.0
@@ -1030,7 +1030,7 @@ __metadata:
     "@smithy/util-utf8": ^3.0.0
     "@smithy/util-waiter": ^3.1.9
     tslib: ^2.6.2
-  checksum: 86343b57d447949c485b5d3f3a227655312a97c803a73959ff2be36b0bda2d00328f47100d94b3b87904602daf73f4c1d835fbd073126ec0c1d146c13a419823
+  checksum: 0f131ab91edf989eb7c6f07e5ae4b241e682d14933634120b51a62d5e39841640ad58d6a3dcccd1ebe6472abe9e25e02ceebc0a911d75d87f63a2da111d454d9
   languageName: node
   linkType: hard
 
@@ -1609,9 +1609,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/lib-storage@npm:^3.700.0":
-  version: 3.700.0
-  resolution: "@aws-sdk/lib-storage@npm:3.700.0"
+"@aws-sdk/lib-storage@npm:^3.701.0":
+  version: 3.701.0
+  resolution: "@aws-sdk/lib-storage@npm:3.701.0"
   dependencies:
     "@smithy/abort-controller": ^3.1.7
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1621,8 +1621,8 @@ __metadata:
     stream-browserify: 3.0.0
     tslib: ^2.6.2
   peerDependencies:
-    "@aws-sdk/client-s3": ^3.700.0
-  checksum: 3832aa9b19f6c029eb555fd9b8e63861fb47ed25765de32897268a4dd3f114a4be302e55495125bb7e5ea932494c80b2e9dccbbcf29c944bceea6460b3f879ab
+    "@aws-sdk/client-s3": ^3.701.0
+  checksum: e361aeee7dbfd52c82b016593049ea2fac4e070332b3033c088732f5b01bab98a9ef496c33952187ca60196b6f433bf87648ce52d663073a6cb2ff430535de4a
   languageName: node
   linkType: hard
 
@@ -1678,9 +1678,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/middleware-flexible-checksums@npm:3.697.0":
-  version: 3.697.0
-  resolution: "@aws-sdk/middleware-flexible-checksums@npm:3.697.0"
+"@aws-sdk/middleware-flexible-checksums@npm:3.701.0":
+  version: 3.701.0
+  resolution: "@aws-sdk/middleware-flexible-checksums@npm:3.701.0"
   dependencies:
     "@aws-crypto/crc32": 5.2.0
     "@aws-crypto/crc32c": 5.2.0
@@ -1695,7 +1695,7 @@ __metadata:
     "@smithy/util-stream": ^3.3.1
     "@smithy/util-utf8": ^3.0.0
     tslib: ^2.6.2
-  checksum: b8991f8fee5896952d5201cebf8cabebfa21e94bab56cc57ed62530659a56cb7b5911272297bf76b86513e86500873be5ecab3c2d6e9174471a6fabc0af6f805
+  checksum: 30e992534d9c39c5c83e3e8d6cfee80969925c4993a686a8a4b1a4516e24360ad5cdef99be851aeb0af47085c365d3a3430c5c45352aaf12baf1ac5152703224
   languageName: node
   linkType: hard
 
@@ -1964,11 +1964,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-presigned-post@npm:^3.700.0":
-  version: 3.700.0
-  resolution: "@aws-sdk/s3-presigned-post@npm:3.700.0"
+"@aws-sdk/s3-presigned-post@npm:^3.701.0":
+  version: 3.701.0
+  resolution: "@aws-sdk/s3-presigned-post@npm:3.701.0"
   dependencies:
-    "@aws-sdk/client-s3": 3.700.0
+    "@aws-sdk/client-s3": 3.701.0
     "@aws-sdk/types": 3.696.0
     "@aws-sdk/util-format-url": 3.696.0
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1977,13 +1977,13 @@ __metadata:
     "@smithy/util-hex-encoding": ^3.0.0
     "@smithy/util-utf8": ^3.0.0
     tslib: ^2.6.2
-  checksum: bcf349ce1b67c47e5f7b230cd7de47bba4cf34f46b57626e2bf4214c34a11701f04184e05126f829653c85bc48fb77de5e9ed7c9c1f41811c71ef9cbb1e2b757
+  checksum: 6a1dca464520b4fb317fa18e59de4fa094993465bbb82b03feb772dffccbaa8b7de237ae24526231c69cdae0e10d8de48352ce88f0d6071ab904f751bcdb0c9a
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-request-presigner@npm:^3.700.0":
-  version: 3.700.0
-  resolution: "@aws-sdk/s3-request-presigner@npm:3.700.0"
+"@aws-sdk/s3-request-presigner@npm:^3.701.0":
+  version: 3.701.0
+  resolution: "@aws-sdk/s3-request-presigner@npm:3.701.0"
   dependencies:
     "@aws-sdk/signature-v4-multi-region": 3.696.0
     "@aws-sdk/types": 3.696.0
@@ -1993,7 +1993,7 @@ __metadata:
     "@smithy/smithy-client": ^3.4.4
     "@smithy/types": ^3.7.1
     tslib: ^2.6.2
-  checksum: b5e6f9cb8aea0ab4bef0b1d21efc6ee9736b3161400b90127449acfce06130a6b0ad8ce48d0112699cdebd80a3900d67cb493e6f416578c9f4317351479f2138
+  checksum: 23f73bd287a9cb151e8f678e2103eed33e63c01ed46c316353ae1e17a481f25d9e8fa0fe2e0524ac640e218e18a87aa6574e26294449ccb8c47ea8387089ff94
   languageName: node
   linkType: hard
 
@@ -8343,7 +8343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/pulumi@npm:^3.136.0, @pulumi/pulumi@npm:^3.141.0":
+"@pulumi/pulumi@npm:^3.136.0":
   version: 3.141.0
   resolution: "@pulumi/pulumi@npm:3.141.0"
   dependencies:
@@ -8386,6 +8386,52 @@ __metadata:
     typescript:
       optional: true
   checksum: e629b5d167a25eddba45fd07bf26d8824529e8c30a7cb0cad322dec2159c111fdadc9e2e2578fe61c4fd66474fb6e16c6e3c94c180288792ef4608edd9f0d733
+  languageName: node
+  linkType: hard
+
+"@pulumi/pulumi@npm:^3.142.0":
+  version: 3.142.0
+  resolution: "@pulumi/pulumi@npm:3.142.0"
+  dependencies:
+    "@grpc/grpc-js": ^1.10.1
+    "@logdna/tail-file": ^2.0.6
+    "@npmcli/arborist": ^7.3.1
+    "@opentelemetry/api": ^1.9
+    "@opentelemetry/exporter-zipkin": ^1.25
+    "@opentelemetry/instrumentation": ^0.52
+    "@opentelemetry/instrumentation-grpc": ^0.52
+    "@opentelemetry/resources": ^1.25
+    "@opentelemetry/sdk-trace-base": ^1.25
+    "@opentelemetry/sdk-trace-node": ^1.25
+    "@opentelemetry/semantic-conventions": ^1.25
+    "@pulumi/query": ^0.3.0
+    "@types/google-protobuf": ^3.15.5
+    "@types/semver": ^7.5.6
+    "@types/tmp": ^0.2.6
+    execa: ^5.1.0
+    fdir: ^6.1.1
+    google-protobuf: ^3.5.0
+    got: ^11.8.6
+    ini: ^2.0.0
+    js-yaml: ^3.14.0
+    minimist: ^1.2.6
+    normalize-package-data: ^6.0.0
+    picomatch: ^3.0.1
+    pkg-dir: ^7.0.0
+    require-from-string: ^2.0.1
+    semver: ^7.5.2
+    source-map-support: ^0.5.6
+    tmp: ^0.2.1
+    upath: ^1.1.0
+  peerDependencies:
+    ts-node: ">= 7.0.1 < 12"
+    typescript: ">= 3.8.3 < 6"
+  peerDependenciesMeta:
+    ts-node:
+      optional: true
+    typescript:
+      optional: true
+  checksum: b50c8dd9193685218dfdb77068edd9da2e0c827ec5f83bc21a3c4e804d05e1f34fadfdf23ba11e8c963421fd3bdfb0a6ff739f1b05a72ed8fe4d8677100633f2
   languageName: node
   linkType: hard
 
@@ -14784,15 +14830,15 @@ __metadata:
     "@aws-sdk/client-iam": ^3.699.0
     "@aws-sdk/client-iot": ^3.699.0
     "@aws-sdk/client-lambda": ^3.699.0
-    "@aws-sdk/client-s3": ^3.700.0
+    "@aws-sdk/client-s3": ^3.701.0
     "@aws-sdk/client-sfn": ^3.699.0
     "@aws-sdk/client-sqs": ^3.699.0
     "@aws-sdk/client-sts": ^3.699.0
     "@aws-sdk/credential-providers": ^3.699.0
     "@aws-sdk/lib-dynamodb": ^3.699.0
-    "@aws-sdk/lib-storage": ^3.700.0
-    "@aws-sdk/s3-presigned-post": ^3.700.0
-    "@aws-sdk/s3-request-presigner": ^3.700.0
+    "@aws-sdk/lib-storage": ^3.701.0
+    "@aws-sdk/s3-presigned-post": ^3.701.0
+    "@aws-sdk/s3-request-presigner": ^3.701.0
     "@aws-sdk/util-dynamodb": ^3.699.0
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
@@ -15758,7 +15804,7 @@ __metadata:
   resolution: "@webiny/pulumi-aws@workspace:packages/pulumi-aws"
   dependencies:
     "@pulumi/aws": ^6.61.0
-    "@pulumi/pulumi": ^3.141.0
+    "@pulumi/pulumi": ^3.142.0
     "@pulumi/random": ^4.16.7
     "@webiny/api-page-builder": 0.0.0
     "@webiny/aws-layers": 0.0.0
@@ -15784,7 +15830,7 @@ __metadata:
   resolution: "@webiny/pulumi-sdk@workspace:packages/pulumi-sdk"
   dependencies:
     "@pulumi/aws": ^6.61.0
-    "@pulumi/pulumi": ^3.141.0
+    "@pulumi/pulumi": ^3.142.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
@@ -15804,7 +15850,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi@workspace:packages/pulumi"
   dependencies:
-    "@pulumi/pulumi": ^3.141.0
+    "@pulumi/pulumi": ^3.142.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
@@ -15908,7 +15954,7 @@ __metadata:
   resolution: "@webiny/serverless-cms-aws@workspace:packages/serverless-cms-aws"
   dependencies:
     "@pulumi/aws": ^6.61.0
-    "@pulumi/pulumi": ^3.141.0
+    "@pulumi/pulumi": ^3.142.0
     "@webiny/api-aco": 0.0.0
     "@webiny/api-apw": 0.0.0
     "@webiny/api-apw-scheduler-so-ddb": 0.0.0

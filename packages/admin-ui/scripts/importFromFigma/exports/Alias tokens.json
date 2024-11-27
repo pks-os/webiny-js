@@ -64,8 +64,8 @@
     "VariableID:52:31",
     "VariableID:52:32",
     "VariableID:529:17319",
-    "VariableID:1335:7762",
     "VariableID:183:122214",
+    "VariableID:1335:7762",
     "VariableID:1335:7763",
     "VariableID:1335:7764",
     "VariableID:1152:342",
@@ -78,7 +78,9 @@
     "VariableID:1141:6772",
     "VariableID:183:122219",
     "VariableID:849:783",
+    "VariableID:2237:20498",
     "VariableID:849:784",
+    "VariableID:2237:20499",
     "VariableID:1639:554",
     "VariableID:52:18",
     "VariableID:81:1904",
@@ -3364,6 +3366,45 @@
           "resolvedValue": { "r": 1, "g": 1, "b": 1, "a": 0.20000000298023224 },
           "alias": "VariableID:1970:8522",
           "aliasName": "colors/colors-neutral-0-a20"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2237:20498",
+      "name": "borderColor/borderColor-destructive-subtle",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:38:40" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": { "r": 1, "g": 0.9372549057006836, "b": 0.9372549057006836, "a": 1 },
+          "alias": "VariableID:38:40",
+          "aliasName": "colors/colors-destructive-100"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2237:20499",
+      "name": "borderColor/borderColor-success-subtle",
+      "description": "",
+      "type": "COLOR",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:38:23" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": {
+            "r": 0.8705882430076599,
+            "g": 0.9647058844566345,
+            "b": 0.9490196108818054,
+            "a": 1
+          },
+          "alias": "VariableID:38:23",
+          "aliasName": "colors/colors-success-200"
         }
       },
       "scopes": ["ALL_SCOPES"],

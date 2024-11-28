@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Separator, type SeparatorProps } from "~/Separator";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { ReactComponent as Check } from "@material-design-icons/svg/filled/check.svg";
 import { ReactComponent as ChevronRight } from "@material-design-icons/svg/filled/chevron_right.svg";
@@ -34,8 +35,7 @@ const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
 const DropdownMenuSubTrigger = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-    }
+    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {}
 >(({ className, children, ...props }, ref) => (
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
@@ -75,7 +75,7 @@ const DropdownMenuContent = React.forwardRef<
             ref={ref}
             sideOffset={sideOffset}
             className={cn(
-                "z-50 min-w-[8rem] overflow-hidden rounded-sm bg-white py-sm text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
+                "flex flex-col z-50 min-w-[8rem] overflow-hidden rounded-sm gap-xxs bg-white py-xs-plus text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
                 className
             )}
             {...props}
@@ -96,14 +96,16 @@ const DropdownMenuItemBase = React.forwardRef<
     <DropdownMenuPrimitive.Item
         ref={ref}
         className={cn(
-            "relative flex cursor-default select-none items-center gap-2 rounded-sm p-sm text-md outline-none transition-colors focus:bg-neutral-dimmed focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
+            "relative cursor-default select-none items-center gap-2 rounded-sm px-xs-plus outline-none transition-colors focus:bg-neutral-dimmed focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
             className
         )}
         {...props}
     >
-        {icon}
-        {children}
-        {shortcut && <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>}
+        <div className={"flex p-sm gap-sm-extra align-middle text-md"}>
+            {icon}
+            {children}
+            {shortcut && <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>}
+        </div>
     </DropdownMenuPrimitive.Item>
 ));
 DropdownMenuItemBase.displayName = DropdownMenuPrimitive.Item.displayName;
@@ -157,9 +159,7 @@ DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
 const DropdownMenuLabelBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-
-    }
+    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {}
 >(({ className, ...props }, ref) => (
     <DropdownMenuPrimitive.Label
         ref={ref}
@@ -175,16 +175,13 @@ DropdownMenuLabelBase.displayName = DropdownMenuPrimitive.Label.displayName;
 const DropdownMenuLabel = makeDecoratable("DropdownMenuLabel", DropdownMenuLabelBase);
 
 const DropdownMenuSeparatorBase = React.forwardRef<
-    React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
->(({ className, ...props }, ref) => (
-    <DropdownMenuPrimitive.Separator
-        ref={ref}
-        className={cn("h-px bg-neutral-strong", className)}
-        {...props}
-    />
-));
-DropdownMenuSeparatorBase.displayName = DropdownMenuPrimitive.Separator.displayName;
+    React.ElementRef<typeof Separator>,
+    SeparatorProps
+>((props, ref) => {
+    return <Separator ref={ref} variant={"strong"} margin={"md"} {...props} />;
+});
+
+DropdownMenuSeparatorBase.displayName = Separator.displayName;
 
 const DropdownMenuSeparator = makeDecoratable("DropdownMenuSeparator", DropdownMenuSeparatorBase);
 

@@ -27,18 +27,8 @@ export default meta;
 
 type Story = StoryObj<typeof DropdownMenu>;
 
-const {
-    Content,
-    Label,
-    Separator,
-    Group,
-    Item,
-    Sub,
-    Trigger,
-    SubTrigger,
-    Portal,
-    SubContent,
-} = DropdownMenu;
+const { Content, Label, Separator, Group, Item, Sub, Trigger, SubTrigger, Portal, SubContent } =
+    DropdownMenu;
 
 export const Default: Story = {
     args: {
@@ -50,18 +40,10 @@ export const Default: Story = {
                 <Content className="w-56">
                     <Label>My Account</Label>
                     <Group>
-                        <Item icon={<User />} shortcut={"⇧⌘P"}>
-                            Profile
-                        </Item>
-                        <Item icon={<CreditCard />} shortcut={"⌘B"}>
-                            Billing
-                        </Item>
-                        <Item icon={<Settings />} shortcut={"⌘S"}>
-                            Settings
-                        </Item>
-                        <Item icon={<Keyboard />} shortcut={"⌘K"}>
-                            Keyboard shortcuts
-                        </Item>
+                        <Item icon={<User />}>Profile</Item>
+                        <Item icon={<CreditCard />}>Billing</Item>
+                        <Item icon={<Settings />}>Settings</Item>
+                        <Item icon={<Keyboard />}>Keyboard shortcuts</Item>
                     </Group>
                     <Separator />
                     <Group>

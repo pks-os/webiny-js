@@ -1,11 +1,11 @@
 import { ContextPlugin } from "@webiny/api";
 import { SecurityIdentity, SecurityPermission } from "@webiny/api-security/types";
-import { createGroupsTeamsAuthorizerHandler } from "@webiny/api-security";
 import {
     createAuthenticator,
     Config as CognitoConfig,
     TokenData
 } from "@webiny/api-cognito-authenticator";
+import { createGroupsTeamsAuthorizerHandler } from "@webiny/api-security";
 import { CoreContext } from "~/types";
 import { createAdminUsersHooks } from "./createAdminUsersHooks";
 import adminUsersGqlPlugins from "./graphql/user.gql";

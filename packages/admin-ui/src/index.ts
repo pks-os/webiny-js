@@ -10,6 +10,7 @@ export * from "./Label";
 export * from "./DropdownMenu";
 export * from "./Progress";
 export * from "./Providers";
+export * from "./Radio";
 export * from "./RangeSlider";
 export * from "./Select";
 export * from "./Separator";

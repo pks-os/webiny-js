@@ -1,29 +1,41 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { Card, CardContent, CardFooter, CardHeader } from "./Card";
+import { ReactComponent as MoreVertical } from "@material-design-icons/svg/filled/more_vert.svg";
+import { Card } from "./Card";
+import { Button } from "~/Button";
 
 const meta: Meta<typeof Card> = {
     title: "Components/Card",
     component: Card,
-    tags: ["autodocs"]
+    tags: ["autodocs"],
+    decorators: [
+        Story => (
+            <div className="bg-[#f4f4f4] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
+                <div className={"m-auto w-[300px]"}>
+                    <Story />
+                </div>
+            </div>
+        )
+    ]
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Card>;
 
-const defaultContentProps = {
-    header: <CardHeader title="This is a card title" description="This is a card description" />,
-    content: <CardContent content={"This is card content. Anything can go in here."} />,
-    footer: <CardFooter content={"This is card footer. Anything can go in here."} />
-};
-
 export const Default: Story = {
     args: {
-        ...defaultContentProps,
+        title: "Card title goes here",
+        description: "Card description goes here",
+        children: <>This is card content. Anything can go in here.</>,
+        actions: (
+            <>
+                <Button variant={"secondary"} text={"Cancel"} />
+                <Button variant={"primary"} text={"Confirm"} />
+            </>
+        ),
         padding: "standard",
-        elevation: "none",
+        elevation: "sm",
         borderRadius: "md"
     },
     argTypes: {
@@ -42,62 +54,60 @@ export const Default: Story = {
     }
 };
 
-export const WithoutHeaderAndFooter: Story = {
+export const NoTitleDescriptionActionsHeaderAndFooter: Story = {
+    name: "Only Body (Without Body, Title, Actions)",
     args: {
-        content: <>This is card content. Anything can go in here.</>
-    }
-};
-
-export const WithCloseButton: Story = {
-    args: {
-        ...defaultContentProps,
-        header: (
-            <CardHeader
-                title="This is a card that can be closed."
-                description="This is a description of a card that can be closed."
-                showCloseButton
-            />
-        )
+        children: <>This is card content. Anything can go in here.</>
     }
 };
 
 export const WithMorePadding: Story = {
     args: {
-        ...defaultContentProps,
+        ...Default.args,
+        actions: null,
         padding: "comfortable"
     }
 };
 
-export const WithElevation: Story = {
+export const WithMoreElevation: Story = {
     args: {
-        ...defaultContentProps,
+        ...Default.args,
+        actions: null,
         elevation: "md"
+    }
+};
+
+export const NoElevation: Story = {
+    args: {
+        ...Default.args,
+        actions: null,
+        elevation: "none"
     }
 };
 
 export const NoBorderRadius: Story = {
     args: {
-        ...defaultContentProps,
+        ...Default.args,
+        actions: null,
         borderRadius: "none"
     }
 };
 
-export const WithCustomHeader: Story = {
+export const WithOptions: Story = {
     args: {
-        ...defaultContentProps,
-        header: (
-            <CardHeader
-                content={
-                    <>
-                        <div>
-                            Custom header title in a <code>div</code>
-                        </div>
-                        <span>
-                            Custom header description in a <code>span</code>
-                        </span>
-                    </>
-                }
+        ...Default.args,
+        actions: null,
+        options: (
+            <Button
+                variant={"ghost"}
+                icon={<MoreVertical />}
+                iconSize={"lg"}
+                onClick={() => alert("Custom action button clicked.")}
             />
         )
     }
+};
+
+export const WithActions: Story = {
+    args: Default.args
 };

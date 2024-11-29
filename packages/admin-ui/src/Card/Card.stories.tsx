@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as MoreVertical } from "@material-design-icons/svg/filled/more_vert.svg";
 import { Card } from "./Card";
 import { Button } from "~/Button";
-import { Container } from "~/Container";
 
 const meta: Meta<typeof Card> = {
     title: "Components/Card",
@@ -12,9 +11,9 @@ const meta: Meta<typeof Card> = {
     decorators: [
         Story => (
             <div className="bg-[#f4f4f4] h-[500px] w-[700px] rounded-[5px] px-[50px] content-center">
-                <Container className={"w-[300px]"} padding={"none"}>
+                <div className={"m-auto w-[300px]"}>
                     <Story />
-                </Container>
+                </div>
             </div>
         )
     ]

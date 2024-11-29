@@ -2,7 +2,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Grid } from "./Grid";
-import { Container } from "~/Container";
 import { StyledColumn } from "./stories/StyledColumn";
 
 const meta: Meta<typeof Grid> = {
@@ -62,60 +61,6 @@ export const WithOffset: Story = {
 
                 {/* Row 4 */}
                 <StyledColumn span={12} index={1} />
-            </>
-        )
-    }
-};
-
-export const WithContainerFluid: Story = {
-    name: "With Container (Fluid)",
-    decorators: [
-        Story => (
-            <div className="w-[700px]">
-                <Story />
-            </div>
-        )
-    ],
-    render: ({ children }) => (
-        <Container className={"bg-neutral-light"}>
-            <Grid>{children}</Grid>
-        </Container>
-    ),
-    args: {
-        ...Default.args,
-        children: (
-            <>
-                <StyledColumn span={3} index={1} />
-                <StyledColumn span={3} index={2} />
-                <StyledColumn span={3} index={3} />
-                <StyledColumn span={3} index={4} />
-            </>
-        )
-    }
-};
-
-export const WithContainerFixed: Story = {
-    name: "With Container (Fixed)",
-    decorators: [
-        Story => (
-            <div className="w-[700px]">
-                <Story />
-            </div>
-        )
-    ],
-    render: ({ children }) => (
-        <Container className={"w-[500px] bg-neutral-light"}>
-            <Grid>{children}</Grid>
-        </Container>
-    ),
-    args: {
-        ...Default.args,
-        children: (
-            <>
-                <StyledColumn span={3} index={1} />
-                <StyledColumn span={3} index={2} />
-                <StyledColumn span={3} index={3} />
-                <StyledColumn span={3} index={4} />
             </>
         )
     }

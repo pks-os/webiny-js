@@ -21,9 +21,12 @@
     "@webiny/api-prerendering-service": "0.0.0",
     "@webiny/api-security": "0.0.0",
     "@webiny/api-tenancy": "0.0.0",
+    "@webiny/aws-sdk": "0.0.0",
     "@webiny/error": "0.0.0",
+    "@webiny/handler": "0.0.0",
     "@webiny/handler-client": "0.0.0",
-    "@webiny/handler-graphql": "0.0.0"
+    "@webiny/handler-graphql": "0.0.0",
+    "@webiny/utils": "0.0.0"
   },
   "devDependencies": {
     "@webiny/api-admin-users": "0.0.0",
@@ -38,7 +41,6 @@
     "@webiny/api-wcp": "0.0.0",
     "@webiny/api-websockets": "0.0.0",
     "@webiny/cli": "0.0.0",
-    "@webiny/handler": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/plugins": "0.0.0",
     "@webiny/project-utils": "0.0.0",

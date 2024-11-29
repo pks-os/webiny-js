@@ -63,6 +63,7 @@
     --border-accent-subtle: 5 100% 97.5%;
 
     --border-destructive-default: 0 71% 48.6%;
+    --border-destructive-subtle: 0 100% 96.9%;
 
     --border-neutral-base: 0 0% 100%;
     --border-neutral-black: 214 12.3% 11.2%;
@@ -73,6 +74,7 @@
     --border-neutral-subtle: 210 14.3% 97.3%;
 
     --border-success-default: 170 100% 37.5%;
+    --border-success-subtle: 170 57.1% 91.8%;
 
     // Border radius.
     --radius-lg: 16px;
@@ -246,5 +248,11 @@
     --text-4xl-leading: 60px;
     --text-4xl-tracking: initial;
     --text-4xl-weight: normal;
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
   }
 }

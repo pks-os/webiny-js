@@ -71,7 +71,8 @@ module.exports = {
         },
         destructive: {
             DEFAULT: "hsl(var(--border-destructive-default))",
-            default: "hsl(var(--border-destructive-default))"
+            default: "hsl(var(--border-destructive-default))",
+            subtle: "hsl(var(--border-destructive-subtle))"
         },
         neutral: {
             DEFAULT: "hsl(var(--border-neutral-default))",
@@ -85,7 +86,8 @@ module.exports = {
         },
         success: {
             DEFAULT: "hsl(var(--border-success-default))",
-            default: "hsl(var(--border-success-default))"
+            default: "hsl(var(--border-success-default))",
+            subtle: "hsl(var(--border-success-subtle))"
         }
     },
     borderRadius: {

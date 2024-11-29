@@ -75,7 +75,7 @@ const DropdownMenuContent = React.forwardRef<
             ref={ref}
             sideOffset={sideOffset}
             className={cn(
-                "flex flex-col z-50 min-w-[8rem] overflow-hidden rounded-sm gap-xxs bg-white py-xs-plus text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
+                "flex flex-col z-50 min-w-[8rem] overflow-hidden rounded-md gap-xxs bg-white py-xs-plus text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
                 className
             )}
             {...props}
@@ -96,14 +96,14 @@ const DropdownMenuItemBase = React.forwardRef<
     <DropdownMenuPrimitive.Item
         ref={ref}
         className={cn(
-            "relative cursor-default select-none items-center gap-2 rounded-sm px-xs-plus outline-none transition-colors focus:bg-neutral-dimmed focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
+            "relative cursor-default select-none items-center gap-2 rounded-sm px-xs-plus outline-none transition-colors  data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
             className
         )}
         {...props}
     >
-        <div className={"flex p-sm gap-sm-extra align-middle text-md"}>
+        <div className={"flex p-sm gap-sm-extra items-center text-md hover:bg-neutral-dimmed rounded-sm"}>
             {icon}
-            {children}
+            <span>{children}</span>
             {shortcut && <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>}
         </div>
     </DropdownMenuPrimitive.Item>

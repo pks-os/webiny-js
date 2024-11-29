@@ -13339,6 +13339,7 @@ __metadata:
     "@webiny/api-tenancy": 0.0.0
     "@webiny/api-wcp": 0.0.0
     "@webiny/api-websockets": 0.0.0
+    "@webiny/aws-sdk": 0.0.0
     "@webiny/cli": 0.0.0
     "@webiny/error": 0.0.0
     "@webiny/handler": 0.0.0
@@ -13348,6 +13349,7 @@ __metadata:
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/tasks": 0.0.0
+    "@webiny/utils": 0.0.0
     graphql: ^15.8.0
     rimraf: ^5.0.5
     ttypescript: ^1.5.13

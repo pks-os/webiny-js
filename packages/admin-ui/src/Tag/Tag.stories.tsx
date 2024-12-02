@@ -18,13 +18,13 @@ type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
     args: {
-        text: "Label"
+        label: "Label"
     }
 };
 
 export const WithIcon: Story = {
     args: {
-        text: "Label",
+        ...Default.args,
         icon: <Icon icon={<XIcon />} label={"Close"} size={"sm"} />
     }
 };

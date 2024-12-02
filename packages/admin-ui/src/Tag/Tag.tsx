@@ -67,12 +67,12 @@ const tagVariants = cva(
 export interface TagProps
     extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children">,
         VariantProps<typeof tagVariants> {
-    text: string;
+    label: string;
     icon: React.ReactElement<typeof Icon>;
     disabled?: boolean;
 }
 
-const DecoratableTag = ({ className, variant, text, icon, disabled, ...props }: TagProps) => {
+const DecoratableTag = ({ className, variant, label, icon, disabled, ...props }: TagProps) => {
     const hasIcon = React.useMemo(() => Boolean(icon), [icon]);
 
     return (
@@ -81,7 +81,7 @@ const DecoratableTag = ({ className, variant, text, icon, disabled, ...props }: 
             className={cn(tagVariants({ variant, hasIcon }), className)}
             aria-disabled={disabled}
         >
-            {text} {icon}
+            {label} {icon}
         </span>
     );
 };

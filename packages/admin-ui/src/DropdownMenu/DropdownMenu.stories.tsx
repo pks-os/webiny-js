@@ -27,64 +27,59 @@ export default meta;
 
 type Story = StoryObj<typeof DropdownMenu>;
 
-const { Content, Label, Separator, Group, Item, Sub, Trigger, SubTrigger, Portal, SubContent } =
-    DropdownMenu;
+const { Label, Separator, Group, Item, Sub, SubTrigger, Portal, SubContent } = DropdownMenu;
+
 
 export const Default: Story = {
     args: {
+        trigger: <Button variant="primary" text={"Open"} />,
         children: (
             <>
-                <Trigger asChild>
-                    <Button variant="primary" text={"Open"} />
-                </Trigger>
-                <Content className="w-56">
-                    <Label>My Account</Label>
-                    <Group>
-                        <Item icon={<User />}>Profile</Item>
-                        <Item icon={<CreditCard />}>Billing</Item>
-                        <Item icon={<Settings />}>Settings</Item>
-                        <Item icon={<Keyboard />}>Keyboard shortcuts</Item>
-                    </Group>
-                    <Separator />
-                    <Group>
-                        <Item icon={<Users />}>Team</Item>
+                <Label>My Account</Label>
+                <Item icon={<User />}>Profile</Item>
+                <Group>
+                    <Item icon={<CreditCard />}>Billing</Item>
+                    <Item icon={<Settings />}>Settings</Item>
+                    <Item icon={<Keyboard />}>Keyboard shortcuts</Item>
+                </Group>
+                <Separator />
+                <Group>
+                    <Item icon={<Users />}>Team</Item>
+                    <Sub>
+                        <SubTrigger>
+                            <UserPlus />
+                            <span>Invite users</span>
+                        </SubTrigger>
+                        <Portal>
+                            <SubContent>
+                                <Item>
+                                    <Mail />
+                                    <span>Email</span>
+                                </Item>
+                                <Item>
+                                    <MessageSquare />
+                                    <span>Message</span>
+                                </Item>
+                                <Separator />
+                                <Item>
+                                    <PlusCircle />
+                                    <span>More...</span>
+                                </Item>
+                            </SubContent>
+                        </Portal>
+                    </Sub>
 
-                        {/*<Sub>*/}
-                        {/*    <SubTrigger>*/}
-                        {/*        <UserPlus />*/}
-                        {/*        <span>Invite users</span>*/}
-                        {/*    </SubTrigger>*/}
-                        {/*    <Portal>*/}
-                        {/*        <SubContent>*/}
-                        {/*            <Item>*/}
-                        {/*                <Mail />*/}
-                        {/*                <span>Email</span>*/}
-                        {/*            </Item>*/}
-                        {/*            <Item>*/}
-                        {/*                <MessageSquare />*/}
-                        {/*                <span>Message</span>*/}
-                        {/*            </Item>*/}
-                        {/*            <Separator />*/}
-                        {/*            <Item>*/}
-                        {/*                <PlusCircle />*/}
-                        {/*                <span>More...</span>*/}
-                        {/*            </Item>*/}
-                        {/*        </SubContent>*/}
-                        {/*    </Portal>*/}
-                        {/*</Sub>*/}
-
-                        <Item icon={<Plus />} shortcut={"⌘+T"}>
-                            New Team
-                        </Item>
-                    </Group>
-                    <Separator />
-                    <Item icon={<LifeBuoy />}>Support</Item>
-                    <Item icon={<Cloud />} disabled>
-                        API
+                    <Item icon={<Plus />} shortcut={"⌘+T"}>
+                        New Team
                     </Item>
-                    <Separator />
-                    <Item icon={<LogOut />}>Log out</Item>
-                </Content>
+                </Group>
+                <Separator />
+                <Item icon={<LifeBuoy />}>Support</Item>
+                <Item icon={<Cloud />} disabled>
+                    API
+                </Item>
+                <Separator />
+                <Item icon={<LogOut />}>Log out</Item>
             </>
         )
     },

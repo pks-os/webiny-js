@@ -4,16 +4,83 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { ReactComponent as Check } from "@material-design-icons/svg/filled/check.svg";
 import { ReactComponent as ChevronRight } from "@material-design-icons/svg/filled/chevron_right.svg";
 import { ReactComponent as Circle } from "@material-design-icons/svg/filled/circle.svg";
-
 import { cn, makeDecoratable, withStaticProps } from "~/utils";
 
-const DropdownMenuBase = DropdownMenuPrimitive.Root;
+const DropdownMenuContent = React.forwardRef<
+    React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+>(({ className, sideOffset = 4, ...props }, ref) => (
+    <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content
+            ref={ref}
+            sideOffset={sideOffset}
+            className={cn(
+                "flex flex-col z-50 min-w-[8rem] overflow-hidden rounded-md gap-xxs bg-white py-xs-plus text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
+                className
+            )}
+            {...props}
+        />
+    </DropdownMenuPrimitive.Portal>
+));
+DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
+
+interface DropdownMenuProps
+    extends React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Root>,
+        React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> {
+    trigger: React.ReactNode;
+    children: React.ReactNode;
+}
+
+const DropdownMenuBase = React.forwardRef<
+    React.ElementRef<typeof DropdownMenuPrimitive.Root>,
+    DropdownMenuProps
+>((props, ref) => {
+    const { rootProps, triggerProps, contentProps } = React.useMemo(() => {
+        const {
+            // Root props.
+            defaultOpen,
+            open,
+            onOpenChange,
+            modal,
+            dir,
+
+            // Trigger props.
+            trigger,
+
+            // Content props.
+            ...rest
+        } = props;
+
+        return {
+            rootProps: {
+                defaultOpen,
+                open,
+                onOpenChange,
+                modal,
+                dir
+            },
+            triggerProps: {
+                children: trigger
+            },
+            contentProps: rest
+        };
+    }, [props]);
+
+    return (
+        <DropdownMenuPrimitive.Root {...rootProps}>
+            <DropdownMenuPrimitive.Trigger {...triggerProps} />
+            <DropdownMenuContent {...contentProps} ref={ref} />
+        </DropdownMenuPrimitive.Root>
+    );
+});
+
+DropdownMenuBase.displayName = "DropdownMenu";
 
 const DecoratableDropdownMenu = makeDecoratable("DropdownMenu", DropdownMenuBase);
 
-const DropdownMenuTriggerBase = DropdownMenuPrimitive.Trigger;
-
-const DropdownMenuTrigger = makeDecoratable("DropdownMenuTrigger", DropdownMenuTriggerBase);
+// ================================================================================
+// ================================================================================
+// ================================================================================
 
 const DropdownMenuShortcutBase = ({
     className,
@@ -66,24 +133,6 @@ const DropdownMenuSubContent = React.forwardRef<
 ));
 DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
 
-const DropdownMenuContent = React.forwardRef<
-    React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-    React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
->(({ className, sideOffset = 4, ...props }, ref) => (
-    <DropdownMenuPrimitive.Portal>
-        <DropdownMenuPrimitive.Content
-            ref={ref}
-            sideOffset={sideOffset}
-            className={cn(
-                "flex flex-col z-50 min-w-[8rem] overflow-hidden rounded-md gap-xxs bg-white py-xs-plus text-neutral-primary shadow-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 border-sm border-neutral-muted",
-                className
-            )}
-            {...props}
-        />
-    </DropdownMenuPrimitive.Portal>
-));
-DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
-
 type DropdownMenuItemProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     icon?: React.ReactNode;
     shortcut?: string;
@@ -101,7 +150,11 @@ const DropdownMenuItemBase = React.forwardRef<
         )}
         {...props}
     >
-        <div className={"flex p-sm gap-sm-extra items-center text-md hover:bg-neutral-dimmed rounded-sm"}>
+        <div
+            className={
+                "flex p-sm gap-sm-extra items-center text-md hover:bg-neutral-dimmed rounded-sm"
+            }
+        >
             {icon}
             <span>{children}</span>
             {shortcut && <DropdownMenuShortcut>{shortcut}</DropdownMenuShortcut>}
@@ -186,12 +239,10 @@ DropdownMenuSeparatorBase.displayName = Separator.displayName;
 const DropdownMenuSeparator = makeDecoratable("DropdownMenuSeparator", DropdownMenuSeparatorBase);
 
 const DropdownMenu = withStaticProps(DecoratableDropdownMenu, {
-    Trigger: DropdownMenuTrigger,
     Group: DropdownMenuGroup,
     Portal: DropdownMenuPortal,
     Sub: DropdownMenuSub,
     SubContent: DropdownMenuSubContent,
-    Content: DropdownMenuContent,
     Item: DropdownMenuItem,
     CheckboxItem: DropdownMenuCheckboxItem,
     RadioItem: DropdownMenuRadioItem,

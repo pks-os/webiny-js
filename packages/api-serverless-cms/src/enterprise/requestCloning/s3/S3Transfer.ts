@@ -5,6 +5,7 @@ import {
     PutObjectCommandOutput,
     S3Client
 } from "@webiny/aws-sdk/client-s3";
+import { TRANSFER_TYPE_S3 } from "./constants";
 
 export interface IS3TransferParams {
     client: S3Client;
@@ -47,6 +48,7 @@ export class S3Transfer implements IS3Transfer {
         }
 
         return {
+            type: TRANSFER_TYPE_S3,
             key: params.key,
             eTag,
             statusCode

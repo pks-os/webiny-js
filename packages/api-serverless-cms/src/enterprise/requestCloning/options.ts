@@ -1,4 +1,5 @@
 import { ServiceDiscovery } from "@webiny/api";
+import zod from "zod";
 
 export interface IOptions {
     sqsRegion: string;
@@ -19,6 +20,16 @@ interface IManifest {
     twoPhasedDeployment: IManifestTwoPhasedDeployment;
 }
 
+const optionsValidation = zod.object({
+    twoPhasedDeployment: zod.object({
+        isPrimary: zod.boolean(),
+        s3Region: zod.string(),
+        s3Bucket: zod.string(),
+        sqsRegion: zod.string(),
+        sqsUrl: zod.string()
+    })
+});
+
 export const getOptions = async (): Promise<IOptions | null> => {
     const manifest = await ServiceDiscovery.load<IManifest>();
     if (!manifest) {
@@ -26,20 +37,17 @@ export const getOptions = async (): Promise<IOptions | null> => {
         return null;
     }
 
-    const { twoPhasedDeployment } = manifest;
+    const validated = await optionsValidation.safeParseAsync(manifest);
+    if (!validated.success || !validated.data) {
+        console.error("Service manifest is not valid.");
+        console.log(validated.error);
+        return null;
+    }
+
+    const { twoPhasedDeployment } = validated.data;
 
     if (!twoPhasedDeployment?.isPrimary) {
         return null;
     }
-
-    const result: Partial<IOptions> = {};
-    const keys = ["sqsRegion", "sqsUrl", "s3Region", "s3Bucket"] as const;
-    for (const key of keys) {
-        if (!twoPhasedDeployment[key]) {
-            console.log(`${key} is not set.`);
-            return null;
-        }
-        result[key] = twoPhasedDeployment[key];
-    }
-    return result as IOptions;
+    return twoPhasedDeployment;
 };

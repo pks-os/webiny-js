@@ -3,6 +3,7 @@ export interface IS3TransferSendParams {
     body: string | Buffer;
 }
 export interface IS3TransferSendResult {
+    type: string;
     key: string;
     eTag: string;
     statusCode: 200 | unknown;

@@ -500,12 +500,24 @@ export const createHandler = (params: CreateHandlerParams) => {
     /**
      * We need to output the benchmark results at the end of the request in both response and timeout cases
      */
-    app.addHook("onResponse", async () => {
+    app.addHook("onResponse", async request => {
         await context.benchmark.output();
+        // @ts-expect-error
+        if (!request.cloning) {
+            return;
+        }
+        // @ts-expect-error
+        await request.cloning;
     });
 
     app.addHook("onTimeout", async () => {
         await context.benchmark.output();
+        // @ts-expect-error
+        if (!request.cloning) {
+            return;
+        }
+        // @ts-expect-error
+        await request.cloning;
     });
 
     /**

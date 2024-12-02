@@ -6,6 +6,7 @@ import type {
     IRequestTransferSendParams,
     IRequestTransferSendResult
 } from "./types";
+import { format as formatDate } from "date-fns";
 
 /**
  * There are few steps we must go through:
@@ -29,14 +30,15 @@ export class RequestTransfer implements IRequestTransfer {
     }
 
     public async send(params: IRequestTransferSendParams): Promise<IRequestTransferSendResult> {
-        const { key, event } = params;
+        const { event } = params;
         const body = await compress(JSON.stringify(event));
-        const s3Key = `requests/${Date.now()}.${key}.json.gz`;
+
+        const key = this.createRequestTransferKey(params);
 
         let result: IS3TransferSendResult;
         try {
             result = await this.s3.send({
-                key: s3Key,
+                key,
                 body
             });
         } catch (ex) {
@@ -48,7 +50,7 @@ export class RequestTransfer implements IRequestTransfer {
         try {
             await this.sqs.send({
                 body: JSON.stringify({
-                    type: "s3",
+                    type: result.type,
                     value: result.key
                 }),
                 attributes: [
@@ -63,6 +65,12 @@ export class RequestTransfer implements IRequestTransfer {
             console.error("Failed to send a message to SQS.");
             console.log(ex);
         }
+    }
+
+    private createRequestTransferKey(params: Pick<IRequestTransferSendParams, "key">): string {
+        const formattedDate = formatDate(new Date(), "yyyy/MM/dd");
+        const formattedTime = formatDate(new Date(), "HH:mm:ss");
+        return `requests/${formattedDate}/${formattedTime}/${params.key}.json.gz`;
     }
 }
 

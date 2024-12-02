@@ -1,21 +1,21 @@
-import { getDocumentClient, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
 import type { DynamoDBDocument } from "@webiny/aws-sdk/client-dynamodb";
+import { getDocumentClient, QueryCommand, unmarshall } from "@webiny/aws-sdk/client-dynamodb";
 import type { GenericRecord } from "~/types";
 
-interface ServiceManifest {
+export interface ServiceManifest {
     name: string;
     manifest: Manifest;
 }
 
-type Manifest = GenericRecord<string>;
+export type Manifest = GenericRecord<string>;
 
 class ServiceManifestLoader {
     private client: DynamoDBDocument | undefined;
     private manifest: Manifest | undefined = undefined;
 
-    async load() {
+    async load<T extends Manifest = Manifest>(): Promise<T | undefined> {
         if (this.manifest) {
-            return this.manifest;
+            return this.manifest as T;
         }
 
         const manifests = await this.loadManifests();
@@ -32,7 +32,7 @@ class ServiceManifestLoader {
             return { ...acc, [manifest.name]: manifest.manifest };
         }, {});
 
-        return this.manifest;
+        return this.manifest as T;
     }
 
     setDocumentClient(client: DynamoDBDocument) {
@@ -68,7 +68,7 @@ export class ServiceDiscovery {
         serviceManifestLoader.setDocumentClient(client);
     }
 
-    static async load() {
-        return serviceManifestLoader.load();
+    static async load<T extends Manifest = Manifest>() {
+        return serviceManifestLoader.load<T>();
     }
 }

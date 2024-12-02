@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as XIcon } from "@material-design-icons/svg/round/close.svg";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tag } from "./Tag";
-import { Icon } from "../Icon";
+import { Icon } from "~/Icon";
 
 const meta: Meta<typeof Tag> = {
     title: "Components/Tag",

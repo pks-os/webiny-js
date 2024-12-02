@@ -1,8 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { ChipSet } from "@rmwc/chip";
 import { Chip } from "./Chip";
-import { chipIconWrapper, disabledChips } from "./styles";
 
 export interface ChipsProps {
     /**
@@ -26,17 +24,16 @@ export interface ChipsProps {
     style?: React.CSSProperties;
 }
 
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Tag` component from the `@webiny/admin-ui` package instead.
+ */
 export const Chips = (props: ChipsProps) => {
-    const { children, className, disabled, ...rest } = props;
+    const { children, className, ...rest } = props;
 
     return (
-        <ChipSet
-            {...rest}
-            className={classNames("mdc-evolution-chip-set", className, chipIconWrapper, {
-                [disabledChips]: disabled
-            })}
-        >
+        <div {...rest} className={classNames("mdc-evolution-chip-set", className)}>
             {children}
-        </ChipSet>
+        </div>
     );
 };

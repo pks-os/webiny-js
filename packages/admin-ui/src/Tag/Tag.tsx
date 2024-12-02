@@ -67,8 +67,8 @@ const tagVariants = cva(
 export interface TagProps
     extends Omit<React.HTMLAttributes<HTMLSpanElement>, "children">,
         VariantProps<typeof tagVariants> {
-    label: string;
-    icon: React.ReactElement<typeof Icon>;
+    label: React.ReactNode;
+    icon: React.ReactElement<typeof Icon> | React.ReactNode;
     disabled?: boolean;
 }
 
@@ -81,7 +81,8 @@ const DecoratableTag = ({ className, variant, label, icon, disabled, ...props }:
             className={cn(tagVariants({ variant, hasIcon }), className)}
             aria-disabled={disabled}
         >
-            {label} {icon}
+            {label}
+            {icon}
         </span>
     );
 };

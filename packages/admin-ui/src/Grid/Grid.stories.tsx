@@ -2,6 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Grid } from "./Grid";
+import { StyledColumn } from "./stories/StyledColumn";
 
 const meta: Meta<typeof Grid> = {
     title: "Components/Grid",
@@ -13,28 +14,20 @@ export default meta;
 
 type Story = StoryObj<typeof Grid>;
 
-const StyledColumn = ({ ...props }) => (
-    <Grid.Column className="bg-primary text-neutral-light p-2 text-md rounded-sm" {...props} />
-);
-
 export const Default: Story = {
     args: {
         className: "bg-neutral-light p-4",
         children: (
             <>
-                <StyledColumn>Col 1</StyledColumn>
-                <StyledColumn span={3}>
-                    Col 2 (<code>span: 3</code>)
-                </StyledColumn>
-                <StyledColumn>Col 3</StyledColumn>
-                <StyledColumn>Col 4</StyledColumn>
-                <StyledColumn>Col 5</StyledColumn>
-                <StyledColumn>Col 6</StyledColumn>
-                <StyledColumn span={2}>
-                    Col 7 (<code>span: 2</code>)
-                </StyledColumn>
-                <StyledColumn>Col 8</StyledColumn>
-                <StyledColumn>Col 9</StyledColumn>
+                <StyledColumn index={1} />
+                <StyledColumn index={2} span={3} />
+                <StyledColumn index={3} />
+                <StyledColumn index={4} />
+                <StyledColumn index={5} />
+                <StyledColumn index={6} />
+                <StyledColumn index={7} span={2} />
+                <StyledColumn index={8} />
+                <StyledColumn index={9} />
             </>
         )
     }
@@ -51,38 +44,23 @@ export const WithOffset: Story = {
     parameters: {
         layout: "padded"
     },
-    decorators: [
-        Story => (
-            <div className="w-full">
-                <Story />
-            </div>
-        )
-    ],
     args: {
         ...Default.args,
         children: (
             <>
                 {/* Row 1 */}
-                <StyledColumn span={8} offset={2}>
-                    Col (<code>span: 8</code>, <code>offset: 2</code>)
-                </StyledColumn>
+                <StyledColumn span={8} offset={2} index={1} />
                 <Grid.Column span={2} />
 
                 {/* Row 2 */}
-                <StyledColumn span={8} offset={4}>
-                    Col (<code>span: 8</code>, <code>offset: 4</code>)
-                </StyledColumn>
+                <StyledColumn span={8} offset={4} index={1} />
 
                 {/* Row 3 */}
-                <StyledColumn span={10} offset={1}>
-                    Col (<code>span: 10</code>, <code>offset: 1</code>)
-                </StyledColumn>
+                <StyledColumn span={10} offset={1} index={1} />
                 <Grid.Column span={1} />
 
                 {/* Row 4 */}
-                <StyledColumn span={12}>
-                    Col (<code>span: 12</code>)
-                </StyledColumn>
+                <StyledColumn span={12} index={1} />
             </>
         )
     }

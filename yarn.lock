@@ -470,9 +470,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-cloudwatch-logs@npm:^3.699.0":
-  version: 3.699.0
-  resolution: "@aws-sdk/client-cloudwatch-logs@npm:3.699.0"
+"@aws-sdk/client-cloudwatch-logs@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/client-cloudwatch-logs@npm:3.703.0"
   dependencies:
     "@aws-crypto/sha256-browser": 5.2.0
     "@aws-crypto/sha256-js": 5.2.0
@@ -520,7 +520,7 @@ __metadata:
     "@types/uuid": ^9.0.1
     tslib: ^2.6.2
     uuid: ^9.0.1
-  checksum: caa1d2b34a15e6cc65d27c61573d33d908a4914d95f0c12e75ce418c41acc2f5e9e21a0151553667c6f39c49d84352f338b5f7e160748d7a8db2c9f766c74ecb
+  checksum: 06e3c7d62ca5cb561d95d380a8fb0dab444a4eab57446935239d6f3a515d466a486f507bf35ac3b347fc2dd5792460af71e46a44fa407d72a964b901cd4c8920
   languageName: node
   linkType: hard
 
@@ -763,9 +763,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-eventbridge@npm:^3.699.0":
-  version: 3.699.0
-  resolution: "@aws-sdk/client-eventbridge@npm:3.699.0"
+"@aws-sdk/client-eventbridge@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/client-eventbridge@npm:3.703.0"
   dependencies:
     "@aws-crypto/sha256-browser": 5.2.0
     "@aws-crypto/sha256-js": 5.2.0
@@ -809,7 +809,7 @@ __metadata:
     "@smithy/util-retry": ^3.0.10
     "@smithy/util-utf8": ^3.0.0
     tslib: ^2.6.2
-  checksum: b7a64fdd171a4e4ea7cbd2213d6f6848b9d937e908361b99d09d60a0c1cb0ecc0f87e6ab717c5745b9b4c37f7af657293184b00d8305be9470309cccf4f2302e
+  checksum: 7eba9921f579120e2477a3579dc096d70401d70041b222030084f528d08d2f5001caa5a996bc4b1ab9d1f5729825de142070cef93d037d5531254d27097b6b47
   languageName: node
   linkType: hard
 
@@ -968,9 +968,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-s3@npm:3.701.0, @aws-sdk/client-s3@npm:^3.701.0":
-  version: 3.701.0
-  resolution: "@aws-sdk/client-s3@npm:3.701.0"
+"@aws-sdk/client-s3@npm:3.703.0, @aws-sdk/client-s3@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/client-s3@npm:3.703.0"
   dependencies:
     "@aws-crypto/sha1-browser": 5.2.0
     "@aws-crypto/sha256-browser": 5.2.0
@@ -1030,7 +1030,7 @@ __metadata:
     "@smithy/util-utf8": ^3.0.0
     "@smithy/util-waiter": ^3.1.9
     tslib: ^2.6.2
-  checksum: 0f131ab91edf989eb7c6f07e5ae4b241e682d14933634120b51a62d5e39841640ad58d6a3dcccd1ebe6472abe9e25e02ceebc0a911d75d87f63a2da111d454d9
+  checksum: 5f75efe96eaa28a0ca15428ee6c49bf35066c7b302a895d05607cdf765a5be970f04fce2407a44c170959f6be3b7f0c341f6de34ca6532813140b08327541897
   languageName: node
   linkType: hard
 
@@ -1609,9 +1609,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/lib-storage@npm:^3.701.0":
-  version: 3.701.0
-  resolution: "@aws-sdk/lib-storage@npm:3.701.0"
+"@aws-sdk/lib-storage@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/lib-storage@npm:3.703.0"
   dependencies:
     "@smithy/abort-controller": ^3.1.7
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1621,8 +1621,8 @@ __metadata:
     stream-browserify: 3.0.0
     tslib: ^2.6.2
   peerDependencies:
-    "@aws-sdk/client-s3": ^3.701.0
-  checksum: e361aeee7dbfd52c82b016593049ea2fac4e070332b3033c088732f5b01bab98a9ef496c33952187ca60196b6f433bf87648ce52d663073a6cb2ff430535de4a
+    "@aws-sdk/client-s3": ^3.703.0
+  checksum: 09e47c1739f907eacf01c5f42caf3cbd5e85e2d0a0e9d0af83cdfa4c0f7bce6f9655efc66d0ef96480fad7ff9de57ff2a7a7fb128ec0a79a835c39f3aa88ca83
   languageName: node
   linkType: hard
 
@@ -1964,11 +1964,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-presigned-post@npm:^3.701.0":
-  version: 3.701.0
-  resolution: "@aws-sdk/s3-presigned-post@npm:3.701.0"
+"@aws-sdk/s3-presigned-post@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/s3-presigned-post@npm:3.703.0"
   dependencies:
-    "@aws-sdk/client-s3": 3.701.0
+    "@aws-sdk/client-s3": 3.703.0
     "@aws-sdk/types": 3.696.0
     "@aws-sdk/util-format-url": 3.696.0
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1977,13 +1977,13 @@ __metadata:
     "@smithy/util-hex-encoding": ^3.0.0
     "@smithy/util-utf8": ^3.0.0
     tslib: ^2.6.2
-  checksum: 6a1dca464520b4fb317fa18e59de4fa094993465bbb82b03feb772dffccbaa8b7de237ae24526231c69cdae0e10d8de48352ce88f0d6071ab904f751bcdb0c9a
+  checksum: 4b6417bf1ee6936150b621c2baf87818a829971fd9796273611a86a9caed846d2c26117a7b5773bbf4d1beca9f3c8911e509cae64601d61dfdb58c40368b05fa
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-request-presigner@npm:^3.701.0":
-  version: 3.701.0
-  resolution: "@aws-sdk/s3-request-presigner@npm:3.701.0"
+"@aws-sdk/s3-request-presigner@npm:^3.703.0":
+  version: 3.703.0
+  resolution: "@aws-sdk/s3-request-presigner@npm:3.703.0"
   dependencies:
     "@aws-sdk/signature-v4-multi-region": 3.696.0
     "@aws-sdk/types": 3.696.0
@@ -1993,7 +1993,7 @@ __metadata:
     "@smithy/smithy-client": ^3.4.4
     "@smithy/types": ^3.7.1
     tslib: ^2.6.2
-  checksum: 23f73bd287a9cb151e8f678e2103eed33e63c01ed46c316353ae1e17a481f25d9e8fa0fe2e0524ac640e218e18a87aa6574e26294449ccb8c47ea8387089ff94
+  checksum: 500373f3b7795531a0ed44248e7ff941275d83c24dc0c704dcbbfc93dbc38b85b61362969948f1024290d7e4dd28a747dab1ea13164ad9e03710bb90513ffd52
   languageName: node
   linkType: hard
 
@@ -8343,53 +8343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/pulumi@npm:^3.136.0":
-  version: 3.141.0
-  resolution: "@pulumi/pulumi@npm:3.141.0"
-  dependencies:
-    "@grpc/grpc-js": ^1.10.1
-    "@logdna/tail-file": ^2.0.6
-    "@npmcli/arborist": ^7.3.1
-    "@opentelemetry/api": ^1.9
-    "@opentelemetry/exporter-zipkin": ^1.25
-    "@opentelemetry/instrumentation": ^0.52
-    "@opentelemetry/instrumentation-grpc": ^0.52
-    "@opentelemetry/resources": ^1.25
-    "@opentelemetry/sdk-trace-base": ^1.25
-    "@opentelemetry/sdk-trace-node": ^1.25
-    "@opentelemetry/semantic-conventions": ^1.25
-    "@pulumi/query": ^0.3.0
-    "@types/google-protobuf": ^3.15.5
-    "@types/semver": ^7.5.6
-    "@types/tmp": ^0.2.6
-    execa: ^5.1.0
-    fdir: ^6.1.1
-    google-protobuf: ^3.5.0
-    got: ^11.8.6
-    ini: ^2.0.0
-    js-yaml: ^3.14.0
-    minimist: ^1.2.6
-    normalize-package-data: ^6.0.0
-    picomatch: ^3.0.1
-    pkg-dir: ^7.0.0
-    require-from-string: ^2.0.1
-    semver: ^7.5.2
-    source-map-support: ^0.5.6
-    tmp: ^0.2.1
-    upath: ^1.1.0
-  peerDependencies:
-    ts-node: ">= 7.0.1 < 12"
-    typescript: ">= 3.8.3 < 6"
-  peerDependenciesMeta:
-    ts-node:
-      optional: true
-    typescript:
-      optional: true
-  checksum: e629b5d167a25eddba45fd07bf26d8824529e8c30a7cb0cad322dec2159c111fdadc9e2e2578fe61c4fd66474fb6e16c6e3c94c180288792ef4608edd9f0d733
-  languageName: node
-  linkType: hard
-
-"@pulumi/pulumi@npm:^3.142.0":
+"@pulumi/pulumi@npm:^3.136.0, @pulumi/pulumi@npm:^3.142.0":
   version: 3.142.0
   resolution: "@pulumi/pulumi@npm:3.142.0"
   dependencies:
@@ -14822,23 +14776,23 @@ __metadata:
     "@aws-sdk/client-apigatewaymanagementapi": ^3.699.0
     "@aws-sdk/client-cloudfront": ^3.699.0
     "@aws-sdk/client-cloudwatch-events": ^3.699.0
-    "@aws-sdk/client-cloudwatch-logs": ^3.699.0
+    "@aws-sdk/client-cloudwatch-logs": ^3.703.0
     "@aws-sdk/client-cognito-identity-provider": ^3.699.0
     "@aws-sdk/client-dynamodb": ^3.699.0
     "@aws-sdk/client-dynamodb-streams": ^3.699.0
-    "@aws-sdk/client-eventbridge": ^3.699.0
+    "@aws-sdk/client-eventbridge": ^3.703.0
     "@aws-sdk/client-iam": ^3.699.0
     "@aws-sdk/client-iot": ^3.699.0
     "@aws-sdk/client-lambda": ^3.699.0
-    "@aws-sdk/client-s3": ^3.701.0
+    "@aws-sdk/client-s3": ^3.703.0
     "@aws-sdk/client-sfn": ^3.699.0
     "@aws-sdk/client-sqs": ^3.699.0
     "@aws-sdk/client-sts": ^3.699.0
     "@aws-sdk/credential-providers": ^3.699.0
     "@aws-sdk/lib-dynamodb": ^3.699.0
-    "@aws-sdk/lib-storage": ^3.701.0
-    "@aws-sdk/s3-presigned-post": ^3.701.0
-    "@aws-sdk/s3-request-presigner": ^3.701.0
+    "@aws-sdk/lib-storage": ^3.703.0
+    "@aws-sdk/s3-presigned-post": ^3.703.0
+    "@aws-sdk/s3-request-presigner": ^3.703.0
     "@aws-sdk/util-dynamodb": ^3.699.0
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0

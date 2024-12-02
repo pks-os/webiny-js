@@ -167,6 +167,7 @@
     "test:unit": "cross-env TEST_TYPE=unit yarn test",
     "test:integration": "cross-env TEST_TYPE=integration yarn test",
     "test:e2e": "cross-env TEST_TYPE=e2e yarn test",
+    "update-packages": "node scripts/updatePackages.js",
     "validate-packages": "node scripts/validatePackages.js",
     "verdaccio:start": "yarn verdaccio -c ./.verdaccio.yaml",
     "verdaccio:start:detached": "yarn pm2 start \"yarn verdaccio:start\"",

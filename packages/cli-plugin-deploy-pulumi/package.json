@@ -19,7 +19,7 @@
     "@webiny/utils": "0.0.0",
     "body-parser": "1.20.3",
     "chalk": "4.1.2",
-    "execa": "5.1.1",
+    "execa": "^5.1.1",
     "exit-hook": "^4.0.0",
     "express": "^4.21.1",
     "fast-glob": "^3.2.7",

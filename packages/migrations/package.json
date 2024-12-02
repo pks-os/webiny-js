@@ -16,7 +16,7 @@
     "@webiny/ioc": "0.0.0",
     "@webiny/logger": "0.0.0",
     "@webiny/utils": "0.0.0",
-    "execa": "^5.0.0",
+    "execa": "^5.1.1",
     "fast-glob": "^3.2.7",
     "jsonpack": "^1.1.5",
     "lodash": "^4.17.21",

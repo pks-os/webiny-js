@@ -56,7 +56,7 @@ interface LabelHintProps {
 const DecoratableLabelHint = ({ content }: LabelHintProps) => (
     <Tooltip
         content={content}
-        trigger={<Icon icon={<InfoIcon />} size="sm" label={"More information"} color={"light"} />}
+        trigger={<Icon icon={<InfoIcon />} size="sm" label={"More information"} color={"neutral-strong"} />}
     />
 );
 const LabelHint = makeDecoratable("LabelHint", DecoratableLabelHint);

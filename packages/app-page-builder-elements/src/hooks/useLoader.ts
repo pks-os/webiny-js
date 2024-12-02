@@ -1,48 +1,61 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type DependencyList } from "react";
 import { createObjectHash } from "./useLoader/createObjectHash";
 import { useRenderer } from "..";
-import { getElementCacheKey } from "~/hooks/useLoader/getElementCacheKey";
 
 export interface RendererLoader<TData = unknown> {
     data: TData | null;
     loading: boolean;
     cacheHit: boolean;
+    cacheKey: string;
+}
+
+export interface UseLoaderOptions {
+    cacheKey?: DependencyList;
 }
 
 export function useLoader<TData = unknown>(
-    loaderFn: () => Promise<TData>
+    loaderFn: () => Promise<TData>,
+    options?: UseLoaderOptions
 ): RendererLoader<TData> {
     const { getElement, loaderCache } = useRenderer();
 
     const element = getElement();
-    const elementDataHash = createObjectHash(element.data);
 
-    const loaderCachedData = useMemo(() => {
-        const elementCacheKey = getElementCacheKey(element);
-        return loaderCache.read<TData>(elementCacheKey);
-    }, []);
+    const elementDataCacheKey = element.id;
+    const optionsCacheKey = options?.cacheKey || [];
+    const cacheKey = createObjectHash([elementDataCacheKey, ...optionsCacheKey]);
+
+    const cachedData = useMemo(() => {
+        return loaderCache.read<TData>(cacheKey);
+    }, [cacheKey]);
 
     const [loader, setLoader] = useState<RendererLoader<TData>>(
-        loaderCachedData
+        cachedData
             ? {
-                  data: loaderCachedData,
+                  data: cachedData,
                   loading: false,
-                  cacheHit: true
+                  cacheHit: true,
+                  cacheKey
               }
-            : { data: null, loading: true, cacheHit: false }
+            : { data: null, loading: true, cacheHit: false, cacheKey }
     );
 
     useEffect(() => {
-        if (loader.cacheHit) {
+        if (cacheKey === loader.cacheKey) {
             return;
         }
 
+        if (cachedData) {
+            setLoader({ data: cachedData, loading: false, cacheKey, cacheHit: true });
+            return;
+        }
+
+        setLoader({ data: loader.data, loading: true, cacheKey, cacheHit: false });
         loaderFn().then(data => {
-            const elementCacheKey = getElementCacheKey(element);
-            loaderCache.write(elementCacheKey, data);
-            setLoader({ ...loader, data, loading: false });
+            loaderCache.write(cacheKey, data);
+            setLoader({ data, loading: false, cacheKey, cacheHit: false });
         });
-    }, [elementDataHash]);
+    }, [cacheKey]);
 
     return loader;
 }

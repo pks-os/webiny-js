@@ -3,7 +3,7 @@ export const createObjectHash = (object: Record<string, any>) => {
 
     // Create a hash string from string.
     if (jsonString.length === 0) {
-        return 0;
+        return '';
     }
 
     let hash = 0;
@@ -13,5 +13,5 @@ export const createObjectHash = (object: Record<string, any>) => {
         hash |= 0; // Convert to 32bit integer
     }
 
-    return hash;
+    return String(hash);
 };

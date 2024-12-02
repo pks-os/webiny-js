@@ -13350,6 +13350,7 @@ __metadata:
     "@webiny/project-utils": 0.0.0
     "@webiny/tasks": 0.0.0
     "@webiny/utils": 0.0.0
+    date-fns: ^2.22.1
     graphql: ^15.8.0
     rimraf: ^5.0.5
     ttypescript: ^1.5.13

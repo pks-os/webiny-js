@@ -27,7 +27,7 @@ export const Default: Story = {
         },
         color: {
             control: "select",
-            options: ["accent", "neutral", "neutral-strong", "neutral-xstrong"]
+            options: ["accent", "neutral", "neutral-strong", "neutral-light"]
         }
     }
 };
@@ -63,7 +63,7 @@ export const ColorNeutralStrong: Story = {
 export const ColorNeutralXStrong: Story = {
     args: {
         ...Default.args,
-        color: "neutral-xstrong"
+        color: "neutral-strong"
     }
 };
 

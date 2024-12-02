@@ -14,8 +14,8 @@ const iconVariants = cva("", {
         color: {
             accent: "fill-accent-default",
             neutral: "fill-neutral-base",
-            "neutral-strong": "fill-neutral-strong",
-            "neutral-xstrong": "fill-neutral-xstrong"
+            "neutral-light": "fill-neutral-strong",
+            "neutral-strong": "fill-neutral-xstrong"
         }
     },
     defaultVariants: {

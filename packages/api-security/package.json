@@ -24,7 +24,7 @@
     "commodo-fields-object": "^1.0.6",
     "deep-equal": "^2.2.3",
     "jsonwebtoken": "^9.0.1",
-    "minimatch": "^5.1.0"
+    "minimatch": "^5.1.6"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",

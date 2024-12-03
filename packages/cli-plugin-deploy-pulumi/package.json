@@ -30,7 +30,7 @@
     "lodash": "^4.17.21",
     "log-update": "^4.0.0",
     "mime": "2.6.0",
-    "minimatch": "^5.1.0",
+    "minimatch": "^5.1.6",
     "mqtt": "^5.5.2",
     "ncp": "2.0.0",
     "node-notifier": "^10.0.1",

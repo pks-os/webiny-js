@@ -50,7 +50,6 @@ import { extensions } from "./extensions";
 const debug = process.env.DEBUG === "true";
 const documentClient = getDocumentClient();
 
-console.log('kobajica');
 export const handler = createHandler({
     plugins: [
         createBenchmarkEnablePlugin(),

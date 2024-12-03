@@ -215,7 +215,6 @@ export const defaultRenderUrlFunction = async (
 
         cachedData.peLoaders = extractPeLoaderDataFromHtml(content);
 
-        console.log("cachedData", cachedData);
         return {
             content,
             // TODO: ideally, meta should be assigned here in a more "plugins style" way, not hardcoded.

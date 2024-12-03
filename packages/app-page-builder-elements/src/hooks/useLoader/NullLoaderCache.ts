@@ -1,6 +1,6 @@
 import { ILoaderCache } from "./ILoaderCache";
 
-export class NoCache implements ILoaderCache {
+export class NullLoaderCache implements ILoaderCache {
     read() {
         return null;
     }

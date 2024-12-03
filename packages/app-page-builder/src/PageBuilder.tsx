@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useMemo } from "react";
 import { HasPermission } from "@webiny/app-security";
 import { Plugins, AddMenu as Menu, createProviderPlugin } from "@webiny/app-admin";
 import { Global, css } from "@emotion/react";
@@ -15,7 +15,7 @@ import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandle
 import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
 import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
 import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
-import { NoCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
+import { NullLoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NullLoaderCache";
 
 export type { EditorProps };
 export { EditorRenderer };
@@ -23,7 +23,10 @@ export * from "~/admin/config/pages";
 export * from "~/admin/views/Pages/hooks";
 
 const PageBuilderProviderPlugin = createProviderPlugin(Component => {
-    const noLoaderCache = new NoCache();
+    const noLoaderCache = useMemo(() => {
+        return new NullLoaderCache();
+    }, []);
+
     return function PageBuilderProvider({ children }) {
         return (
             <ContextProvider loaderCache={noLoaderCache}>

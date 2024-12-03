@@ -4,33 +4,42 @@ describe("SwitchPresenter", () => {
     const onCheckedChange = jest.fn();
 
     it("should return the compatible `switchVm` based on props", () => {
+        const presenter = new SwitchPresenter();
+
+        // `label`
+        {
+            presenter.init({ onCheckedChange, label: "Label" });
+            expect(presenter.vm.item?.label).toEqual("Label");
+        }
+
         // `checked`
         {
-            const presenter = new SwitchPresenter();
-            presenter.init({ onCheckedChange, checked: true });
-            expect(presenter.vm.switchVm.checked).toEqual(true);
+            presenter.init({ onCheckedChange, label: "Label", checked: true });
+            expect(presenter.vm.item?.checked).toEqual(true);
         }
 
         // `disabled`
         {
-            const presenter = new SwitchPresenter();
-            presenter.init({ onCheckedChange, disabled: true });
-            expect(presenter.vm.switchVm.disabled).toEqual(true);
+            presenter.init({ onCheckedChange, label: "Label", disabled: true });
+            expect(presenter.vm.item?.disabled).toEqual(true);
         }
 
+        // default: only mandatory props
         {
-            // default: no props
-            const presenter = new SwitchPresenter();
-            presenter.init({ onCheckedChange });
-            expect(presenter.vm.switchVm.checked).toEqual(false);
-            expect(presenter.vm.switchVm.disabled).toEqual(false);
+            presenter.init({ onCheckedChange, label: "Label" });
+            expect(presenter.vm.item).toEqual({
+                id: expect.any(String),
+                label: "Label",
+                checked: false,
+                disabled: false
+            });
         }
     });
 
     it("should call `onCheckedChange` callback when `changeValue` is called", () => {
         const presenter = new SwitchPresenter();
-        presenter.init({ onCheckedChange });
-        presenter.changeValue(true);
+        presenter.init({ onCheckedChange, label: "Label" });
+        presenter.changeChecked(true);
         expect(onCheckedChange).toHaveBeenCalledWith(true);
     });
 });

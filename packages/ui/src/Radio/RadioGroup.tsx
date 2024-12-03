@@ -1,11 +1,15 @@
 import React from "react";
 import { FormComponentProps } from "~/types";
-import { webinyRadioTitle } from "./Radio.styles";
-import { FormElementMessage } from "~/FormElementMessage";
+import {
+    DeprecatedRadioGroup as DeprecatedAdminRadioGroup,
+    FormComponentErrorMessage,
+    FormComponentLabel,
+    FormComponentNote
+} from "@webiny/admin-ui";
 
 interface RadioGroupRenderParams {
-    onChange: (id: string | number) => () => void;
-    getValue: (id: string | number) => boolean;
+    onChange: (value: string | number) => () => void;
+    getValue: (value: string | number) => string | number;
 }
 
 type Props = FormComponentProps & {
@@ -19,38 +23,31 @@ type Props = FormComponentProps & {
     children: (props: RadioGroupRenderParams) => React.ReactNode;
 };
 
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please find out the new `RadioGroup` component props from the `@webiny/admin-ui` package instead.
+ */
 class RadioGroup extends React.Component<Props> {
     public override render() {
-        const { description, label, validation } = this.props;
+        const { description, label, validation, value, onChange } = this.props;
 
         const { isValid: validationIsValid, message: validationMessage } = validation || {};
 
         return (
-            <React.Fragment>
-                {label && (
-                    <div
-                        className={
-                            "mdc-text-field-helper-text mdc-text-field-helper-text--persistent " +
-                            webinyRadioTitle
-                        }
-                    >
-                        {label}
-                    </div>
-                )}
-
-                {this.props.children({
-                    onChange: value => () => this.props.onChange && this.props.onChange(value),
-                    getValue: id => this.props.value === id
-                })}
-
-                {validationIsValid === false && (
-                    <FormElementMessage error>{validationMessage}</FormElementMessage>
-                )}
-
-                {validationIsValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
-            </React.Fragment>
+            <div className={"w-full"}>
+                <FormComponentLabel text={label} />
+                <DeprecatedAdminRadioGroup value={value} onValueChange={onChange}>
+                    {this.props.children({
+                        onChange: value => () => this.props.onChange && this.props.onChange(value),
+                        getValue: value => value
+                    })}
+                </DeprecatedAdminRadioGroup>
+                <FormComponentErrorMessage
+                    text={validationMessage}
+                    invalid={validationIsValid === false}
+                />
+                <FormComponentNote text={description} />
+            </div>
         );
     }
 }

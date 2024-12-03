@@ -14806,7 +14806,6 @@ __metadata:
     clsx: ^2.1.1
     css-loader: ^6.10.0
     file-loader: 6.2.0
-    lodash: ^4.17.21
     mobx: ^6.9.0
     postcss-loader: ^6.2.1
     prettier: ^2.8.3
@@ -16628,6 +16627,7 @@ __metadata:
     "@webiny/cli": 0.0.0
     "@webiny/form": 0.0.0
     "@webiny/lexical-editor": 0.0.0
+    "@webiny/lexical-theme": 0.0.0
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/react-composition": 0.0.0
@@ -17244,7 +17244,6 @@ __metadata:
     react-images: ^0.5.19
     react-in-viewport: ^1.0.0-alpha.30
     react-sortable: ^2.0.0
-    react-transition-group: ^4.3.0
     react-virtualized: ^9.22.5
     recoil: ^0.7.7
     rimraf: ^5.0.5
@@ -18086,6 +18085,7 @@ __metadata:
     fs-extra: ^11.2.0
     get-yarn-workspaces: 1.0.2
     inquirer: 8.2.6
+    is-ci: ^3.0.0
     load-json-file: 6.2.0
     lodash: ^4.17.21
     open: ^8.4.0
@@ -18774,6 +18774,7 @@ __metadata:
     "@webiny/app-theme": 0.0.0
     "@webiny/cli": 0.0.0
     "@webiny/lexical-editor": 0.0.0
+    "@webiny/lexical-theme": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/react-composition": 0.0.0
     identity-obj-proxy: ^3.0.0
@@ -19055,7 +19056,6 @@ __metadata:
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
     "@material-design-icons/svg": ^0.14.3
-    "@rmwc/checkbox": ^14.2.2
     "@rmwc/chip": ^14.2.2
     "@rmwc/data-table": ^14.2.2
     "@rmwc/dialog": ^14.2.2
@@ -19063,10 +19063,6 @@ __metadata:
     "@rmwc/grid": ^14.2.2
     "@rmwc/list": ^14.2.2
     "@rmwc/menu": ^14.2.2
-    "@rmwc/radio": ^14.2.2
-    "@rmwc/select": ^14.2.2
-    "@rmwc/switch": ^14.2.2
-    "@rmwc/textfield": ^14.2.2
     "@rmwc/top-app-bar": ^14.2.2
     "@rmwc/touch-target": ^14.2.2
     "@rmwc/typography": ^14.2.2

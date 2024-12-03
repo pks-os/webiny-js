@@ -1,2 +1,2 @@
 export * from "./Slider";
-export * from "./SliderPresenter";
+export * from "./SliderPrimitive";

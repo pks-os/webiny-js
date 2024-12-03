@@ -1,7 +1,11 @@
 import React from "react";
-import { Radio as RmwcRadio } from "@rmwc/radio";
+import {
+    FormComponentErrorMessage,
+    FormComponentNote,
+    Radio as AdminRadio
+} from "@webiny/admin-ui";
 import { FormComponentProps } from "~/types";
-import { FormElementMessage } from "~/FormElementMessage";
+import { generateId } from "@webiny/admin-ui/utils";
 
 type Props = FormComponentProps & {
     // Component label.
@@ -15,11 +19,11 @@ type Props = FormComponentProps & {
 };
 
 /**
- * Wrap Radio components with RadioGroup to create a set of options.
- * Each Radio component must receive value and onChange callback via props.
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please find out the new `Radio` component props from the `@webiny/admin-ui` package instead.
  */
 class Radio extends React.Component<Props> {
-    onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    onChange = (e: React.SyntheticEvent<HTMLInputElement> | any) => {
         this.props.onChange && this.props.onChange((e.target as HTMLInputElement).checked);
     };
 
@@ -30,19 +34,12 @@ class Radio extends React.Component<Props> {
 
         return (
             <React.Fragment>
-                <RmwcRadio
-                    disabled={disabled}
-                    checked={Boolean(value)}
-                    onChange={this.onChange}
-                    label={label}
+                <AdminRadio id={generateId()} disabled={disabled} value={value} label={label} />
+                <FormComponentErrorMessage
+                    invalid={Boolean(validationIsValid === false)}
+                    text={validationMessage}
                 />
-                {validationIsValid === false && (
-                    <FormElementMessage error>{validationMessage}</FormElementMessage>
-                )}
-
-                {validationIsValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
+                <FormComponentNote text={description} />
             </React.Fragment>
         );
     }

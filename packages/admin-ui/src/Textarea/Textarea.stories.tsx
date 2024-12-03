@@ -1,29 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Textarea } from "./Textarea";
+import { Textarea } from "~/Textarea";
 
 const meta: Meta<typeof Textarea> = {
-    title: "Components/Textarea",
+    title: "Components/Form/Textarea",
     component: Textarea,
     tags: ["autodocs"],
     argTypes: {
-        onChange: { action: "onChange" },
-        rows: {
-            control: {
-                type: "number"
-            }
-        }
+        onChange: { action: "onChange" }
     },
     parameters: {
-        layout: "fullscreen"
+        layout: "padded"
     },
-    decorators: [
-        Story => (
-            <div className="w-1/3 h-auto mx-auto p-6 flex justify-center items-center">
-                <Story />
-            </div>
-        )
-    ]
+    render: args => {
+        const [value, setValue] = useState(args.value);
+        return <Textarea {...args} value={value} onChange={e => setValue(e.target.value)} />;
+    }
 };
 
 export default meta;
@@ -31,86 +23,62 @@ type Story = StoryObj<typeof Textarea>;
 
 export const Default: Story = {};
 
-export const MediumSize: Story = {
+export const WithLabel: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "md"
+        label: "Any field label"
     }
 };
 
-export const LargeSize: Story = {
+export const WithLabelRequired: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "lg"
+        ...Default.args,
+        label: "Any field label",
+        required: true
     }
 };
 
-export const ExtraLargeSize: Story = {
+export const WithDescription: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "xl"
+        ...Default.args,
+        description: "Provide the required information for processing your request."
     }
 };
 
-export const PrimaryVariant: Story = {
+export const WithNotes: Story = {
     args: {
-        variant: "primary",
-        placeholder: "Custom placeholder"
+        ...Default.args,
+        note: "Note: Ensure your selection or input is accurate before proceeding."
     }
 };
 
-export const PrimaryVariantDisabled: Story = {
+export const WithErrors: Story = {
     args: {
-        ...PrimaryVariant.args,
+        ...Default.args,
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
+    }
+};
+
+export const Disabled: Story = {
+    args: {
+        ...Default.args,
+        label: "Any field label",
         disabled: true
     }
 };
 
-export const PrimaryVariantInvalid: Story = {
+export const FullExample: Story = {
     args: {
-        ...PrimaryVariant.args,
-        invalid: true
-    }
-};
-
-export const SecondaryVariant: Story = {
-    args: {
-        variant: "secondary",
-        placeholder: "Custom placeholder"
-    }
-};
-
-export const SecondaryVariantDisabled: Story = {
-    args: {
-        ...SecondaryVariant.args,
-        disabled: true
-    }
-};
-
-export const SecondaryVariantInvalid: Story = {
-    args: {
-        ...SecondaryVariant.args,
-        invalid: true
-    }
-};
-
-export const GhostVariant: Story = {
-    args: {
-        variant: "ghost",
-        placeholder: "Custom placeholder"
-    }
-};
-
-export const GhostVariantDisabled: Story = {
-    args: {
-        ...GhostVariant.args,
-        disabled: true
-    }
-};
-
-export const GhostVariantInvalid: Story = {
-    args: {
-        ...GhostVariant.args,
-        invalid: true
+        ...Default.args,
+        label: "Any field label",
+        required: true,
+        description: "Provide the required information for processing your request.",
+        note: "Note: Ensure your selection or input is accurate before proceeding.",
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };

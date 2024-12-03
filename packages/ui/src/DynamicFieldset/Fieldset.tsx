@@ -1,7 +1,7 @@
 import React from "react";
 import dotProp from "dot-prop-immutable";
-import { FormElementMessage } from "~/FormElementMessage";
 import styled from "@emotion/styled";
+import { FormComponentErrorMessage, FormComponentNote } from "@webiny/admin-ui";
 
 interface ChildrenRenderPropRowCallableParams {
     index: number;
@@ -130,18 +130,17 @@ class Fieldset extends React.Component<FieldsetProps> {
     }
 
     public override render() {
-        const { description, validation = { isValid: null } } = this.props;
+        const { description, validation } = this.props;
+        const { isValid: validationIsValid, message: validationMessage } = validation || {};
 
         return (
             <>
                 {this.renderComponent()}
-                {validation.isValid === false && (
-                    <FormElementMessage error>{validation.message}</FormElementMessage>
-                )}
-
-                {validation.isValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
+                <FormComponentErrorMessage
+                    invalid={Boolean(validationIsValid === false)}
+                    text={validationMessage}
+                />
+                <FormComponentNote text={description} />
             </>
         );
     }

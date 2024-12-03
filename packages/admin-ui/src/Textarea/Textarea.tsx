@@ -1,80 +1,38 @@
-import * as React from "react";
-import { makeDecoratable, cva, type VariantProps } from "~/utils";
+import React, { useMemo } from "react";
+import { makeDecoratable } from "~/utils";
+import { TextareaPrimitive, TextareaPrimitiveProps } from "./TextareaPrimitive";
+import {
+    FormComponentDescription,
+    FormComponentErrorMessage,
+    FormComponentLabel,
+    FormComponentNote,
+    FormComponentProps
+} from "~/FormComponent";
 
-const textareaVariants = cva(
-    [
-        "flex min-h-[80px] w-full border-sm text-md focus-visible:outline-none disabled:cursor-not-allowed"
-    ],
-    {
-        variants: {
-            variant: {
-                primary: [
-                    "bg-neutral-base border-neutral-muted text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:border-neutral-strong",
-                    "focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:border-neutral-dimmed disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
-                ],
-                secondary: [
-                    "bg-neutral-light border-neutral-subtle text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-dimmed",
-                    "focus:bg-neutral-base focus:border-neutral-black",
-                    "disabled:bg-neutral-disabled disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
-                ],
-                ghost: [
-                    "bg-transparent border-transparent text-neutral-strong placeholder:text-neutral-dimmed",
-                    "hover:bg-neutral-dimmed/95",
-                    "focus:bg-neutral-base focus:border-neutral-black",
-                    "disabled:bg-transparent disabled:text-neutral-disabled disabled:placeholder:text-neutral-disabled"
-                ]
-            },
-            size: {
-                md: ["px-sm-extra py-xs-plus rounded-sm"],
-                lg: ["px-sm-extra py-sm-plus rounded-sm"],
-                xl: ["px-md-extra p-md rounded-md"]
-            },
-            invalid: {
-                true: [
-                    "border-destructive-default",
-                    "hover:border-destructive-default",
-                    "focus:border-destructive-default",
-                    "disabled:border-destructive-default"
-                ]
-            }
-        },
-        compoundVariants: [
-            // Add specific classNames in case of invalid `ghost` textarea.
-            {
-                variant: "ghost",
-                invalid: true,
-                class: [
-                    "border-destructive-subtle bg-destructive-subtle",
-                    "hover:border-destructive-subtle",
-                    "focus:border-destructive-subtle",
-                    "disabled:bg-destructive-subtle disabled:border-destructive-subtle"
-                ]
-            }
-        ],
-        defaultVariants: {
-            variant: "primary",
-            size: "md"
-        }
-    }
-);
+type TextareaGroupProps = TextareaPrimitiveProps & FormComponentProps;
 
-type TextareaProps = React.ComponentProps<"textarea"> & VariantProps<typeof textareaVariants>;
+const DecoratableTextarea = ({
+    label,
+    description,
+    note,
+    required,
+    disabled,
+    validation,
+    ...props
+}: TextareaGroupProps) => {
+    const { isValid: validationIsValid, message: validationMessage } = validation || {};
+    const invalid = useMemo(() => validationIsValid === false, [validationIsValid]);
 
-const DecoratableTextarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-    ({ className, variant, invalid, size, ...props }, ref) => {
-        return (
-            <textarea
-                className={textareaVariants({ variant, invalid, size, className })}
-                ref={ref}
-                {...props}
-            />
-        );
-    }
-);
-DecoratableTextarea.displayName = "Textarea";
+    return (
+        <div className={"w-full"}>
+            <FormComponentLabel text={label} required={required} disabled={disabled} />
+            <FormComponentDescription text={description} />
+            <TextareaPrimitive {...props} disabled={disabled} />
+            <FormComponentErrorMessage text={validationMessage} invalid={invalid} />
+            <FormComponentNote text={note} />
+        </div>
+    );
+};
 const Textarea = makeDecoratable("Textarea", DecoratableTextarea);
 
 export { Textarea };

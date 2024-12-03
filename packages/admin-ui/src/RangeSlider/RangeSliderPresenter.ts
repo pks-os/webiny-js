@@ -1,81 +1,72 @@
 import { makeAutoObservable } from "mobx";
-import omit from "lodash/omit";
-import { RangeSliderProps, RangeSliderThumbsVm, RangeSliderVm } from "./RangeSlider";
+import { RangeSliderPrimitiveVm } from "./RangeSliderPrimitive";
 
-interface IRangeSliderPresenter<TProps extends RangeSliderProps = RangeSliderProps> {
-    get vm(): {
-        sliderVm: RangeSliderVm;
-        thumbsVm: RangeSliderThumbsVm;
-    };
-    init: (props: TProps) => void;
+interface RangeSliderPresenterParams {
+    min?: number;
+    max?: number;
+    onValuesChange: (values: number[]) => void;
+    onValuesCommit?: (values: number[]) => void;
+    showTooltip?: boolean;
+    transformValue?: (values: number) => string;
+    values?: number[];
+}
+
+interface IRangeSliderPresenter {
+    get vm(): RangeSliderPrimitiveVm;
+    init: (params: RangeSliderPresenterParams) => void;
     changeValues: (values: number[]) => void;
     commitValues: (values: number[]) => void;
 }
 
 class RangeSliderPresenter implements IRangeSliderPresenter {
-    private props?: RangeSliderProps;
-    private showTooltip: boolean;
+    private params?: RangeSliderPresenterParams = undefined;
+    private showTooltip = false;
 
     constructor() {
-        this.props = undefined;
-        this.showTooltip = false;
         makeAutoObservable(this);
     }
 
-    init(props: RangeSliderProps) {
-        this.props = props;
+    init(params: RangeSliderPresenterParams) {
+        this.params = params;
     }
 
     get vm() {
         return {
-            sliderVm: {
-                ...omit(this.props, [
-                    "showTooltip",
-                    "tooltipSide",
-                    "transformValues",
-                    "onValuesChange",
-                    "onValuesCommit",
-                    "values"
-                ]),
-                min: this.min,
-                max: this.max,
-                values: this.values
-            },
-            thumbsVm: {
-                values: this.transformToLabelValues(this.values),
-                showTooltip: this.showTooltip,
-                tooltipSide: this.props?.tooltipSide
-            }
+            min: this.min,
+            max: this.max,
+            values: this.values,
+            textValues: this.transformToLabelValues(this.values),
+            showTooltip: this.showTooltip
         };
     }
 
     public changeValues = (values: number[]) => {
-        this.showTooltip = !!this.props?.showTooltip;
-        this.props?.onValuesChange?.(values);
+        this.showTooltip = !!this.params?.showTooltip;
+        this.params?.onValuesChange?.(values);
     };
 
     public commitValues = (values: number[]) => {
         this.showTooltip = false;
-        this.props?.onValuesCommit?.(values);
+        this.params?.onValuesCommit?.(values);
     };
 
     private get min() {
-        return this.props?.min ?? 0;
+        return this.params?.min ?? 0;
     }
 
     private get max() {
-        return this.props?.max ?? 100;
+        return this.params?.max ?? 100;
     }
 
     private get values() {
-        return this.props?.values ?? [this.min, this.max];
+        return this.params?.values ?? [this.min, this.max];
     }
 
     private transformToLabelValues(values: number[]) {
         return values.map(value =>
-            this.props?.transformValues ? this.props.transformValues(value) : String(value)
+            this.params?.transformValue ? this.params.transformValue(value) : String(value)
         );
     }
 }
 
-export { RangeSliderPresenter, type IRangeSliderPresenter };
+export { RangeSliderPresenter, type IRangeSliderPresenter, type RangeSliderPresenterParams };

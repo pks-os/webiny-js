@@ -256,4 +256,4 @@ DecoratableInputPrimitive.displayName = "InputPrimitive";
 
 const InputPrimitive = makeDecoratable("InputPrimitive", DecoratableInputPrimitive);
 
-export { InputPrimitive, type InputPrimitiveProps };
+export { InputPrimitive, inputVariants, type InputPrimitiveProps };

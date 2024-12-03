@@ -15,7 +15,7 @@ import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandle
 import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
 import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";
 import { LexicalHeadingRenderer } from "~/render/plugins/elements/heading/LexicalHeading";
-import {NoCache} from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
+import { NoCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
 
 export type { EditorProps };
 export { EditorRenderer };

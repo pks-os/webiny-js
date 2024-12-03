@@ -4,7 +4,7 @@ import { DisplayMode, PbTheme } from "~/types";
 import { Theme } from "@webiny/app-theme/types";
 import { useTheme } from "@webiny/app-theme";
 import { PageElementsProvider } from "./PageElementsProvider";
-import {ILoaderCache} from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
+import { ILoaderCache } from "@webiny/app-page-builder-elements/hooks/useLoader/ILoaderCache";
 
 export interface ResponsiveDisplayMode {
     displayMode: DisplayMode;

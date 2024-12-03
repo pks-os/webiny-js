@@ -3,7 +3,7 @@ export const createObjectHash = (object: Record<string, any>) => {
 
     // Create a hash string from string.
     if (jsonString.length === 0) {
-        return '';
+        return "";
     }
 
     let hash = 0;

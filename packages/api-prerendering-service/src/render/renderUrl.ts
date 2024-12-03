@@ -111,7 +111,7 @@ export default async (url: string, args: RenderUrlParams): Promise<[File[], Meta
                 }
             },
             {
-                name: "graphql.json",
+                name: "cache.json",
                 body: JSON.stringify(render.meta.cachedData),
                 type: "application/json",
                 meta: {}
@@ -215,7 +215,7 @@ export const defaultRenderUrlFunction = async (
 
         cachedData.peLoaders = extractPeLoaderDataFromHtml(content);
 
-        console.log('cachedData', cachedData)
+        console.log("cachedData", cachedData);
         return {
             content,
             // TODO: ideally, meta should be assigned here in a more "plugins style" way, not hardcoded.

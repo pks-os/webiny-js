@@ -4,7 +4,7 @@ import { plugins } from "@webiny/plugins";
 import ElementPreview from "./SaveDialog/ElementPreview";
 import { CircularProgress } from "@webiny/ui/Progress";
 import { PageElementsProvider } from "~/contexts/PageBuilder/PageElementsProvider";
-import {NoCache} from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
+import { NoCache } from "@webiny/app-page-builder-elements/hooks/useLoader/NoCache";
 
 import {
     Dialog,
@@ -93,7 +93,6 @@ const SaveDialog = (props: Props) => {
     };
 
     const noLoaderCache = new NoCache();
-
 
     return (
         <Dialog open={open} onClose={onClose} className={narrowDialog}>

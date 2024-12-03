@@ -18,7 +18,9 @@ export class PeLoaderHtmlCache {
     }
 
     static write<TData = unknown>(key: string, value: TData) {
-        const html = `<pe-loader-data-cache data-key="${key}" data-value='${JSON.stringify(value)}'></pe-loader-data-cache>`;
+        const html = `<pe-loader-data-cache data-key="${key}" data-value='${JSON.stringify(
+            value
+        )}'></pe-loader-data-cache>`;
         document.body.insertAdjacentHTML("beforeend", html);
     }
 }

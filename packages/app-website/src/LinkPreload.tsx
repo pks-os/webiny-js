@@ -24,7 +24,7 @@ const defaultGetPreloadPagePath: GetPreloadPagePath = path => {
 const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
     const getPreloadPagePath = options.getPreloadPagePath ?? defaultGetPreloadPagePath;
 
-    const {loaderCache} = usePageElements();
+    const { loaderCache } = usePageElements();
 
     const apolloClient = useApolloClient();
     const preloadPath = async (pathname: string) => {
@@ -37,7 +37,7 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
 
         preloadedPaths.push(pathname);
 
-        const graphqlJson = `graphql.json?k=${getPrerenderId()}`;
+        const graphqlJson = `cache.json?k=${getPrerenderId()}`;
         const fetchPath = pathname !== "/" ? `${pathname}/${graphqlJson}` : `/${graphqlJson}`;
         const pageState = await fetch(fetchPath.replace("//", "/"))
             .then(res => res.json())
@@ -46,13 +46,12 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
         if (pageState) {
             const { apolloGraphQl, peLoaders } = pageState;
             if (Array.isArray(apolloGraphQl)) {
-                console.log('apolloGraphQl', apolloGraphQl);
                 for (let i = 0; i < apolloGraphQl.length; i++) {
                     const { query, variables, data } = apolloGraphQl[i];
                     apolloClient.writeQuery({
                         query: gql`
-                        ${query}
-                    `,
+                            ${query}
+                        `,
                         data,
                         variables
                     });
@@ -60,10 +59,8 @@ const useLinkPreload = (path: string | To, options: LinkPreloadOptions) => {
             }
 
             if (Array.isArray(peLoaders)) {
-                console.log('peLoaders 22', peLoaders);
                 for (let i = 0; i < peLoaders.length; i++) {
                     const { key, value } = peLoaders[i];
-                    console.log('setamo 11 key value', key, value);
                     loaderCache.write(key, value);
                 }
             }

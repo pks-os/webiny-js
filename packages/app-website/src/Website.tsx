@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import { App, AppProps, Decorator, GenericComponent } from "@webiny/app";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { CacheProvider } from "@emotion/react";
@@ -19,8 +19,9 @@ const PageBuilderProviderHOC: Decorator<
     GenericComponent<{ children: React.ReactNode }>
 > = PreviousProvider => {
     const websiteLoaderCache = useMemo(() => {
-        return new WebsiteLoaderCache()
+        return new WebsiteLoaderCache();
     }, []);
+
     return function PageBuilderProviderHOC({ children }) {
         return (
             <PageBuilderProvider loaderCache={websiteLoaderCache}>

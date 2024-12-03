@@ -31,8 +31,8 @@ export interface GraphQLCacheEntry {
 }
 
 export interface PeLoaderCacheEntry {
-    key: string,
-    value: string
+    key: string;
+    value: string;
 }
 
 export interface RenderResult {
@@ -40,8 +40,8 @@ export interface RenderResult {
     meta: {
         apolloState: RenderApolloState;
         cachedData: {
-            apolloGraphQl: GraphQLCacheEntry[],
-            peLoaders: PeLoaderCacheEntry[],
+            apolloGraphQl: GraphQLCacheEntry[];
+            peLoaders: PeLoaderCacheEntry[];
             [key: string]: any;
         };
         [key: string]: any;

@@ -29,7 +29,6 @@ export function useLoader<TData = unknown>(
         return loaderCache.read<TData>(cacheKey);
     }, [cacheKey]);
 
-
     const [loader, setLoader] = useState<RendererLoader<TData>>(
         cachedData
             ? {
@@ -42,7 +41,7 @@ export function useLoader<TData = unknown>(
     );
 
     useEffect(() => {
-        console.log('cacheKey', cacheKey, loader.cacheKey)
+        console.log("cacheKey", cacheKey, loader.cacheKey);
         if (cacheKey === loader.cacheKey) {
             return;
         }
@@ -54,7 +53,7 @@ export function useLoader<TData = unknown>(
 
         setLoader({ data: loader.data, loading: true, cacheKey, cacheHit: false });
         loaderFn().then(data => {
-            console.log('dobeo dejta')
+            console.log("dobeo dejta");
             loaderCache.write(cacheKey, data);
             setLoader({ data, loading: false, cacheKey, cacheHit: false });
         });

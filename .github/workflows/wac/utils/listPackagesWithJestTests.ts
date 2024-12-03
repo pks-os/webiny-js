@@ -251,19 +251,24 @@ const CUSTOM_HANDLERS: Record<string, () => Array<PackageWithTests>> = {
     migrations: () => {
         return [
             {
-                cmd: "packages/migrations",
-                // This will run migrations against DynamoDB too twice, once with each storage
-                // driver. This is because, at the moment, we can't run migrations against DynamoDB only.
-                // That's why we're not including "ddb" in the list below.
-                storage: ["ddb-es", "ddb-os"]
+                cmd: "packages/migrations --storage=ddb-es,ddb",
+                storage: ["ddb-es"]
+            },
+            {
+                cmd: "packages/migrations --storage=ddb-os,ddb",
+                storage: ["ddb-os"]
             }
         ];
     },
     "api-elasticsearch": () => {
         return [
             {
-                cmd: "packages/api-elasticsearch",
-                storage: ["ddb-es", "ddb-os"]
+                cmd: "packages/api-elasticsearch --storage=ddb-es,ddb",
+                storage: ["ddb-es"]
+            },
+            {
+                cmd: "packages/api-elasticsearch --storage=ddb-os,ddb",
+                storage: ["ddb-os"]
             }
         ];
     },
@@ -370,11 +375,17 @@ export const listPackagesWithJestTests = (params: ListPackagesWithJestTestsParam
         const packageName = allPackages[i];
 
         if (typeof CUSTOM_HANDLERS[packageName] === "function") {
-            packagesWithTests.push(...CUSTOM_HANDLERS[packageName]());
+            const packagesWithPkgName = CUSTOM_HANDLERS[packageName]().map(packageWithJestTests => {
+                return { ...packageWithJestTests, packageName };
+            });
+            packagesWithTests.push(...packagesWithPkgName);
         } else {
             const testsFolder = path.join("packages", packageName, "__tests__");
             if (hasTestFiles(testsFolder)) {
-                packagesWithTests.push({ cmd: `packages/${packageName}` } as PackageWithTests);
+                packagesWithTests.push({
+                    cmd: `packages/${packageName}`,
+                    packageName
+                } as PackageWithTests);
             }
         }
     }

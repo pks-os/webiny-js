@@ -33,6 +33,8 @@ import { ShowConfirmationOnDelete } from "~/admin/components/Decorators/ShowConf
 import { ShowConfirmationOnPublish } from "~/admin/components/Decorators/ShowConfirmationOnPublish";
 import { ShowConfirmationOnUnpublish } from "~/admin/components/Decorators/ShowConfirmationOnUnpublish";
 import { ShowConfirmationOnDeleteRevision } from "~/admin/components/Decorators/ShowConfirmationOnDeleteRevision";
+import { FullScreenContentEntry } from "~/admin/views/contentEntries/ContentEntry/FullScreenContentEntry";
+import { ShowRevisionList } from "~/admin/components/ContentEntryForm/Header/ShowRevisionsList";
 
 const { Browser } = ContentEntryListConfig;
 const { Actions } = ContentEntryEditorConfig;
@@ -111,7 +113,9 @@ export const ContentEntriesModule = () => {
                 <Actions.ButtonAction name={"save"} element={<SaveContentButton />} />
                 <Actions.ButtonAction name={"publish"} element={<SaveAndPublishButton />} />
                 <Actions.MenuItemAction name={"delete"} element={<DeleteEntryMenuItem />} />
+                <Actions.MenuItemAction name={"showRevisionsList"} element={<ShowRevisionList />} />
             </ContentEntryEditorConfig>
+            <FullScreenContentEntry />
         </>
     );
 };

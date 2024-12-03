@@ -24,7 +24,7 @@ export const Header = () => {
     const { buttonActions } = useContentEntryEditorConfig();
 
     return (
-        <ToolbarGrid>
+        <ToolbarGrid id="headerToolbarGrid">
             <div>
                 <RevisionSelector />
             </div>

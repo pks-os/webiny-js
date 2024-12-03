@@ -164,9 +164,3 @@ declare global {
         }
     }
 }
-
-declare global {
-    interface Window {
-        __PE_LOADER_DATA_CACHE__?: Record<string, Record<string, any>>;
-    }
-}

@@ -97,7 +97,9 @@ export const EditorPageElementsProvider = ({ children }: EditorPageElementsProvi
         } as Theme;
     }, [pageBuilder.theme]);
 
-    const nullLoaderCache = new NullLoaderCache();
+    const nullLoaderCache = useMemo(() => {
+        return new NullLoaderCache();
+    }, []);
 
     return (
         <PbPageElementsProvider

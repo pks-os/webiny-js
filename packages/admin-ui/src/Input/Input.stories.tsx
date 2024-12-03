@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ReactComponent as NotificationsIcon } from "@material-design-icons/svg/outlined/notifications.svg";
-import { ReactComponent as CalendarIcon } from "@material-design-icons/svg/outlined/calendar_month.svg";
-
-import { Input } from "./Input";
-import { Icon } from "~/Icon";
+import { Input } from "~/Input";
 
 const meta: Meta<typeof Input> = {
-    title: "Components/Input",
+    title: "Components/Form/Input",
     component: Input,
     tags: ["autodocs"],
     argTypes: {
@@ -42,15 +38,12 @@ const meta: Meta<typeof Input> = {
         }
     },
     parameters: {
-        layout: "fullscreen"
+        layout: "padded"
     },
-    decorators: [
-        Story => (
-            <div className="w-1/3 h-32 mx-auto flex justify-center items-center">
-                <Story />
-            </div>
-        )
-    ]
+    render: args => {
+        const [value, setValue] = useState(args.value);
+        return <Input {...args} value={value} onChange={e => setValue(e.target.value)} />;
+    }
 };
 
 export default meta;
@@ -58,108 +51,57 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {};
 
-export const MediumSize: Story = {
+export const WithLabel: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "md"
+        label: "Any field label"
     }
 };
 
-export const LargeSize: Story = {
+export const WithLabelRequired: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "lg"
+        label: "Any field label",
+        required: true
     }
 };
 
-export const ExtraLargeSize: Story = {
+export const WithDescription: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        size: "xl"
+        description: "Provide the required information for processing your request."
     }
 };
 
-export const WithStartIcon: Story = {
+export const WithNotes: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        startIcon: <Icon label={"Bell"} icon={<NotificationsIcon />} />
+        note: "Note: Ensure your selection or input is accurate before proceeding."
     }
 };
 
-export const WithEndIcon: Story = {
+export const WithErrors: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        endIcon: <Icon label={"Calendar"} icon={<CalendarIcon />} />
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };
 
-export const WithStartAndEndIcons: Story = {
+export const Disabled: Story = {
     args: {
-        placeholder: "Custom placeholder",
-        startIcon: <Icon label={"Bell"} icon={<NotificationsIcon />} />,
-        endIcon: <Icon label={"Calendar"} icon={<CalendarIcon />} />
-    }
-};
-
-export const PrimaryVariant: Story = {
-    args: {
-        variant: "primary",
-        placeholder: "Custom placeholder"
-    }
-};
-
-export const PrimaryVariantDisabled: Story = {
-    args: {
-        ...PrimaryVariant.args,
+        label: "Any field label",
         disabled: true
     }
 };
 
-export const PrimaryVariantInvalid: Story = {
+export const FullExample: Story = {
     args: {
-        ...PrimaryVariant.args,
-        invalid: true
-    }
-};
-
-export const SecondaryVariant: Story = {
-    args: {
-        variant: "secondary",
-        placeholder: "Custom placeholder"
-    }
-};
-
-export const SecondaryVariantDisabled: Story = {
-    args: {
-        ...SecondaryVariant.args,
-        disabled: true
-    }
-};
-
-export const SecondaryVariantInvalid: Story = {
-    args: {
-        ...SecondaryVariant.args,
-        invalid: true
-    }
-};
-
-export const GhostVariant: Story = {
-    args: {
-        variant: "ghost",
-        placeholder: "Custom placeholder"
-    }
-};
-
-export const GhostVariantDisabled: Story = {
-    args: {
-        ...GhostVariant.args,
-        disabled: true
-    }
-};
-
-export const GhostVariantInvalid: Story = {
-    args: {
-        ...GhostVariant.args,
-        invalid: true
+        ...Default.args,
+        label: "Any field label",
+        required: true,
+        description: "Provide the required information for processing your request.",
+        note: "Note: Ensure your selection or input is accurate before proceeding.",
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };

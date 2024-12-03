@@ -1,11 +1,10 @@
 import * as React from "react";
 import { ReactComponent as InfoIcon } from "@material-design-icons/svg/outlined/info.svg";
 import * as LabelPrimitive from "@radix-ui/react-label";
-import { cva, type VariantProps } from "class-variance-authority";
 import { Icon } from "~/Icon";
 import { Text } from "~/Text";
 import { Tooltip } from "~/Tooltip";
-import { cn, makeDecoratable } from "~/utils";
+import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
 
 /**
  * Label Required
@@ -28,7 +27,7 @@ const LabelRequired = makeDecoratable("LabelRequired", DecoratableLabelRequired)
 /**
  * Label Description
  */
-const labelDescriptionVariants = cva("font-normal text-neutral-muted", {
+const labelDescriptionVariants = cva("font-normal text-neutral-strong", {
     variants: {
         disabled: {
             true: "text-neutral-disabled"
@@ -48,7 +47,6 @@ const LabelDescription = makeDecoratable("LabelDescription", DecoratableLabelDes
 /**
  * Label Hint
  */
-
 interface LabelHintProps {
     content: React.ReactNode;
 }
@@ -91,7 +89,8 @@ const LabelValue = makeDecoratable("LabelValue", DecoratableLabelValue);
 const labelVariants = cva(
     [
         "inline-flex items-center justify-between w-full text-sm leading-none",
-        "text-neutral-primary"
+        "text-neutral-primary",
+        "peer-disabled:text-neutral-disabled peer-disabled:cursor-not-allowed"
     ],
     {
         variants: {
@@ -121,23 +120,35 @@ interface LabelProps
 }
 
 const LabelBase = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>, LabelProps>(
-    ({ className, disabled, description, hint, required, value, text, weight, ...props }, ref) => (
-        <LabelPrimitive.Root
-            ref={ref}
-            className={cn(labelVariants({ disabled, weight }), className)}
-            {...props}
-        >
-            <span>
-                <span className={"flex items-center gap-0.5"}>
-                    {text}
-                    {description && <LabelDescription content={description} disabled={disabled} />}
-                    {hint && <LabelHint content={hint} />}
-                    {required && <LabelRequired disabled={disabled} />}
+    (
+        { className, disabled, description, hint, required, value, text, weight, id, ...props },
+        ref
+    ) => {
+        if (!text) {
+            return null;
+        }
+
+        return (
+            <LabelPrimitive.Root
+                ref={ref}
+                className={cn(labelVariants({ weight }), className)}
+                htmlFor={id}
+                {...props}
+            >
+                <span>
+                    <span className={"flex items-center gap-xxs"}>
+                        {text}
+                        {description && (
+                            <LabelDescription content={description} disabled={disabled} />
+                        )}
+                        {hint && <LabelHint content={hint} />}
+                        {required && <LabelRequired disabled={disabled} />}
+                    </span>
                 </span>
-            </span>
-            {value && <LabelValue value={value} weight={weight} disabled={disabled} />}
-        </LabelPrimitive.Root>
-    )
+                {value && <LabelValue value={value} weight={weight} disabled={disabled} />}
+            </LabelPrimitive.Root>
+        );
+    }
 );
 LabelBase.displayName = LabelPrimitive.Root.displayName;
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Slider as AdminUiSlider } from "@webiny/admin-ui/Form";
+import omit from "lodash/omit";
+import { Slider as AdminSlider } from "@webiny/admin-ui";
 import { FormComponentProps } from "~/types";
-import { FormElementMessage } from "~/FormElementMessage";
 
 type Props = FormComponentProps & {
     // Component label.
@@ -67,30 +67,20 @@ class Slider extends React.Component<Props> {
             sliderValue = this.props.min || 0;
         }
 
-        const { isValid: validationIsValid, message: validationMessage } = validation || {};
-
         return (
-            <React.Fragment>
-                <AdminUiSlider
-                    {...this.props}
-                    label={label}
-                    min={this.toFloat(this.props.min)}
-                    max={this.toFloat(this.props.max, 100)}
-                    step={this.toFloat(this.props.step, 1)}
-                    value={sliderValue}
-                    onValueCommit={this.onValueCommit}
-                    onValueChange={this.onValueChange}
-                    showTooltip={this.props.discrete}
-                />
-
-                {validationIsValid === false && (
-                    <FormElementMessage error>{validationMessage}</FormElementMessage>
-                )}
-
-                {validationIsValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
-            </React.Fragment>
+            <AdminSlider
+                {...omit(this.props, ["displayMarkers", "discrete", "onInput", "onChange"])}
+                label={label}
+                min={this.toFloat(this.props.min)}
+                max={this.toFloat(this.props.max, 100)}
+                step={this.toFloat(this.props.step, 1)}
+                value={sliderValue}
+                onValueCommit={this.onValueCommit}
+                onValueChange={this.onValueChange}
+                showTooltip={this.props.discrete}
+                validation={validation}
+                note={description}
+            />
         );
     }
 }

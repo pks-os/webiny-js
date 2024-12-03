@@ -5,15 +5,16 @@ import { Label } from "./Label";
 import { Tooltip } from "~/Tooltip";
 
 const meta: Meta<typeof Label> = {
-    title: "Components/Label",
+    title: "Components/Form Primitives/Label",
     component: Label,
     tags: ["autodocs"],
+    parameters: {
+        layout: "padded"
+    },
     decorators: [
         Story => (
             <Tooltip.Provider>
-                <div className="flex justify-center items-center h-48">
-                    <Story />
-                </div>
+                <Story />
             </Tooltip.Provider>
         )
     ]

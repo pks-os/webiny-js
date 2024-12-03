@@ -1,7 +1,6 @@
 import React from "react";
-import { Checkbox as RmwcCheckbox } from "@rmwc/checkbox";
-import { FormElementMessage } from "~/FormElementMessage";
 import { FormComponentProps } from "~/types";
+import { Checkbox as AdminCheckbox } from "@webiny/admin-ui";
 
 interface Props extends FormComponentProps {
     // Component id.
@@ -29,42 +28,31 @@ interface Props extends FormComponentProps {
 }
 
 /**
- * Single Checkbox component can be used to store simple boolean values.
- *
- * Grouping multiple Checkbox components with CheckboxGroup will allow to store an array of selected values.
- * In that case, each Checkbox component must receive value and onChange callback via props.
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Checkbox` component from the `@webiny/admin-ui` package instead.
  */
 class Checkbox extends React.Component<Props> {
-    onChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
-        this.props.onChange && this.props.onChange((e.target as HTMLInputElement).checked);
+    onChange = (checked: boolean) => {
+        this.props.onChange && this.props.onChange(checked);
     };
 
     public override render() {
         const { id, value, label, disabled, indeterminate, description, validation, onClick } =
             this.props;
 
-        const { isValid: validationIsValid, message: validationMessage } = validation || {};
-
         return (
-            <React.Fragment>
-                <RmwcCheckbox
-                    id={id}
-                    indeterminate={indeterminate}
-                    disabled={disabled}
-                    checked={Boolean(value)}
-                    onChange={this.onChange}
-                    onClick={() => typeof onClick === "function" && onClick(Boolean(value))}
-                    label={label}
-                    data-testid={this.props["data-testid"]}
-                />
-                {validationIsValid === false && (
-                    <FormElementMessage error>{validationMessage}</FormElementMessage>
-                )}
-
-                {validationIsValid !== false && description && (
-                    <FormElementMessage>{description}</FormElementMessage>
-                )}
-            </React.Fragment>
+            <AdminCheckbox
+                id={id}
+                indeterminate={indeterminate}
+                disabled={disabled}
+                checked={Boolean(value)}
+                onCheckedChange={this.onChange}
+                onClick={() => typeof onClick === "function" && onClick(Boolean(value))}
+                label={label}
+                data-testid={this.props["data-testid"]}
+                note={description}
+                validation={validation}
+            />
         );
     }
 }

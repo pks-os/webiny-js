@@ -14744,7 +14744,6 @@ __metadata:
     clsx: ^2.1.1
     css-loader: ^6.10.0
     file-loader: 6.2.0
-    lodash: ^4.17.21
     mobx: ^6.9.0
     postcss-loader: ^6.2.1
     prettier: ^2.8.3
@@ -18993,7 +18992,6 @@ __metadata:
     "@emotion/react": ^11.10.6
     "@emotion/styled": ^11.10.6
     "@material-design-icons/svg": ^0.14.3
-    "@rmwc/checkbox": ^14.2.2
     "@rmwc/chip": ^14.2.2
     "@rmwc/data-table": ^14.2.2
     "@rmwc/dialog": ^14.2.2
@@ -19001,10 +18999,6 @@ __metadata:
     "@rmwc/grid": ^14.2.2
     "@rmwc/list": ^14.2.2
     "@rmwc/menu": ^14.2.2
-    "@rmwc/radio": ^14.2.2
-    "@rmwc/select": ^14.2.2
-    "@rmwc/switch": ^14.2.2
-    "@rmwc/textfield": ^14.2.2
     "@rmwc/top-app-bar": ^14.2.2
     "@rmwc/touch-target": ^14.2.2
     "@rmwc/typography": ^14.2.2

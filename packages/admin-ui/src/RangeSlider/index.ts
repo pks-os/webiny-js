@@ -1,2 +1,2 @@
 export * from "./RangeSlider";
-export * from "./RangeSliderPresenter";
+export * from "./RangeSliderPrimitive";

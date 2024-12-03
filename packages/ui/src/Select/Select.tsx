@@ -1,13 +1,47 @@
 import React, { useMemo } from "react";
-import {
-    FormattedOption,
-    Select as RmwcSelect,
-    SelectProps as RmwcSelectProps
-} from "@rmwc/select";
-import { FormElementMessage } from "~/FormElementMessage";
 import { FormComponentProps } from "~/types";
-import classNames from "classnames";
-import { webinySelect } from "./styled";
+import { Select as AdminSelect } from "@webiny/admin-ui";
+import { SelectOptionDto } from "@webiny/admin-ui/Select/SelectOptionDto";
+
+export interface FormattedOption extends Omit<React.AllHTMLAttributes<any>, "label"> {
+    label: React.ReactNode;
+    value?: string;
+    options?: FormattedOption[];
+}
+
+export interface RmwcSelectProps {
+    /** The value for a controlled select. */
+    value?: string;
+    /** Adds help text to the field */
+    helpText?: React.ReactNode;
+    /** Options accepts flat arrays, value => label maps, and more. See examples for details. */
+    options?:
+        | FormattedOption[]
+        | string[]
+        | {
+              [value: string]: string;
+          };
+    /** A label for the form control. */
+    label?: string;
+    /** Placeholder text for the form control. Set to a blank string to create a non-floating placeholder label. */
+    placeholder?: string;
+    /** Makes the select outlined. */
+    outlined?: boolean;
+    /** Makes the Select visually invalid. This is sometimes automatically my material-components-web.  */
+    invalid?: boolean;
+    /** Makes the Select disabled.  */
+    disabled?: boolean;
+    /** Makes the Select required.  */
+    required?: boolean;
+    /** Props for the root element. By default, additional props spread to the native select element.  */
+    // rootProps?: Object;
+    /** A reference to the native select element. Not applicable when `enhanced` is true. */
+    inputRef?: (ref: HTMLSelectElement | null) => void;
+    /** Add a leading icon. */
+    icon?: React.ReactNode;
+    /** Advanced: A reference to the MDCFoundation. */
+    foundationRef?: any;
+}
 
 export type SelectProps = FormComponentProps &
     RmwcSelectProps & {
@@ -44,11 +78,11 @@ export type SelectProps = FormComponentProps &
 /**
  * TODO verify that this is correct method get all options.
  */
-const getOptions = (initialOptions: SelectProps["options"]): FormattedOption[] => {
+const getOptions = (initialOptions: SelectProps["options"]): SelectOptionDto[] => {
     if (!initialOptions) {
         return [];
     } else if (Array.isArray(initialOptions)) {
-        const options: FormattedOption[] = [];
+        const options: SelectOptionDto[] = [];
         for (const option of initialOptions) {
             if (typeof option === "string") {
                 options.push({
@@ -58,9 +92,9 @@ const getOptions = (initialOptions: SelectProps["options"]): FormattedOption[] =
                 continue;
             }
             options.push({
-                label: option.label,
+                label: String(option.label),
                 value: option.value,
-                options: option.options
+                options: getOptions(option.options)
             });
         }
         return options;
@@ -72,6 +106,42 @@ const getOptions = (initialOptions: SelectProps["options"]): FormattedOption[] =
         };
     });
 };
+
+/**
+ * Select component lets users to manually build the option list.
+ */
+function getChildrenOptions(children: React.ReactNode): SelectOptionDto[] {
+    return React.Children.toArray(children)
+        .filter(
+            child =>
+                React.isValidElement(child) &&
+                (child.type === "option" || child.type === "optgroup")
+        )
+        .map(child => {
+            const element = child as React.ReactElement<{
+                value?: string;
+                label?: string;
+                children?: React.ReactNode;
+            }>;
+
+            if (React.isValidElement(child) && child.type === "option") {
+                return {
+                    value: element.props.value || "",
+                    label: element.props.children?.toString() || ""
+                };
+            }
+
+            if (React.isValidElement(child) && child.type === "optgroup") {
+                return {
+                    label: element.props.label || "",
+                    options: getChildrenOptions(element.props.children)
+                };
+            }
+
+            return null; // This shouldn't be reached
+        })
+        .filter(Boolean) as SelectOptionDto[];
+}
 
 /**
  * Select component lets users choose a value from given set of options.
@@ -87,18 +157,18 @@ const getRmwcProps = (props: SelectProps): FormComponentProps & RmwcSelectProps 
 
     return newProps;
 };
+
 /**
- * We check for null and undefined in the value because React is complaining about those values.
- * Error says to use the empty string in null/undefined case.
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `Select` component from the `@webiny/admin-ui` package instead.
  */
 export const Select = (props: SelectProps) => {
-    const { value: initialValue, description, validation, ...other } = props;
+    const { value: initialValue, ...other } = props;
 
     const value = initialValue === null || initialValue === undefined ? "" : initialValue;
 
-    const { isValid: validationIsValid, message: validationMessage } = validation || {};
-
     const options = getOptions(other.options);
+    const childrenOptions = getChildrenOptions(props.children);
 
     // Memoize the label and placeholder values based on the component size.
     const { label, placeholder } = useMemo(() => {
@@ -122,34 +192,28 @@ export const Select = (props: SelectProps) => {
         };
     }, [props.label, props.placeholder, props.size]);
 
+    const size = useMemo(() => {
+        if (props.size === "medium") {
+            return "md";
+        }
+
+        if (props.size === "large") {
+            return "lg";
+        }
+
+        return "lg";
+    }, [props.size]);
+
     return (
-        <>
-            <RmwcSelect
-                {...getRmwcProps(other)}
-                ref={undefined}
-                options={options}
-                value={value}
-                label={label}
-                placeholder={placeholder}
-                className={classNames(
-                    "webiny-ui-select mdc-ripple-surface mdc-ripple-upgraded",
-                    webinySelect,
-                    props.size ? `webiny-ui-select--size-${props.size}` : null,
-                    props.className
-                )}
-                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
-                    props.onChange && props.onChange(e.target.value);
-                }}
-            />
-
-            {validationIsValid === false && (
-                <FormElementMessage error>{validationMessage}</FormElementMessage>
-            )}
-
-            {validationIsValid !== false && description && (
-                <FormElementMessage>{description}</FormElementMessage>
-            )}
-        </>
+        <AdminSelect
+            {...getRmwcProps(other)}
+            options={[...options, ...childrenOptions]}
+            value={value}
+            label={label}
+            placeholder={placeholder}
+            size={size}
+            onValueChange={value => props?.onChange?.(value)}
+        />
     );
 };
 

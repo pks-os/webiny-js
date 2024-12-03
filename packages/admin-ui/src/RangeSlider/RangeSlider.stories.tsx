@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { RangeSlider } from "./RangeSlider";
 
 const meta: Meta<typeof RangeSlider> = {
-    title: "Components/RangeSlider",
+    title: "Components/Form/RangeSlider",
     component: RangeSlider,
     tags: ["autodocs"],
     argTypes: {
@@ -11,15 +11,8 @@ const meta: Meta<typeof RangeSlider> = {
         onValuesCommit: { action: "onValuesCommit" }
     },
     parameters: {
-        layout: "fullscreen"
+        layout: "padded"
     },
-    decorators: [
-        Story => (
-            <div className="w-[60%] h-32 mx-auto flex justify-center items-center">
-                <Story />
-            </div>
-        )
-    ],
     render: args => {
         const [values, setValues] = useState(args.values);
         return (
@@ -31,82 +24,57 @@ const meta: Meta<typeof RangeSlider> = {
 export default meta;
 type Story = StoryObj<typeof RangeSlider>;
 
-export const Default: Story = {};
-
-export const WithDefaultValues: Story = {
+export const Default: Story = {
     args: {
-        values: [25, 75]
+        label: "Any field label"
     }
 };
 
-export const WithMinAndMaxValues: Story = {
+export const WithLabelRequired: Story = {
     args: {
-        min: 25,
-        max: 75
+        ...Default.args,
+        required: true
     }
 };
 
-export const WithSteps: Story = {
+export const WithDescription: Story = {
     args: {
-        step: 10
+        description: "Provide the required information for processing your request."
+    }
+};
+
+export const WithNotes: Story = {
+    args: {
+        note: "Note: Ensure your selection or input is accurate before proceeding."
+    }
+};
+
+export const WithErrors: Story = {
+    args: {
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };
 
 export const Disabled: Story = {
     args: {
-        disabled: true,
-        values: [25, 75]
+        label: "Any field label",
+        disabled: true
     }
 };
 
-export const WithTooltip: Story = {
+export const FullExample: Story = {
     args: {
-        showTooltip: true
-    }
-};
-
-export const WithTooltipSideTop: Story = {
-    args: {
-        showTooltip: true,
-        tooltipSide: "top"
-    }
-};
-
-export const WithTooltipAndCustomValueTransformer: Story = {
-    args: {
-        showTooltip: true,
-        transformValues: (value: number) => {
-            return `${Math.round(value)}%`;
+        ...Default.args,
+        label: "Any field label",
+        required: true,
+        description: "Provide the required information for processing your request.",
+        note: "Note: Ensure your selection or input is accurate before proceeding.",
+        validation: {
+            isValid: false,
+            message: "This field is required."
         }
-    }
-};
-
-export const WithExternalValueControl: Story = {
-    args: {
-        showTooltip: true,
-        transformValues: (value: number) => {
-            return `${Math.round(value)}%`;
-        }
-    },
-    render: args => {
-        const defaultValues = args.values ?? [25, 75];
-        const [values, setValues] = useState(defaultValues);
-        return (
-            <div className={"w-full"}>
-                <div>
-                    <RangeSlider
-                        {...args}
-                        values={values}
-                        onValuesChange={values => setValues(values)}
-                    />
-                </div>
-                <div className={"mt-4 text-center"}>
-                    <button onClick={() => setValues(defaultValues)}>{"Reset"}</button>
-                </div>
-                <div className={"mt-4 text-center"}>
-                    Current value: <code>{values.toString()}</code>
-                </div>
-            </div>
-        );
     }
 };

@@ -1,89 +1,81 @@
 import * as React from "react";
-import * as SliderPrimitive from "@radix-ui/react-slider";
-import { makeDecoratable } from "@webiny/react-composition";
-import { SliderRoot, SliderThumb, SliderThumbVm, SliderTrack } from "~/Slider";
-import { useRangeSlider } from "./useRangeSlider";
-
-type RangeSliderVm = Omit<
-    SliderPrimitive.SliderProps,
-    "value" | "min" | "max" | "onValueChange" | "onValueCommit"
-> & {
-    values: number[];
-    min: number;
-    max: number;
-};
-
-type RangeSliderThumbsVm = Omit<SliderThumbVm, "value"> & {
-    values: string[];
-};
+import { cn, cva, VariantProps, makeDecoratable } from "~/utils";
+import { RangeSliderPrimitiveProps, RangeSliderPrimitiveRenderer } from "./RangeSliderPrimitive";
+import {
+    FormComponentDescription,
+    FormComponentErrorMessage,
+    FormComponentLabel,
+    FormComponentNote,
+    FormComponentProps
+} from "~/FormComponent";
+import { useRangeSlider } from "~/RangeSlider/useRangeSlider";
 
 /**
- * RangeSliderRenderer
+ * Range Slider Value
  */
-interface RangeSliderRendererProps {
-    sliderVm: RangeSliderVm;
-    thumbsVm: RangeSliderThumbsVm;
-    onValuesChange: (values: number[]) => void;
-    onValuesCommit: (values: number[]) => void;
+const rangeSliderValueVariants = cva("font-normal text-sm leading-none", {
+    variants: {
+        disabled: {
+            true: "text-neutral-disabled cursor-not-allowed"
+        }
+    }
+});
+
+interface RangeSliderValueProps
+    extends React.HTMLAttributes<HTMLSpanElement>,
+        VariantProps<typeof rangeSliderValueVariants> {
+    value: string;
 }
 
-const DecoratableRangeSliderRenderer = ({
-    sliderVm,
-    thumbsVm,
-    onValuesChange,
-    onValuesCommit
-}: RangeSliderRendererProps) => {
-    return (
-        <SliderRoot
-            {...sliderVm}
-            value={sliderVm.values}
-            onValueChange={onValuesChange}
-            onValueCommit={onValuesCommit}
-        >
-            <SliderTrack />
-            <SliderThumb {...thumbsVm} value={thumbsVm.values[0]} />
-            <SliderThumb {...thumbsVm} value={thumbsVm.values[1]} />
-        </SliderRoot>
-    );
+const DecoratableRangeSliderValue = ({ value, disabled, className }: RangeSliderValueProps) => {
+    if (!value) {
+        return null;
+    }
+    return <span className={cn(rangeSliderValueVariants({ disabled }), className)}>{value}</span>;
 };
 
-const RangeSliderRenderer = makeDecoratable("RangeSliderRenderer", DecoratableRangeSliderRenderer);
+const RangeSliderValue = makeDecoratable("RangeSliderValue", DecoratableRangeSliderValue);
 
-/**
- * RangeSlider
- */
-interface RangeSliderProps
-    extends Omit<
-        SliderPrimitive.SliderProps,
-        "defaultValue" | "value" | "onValueChange" | "onValueCommit"
-    > {
-    onValuesChange: (values: number[]) => void;
-    onValuesCommit?: (values: number[]) => void;
-    showTooltip?: boolean;
-    tooltipSide?: "top" | "bottom";
-    transformValues?: (value: number) => string;
-    values?: number[] | undefined;
+interface RangeSliderProps extends RangeSliderPrimitiveProps, FormComponentProps {
+    label: React.ReactNode;
+    valueConverter?: (value: number) => string;
 }
 
 const DecoratableRangeSlider = (props: RangeSliderProps) => {
+    const { isValid: validationIsValid, message: validationMessage } = props.validation || {};
+    const invalid = React.useMemo(() => validationIsValid === false, [validationIsValid]);
     const { vm, changeValues, commitValues } = useRangeSlider(props);
 
     return (
-        <RangeSliderRenderer
-            sliderVm={vm.sliderVm}
-            thumbsVm={vm.thumbsVm}
-            onValuesChange={changeValues}
-            onValuesCommit={commitValues}
-        />
+        <div className={"w-full"}>
+            <FormComponentLabel
+                text={props.label}
+                required={props.required}
+                disabled={props.disabled}
+            />
+            <FormComponentDescription text={props.description} />
+            <div className={"flex flex-row items-center justify-between"}>
+                <div className={"basis-1/12 pr-xxs"}>
+                    <RangeSliderValue value={vm.textValues[0]} disabled={props.disabled} />
+                </div>
+                <div className={"basis-10/12"}>
+                    <RangeSliderPrimitiveRenderer
+                        {...props}
+                        {...vm}
+                        onValueChange={changeValues}
+                        onValueCommit={commitValues}
+                    />
+                </div>
+                <div className={"basis-1/12 pl-xxs text-right"}>
+                    <RangeSliderValue value={vm.textValues[1]} disabled={props.disabled} />
+                </div>
+            </div>
+            <FormComponentErrorMessage text={validationMessage} invalid={invalid} />
+            <FormComponentNote text={props.note} />
+        </div>
     );
 };
 
 const RangeSlider = makeDecoratable("RangeSlider", DecoratableRangeSlider);
 
-export {
-    RangeSlider,
-    RangeSliderRenderer,
-    type RangeSliderProps,
-    type RangeSliderVm,
-    type RangeSliderThumbsVm
-};
+export { RangeSlider, type RangeSliderProps };

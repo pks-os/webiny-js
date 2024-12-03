@@ -1,5 +1,9 @@
 import { makeAutoObservable } from "mobx";
-import { SelectOptionsVm, SelectTriggerVm, SelectOption as SelectOptionParams } from "./Select";
+import {
+    SelectOptionsVm,
+    SelectTriggerVm,
+    SelectOption as SelectOptionParams
+} from "./SelectPrimitive";
 import { SelectOption } from "./SelectOption";
 import { SelectOptionMapper } from "~/Select/SelectOptionMapper";
 

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox } from "./Checkbox";
+import { Checkbox } from "~/Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
-    title: "Components/Checkbox",
+    title: "Components/Form/Checkbox",
     component: Checkbox,
     tags: ["autodocs"],
+    parameters: {
+        layout: "padded"
+    },
     render: args => {
         const [checked, setChecked] = useState(args.checked);
         return (
@@ -23,21 +26,31 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
     args: {
-        label: "Label"
+        label: "Any field label"
     }
 };
 
-export const Checked: Story = {
+export const WithDescription: Story = {
     args: {
         ...Default.args,
-        checked: true
+        description: "Provide the required information for processing your request."
     }
 };
 
-export const Indeterminate: Story = {
+export const WithNotes: Story = {
     args: {
         ...Default.args,
-        indeterminate: true
+        note: "Note: Ensure your selection or input is accurate before proceeding."
+    }
+};
+
+export const WithErrors: Story = {
+    args: {
+        ...Default.args,
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };
 
@@ -45,5 +58,19 @@ export const Disabled: Story = {
     args: {
         ...Default.args,
         disabled: true
+    }
+};
+
+export const FullExample: Story = {
+    args: {
+        ...Default.args,
+        label: "Any field label",
+        required: true,
+        description: "Provide the required information for processing your request.",
+        note: "Note: Ensure your selection or input is accurate before proceeding.",
+        validation: {
+            isValid: false,
+            message: "This field is required."
+        }
     }
 };

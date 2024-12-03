@@ -1,40 +1,47 @@
 import { makeAutoObservable } from "mobx";
-import omit from "lodash/omit";
-import { SwitchProps, SwitchVm } from "./Switch";
+import { SwitchPrimitivVm } from "./SwitchPrimitive";
+import { SwitchItem } from "~/Switch/SwitchItem";
+import { SwitchItemDto } from "~/Switch/SwitchItemDto";
+import { SwitchItemMapper } from "~/Switch/SwitchItemMapper";
 
-interface ISwitchPresenter<TProps extends SwitchProps = SwitchProps> {
-    get vm(): {
-        switchVm: SwitchVm;
-    };
-    init: (props: TProps) => void;
-    changeValue: (checked: boolean) => void;
+type SwitchPresenterParams = SwitchItemDto & {
+    onCheckedChange: (checked: boolean) => void;
+};
+
+interface ISwitchPresenter<TParams extends SwitchPresenterParams = SwitchPresenterParams> {
+    vm: SwitchPrimitivVm;
+    init: (params: TParams) => void;
+    changeChecked: (checked: boolean) => void;
 }
 
 class SwitchPresenter implements ISwitchPresenter {
-    private props?: SwitchProps;
+    private params?: SwitchPresenterParams = undefined;
+    private item?: SwitchItem = undefined;
 
     constructor() {
-        this.props = undefined;
         makeAutoObservable(this);
     }
 
-    init(props: SwitchProps) {
-        this.props = props;
-    }
+    public init = (params: SwitchPresenterParams) => {
+        this.params = params;
+        this.item = SwitchItem.create({
+            id: params.id,
+            label: params.label,
+            value: params.value,
+            checked: params.checked,
+            disabled: params.disabled
+        });
+    };
 
     get vm() {
         return {
-            switchVm: {
-                ...omit(this.props, ["onCheckedChange"]),
-                checked: this.props?.checked ?? false,
-                disabled: this.props?.disabled ?? false
-            }
+            item: this.item ? SwitchItemMapper.toFormatted(this.item) : undefined
         };
     }
 
-    public changeValue = (checked: boolean) => {
-        this.props?.onCheckedChange?.(checked);
+    public changeChecked = (checked: boolean) => {
+        this.params?.onCheckedChange?.(checked);
     };
 }
 
-export { SwitchPresenter, type ISwitchPresenter };
+export { SwitchPresenter, type SwitchPresenterParams, type ISwitchPresenter };

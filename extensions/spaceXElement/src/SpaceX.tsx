@@ -54,6 +54,12 @@ export const SpaceX = createRenderer(() => {
     const { limit, offset, type } = element.data.variables;
 
     // This is where we fetch the data and store it into component's state.
+
+    const [stater, setStater] = React.useState(null);
+
+    // @ts-ignore don't care about this
+    window.setStater = setStater;
+
     const { data, loading } = useLoader<Spacecraft[]>(
         async () => {
             return request(GQL_API_URL, QUERIES[type], {
@@ -61,7 +67,7 @@ export const SpaceX = createRenderer(() => {
                 offset: parseInt(offset)
             }).then(res => res.data);
         },
-        { cacheKey: [limit, offset, type] }
+        { cacheKey: [limit, offset, type, stater] }
     );
 
     if (loading) {

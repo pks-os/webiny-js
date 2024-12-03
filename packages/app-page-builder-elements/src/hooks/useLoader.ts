@@ -6,7 +6,7 @@ export interface RendererLoader<TData = unknown> {
     data: TData | null;
     loading: boolean;
     cacheHit: boolean;
-    cacheKey: string;
+    cacheKey: null | string;
 }
 
 export interface UseLoaderOptions {
@@ -29,6 +29,7 @@ export function useLoader<TData = unknown>(
         return loaderCache.read<TData>(cacheKey);
     }, [cacheKey]);
 
+
     const [loader, setLoader] = useState<RendererLoader<TData>>(
         cachedData
             ? {
@@ -37,10 +38,11 @@ export function useLoader<TData = unknown>(
                   cacheHit: true,
                   cacheKey
               }
-            : { data: null, loading: true, cacheHit: false, cacheKey }
+            : { data: null, loading: true, cacheHit: false, cacheKey: null }
     );
 
     useEffect(() => {
+        console.log('cacheKey', cacheKey, loader.cacheKey)
         if (cacheKey === loader.cacheKey) {
             return;
         }
@@ -52,6 +54,7 @@ export function useLoader<TData = unknown>(
 
         setLoader({ data: loader.data, loading: true, cacheKey, cacheHit: false });
         loaderFn().then(data => {
+            console.log('dobeo dejta')
             loaderCache.write(cacheKey, data);
             setLoader({ data, loading: false, cacheKey, cacheHit: false });
         });

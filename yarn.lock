@@ -18713,7 +18713,6 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     regenerator-runtime: ^0.13.5
-    space-x-element: 1.0.0
     theme: ^1.0.0
     tslib: ^2.4.0
   languageName: unknown
@@ -38041,17 +38040,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"space-x-element@1.0.0, space-x-element@workspace:extensions/spaceXElement":
-  version: 0.0.0-use.local
-  resolution: "space-x-element@workspace:extensions/spaceXElement"
-  dependencies:
-    "@webiny/app-page-builder": 0.0.0
-    "@webiny/app-page-builder-elements": 0.0.0
-    "@webiny/app-website": 0.0.0
-    react: 18.2.0
-  languageName: unknown
-  linkType: soft
-
 "spdx-correct@npm:^3.0.0":
   version: 3.1.1
   resolution: "spdx-correct@npm:3.1.1"
@@ -40757,7 +40745,6 @@ __metadata:
     react-dom: 18.2.0
     regenerator-runtime: ^0.13.5
     source-map-explorer: ^2.5.3
-    space-x-element: 1.0.0
     theme: ^1.0.0
   languageName: unknown
   linkType: soft

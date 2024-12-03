@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { css } from "emotion";
 import { plugins } from "@webiny/plugins";
 import ElementPreview from "./SaveDialog/ElementPreview";
@@ -92,7 +92,9 @@ const SaveDialog = (props: Props) => {
         }
     };
 
-    const nullLoaderCache = new NullLoaderCache();
+    const nullLoaderCache = useMemo(() => {
+        return new NullLoaderCache();
+    }, []);
 
     return (
         <Dialog open={open} onClose={onClose} className={narrowDialog}>

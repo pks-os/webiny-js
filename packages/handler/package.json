@@ -12,8 +12,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@fastify/compress": "6.2.0",
-    "@fastify/cookie": "8.3.0",
+    "@fastify/compress": "^8.0.1",
+    "@fastify/cookie": "^11.0.1",
     "@webiny/api": "0.0.0",
     "@webiny/error": "0.0.0",
     "@webiny/handler-client": "0.0.0",

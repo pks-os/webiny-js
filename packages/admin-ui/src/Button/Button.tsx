@@ -52,15 +52,15 @@ const buttonVariants = cva(
                     "py-[calc(theme(padding.xs)-theme(borderWidth.sm))] px-[calc(theme(padding.sm)-theme(borderWidth.sm))]"
                 ],
                 md: [
-                    "text-md border-sm rounded-sm [&>svg]:size-md",
+                    "text-md border-sm rounded-md [&>svg]:size-md",
                     "py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 lg: [
-                    "text-md border-sm rounded-sm [&>svg]:size-md-plus",
+                    "text-md border-sm rounded-md [&>svg]:size-md-plus",
                     "py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
                 ],
                 xl: [
-                    "text-lg font-semibold border-md rounded-md [&>svg]:size-lg",
+                    "text-lg font-semibold border-lg rounded-md [&>svg]:size-lg",
                     "py-[calc(theme(padding.md-plus)-theme(borderWidth.md))] px-[calc(theme(padding.md)-theme(borderWidth.md))]"
                 ]
             },

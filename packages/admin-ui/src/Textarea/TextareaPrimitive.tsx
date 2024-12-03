@@ -28,9 +28,9 @@ const textareaVariants = cva(
                 ]
             },
             size: {
-                md: ["px-sm-extra py-xs-plus rounded-sm"],
-                lg: ["px-sm-extra py-sm-plus rounded-sm"],
-                xl: ["px-md-extra p-md rounded-md"]
+                md: ["px-sm-extra py-xs-plus rounded-md"],
+                lg: ["px-sm-extra py-sm-plus rounded-md"],
+                xl: ["px-md-extra p-md rounded-lg"]
             },
             invalid: {
                 true: [

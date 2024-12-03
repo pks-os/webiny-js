@@ -27,7 +27,7 @@ const defaultVariants = {
 } as const;
 
 const alertVariants = cva(
-    "flex gap-sm-plus items-start w-full rounded-sm text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
+    "flex gap-sm-plus items-start w-full rounded-lg text-md py-sm-extra pl-md pr-sm-plus [&_a]:font-semibold [&_a]:underline",
     {
         variants,
         defaultVariants,

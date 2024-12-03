@@ -91,15 +91,15 @@ const inputVariants = cva(
         variants: {
             size: {
                 md: [
-                    "rounded-sm",
+                    "rounded-md",
                     "py-[calc(theme(padding.xs-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 lg: [
-                    "rounded-sm",
+                    "rounded-md",
                     "py-[calc(theme(padding.sm-plus)-theme(borderWidth.sm))] px-[calc(theme(padding.sm-extra)-theme(borderWidth.sm))]"
                 ],
                 xl: [
-                    "rounded-md leading-6",
+                    "rounded-lg leading-6",
                     "py-[calc(theme(padding.md)-theme(borderWidth.sm))] px-[calc(theme(padding.md)-theme(borderWidth.sm))]"
                 ]
             },

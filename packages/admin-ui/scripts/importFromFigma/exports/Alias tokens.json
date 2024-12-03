@@ -64,8 +64,8 @@
     "VariableID:52:31",
     "VariableID:52:32",
     "VariableID:529:17319",
-    "VariableID:183:122214",
     "VariableID:1335:7762",
+    "VariableID:183:122214",
     "VariableID:1335:7763",
     "VariableID:1335:7764",
     "VariableID:1152:342",
@@ -81,11 +81,12 @@
     "VariableID:2237:20498",
     "VariableID:849:784",
     "VariableID:2237:20499",
-    "VariableID:1639:554",
     "VariableID:52:18",
+    "VariableID:1639:554",
     "VariableID:81:1904",
     "VariableID:81:1905",
     "VariableID:52:19",
+    "VariableID:2369:76482",
     "VariableID:79:37",
     "VariableID:79:38",
     "VariableID:79:39",
@@ -842,7 +843,7 @@
     },
     {
       "id": "VariableID:79:37",
-      "name": "borderRadius/borderRadius-md",
+      "name": "borderRadius/borderRadius-lg",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:39:135" } },
@@ -859,7 +860,7 @@
     },
     {
       "id": "VariableID:79:38",
-      "name": "borderRadius/borderRadius-lg",
+      "name": "borderRadius/borderRadius-xl",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:39:136" } },
@@ -876,7 +877,7 @@
     },
     {
       "id": "VariableID:79:39",
-      "name": "borderRadius/borderRadius-xl",
+      "name": "borderRadius/borderRadius-xxl",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:39:137" } },
@@ -893,7 +894,7 @@
     },
     {
       "id": "VariableID:79:40",
-      "name": "borderRadius/borderRadius-xxl",
+      "name": "borderRadius/borderRadius-3Xl",
       "description": "",
       "type": "FLOAT",
       "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:52:21" } },
@@ -3405,6 +3406,23 @@
           },
           "alias": "VariableID:38:23",
           "aliasName": "colors/colors-success-200"
+        }
+      },
+      "scopes": ["ALL_SCOPES"],
+      "hiddenFromPublishing": false,
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2369:76482",
+      "name": "borderRadius/borderRadius-md",
+      "description": "",
+      "type": "FLOAT",
+      "valuesByMode": { "37:2": { "type": "VARIABLE_ALIAS", "id": "VariableID:2110:16027" } },
+      "resolvedValuesByMode": {
+        "37:2": {
+          "resolvedValue": 6,
+          "alias": "VariableID:2110:16027",
+          "aliasName": "radius/dimensions-border-radius-6"
         }
       },
       "scopes": ["ALL_SCOPES"],

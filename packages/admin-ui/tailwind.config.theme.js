@@ -91,6 +91,7 @@ module.exports = {
         }
     },
     borderRadius: {
+        "3Xl": "var(--radius-3Xl)",
         lg: "var(--radius-lg)",
         md: "var(--radius-md)",
         sm: "var(--radius-sm)",

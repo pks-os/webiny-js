@@ -30,13 +30,13 @@
     "posthtml": "^0.15.0",
     "posthtml-noopener": "^1.0.5",
     "posthtml-plugin-link-preload": "^1.0.0",
-    "puppeteer-core": "22.6.4",
+    "puppeteer-core": "22.15.0",
     "shortid": "^2.2.16",
     "srcset": "^4.0.0"
   },
   "devDependencies": {
     "@types/object-hash": "^2.2.1",
-    "@types/puppeteer-core": "^5.4.0",
+    "@types/puppeteer-core": "^7.0.4",
     "@webiny/cli": "0.0.0",
     "@webiny/handler-aws": "0.0.0",
     "@webiny/project-utils": "0.0.0",

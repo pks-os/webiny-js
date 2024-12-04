@@ -3,7 +3,8 @@ import styled, { CSSObject } from "@emotion/styled";
 import { ClassNames } from "@emotion/react";
 import isEqual from "lodash/isEqual";
 import { usePageElements } from "~/hooks/usePageElements";
-import { Link } from "@webiny/react-router";
+import { LinkComponent } from "~/types";
+import { DefaultLinkComponent } from "~/renderers/components";
 import { createRenderer } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";
 import { ElementInput } from "~/inputs/ElementInput";
@@ -91,6 +92,7 @@ export interface ButtonElementData {
 }
 
 export interface Props {
+    linkComponent?: LinkComponent;
     clickHandlers?: Array<ButtonClickHandler>;
 }
 
@@ -157,6 +159,7 @@ export const elementInputs = {
 
 export const ButtonRenderer = createRenderer<Props, typeof elementInputs>(
     props => {
+        const LinkComponent = props.linkComponent || DefaultLinkComponent;
         const { getStyles } = usePageElements();
         const { getElement, getInputValues } = useRenderer();
         const element = getElement<ButtonElementData>();
@@ -221,18 +224,20 @@ export const ButtonRenderer = createRenderer<Props, typeof elementInputs>(
                 href = link.href;
                 newTab = link?.newTab;
             } else {
-                if (action.actionType === "link" && action.href) {
+                if (action.actionType === "link") {
                     href = action.href;
                     newTab = action.newTab;
-                } else if (action.actionType === "scrollToElement") {
+                }
+
+                if (action.actionType === "scrollToElement") {
                     href = "#" + action.scrollToElement;
                 }
             }
 
             return (
-                <Link to={href} target={newTab ? "_blank" : "_self"}>
+                <LinkComponent href={href} target={newTab ? "_blank" : "_self"}>
                     <StyledButtonBody>{buttonInnerContent}</StyledButtonBody>
-                </Link>
+                </LinkComponent>
             );
         }
 

@@ -79,7 +79,7 @@
     "@webiny/form": "0.0.0",
     "@webiny/project-utils": "0.0.0",
     "@webiny/validation": "0.0.0",
-    "babel-loader": "9.1.2",
+    "babel-loader": "^9.2.1",
     "execa": "^5.1.1",
     "jest-dom": "^3.0.0",
     "ncp": "^2.0.0",

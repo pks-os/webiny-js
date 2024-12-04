@@ -65,8 +65,8 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@types/bytes": "^3.1.4",
-    "@types/graphlib": "^2.1.8",
-    "@types/is-hotkey": "^0.1.7",
+    "@types/graphlib": "^2.1.12",
+    "@types/is-hotkey": "^0.1.10",
     "@types/store": "^2.0.2",
     "@webiny/cli": "0.0.0",
     "@webiny/project-utils": "0.0.0",

@@ -10,7 +10,7 @@
   "author": "Webiny Ltd",
   "license": "MIT",
   "dependencies": {
-    "inversify": "^6.0.1",
+    "inversify": "^6.1.6",
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {

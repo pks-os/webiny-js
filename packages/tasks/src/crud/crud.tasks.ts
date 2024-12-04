@@ -86,7 +86,13 @@ const validateTaskInput = async (params: IValidateParams) => {
         context,
         validator: zod
     });
-    const validate = zod.object(schema);
+    /**
+     * If the schema is not an object, we need to wrap it with the `object` function.
+     */
+    const validate =
+        schema instanceof zod.ZodObject || schema instanceof zod.Schema
+            ? schema
+            : zod.object(schema);
     const result = await validate.safeParseAsync(data.input);
     if (result.success) {
         return;

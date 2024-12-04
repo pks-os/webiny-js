@@ -466,7 +466,7 @@ export interface ITaskDefinition<
      */
     createInputValidation?: (
         params: ITaskCreateInputValidationParams<C>
-    ) => GenericRecord<keyof I, zod.Schema>;
+    ) => GenericRecord<keyof I, zod.Schema> | zod.Schema;
     /**
      * Custom input fields and layout for the task input.
      */

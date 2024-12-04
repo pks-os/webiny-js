@@ -144,6 +144,7 @@ export const PageBuilder = () => {
             {/* Element renderer plugins. */}
             <LexicalParagraphRenderer />
             <LexicalHeadingRenderer />
+            <AddButtonLinkComponent />
             <AddButtonClickHandlers />
             <InjectElementVariables />
         </Fragment>

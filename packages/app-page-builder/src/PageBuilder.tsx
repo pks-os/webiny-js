@@ -24,11 +24,11 @@ export * from "~/admin/config/pages";
 export * from "~/admin/views/Pages/hooks";
 
 const PageBuilderProviderPlugin = createProviderPlugin(Component => {
-    const noLoaderCache = useMemo(() => {
-        return new NullLoaderCache();
-    }, []);
-
     return function PageBuilderProvider({ children }) {
+        const noLoaderCache = useMemo(() => {
+            return new NullLoaderCache();
+        }, []);
+
         return (
             <ContextProvider loaderCache={noLoaderCache}>
                 <AdminPageBuilderContextProvider>

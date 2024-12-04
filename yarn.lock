@@ -12257,7 +12257,7 @@ __metadata:
     "@webiny/utils": 0.0.0
     "@webiny/validation": 0.0.0
     form-data: ^4.0.0
-    mime: ^4.0.4
+    mime: ^3.0.0
     node-fetch: 2.6.7
     object-hash: ^3.0.0
     p-map: 4.0.0
@@ -13846,7 +13846,7 @@ __metadata:
     graphql: ^15.7.2
     graphql-tag: ^2.12.6
     lodash: ^4.17.21
-    mime: ^4.0.4
+    mime: ^3.0.0
     minimatch: ^5.1.6
     mobx: ^6.9.0
     mobx-react-lite: ^3.4.3
@@ -14771,7 +14771,7 @@ __metadata:
     localtunnel: 2.0.2
     lodash: ^4.17.21
     log-update: ^4.0.0
-    mime: ^4.0.4
+    mime: ^3.0.0
     minimatch: ^5.1.6
     mqtt: ^5.10.3
     ncp: 2.0.0
@@ -15716,7 +15716,7 @@ __metadata:
     chalk: ^4.1.0
     form-data: ^4.0.0
     lodash: ^4.17.21
-    mime: ^4.0.4
+    mime: ^3.0.0
     node-fetch: 2.6.7
     rimraf: ^6.0.1
     ttypescript: ^1.5.12
@@ -28904,21 +28904,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mime@npm:3.0.0":
+"mime@npm:3.0.0, mime@npm:^3.0.0":
   version: 3.0.0
   resolution: "mime@npm:3.0.0"
   bin:
     mime: cli.js
   checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
-  languageName: node
-  linkType: hard
-
-"mime@npm:^4.0.4":
-  version: 4.0.4
-  resolution: "mime@npm:4.0.4"
-  bin:
-    mime: bin/cli.js
-  checksum: 729904cd8b3913062017970ffa25c4303356f80dad33d472b47244e3baa35ab748ce005fb9a66ae854266fa73396ef219287bf6db311c8376ea3d9cfc5dda107
   languageName: node
   linkType: hard
 

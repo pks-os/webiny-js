@@ -1,4 +1,6 @@
+// @ts-expect-error
 import vendorTypes from "mime/types/other";
+// @ts-expect-error
 import standardTypes from "mime/types/standard";
 
 /**

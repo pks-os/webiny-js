@@ -53,12 +53,12 @@ const PbImgObject = styled.object`
 `;
 
 export const ImageRendererComponent = ({
-                                           onClick,
-                                           renderEmpty,
-                                           value,
-                                           link,
-                                           linkComponent
-                                       }: ImageRendererComponentProps) => {
+    onClick,
+    renderEmpty,
+    value,
+    link,
+    linkComponent
+}: ImageRendererComponentProps) => {
     const LinkComponent = linkComponent || DefaultLinkComponent;
     const { getElement } = useRenderer();
     const element = getElement<ImageElementData>();

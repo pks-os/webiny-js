@@ -4,9 +4,6 @@ import styled from "@emotion/styled";
 import uniqid from "uniqid";
 import { plugins } from "@webiny/plugins";
 import { Grid, Cell } from "@webiny/ui/Grid";
-import { Icon } from "@webiny/ui/Icon";
-import { Menu } from "@webiny/ui/Menu";
-import { List, ListItem, ListItemGraphic } from "@webiny/ui/List";
 import { ButtonPrimary } from "@webiny/ui/Button";
 import MenuItemsList from "./MenuItems/MenuItemsList";
 import MenuItemForm from "./MenuItems/MenuItemForm";
@@ -14,13 +11,12 @@ import findObject from "./MenuItems/findObject";
 import { PbMenuItemPlugin } from "~/types";
 import { Typography } from "@webiny/ui/Typography";
 import { MenuTreeItem } from "~/admin/views/Menus/types";
+import { DropdownMenu } from "@webiny/admin-ui";
+
 const leftPanel = css({
     padding: 25,
     backgroundColor: "var(--mdc-theme-background)",
     overflow: "auto"
-});
-const menuItems = css({
-    width: 170
 });
 const MenuHolder = styled("div")({
     textAlign: "center",
@@ -30,11 +26,13 @@ const AddMenu = styled("div")({
     width: 180,
     margin: "25px auto 0 auto"
 });
+
 interface MenuItemsProps {
     canSave: boolean;
     onChange: (items: MenuTreeItem[]) => void;
     value: MenuTreeItem[];
 }
+
 type MenuItemsState = MenuTreeItem | null;
 const MenuItems = (props: MenuItemsProps) => {
     const [currentMenuItem, setCurrentMenuItem] = useState<MenuItemsState>(null);
@@ -77,30 +75,23 @@ const MenuItems = (props: MenuItemsProps) => {
                                     clicking the &quot;Add menu item&quot; button
                                 </Typography>
                                 <AddMenu>
-                                    <Menu
-                                        handle={
+                                    <DropdownMenu
+                                        trigger={
                                             <ButtonPrimary data-testid="pb.menu.add.addmenuitem">
                                                 + Add menu item
                                             </ButtonPrimary>
                                         }
-                                        anchor={"topEnd"}
                                         data-testid="pb.menu.create.items.button"
                                     >
-                                        <List className={menuItems}>
-                                            {pbMenuItemPlugins.map(pl => (
-                                                <ListItem
-                                                    key={pl.name}
-                                                    onClick={() => addItem(pl)}
-                                                    style={{ whiteSpace: "nowrap" }}
-                                                >
-                                                    <ListItemGraphic>
-                                                        <Icon icon={pl.menuItem.icon} />
-                                                    </ListItemGraphic>
-                                                    {pl.menuItem.title}
-                                                </ListItem>
-                                            ))}
-                                        </List>
-                                    </Menu>
+                                        {pbMenuItemPlugins.map(pl => (
+                                            <DropdownMenu.Item
+                                                icon={pl.menuItem.icon}
+                                                key={pl.name}
+                                                onClick={() => addItem(pl)}
+                                                content={pl.menuItem.title}
+                                            />
+                                        ))}
+                                    </DropdownMenu>
                                 </AddMenu>
                             </MenuHolder>
                         </>

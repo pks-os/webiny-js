@@ -1,5 +1,6 @@
 import * as React from "react";
-import { ReactComponent as PageListIcon } from "./round-format_list_bulleted-24px.svg";
+import { ReactComponent as PageListIcon } from "@material-design-icons/svg/filled/format_list_bulleted.svg";
+
 import PageListForm from "./PageListForm";
 import { PbMenuItemPlugin } from "../../../../types";
 

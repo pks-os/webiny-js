@@ -17,7 +17,7 @@ import { ReactComponent as Mail } from "@material-design-icons/svg/outlined/mail
 import { ReactComponent as MessageSquare } from "@material-design-icons/svg/outlined/chat_bubble.svg";
 
 const meta: Meta<typeof DropdownMenu> = {
-    title: "Components/DropdownMenu",
+    title: "Components/Dropdown Menu",
     component: DropdownMenu,
     tags: ["autodocs"],
     argTypes: {}
@@ -27,59 +27,36 @@ export default meta;
 
 type Story = StoryObj<typeof DropdownMenu>;
 
-const { Label, Separator, Group, Item, Sub, SubTrigger, Portal, SubContent } = DropdownMenu;
-
+const { Label, Separator, Group, Item } = DropdownMenu;
 
 export const Default: Story = {
     args: {
         trigger: <Button variant="primary" text={"Open"} />,
         children: (
             <>
-                <Label>My Account</Label>
-                <Item icon={<User />}>Profile</Item>
+                <Label content={"My Account"} />
+                <Item icon={<User />} content={"Profile"} />
                 <Group>
-                    <Item icon={<CreditCard />}>Billing</Item>
-                    <Item icon={<Settings />}>Settings</Item>
-                    <Item icon={<Keyboard />}>Keyboard shortcuts</Item>
+                    <Item icon={<CreditCard />} content={"Billing"} />
+                    <Item icon={<Settings />} content={"Settings"} />
+                    <Item icon={<Keyboard />} content={"Keyboard shortcuts"} />
                 </Group>
                 <Separator />
                 <Group>
-                    <Item icon={<Users />}>Team</Item>
-                    <Sub>
-                        <SubTrigger>
-                            <UserPlus />
-                            <span>Invite users</span>
-                        </SubTrigger>
-                        <Portal>
-                            <SubContent>
-                                <Item>
-                                    <Mail />
-                                    <span>Email</span>
-                                </Item>
-                                <Item>
-                                    <MessageSquare />
-                                    <span>Message</span>
-                                </Item>
-                                <Separator />
-                                <Item>
-                                    <PlusCircle />
-                                    <span>More...</span>
-                                </Item>
-                            </SubContent>
-                        </Portal>
-                    </Sub>
-
-                    <Item icon={<Plus />} shortcut={"⌘+T"}>
-                        New Team
+                    <Item icon={<Users />} content={"Team"} />
+                    <Item icon={<UserPlus />} content={"Invite users"}>
+                        <Item icon={<Mail />} content={"Email"} />
+                        <Item icon={<MessageSquare />} content={"Message"} />
+                        <Separator />
+                        <Item icon={<PlusCircle />} content={"More..."} />
                     </Item>
+                    <Item icon={<Plus />} content={"New Team"} />
                 </Group>
                 <Separator />
-                <Item icon={<LifeBuoy />}>Support</Item>
-                <Item icon={<Cloud />} disabled>
-                    API
-                </Item>
+                <Item icon={<LifeBuoy />} content={"Support"} />
+                <Item icon={<Cloud />} content={"API"} disabled />
                 <Separator />
-                <Item icon={<LogOut />}>Log out</Item>
+                <Item icon={<LogOut />} content={"Log out"} />
             </>
         )
     },

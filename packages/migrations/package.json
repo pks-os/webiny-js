@@ -29,7 +29,6 @@
     "directory": "dist"
   },
   "devDependencies": {
-    "@types/execa": "^2.0.0",
     "@webiny/api-headless-cms": "0.0.0",
     "@webiny/api-headless-cms-ddb-es": "0.0.0",
     "@webiny/cli": "0.0.0",

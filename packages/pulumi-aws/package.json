@@ -13,9 +13,9 @@
     "directory": "dist"
   },
   "dependencies": {
-    "@pulumi/aws": "^6.55.0",
-    "@pulumi/pulumi": "^3.136.1",
-    "@pulumi/random": "^4.16.3",
+    "@pulumi/aws": "^6.62.2",
+    "@pulumi/pulumi": "^3.142.0",
+    "@pulumi/random": "^4.16.7",
     "@webiny/aws-sdk": "0.0.0",
     "@webiny/cli-plugin-deploy-pulumi": "0.0.0",
     "@webiny/pulumi": "0.0.0",

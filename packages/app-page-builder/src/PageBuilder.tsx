@@ -11,6 +11,7 @@ import { DefaultOnPageUnpublish } from "~/admin/plugins/pageDetails/pageRevision
 import { DefaultOnPageDelete } from "~/admin/plugins/pageDetails/pageRevisions/DefaultOnPageDelete";
 import { EditorProps, EditorRenderer } from "./admin/components/Editor";
 import { PagesModule } from "~/admin/views/Pages/PagesModule";
+import { AddButtonLinkComponent } from "~/elementDecorators/AddButtonLinkComponent";
 import { AddButtonClickHandlers } from "~/elementDecorators/AddButtonClickHandlers";
 import { InjectElementVariables } from "~/render/variables/InjectElementVariables";
 import { LexicalParagraphRenderer } from "~/render/plugins/elements/paragraph/LexicalParagraph";

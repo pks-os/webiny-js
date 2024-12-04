@@ -1,9 +1,10 @@
 import * as React from "react";
 import { PagesListComponent, PagesListPage } from "./../types";
+import { LinkComponent } from "~/types";
+import { DefaultLinkComponent } from "~/renderers/components";
 import styled from "@emotion/styled";
 import { CSSObject } from "@emotion/react";
 import { usePageElements } from "~/hooks/usePageElements";
-import { Link } from "@webiny/react-router";
 
 declare global {
     // eslint-disable-next-line
@@ -71,14 +72,15 @@ const formatDate = (date: string | Date): string => {
  */
 export interface PageItemProps {
     data: PagesListPage;
+    LinkComponent: LinkComponent;
 }
 
-const PagesListItem = ({ data }: PageItemProps) => {
+const PagesListItem = ({ data, LinkComponent }: PageItemProps) => {
     const image = data?.images.general?.src;
 
     return (
         <pb-pages-list-default-list-li>
-            <Link to={data.url}>
+            <LinkComponent href={data.url}>
                 {image ? (
                     <pb-pages-list-default-list-li-img
                         style={{
@@ -94,7 +96,7 @@ const PagesListItem = ({ data }: PageItemProps) => {
                     <p>{data.snippet}</p>
                     <div>{formatDate(data.publishedOn)}</div>
                 </pb-pages-list-default-list-li-info>
-            </Link>
+            </LinkComponent>
         </pb-pages-list-default-list-li>
     );
 };
@@ -111,6 +113,10 @@ const SkeletonPagesListItem = () => {
     );
 };
 
+export interface CreateDefaultPagesListComponentParams {
+    linkComponent?: LinkComponent;
+}
+
 interface PbPagesListDefaultProps {
     className?: string;
     style: React.CSSProperties;
@@ -123,7 +129,9 @@ const PbPagesListDefault = ({ className, style, children }: PbPagesListDefaultPr
     </pb-pages-list-default>
 );
 
-export const createDefaultPagesListComponent = (): PagesListComponent =>
+export const createDefaultPagesListComponent = (
+    params?: CreateDefaultPagesListComponentParams
+): PagesListComponent =>
     function DefaultPagesListComponent(props) {
         const {
             loading,
@@ -136,6 +144,8 @@ export const createDefaultPagesListComponent = (): PagesListComponent =>
         } = props;
 
         const { theme } = usePageElements();
+
+        const LinkComponent = params?.linkComponent || DefaultLinkComponent;
 
         const styles: CSSObject = {
             a: {
@@ -197,19 +207,21 @@ export const createDefaultPagesListComponent = (): PagesListComponent =>
                             <SkeletonPagesListItem />
                         </>
                     ) : (
-                        data?.data.map(page => <PagesListItem key={page.id} data={page} />)
+                        data?.data.map(page => (
+                            <PagesListItem
+                                key={page.id}
+                                data={page}
+                                LinkComponent={LinkComponent}
+                            />
+                        ))
                     )}
                 </pb-pages-list-default-list>
                 <pb-pages-list-default-navigation>
                     {hasPreviousPage && (
-                        <Link to="#" onClick={previousPage}>
-                            {prevIcon} Prev page
-                        </Link>
+                        <LinkComponent onClick={previousPage}>{prevIcon} Prev page</LinkComponent>
                     )}
                     {hasNextPage && (
-                        <Link to="#" onClick={nextPage}>
-                            Next page {nextIcon}
-                        </Link>
+                        <LinkComponent onClick={nextPage}>Next page {nextIcon}</LinkComponent>
                     )}
                 </pb-pages-list-default-navigation>
             </StyledPagesListDefault>

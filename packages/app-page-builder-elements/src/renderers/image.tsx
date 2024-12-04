@@ -2,7 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import { createRenderer, CreateRendererOptions } from "~/createRenderer";
 import { useRenderer } from "~/hooks/useRenderer";
-import { Link } from "@webiny/react-router";
+import { LinkComponent as LinkComponentType } from "~/types";
+import { DefaultLinkComponent } from "~/renderers/components";
 
 declare global {
     // eslint-disable-next-line
@@ -30,7 +31,7 @@ export interface ImageElementData {
     };
 }
 
-export interface ImageRendererComponentProps extends Props {}
+export interface ImageRendererComponentProps extends Props, CreateImageParams {}
 
 const SUPPORTED_IMAGE_RESIZE_WIDTHS = [100, 300, 500, 750, 1000, 1500, 2500];
 
@@ -52,11 +53,13 @@ const PbImgObject = styled.object`
 `;
 
 export const ImageRendererComponent = ({
-    onClick,
-    renderEmpty,
-    value,
-    link
-}: ImageRendererComponentProps) => {
+                                           onClick,
+                                           renderEmpty,
+                                           value,
+                                           link,
+                                           linkComponent
+                                       }: ImageRendererComponentProps) => {
+    const LinkComponent = linkComponent || DefaultLinkComponent;
     const { getElement } = useRenderer();
     const element = getElement<ImageElementData>();
 
@@ -133,9 +136,9 @@ export const ImageRendererComponent = ({
         const { href, newTab } = linkProps;
         if (href) {
             content = (
-                <Link to={href} target={newTab ? "_blank" : "_self"}>
+                <LinkComponent href={href} target={newTab ? "_blank" : "_self"}>
                     {content}
-                </Link>
+                </LinkComponent>
             );
         }
     }
@@ -159,8 +162,12 @@ interface Props {
     link?: { href: string; newTab?: boolean };
 }
 
-export const createImage = () => {
+export interface CreateImageParams {
+    linkComponent?: LinkComponentType;
+}
+
+export const createImage = (params: CreateImageParams = {}) => {
     return createRenderer<Props>(props => {
-        return <ImageRendererComponent {...props} />;
+        return <ImageRendererComponent {...params} {...props} />;
     }, imageRendererOptions);
 };

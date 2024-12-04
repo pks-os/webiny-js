@@ -153,6 +153,8 @@ export type ElementStylesModifier = (args: {
     modifiers?: PageElementsProviderProps["modifiers"];
 }) => StylesObject | null;
 
+export type LinkComponent = React.ComponentType<React.HTMLProps<HTMLAnchorElement>>;
+
 declare global {
     // eslint-disable-next-line
     namespace JSX {

@@ -22,7 +22,7 @@
     "lodash": "^4.17.21",
     "pino-pretty": "^9.4.0",
     "pluralize": "^8.0.0",
-    "yargs": "^17.4.0"
+    "yargs": "^17.7.2"
   },
   "publishConfig": {
     "access": "public",

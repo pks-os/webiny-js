@@ -63,7 +63,7 @@
     "invariant": "^2.2.4",
     "node-fetch": "2.6.7",
     "ora": "^4.1.1",
-    "webpack": "^5.91.0"
+    "webpack": "^5.97.0"
   },
   "devDependencies": {
     "@webiny/cli": "0.0.0",

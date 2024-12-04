@@ -55,6 +55,8 @@ export interface OverlayLayoutProps {
     barLeft?: React.ReactNode;
     barRight?: React.ReactNode;
     children: React.ReactNode;
+    showExitButton?: boolean;
+    transitionTimeout?: number;
     onExited?: ExitHandler<HTMLElement>;
     style?: React.CSSProperties;
 }
@@ -91,14 +93,29 @@ export class OverlayLayout extends React.Component<OverlayLayoutProps, OverlayLa
     }
 
     public override render() {
-        const { onExited, barLeft, barMiddle, barRight, children, style, ...rest } = this.props;
+        const {
+            onExited,
+            barLeft,
+            barMiddle,
+            barRight,
+            children,
+            style,
+            showExitButton = true,
+            transitionTimeout = 100,
+            ...rest
+        } = this.props;
 
         return (
-            <Transition in={this.state.isVisible} timeout={100} appear onExited={onExited}>
+            <Transition
+                in={this.state.isVisible}
+                timeout={transitionTimeout}
+                appear
+                onExited={onExited}
+            >
                 {state => (
                     <OverlayLayoutWrapper
                         {...rest}
-                        style={{ ...defaultStyle, ...style, ...transitionStyles[state] }}
+                        style={{ ...defaultStyle, ...transitionStyles[state], ...style }}
                     >
                         <TopAppBarSecondary fixed style={{ top: 0 }}>
                             <TopAppBarSection style={{ width: "33%" }} alignStart>
@@ -109,11 +126,13 @@ export class OverlayLayout extends React.Component<OverlayLayoutProps, OverlayLa
                             </TopAppBarSection>
                             <TopAppBarSection style={{ width: "33%" }} alignEnd>
                                 {barRight}
-                                <IconButton
-                                    ripple={false}
-                                    onClick={() => this.hideComponent()}
-                                    icon={<CloseIcon style={{ width: 24, height: 24 }} />}
-                                />
+                                {showExitButton && (
+                                    <IconButton
+                                        ripple={false}
+                                        onClick={() => this.hideComponent()}
+                                        icon={<CloseIcon style={{ width: 24, height: 24 }} />}
+                                    />
+                                )}
                             </TopAppBarSection>
                         </TopAppBarSecondary>
 

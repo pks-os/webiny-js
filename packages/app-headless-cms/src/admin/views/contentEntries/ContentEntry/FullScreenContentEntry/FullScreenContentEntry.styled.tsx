@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 export const FullScreenContentEntryContainer = styled.div`
     #headerToolbarGrid {
         border: 0;
+        padding: 0;
+        margin: 0;
     }
 `;
 
@@ -12,13 +14,9 @@ export const DetailsContainer = styled.div`
 `;
 
 export const FormWrapper = styled.div`
-    max-width: 1140px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 16px;
-`;
-
-export const BackButtonWrapper = styled.div`
-    margin-left: -10px;
 `;
 
 export const TitleWrapper = styled.div`
@@ -32,24 +30,36 @@ export const TitleWrapper = styled.div`
     margin-left: 10px;
 `;
 
-export const PageTitle = styled.div`
+interface EntryTitleProps {
+    isNewEntry?: boolean;
+}
+
+export const EntryTitle = styled.div<EntryTitleProps>`
     font-family: var(--mdc-typography-font-family);
-    border: 1px solid transparent;
     font-size: 20px;
+    line-height: 1.4em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 120%;
+    opacity: ${props => (props.isNewEntry ? 0.3 : 1)};
 `;
 
-export const PageVersion = styled.span`
+export const EntryVersion = styled.span`
     font-size: 20px;
     color: var(--mdc-theme-text-secondary-on-background);
     margin-left: 5px;
     line-height: 120%;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `;
 
-export const PageMeta = styled.div`
+export const EntryMeta = styled.div`
     height: 20px;
     margin: -2px 2px 2px 2px;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `;

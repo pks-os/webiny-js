@@ -2,4 +2,5 @@
 2. disabled state menu item
 3. API design
 4. outline blue around the btn? 🤔
-5. remove shortcut
+6. stories
+7. etc

@@ -42,7 +42,7 @@ const DropdownMenuItemBase = React.forwardRef<
             <div
                 className={cn(
                     "flex px-sm py-xs-plus gap-sm-extra items-center text-md rounded-sm group-focus:bg-neutral-dimmed transition-colors",
-                    "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
+                    "[&_svg]:pointer-events-none [&_svg]:size-md [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
                 )}
             >
                 {icon}

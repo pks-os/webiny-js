@@ -18,7 +18,7 @@ const DropdownMenuSubTriggerBase = React.forwardRef<
         <div
             className={cn(
                 "rounded-sm gap-sm-extra group-focus:bg-neutral-dimmed flex items-center w-full px-sm py-xs-plus transition-colors",
-                "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
+                "[&_svg]:pointer-events-none [&_svg]:size-md [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
             )}
         >
             {children}

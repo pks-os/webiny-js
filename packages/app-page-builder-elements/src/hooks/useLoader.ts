@@ -41,7 +41,6 @@ export function useLoader<TData = unknown>(
     );
 
     useEffect(() => {
-        console.log("cacheKey", cacheKey, loader.cacheKey);
         if (cacheKey === loader.cacheKey) {
             return;
         }

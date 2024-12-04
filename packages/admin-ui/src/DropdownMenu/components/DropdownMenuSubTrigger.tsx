@@ -10,13 +10,20 @@ const DropdownMenuSubTriggerBase = React.forwardRef<
     <DropdownMenuPrimitive.SubTrigger
         ref={ref}
         className={cn(
-            "flex cursor-default gap-2 select-none items-center rounded-sm px-xs-plus text-md outline-none focus:bg-neutral-dimmed data-[state=open]:bg-neutral-dimmed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+            "group flex cursor-default select-none items-center rounded-sm px-xs-plus text-md outline-none",
             className
         )}
         {...props}
     >
-        {children}
-        <ChevronRight className="ml-auto" />
+        <div
+            className={cn(
+                "rounded-sm gap-sm-extra group-focus:bg-neutral-dimmed flex items-center w-full px-sm py-xs-plus transition-colors",
+                "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
+            )}
+        >
+            {children}
+            <ChevronRight className="ml-auto" />
+        </div>
     </DropdownMenuPrimitive.SubTrigger>
 ));
 DropdownMenuSubTriggerBase.displayName = DropdownMenuPrimitive.SubTrigger.displayName;

@@ -1,7 +1,10 @@
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cn, makeDecoratable } from "~/utils";
-import { DropdownMenuSub } from "~/DropdownMenu";
+import { DropdownMenuSubRoot } from "~/DropdownMenu/components/DropdownMenuSubRoot";
+import { DropdownMenuSubTrigger } from "~/DropdownMenu/components/DropdownMenuSubTrigger";
+import { DropdownMenuPortal } from "~/DropdownMenu/components/DropdownMenuPortal";
+import { DropdownMenuSubContent } from "~/DropdownMenu/components/DropdownMenuSubContent";
 
 type DropdownMenuItemProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     icon?: React.ReactNode;
@@ -14,20 +17,15 @@ const DropdownMenuItemBase = React.forwardRef<
 >(({ className, icon, content, children, ...props }, ref) => {
     if (children) {
         return (
-            <DropdownMenuSub
-                trigger={
-                    <div
-                        className={
-                            "kobajica flex p-sm gap-sm-extra items-center text-md hover:bg-neutral-dimmed rounded-sm"
-                        }
-                    >
-                        {icon}
-                        <span>{content}</span>
-                    </div>
-                }
-            >
-                {children}
-            </DropdownMenuSub>
+            <DropdownMenuSubRoot>
+                <DropdownMenuSubTrigger>
+                    {icon}
+                    <span>{content}</span>
+                </DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                    <DropdownMenuSubContent>{children}</DropdownMenuSubContent>
+                </DropdownMenuPortal>
+            </DropdownMenuSubRoot>
         );
     }
 
@@ -35,15 +33,17 @@ const DropdownMenuItemBase = React.forwardRef<
         <DropdownMenuPrimitive.Item
             ref={ref}
             className={cn(
-                "relative cursor-default select-none items-center gap-2 rounded-sm px-xs-plus outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong",
+                "group relative cursor-default select-none items-center rounded-sm px-xs-plus outline-none transition-colors",
+                "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
                 className
             )}
             {...props}
         >
             <div
-                className={
-                    "flex p-sm gap-sm-extra items-center text-md hover:bg-neutral-dimmed rounded-sm"
-                }
+                className={cn(
+                    "flex px-sm py-xs-plus gap-sm-extra items-center text-md rounded-sm group-focus:bg-neutral-dimmed transition-colors",
+                    "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
+                )}
             >
                 {icon}
                 <span>{content}</span>

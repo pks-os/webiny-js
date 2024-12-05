@@ -48,7 +48,9 @@ function makeDecoratableComponent<T extends GenericComponent>(
     };
 
     return withDecoratorFactory()(
-        Object.assign(Decoratable, staticProps) as DecoratableComponent<typeof Decoratable & typeof staticProps>
+        Object.assign(Decoratable, staticProps) as DecoratableComponent<
+            typeof Decoratable & typeof staticProps
+        >
     );
 }
 
@@ -66,9 +68,9 @@ export function makeDecoratableHook<T extends GenericHook>(hook: T) {
 
 export function createVoidComponent<T>() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    return (props: T): JSX.Element | null => {
+    return forwardRef(function VoidComponent(props: T): JSX.Element | null {
         return null;
-    };
+    });
 }
 
 export function makeDecoratable<T extends GenericHook>(
@@ -82,7 +84,7 @@ export function makeDecoratable<T extends GenericComponent>(
 
 export function makeDecoratable(hookOrName: any, Component?: any) {
     if (Component) {
-        return makeDecoratableComponent(hookOrName, React.memo(Component));
+        return makeDecoratableComponent(hookOrName, React.memo(Component)) as DecoratableComponent;
     }
 
     return makeDecoratableHook(hookOrName);

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, forwardRef } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 import { useComponent } from "./Context";
 import { DecoratableComponent, DecoratableHook, GenericComponent, GenericHook } from "~/types";
 import { withDecoratorFactory, withHookDecoratorFactory } from "~/decorators";
@@ -21,10 +21,7 @@ function makeDecoratableComponent<T extends GenericComponent>(
     name: string,
     Component: T = nullRenderer as unknown as T
 ) {
-    const Decoratable = forwardRef<unknown, React.ComponentProps<T>>(function Decoratable(
-        props,
-        ref
-    ): JSX.Element | null {
+    const Decoratable = (props: React.ComponentProps<T>): JSX.Element | null => {
         const parents = useComposableParents();
         const ComposedComponent = useComponent(Component) as GenericComponent<
             React.ComponentProps<T>
@@ -34,12 +31,10 @@ function makeDecoratableComponent<T extends GenericComponent>(
 
         return (
             <ComposableContext.Provider value={context}>
-                <ComposedComponent {...props} ref={ref}>
-                    {props.children}
-                </ComposedComponent>
+                <ComposedComponent {...props}>{props.children}</ComposedComponent>
             </ComposableContext.Provider>
         );
-    });
+    };
 
     const staticProps = {
         original: Component,
@@ -49,7 +44,7 @@ function makeDecoratableComponent<T extends GenericComponent>(
 
     return withDecoratorFactory()(
         Object.assign(Decoratable, staticProps) as DecoratableComponent<
-            typeof Decoratable & typeof staticProps
+            typeof Component & typeof staticProps
         >
     );
 }
@@ -76,15 +71,13 @@ export function createVoidComponent<T>() {
 export function makeDecoratable<T extends GenericHook>(
     hook: T
 ): ReturnType<typeof makeDecoratableHook<T>>;
-
 export function makeDecoratable<T extends GenericComponent>(
     name: string,
     Component: T
 ): ReturnType<typeof makeDecoratableComponent<T>>;
-
 export function makeDecoratable(hookOrName: any, Component?: any) {
     if (Component) {
-        return makeDecoratableComponent(hookOrName, React.memo(Component)) as DecoratableComponent;
+        return makeDecoratableComponent(hookOrName, React.memo(Component));
     }
 
     return makeDecoratableHook(hookOrName);

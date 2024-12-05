@@ -2,9 +2,7 @@ import React from "react";
 
 export type GenericHook<TParams = any, TReturn = any> = (...args: TParams[]) => TReturn;
 
-export type GenericComponent<T = any> =
-    | React.FunctionComponent<T>
-    | React.ForwardRefExoticComponent<T>;
+export type GenericComponent<T = any> = React.FunctionComponent<T>;
 
 export type ComposedFunction = GenericHook;
 

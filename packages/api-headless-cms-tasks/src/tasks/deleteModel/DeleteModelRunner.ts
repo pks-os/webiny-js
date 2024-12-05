@@ -6,7 +6,10 @@ import {
 } from "@webiny/tasks";
 import { HcmsTasksContext } from "~/types";
 import { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
-import { MODEL_IS_GETTING_DELETED_TAG } from "~/tasks/deleteModel/constants";
+import {
+    MODEL_IS_GETTING_DELETED_TAG,
+    MODEL_IS_GETTING_DELETED_TASK_ID_TAG
+} from "~/tasks/deleteModel/constants";
 import { CmsModel } from "@webiny/api-headless-cms/types";
 
 export interface IDeleteModelRunnerParams<
@@ -138,7 +141,7 @@ export class DeleteModelRunner<
     }
 
     private getTaskTag(): string {
-        return `task:${this.store.getTask().id}`;
+        return `${MODEL_IS_GETTING_DELETED_TASK_ID_TAG}${this.store.getTask().id}`;
     }
 }
 

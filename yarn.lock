@@ -12121,6 +12121,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/he@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@types/he@npm:1.2.3"
+  checksum: e77851c73dd7b9902d92fe0118a26246a7f3676a3a1c6eb1408305187ef73b57c22550b1435946b983267f961d935554d5d0e1b458416932552f31e763e1aa41
+  languageName: node
+  linkType: hard
+
 "@types/hoist-non-react-statics@npm:^3.3.5":
   version: 3.3.5
   resolution: "@types/hoist-non-react-statics@npm:3.3.5"
@@ -14836,6 +14843,7 @@ __metadata:
     "@babel/preset-typescript": ^7.23.3
     "@babel/runtime": ^7.24.0
     "@sparticuz/chromium": 123.0.1
+    "@types/he": ^1.2.3
     "@types/object-hash": ^2.2.1
     "@types/puppeteer-core": ^5.4.0
     "@webiny/api": 0.0.0
@@ -14848,6 +14856,7 @@ __metadata:
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/utils": 0.0.0
+    he: ^1.2.0
     lodash: ^4.17.21
     object-hash: ^3.0.0
     pluralize: ^8.0.0

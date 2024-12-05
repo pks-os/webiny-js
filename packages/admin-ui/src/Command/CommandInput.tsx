@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { makeDecoratable } from "~/utils";
-import { Input, InputPrimitiveProps } from "~/Input";
+import { InputPrimitive, InputPrimitiveProps } from "~/Input";
 
 type CommandInputProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input> &
     InputPrimitiveProps;
@@ -11,7 +11,7 @@ const DecoratableCommandInput = React.forwardRef<
     CommandInputProps
 >((props, ref) => (
     <CommandPrimitive.Input ref={ref} asChild {...props}>
-        <Input />
+        <InputPrimitive />
     </CommandPrimitive.Input>
 ));
 DecoratableCommandInput.displayName = CommandPrimitive.Input.displayName;

@@ -5,7 +5,7 @@ export class CommandOption {
     private readonly _value: string | null;
     private readonly _options: CommandOption[];
     private readonly _disabled: boolean;
-    private readonly _selected: boolean;
+    private _selected: boolean;
     private readonly _separator: boolean;
 
     protected constructor(data: {
@@ -64,6 +64,10 @@ export class CommandOption {
 
     get selected() {
         return this._selected;
+    }
+
+    set selected(selected: boolean) {
+        this._selected = selected;
     }
 
     get separator() {

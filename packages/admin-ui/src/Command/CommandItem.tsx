@@ -1,11 +1,16 @@
 import * as React from "react";
+import { ReactComponent as Check } from "@material-design-icons/svg/outlined/check.svg";
 import { Command as CommandPrimitive } from "cmdk";
 import { cn, makeDecoratable } from "~/utils";
 
+interface CommandItemProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item> {
+    selected?: boolean;
+}
+
 const DecoratableCommandItem = React.forwardRef<
     React.ElementRef<typeof CommandPrimitive.Item>,
-    React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>
->(({ className, ...props }, ref) => (
+    CommandItemProps
+>(({ className, children, selected, ...props }, ref) => (
     <CommandPrimitive.Item
         ref={ref}
         className={cn(
@@ -19,7 +24,10 @@ const DecoratableCommandItem = React.forwardRef<
             className
         )}
         {...props}
-    />
+    >
+        {children}
+        {selected ? <Check className="w-md h-md" /> : null}
+    </CommandPrimitive.Item>
 ));
 DecoratableCommandItem.displayName = CommandPrimitive.Item.displayName;
 

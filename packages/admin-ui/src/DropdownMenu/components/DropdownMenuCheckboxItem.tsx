@@ -3,9 +3,6 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { ReactComponent as Check } from "@material-design-icons/svg/filled/check.svg";
 import { ReactComponent as Circle } from "@material-design-icons/svg/filled/circle.svg";
 import { cn } from "~/utils";
-// import { DropdownMenuSeparator } from "./components/DropdownMenuSeparator";
-// import { DropdownMenuItem } from "./components/DropdownMenuItem";
-// import { DropdownMenuGroup } from "./components/DropdownMenuGroup";
 
 const DropdownMenuCheckboxItem = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,

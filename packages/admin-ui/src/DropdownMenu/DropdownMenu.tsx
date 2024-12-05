@@ -53,7 +53,7 @@ const DropdownMenuBase = React.forwardRef<
 
     return (
         <DropdownMenuRoot {...rootProps}>
-            <DropdownMenuTrigger {...triggerProps} />
+            <DropdownMenuTrigger {...triggerProps} asChild />
             <DropdownMenuPortal>
                 <DropdownMenuContent {...contentProps} ref={ref} />
             </DropdownMenuPortal>

@@ -6,10 +6,11 @@ import { DropdownMenuSubTrigger } from "~/DropdownMenu/components/DropdownMenuSu
 import { DropdownMenuPortal } from "~/DropdownMenu/components/DropdownMenuPortal";
 import { DropdownMenuSubContent } from "~/DropdownMenu/components/DropdownMenuSubContent";
 
-type DropdownMenuItemProps = React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+export interface DropdownMenuItemProps
+    extends Omit<React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>, "content"> {
     icon?: React.ReactNode;
     content?: React.ReactNode;
-};
+}
 
 const DropdownMenuItemBase = React.forwardRef<
     React.ElementRef<typeof DropdownMenuPrimitive.Item>,
@@ -34,7 +35,8 @@ const DropdownMenuItemBase = React.forwardRef<
             ref={ref}
             className={cn(
                 "group relative cursor-default select-none items-center rounded-sm px-xs-plus outline-none transition-colors",
-                "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+                "[&_svg]:fill-neutral-xstrong [&_svg]:pointer-events-none [&_svg]:size-md [&_svg]:shrink-0",
+                "data-[disabled]:pointer-events-none data-[disabled]:text-neutral-disabled",
                 className
             )}
             {...props}
@@ -42,7 +44,7 @@ const DropdownMenuItemBase = React.forwardRef<
             <div
                 className={cn(
                     "flex px-sm py-xs-plus gap-sm-extra items-center text-md rounded-sm group-focus:bg-neutral-dimmed transition-colors",
-                    "[&_svg]:pointer-events-none [&_svg]:size-md [&_svg]:shrink-0 [&_svg]:fill-neutral-xstrong"
+                    { "[&_svg]:fill-neutral-disabled": props.disabled }
                 )}
             >
                 {icon}

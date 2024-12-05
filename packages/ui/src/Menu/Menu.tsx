@@ -15,6 +15,7 @@ export type MenuProps = Omit<RmwcMenuProps, "children"> & {
     // A handler which triggers the menu, e.g. button or link.
     handle?: React.ReactElement;
 
+    // @deprecated With the introduction of the new Admin UI, this prop is no longer supported, and it will be removed in future releases.
     // Position the menu to one of anchor corners.
     // 'bottomEnd' | 'bottomLeft' | 'bottomRight' | 'bottomStart' | 'topEnd' | 'topLeft' | 'topRight' | 'topStart'
     anchor?:
@@ -30,6 +31,7 @@ export type MenuProps = Omit<RmwcMenuProps, "children"> & {
     // Class that will be added to the Menu element.
     className?: string;
 
+    // @deprecated With the introduction of the new Admin UI, this prop is no longer supported, and it will be removed in future releases.
     // If true, prevents menu from opening when clicked.
     disabled?: boolean;
 
@@ -39,6 +41,7 @@ export type MenuProps = Omit<RmwcMenuProps, "children"> & {
     // For testing purposes.
     "data-testid"?: string;
 
+    // @deprecated With the introduction of the new Admin UI, this prop is no longer supported, and it will be removed in future releases.
     // If rendering to portal, you can specify an exact zIndex.
     portalZIndex?: number;
 } & ( // You can use either `children` or `render`, but not both.
@@ -61,22 +64,52 @@ const Menu = (props: MenuProps) => {
     const {
         children,
         handle,
-        anchor = "topStart",
+
         className,
-        disabled,
         onOpen,
-        onClose,
-        onSelect,
         open,
-        render,
-        renderToPortal,
-        portalZIndex = 99
+        onClose
+
+        // Deprecated properties.
+        // disabled,
+        // onSelect,
+        // anchor = "topStart",
+        // render,
+        // renderToPortal,
+        // portalZIndex = 99
     } = props;
 
-    return <AdminUiDropdownMenu trigger={handle}>{children}</AdminUiDropdownMenu>;
-
+    return (
+        <AdminUiDropdownMenu
+            open={open}
+            trigger={handle}
+            className={className}
+            onOpenChange={open => {
+                if (open) {
+                    onOpen && onOpen();
+                } else {
+                    onClose && onClose();
+                }
+            }}
+            data-testid={props["data-testid"]}
+        >
+            {typeof children === "function"
+                ? children({
+                      closeMenu: () => {
+                          console.log(
+                              "Deprecated: This function is deprecated and will be removed in future releases."
+                          );
+                      }
+                  })
+                : children}
+        </AdminUiDropdownMenu>
+    );
 };
 
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `DropdownMenu.Separator` component from the `@webiny/admin-ui` package instead.
+ */
 const MenuDivider = () => {
     return <AdminUiDropdownMenu.Separator />;
 };
@@ -92,7 +125,11 @@ const isIconElement = (element: React.ReactNode) => {
     return React.isValidElement(element) && element.type === ListItemGraphic;
 };
 
-const MenuItem = ({ disabled, children, className, ...rest }: MenuItemProps) => {
+/**
+ * @deprecated This component is deprecated and will be removed in future releases.
+ * Please use the `DropdownMenu/Item` component from the `@webiny/admin-ui` package instead.
+ */
+const MenuItem = ({ children, ...rest }: MenuItemProps) => {
     const icon = useMemo(() => {
         const foundIcon = React.Children.toArray(children).find(isIconElement);
         // Handles this usage: packages/app-admin/src/components/OptionsMenu/OptionsMenuItem.tsx
@@ -102,11 +139,13 @@ const MenuItem = ({ disabled, children, className, ...rest }: MenuItemProps) => 
         return foundIcon;
     }, [children]);
 
-    const content = React.Children.toArray(children).filter(child => {
-        return !isIconElement(child);
-    });
+    const content = useMemo(() => {
+        return React.Children.toArray(children).filter(child => {
+            return !isIconElement(child);
+        });
+    }, [children]);
 
-    return <AdminUiDropdownMenu.Item icon={icon} content={content} />;
+    return <AdminUiDropdownMenu.Item icon={icon} content={content} {...rest} />;
 };
 
 export { Menu, MenuItem, MenuDivider };

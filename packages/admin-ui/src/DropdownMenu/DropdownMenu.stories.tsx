@@ -62,3 +62,73 @@ export const Default: Story = {
     },
     argTypes: {}
 };
+
+export const SimpleMenu: Story = {
+    args: {
+        trigger: <Button variant="primary" text={"Open"} />,
+        children: (
+            <>
+                <Item icon={<CreditCard />} content={"Billing"} />
+                <Item icon={<Settings />} content={"Settings"} />
+                <Item icon={<Keyboard />} content={"Keyboard shortcuts"} />
+            </>
+        )
+    },
+    argTypes: {}
+};
+
+export const WithSubMenus: Story = {
+    args: {
+        trigger: <Button variant="primary" text={"Open"} />,
+        children: (
+            <>
+                <Label content={"My Account"} />
+                <Item icon={<User />} content={"Profile"} />
+                <Group>
+                    <Item icon={<CreditCard />} content={"Billing"} />
+                    <Item icon={<Settings />} content={"Settings"} />
+                    <Item icon={<Keyboard />} content={"Keyboard shortcuts"} />
+                </Group>
+                <Separator />
+                <Group>
+                    <Item icon={<Users />} content={"Team"} />
+                    <Item icon={<UserPlus />} content={"Invite users"}>
+                        <Item icon={<Mail />} content={"Email"} />
+                        <Item icon={<MessageSquare />} content={"Message"} />
+                        <Separator />
+                        <Item icon={<PlusCircle />} content={"More..."}>
+                            <Item icon={<Mail />} content={"Email"} />
+                            <Item icon={<MessageSquare />} content={"Message"} />
+                            <Separator />
+                            <Item icon={<PlusCircle />} content={"More..."} />
+                        </Item>
+                    </Item>
+                    <Item icon={<Plus />} content={"New Team"} />
+                </Group>
+                <Separator />
+                <Item icon={<LifeBuoy />} content={"Support"} />
+                <Item icon={<Cloud />} content={"API"} disabled />
+                <Separator />
+                <Item icon={<LogOut />} content={"Log out"} />
+            </>
+        )
+    },
+    argTypes: {}
+};
+
+export const WithOnOpenChange: Story = {
+    args: {
+        trigger: <Button variant="primary" text={"Open"} />,
+        onOpenChange: opened => {
+            console.log(`Menu is ${opened ? "opened" : "closed"}.`);
+        },
+        children: (
+            <>
+                <Item icon={<CreditCard />} content={"Billing"} />
+                <Item icon={<Settings />} content={"Settings"} />
+                <Item icon={<Keyboard />} content={"Keyboard shortcuts"} />
+            </>
+        )
+    },
+    argTypes: {}
+};

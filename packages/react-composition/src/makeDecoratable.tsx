@@ -68,9 +68,9 @@ export function makeDecoratableHook<T extends GenericHook>(hook: T) {
 
 export function createVoidComponent<T>() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    return forwardRef(function VoidComponent(props: T): JSX.Element | null {
+    return (props: T): JSX.Element | null => {
         return null;
-    });
+    };
 }
 
 export function makeDecoratable<T extends GenericHook>(

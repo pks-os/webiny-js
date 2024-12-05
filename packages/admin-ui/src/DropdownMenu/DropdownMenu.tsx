@@ -45,7 +45,8 @@ const DropdownMenuBase = React.forwardRef<
                 dir
             },
             triggerProps: {
-                children: trigger
+                // Temporary fix.
+                children: <div>{trigger}</div>
             },
             contentProps: rest
         };

@@ -68,6 +68,19 @@ export const SimpleMenu: Story = {
         trigger: <Button variant="primary" text={"Open"} />,
         children: (
             <>
+                <Item content={"Billing"} />
+                <Item content={"Settings"} />
+                <Item content={"Keyboard shortcuts"} />
+            </>
+        )
+    },
+    argTypes: {}
+};
+export const SimpleMenuWithIcons: Story = {
+    args: {
+        trigger: <Button variant="primary" text={"Open"} />,
+        children: (
+            <>
                 <Item icon={<CreditCard />} content={"Billing"} />
                 <Item icon={<Settings />} content={"Settings"} />
                 <Item icon={<Keyboard />} content={"Keyboard shortcuts"} />

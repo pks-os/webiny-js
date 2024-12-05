@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { MenuItemProps as BaseMenuItemProps, MenuProps as RmwcMenuProps } from "@rmwc/menu";
 import { DropdownMenu as AdminUiDropdownMenu } from "@webiny/admin-ui/DropdownMenu";
-import { ListItemGraphic } from "@webiny/ui/List";
+import { ListItemGraphic } from "~/List";
 
 export type MenuChildrenFunctionProps = {
     closeMenu: () => void;

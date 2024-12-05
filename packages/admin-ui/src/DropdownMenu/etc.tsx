@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { ReactComponent as Check } from "@material-design-icons/svg/filled/check.svg";

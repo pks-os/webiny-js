@@ -710,9 +710,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-dynamodb@npm:^3.699.0":
-  version: 3.699.0
-  resolution: "@aws-sdk/client-dynamodb@npm:3.699.0"
+"@aws-sdk/client-dynamodb@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/client-dynamodb@npm:3.705.0"
   dependencies:
     "@aws-crypto/sha256-browser": 5.2.0
     "@aws-crypto/sha256-js": 5.2.0
@@ -759,7 +759,7 @@ __metadata:
     "@types/uuid": ^9.0.1
     tslib: ^2.6.2
     uuid: ^9.0.1
-  checksum: 192e182e66dcb22cbe337e90be686f739049d3b9a275ae033ebf109f89cca0b924f166138c62924d46f8741063a18d9321c9a45c08069efd31656285f4131ed0
+  checksum: 62527632c03c34f5111b09fb3d613da4095990916c7caccc3dce425649c4d0d178744cb211b5e716b3c5bdca7357ebf60a1bda1489e68bdd126830b137b41340
   languageName: node
   linkType: hard
 
@@ -968,9 +968,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-s3@npm:3.703.0, @aws-sdk/client-s3@npm:^3.703.0":
-  version: 3.703.0
-  resolution: "@aws-sdk/client-s3@npm:3.703.0"
+"@aws-sdk/client-s3@npm:3.705.0, @aws-sdk/client-s3@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/client-s3@npm:3.705.0"
   dependencies:
     "@aws-crypto/sha1-browser": 5.2.0
     "@aws-crypto/sha256-browser": 5.2.0
@@ -1030,7 +1030,7 @@ __metadata:
     "@smithy/util-utf8": ^3.0.0
     "@smithy/util-waiter": ^3.1.9
     tslib: ^2.6.2
-  checksum: 5f75efe96eaa28a0ca15428ee6c49bf35066c7b302a895d05607cdf765a5be970f04fce2407a44c170959f6be3b7f0c341f6de34ca6532813140b08327541897
+  checksum: f7a5982e0bfedb1f0f4782efe1bdf090ef1f1d1e77391ca6e1e1a67985665da9e6ce3aad779856f605ae6f03c3129e091e375f9e541ff4e6020de95f5b58f8ac
   languageName: node
   linkType: hard
 
@@ -1593,25 +1593,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/lib-dynamodb@npm:^3.699.0":
-  version: 3.699.0
-  resolution: "@aws-sdk/lib-dynamodb@npm:3.699.0"
+"@aws-sdk/lib-dynamodb@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/lib-dynamodb@npm:3.705.0"
   dependencies:
     "@aws-sdk/core": 3.696.0
-    "@aws-sdk/util-dynamodb": 3.699.0
+    "@aws-sdk/util-dynamodb": 3.705.0
     "@smithy/core": ^2.5.3
     "@smithy/smithy-client": ^3.4.4
     "@smithy/types": ^3.7.1
     tslib: ^2.6.2
   peerDependencies:
-    "@aws-sdk/client-dynamodb": ^3.699.0
-  checksum: 0f4c26c1b3e8a76eb87b710e57b30decba13a2f820548e7b1f517fd494d3b2a01c8cfc1d6fdbc42c667eae951d4ccb6f3e8aba541ae4615fc05f967fc00144e0
+    "@aws-sdk/client-dynamodb": ^3.705.0
+  checksum: c71447da35bb895a8d9b78d2b305a876af854e279c936842b13c105840a5b7ee879c31b66f22082f0b39f5632e3c08910b61e1b494c96c30e84b93f5bedc6c72
   languageName: node
   linkType: hard
 
-"@aws-sdk/lib-storage@npm:^3.703.0":
-  version: 3.703.0
-  resolution: "@aws-sdk/lib-storage@npm:3.703.0"
+"@aws-sdk/lib-storage@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/lib-storage@npm:3.705.0"
   dependencies:
     "@smithy/abort-controller": ^3.1.7
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1621,8 +1621,8 @@ __metadata:
     stream-browserify: 3.0.0
     tslib: ^2.6.2
   peerDependencies:
-    "@aws-sdk/client-s3": ^3.703.0
-  checksum: 09e47c1739f907eacf01c5f42caf3cbd5e85e2d0a0e9d0af83cdfa4c0f7bce6f9655efc66d0ef96480fad7ff9de57ff2a7a7fb128ec0a79a835c39f3aa88ca83
+    "@aws-sdk/client-s3": ^3.705.0
+  checksum: a53133764d92ba4f05711fea75a262676c80f4954c9f2ac2bec7d6be1ec378cf6e2fed024939ef86414c1a83539eacae9a6978c66c6b07a90d66556a2ebe1ca0
   languageName: node
   linkType: hard
 
@@ -1964,11 +1964,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-presigned-post@npm:^3.703.0":
-  version: 3.703.0
-  resolution: "@aws-sdk/s3-presigned-post@npm:3.703.0"
+"@aws-sdk/s3-presigned-post@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/s3-presigned-post@npm:3.705.0"
   dependencies:
-    "@aws-sdk/client-s3": 3.703.0
+    "@aws-sdk/client-s3": 3.705.0
     "@aws-sdk/types": 3.696.0
     "@aws-sdk/util-format-url": 3.696.0
     "@smithy/middleware-endpoint": ^3.2.3
@@ -1977,13 +1977,13 @@ __metadata:
     "@smithy/util-hex-encoding": ^3.0.0
     "@smithy/util-utf8": ^3.0.0
     tslib: ^2.6.2
-  checksum: 4b6417bf1ee6936150b621c2baf87818a829971fd9796273611a86a9caed846d2c26117a7b5773bbf4d1beca9f3c8911e509cae64601d61dfdb58c40368b05fa
+  checksum: 3977149ddf2feb7958c9d27df3606d08bbf36e445c72af560cd49b44e4c7836323297631008754a9fef9091b80ad87f931013392b9a74c994fa3a27bdabe0c22
   languageName: node
   linkType: hard
 
-"@aws-sdk/s3-request-presigner@npm:^3.703.0":
-  version: 3.703.0
-  resolution: "@aws-sdk/s3-request-presigner@npm:3.703.0"
+"@aws-sdk/s3-request-presigner@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/s3-request-presigner@npm:3.705.0"
   dependencies:
     "@aws-sdk/signature-v4-multi-region": 3.696.0
     "@aws-sdk/types": 3.696.0
@@ -1993,7 +1993,7 @@ __metadata:
     "@smithy/smithy-client": ^3.4.4
     "@smithy/types": ^3.7.1
     tslib: ^2.6.2
-  checksum: 500373f3b7795531a0ed44248e7ff941275d83c24dc0c704dcbbfc93dbc38b85b61362969948f1024290d7e4dd28a747dab1ea13164ad9e03710bb90513ffd52
+  checksum: 847a570eae37603446e81dbecd6333123b25cd0db508d014c52ad4eb3e354c3539dbf17987cb3df76179dc828ac513eacf21c02f6a73571141145315a4e8371a
   languageName: node
   linkType: hard
 
@@ -2171,14 +2171,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/util-dynamodb@npm:3.699.0, @aws-sdk/util-dynamodb@npm:^3.699.0":
-  version: 3.699.0
-  resolution: "@aws-sdk/util-dynamodb@npm:3.699.0"
+"@aws-sdk/util-dynamodb@npm:3.705.0, @aws-sdk/util-dynamodb@npm:^3.705.0":
+  version: 3.705.0
+  resolution: "@aws-sdk/util-dynamodb@npm:3.705.0"
   dependencies:
     tslib: ^2.6.2
   peerDependencies:
-    "@aws-sdk/client-dynamodb": ^3.699.0
-  checksum: e0e3a443b1e9e28a41fe831cca27cba0459787475395e267a9b0ee692ce3fbd12312b72ee3ba6e1246969cfe4a356bda60d44ebc3dfc9151b1f5586f357d7e09
+    "@aws-sdk/client-dynamodb": ^3.705.0
+  checksum: a2cdf6b0d5a34b726f5d439593711f460a5033aedb1a1730679bdadc4e867ccf644f60a4039f23f6a61254e9497e8666db2247299dca3cab727da69023fa56b9
   languageName: node
   linkType: hard
 
@@ -2334,9 +2334,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/cli@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/cli@npm:7.25.9"
+"@babel/cli@npm:^7.26.4":
+  version: 7.26.4
+  resolution: "@babel/cli@npm:7.26.4"
   dependencies:
     "@jridgewell/trace-mapping": ^0.3.25
     "@nicolo-ribaudo/chokidar-2": 2.1.8-no-fsevents.3
@@ -2357,7 +2357,7 @@ __metadata:
   bin:
     babel: ./bin/babel.js
     babel-external-helpers: ./bin/babel-external-helpers.js
-  checksum: e52fb39df804cf272785ec138c47c0a3cda6bd7099520123e987683fd72c0b8d3665512b01b01d38d351e3263e17be3fc6e8dcf01e417b8f052370375b6419d4
+  checksum: 759814fcb262545f787fad33456ffaef0cf282c6bc6a6fa610acf0f04457c300c0c880737e396e4c0303a9082cc9102123f8018111de5f60474365e32bf70300
   languageName: node
   linkType: hard
 
@@ -2372,10 +2372,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/compat-data@npm:^7.20.5, @babel/compat-data@npm:^7.22.6, @babel/compat-data@npm:^7.25.9, @babel/compat-data@npm:^7.26.0, @babel/compat-data@npm:^7.26.2":
-  version: 7.26.2
-  resolution: "@babel/compat-data@npm:7.26.2"
-  checksum: d52fae9b0dc59b409d6005ae6b172e89329f46d68136130065ebe923a156fc633e0f1c8600b3e319b9e0f99fd948f64991a5419e2e9431d00d9d235d5f7a7618
+"@babel/compat-data@npm:^7.20.5, @babel/compat-data@npm:^7.22.6, @babel/compat-data@npm:^7.25.9, @babel/compat-data@npm:^7.26.0, @babel/compat-data@npm:^7.26.3":
+  version: 7.26.3
+  resolution: "@babel/compat-data@npm:7.26.3"
+  checksum: 85c5a9fb365231688c7faeb977f1d659da1c039e17b416f8ef11733f7aebe11fe330dce20c1844cacf243766c1d643d011df1d13cac9eda36c46c6c475693d21
   languageName: node
   linkType: hard
 
@@ -2402,7 +2402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:^7.25.9, @babel/generator@npm:^7.26.0":
+"@babel/generator@npm:^7.26.0":
   version: 7.26.2
   resolution: "@babel/generator@npm:7.26.2"
   dependencies:
@@ -2412,6 +2412,19 @@ __metadata:
     "@jridgewell/trace-mapping": ^0.3.25
     jsesc: ^3.0.2
   checksum: 6ff850b7d6082619f8c2f518d993cf7254cfbaa20b026282cbef5c9b2197686d076a432b18e36c4d1a42721c016df4f77a8f62c67600775d9683621d534b91b4
+  languageName: node
+  linkType: hard
+
+"@babel/generator@npm:^7.26.3":
+  version: 7.26.3
+  resolution: "@babel/generator@npm:7.26.3"
+  dependencies:
+    "@babel/parser": ^7.26.3
+    "@babel/types": ^7.26.3
+    "@jridgewell/gen-mapping": ^0.3.5
+    "@jridgewell/trace-mapping": ^0.3.25
+    jsesc: ^3.0.2
+  checksum: fb09fa55c66f272badf71c20a3a2cee0fa1a447fed32d1b84f16a668a42aff3e5f5ddc6ed5d832dda1e952187c002ca1a5cdd827022efe591b6ac44cada884ea
   languageName: node
   linkType: hard
 
@@ -2721,16 +2734,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-simple-access@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/helper-simple-access@npm:7.25.9"
-  dependencies:
-    "@babel/traverse": ^7.25.9
-    "@babel/types": ^7.25.9
-  checksum: 6d96c94b88e8288d15e5352c1221486bd4f62de8c7dc7c7b9f5b107ce2c79f67fec5ed71a0476e146f1fefbbbf1d69abe35dc821d80ce01fc7f472286c342421
-  languageName: node
-  linkType: hard
-
 "@babel/helper-skip-transparent-expression-wrappers@npm:^7.20.0":
   version: 7.20.0
   resolution: "@babel/helper-skip-transparent-expression-wrappers@npm:7.20.0"
@@ -2815,14 +2818,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.9, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0, @babel/parser@npm:^7.26.2, @babel/parser@npm:^7.6.4":
-  version: 7.26.2
-  resolution: "@babel/parser@npm:7.26.2"
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.9, @babel/parser@npm:^7.25.9, @babel/parser@npm:^7.26.0, @babel/parser@npm:^7.26.2, @babel/parser@npm:^7.26.3, @babel/parser@npm:^7.6.4":
+  version: 7.26.3
+  resolution: "@babel/parser@npm:7.26.3"
   dependencies:
-    "@babel/types": ^7.26.0
+    "@babel/types": ^7.26.3
   bin:
     parser: ./bin/babel-parser.js
-  checksum: c88b5ea0adf357ef909cdc2c31e284a154943edc59f63f6e8a4c20bf773a1b2f3d8c2205e59c09ca7cdad91e7466300114548876529277a80651b6436a48d5d9
+  checksum: e2bff2e9fa6540ee18fecc058bc74837eda2ddcecbe13454667314a93fc0ba26c1fb862c812d84f6d5f225c3bd8d191c3a42d4296e287a882c4e1f82ff2815ff
   languageName: node
   linkType: hard
 
@@ -3414,16 +3417,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/plugin-transform-modules-commonjs@npm:7.25.9"
+"@babel/plugin-transform-modules-commonjs@npm:^7.25.9, @babel/plugin-transform-modules-commonjs@npm:^7.26.3":
+  version: 7.26.3
+  resolution: "@babel/plugin-transform-modules-commonjs@npm:7.26.3"
   dependencies:
-    "@babel/helper-module-transforms": ^7.25.9
+    "@babel/helper-module-transforms": ^7.26.0
     "@babel/helper-plugin-utils": ^7.25.9
-    "@babel/helper-simple-access": ^7.25.9
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 4f101f0ea4a57d1d27a7976d668c63a7d0bbb0d9c1909d8ac43c785fd1496c31e6552ffd9673730c088873df1bc64f1cc4aad7c3c90413ac5e80b33e336d80e4
+  checksum: 0ac9aa4e5fe9fe34b58ee174881631e5e1c89eee5b1ebfd1147934686be92fc5fbfdc11119f0b607b3743d36a1cbcb7c36f18e0dd4424d6d7b749b1b9a18808a
   languageName: node
   linkType: hard
 
@@ -3935,9 +3937,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-react@npm:^7.18.6, @babel/preset-react@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/preset-react@npm:7.25.9"
+"@babel/preset-react@npm:^7.18.6, @babel/preset-react@npm:^7.26.3":
+  version: 7.26.3
+  resolution: "@babel/preset-react@npm:7.26.3"
   dependencies:
     "@babel/helper-plugin-utils": ^7.25.9
     "@babel/helper-validator-option": ^7.25.9
@@ -3947,7 +3949,7 @@ __metadata:
     "@babel/plugin-transform-react-pure-annotations": ^7.25.9
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: b5650c07a744ab4024c04fae002c9043235b4ad8687de8bf759135b9c6186553f4f53fde0a4583ce4c019560b79c176f39c745cdf77645af07071d26d8ba84ce
+  checksum: 9c76f145026715c8e4a1f6c44f208918e700227d8d8a8068f4ae10d87031d23eb8b483e508cd4452d65066f731b7a8169527e66e83ffe165595e8db7899dd859
   languageName: node
   linkType: hard
 
@@ -4011,28 +4013,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.25.9":
-  version: 7.25.9
-  resolution: "@babel/traverse@npm:7.25.9"
+"@babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.25.9, @babel/traverse@npm:^7.26.4":
+  version: 7.26.4
+  resolution: "@babel/traverse@npm:7.26.4"
   dependencies:
-    "@babel/code-frame": ^7.25.9
-    "@babel/generator": ^7.25.9
-    "@babel/parser": ^7.25.9
+    "@babel/code-frame": ^7.26.2
+    "@babel/generator": ^7.26.3
+    "@babel/parser": ^7.26.3
     "@babel/template": ^7.25.9
-    "@babel/types": ^7.25.9
+    "@babel/types": ^7.26.3
     debug: ^4.3.1
     globals: ^11.1.0
-  checksum: 901d325662ff1dd9bc51de00862e01055fa6bc374f5297d7e3731f2f0e268bbb1d2141f53fa82860aa308ee44afdcf186a948f16c83153927925804b95a9594d
+  checksum: dcdf51b27ab640291f968e4477933465c2910bfdcbcff8f5315d1f29b8ff861864f363e84a71fb489f5e9708e8b36b7540608ce019aa5e57ef7a4ba537e62700
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.18.6, @babel/types@npm:^7.19.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.24.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
-  version: 7.26.0
-  resolution: "@babel/types@npm:7.26.0"
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.18.6, @babel/types@npm:^7.19.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.24.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.26.3, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
+  version: 7.26.3
+  resolution: "@babel/types@npm:7.26.3"
   dependencies:
     "@babel/helper-string-parser": ^7.25.9
     "@babel/helper-validator-identifier": ^7.25.9
-  checksum: a3dd37dabac693018872da96edb8c1843a605c1bfacde6c3f504fba79b972426a6f24df70aa646356c0c1b19bdd2c722c623c684a996c002381071680602280d
+  checksum: 195f428080dcaadbcecc9445df7f91063beeaa91b49ccd78f38a5af6b75a6a58391d0c6614edb1ea322e57889a1684a0aab8e667951f820196901dd341f931e9
   languageName: node
   linkType: hard
 
@@ -8331,15 +8333,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/aws@npm:^6.61.0":
-  version: 6.61.0
-  resolution: "@pulumi/aws@npm:6.61.0"
+"@pulumi/aws@npm:^6.63.0":
+  version: 6.63.0
+  resolution: "@pulumi/aws@npm:6.63.0"
   dependencies:
     "@pulumi/pulumi": ^3.136.0
     builtin-modules: 3.0.0
     mime: ^2.0.0
     resolve: ^1.7.1
-  checksum: f212a4484e427015c65a5fa9501642c6a55a61636ef4f7cd50b94840ce7ec23dc07b50ad1b62c4459bd0e6f7cce8be6fc77a63e602ee9d95d6f9ef378ae6373d
+  checksum: 2fd97e2474103086389cce4ff396e4e1c74420864be306bb474bb586f122c933d32e4206004be7d8d71eab387f48fd7993b42cef16a156de1033c39310de9074
   languageName: node
   linkType: hard
 
@@ -14778,22 +14780,22 @@ __metadata:
     "@aws-sdk/client-cloudwatch-events": ^3.699.0
     "@aws-sdk/client-cloudwatch-logs": ^3.703.0
     "@aws-sdk/client-cognito-identity-provider": ^3.699.0
-    "@aws-sdk/client-dynamodb": ^3.699.0
+    "@aws-sdk/client-dynamodb": ^3.705.0
     "@aws-sdk/client-dynamodb-streams": ^3.699.0
     "@aws-sdk/client-eventbridge": ^3.703.0
     "@aws-sdk/client-iam": ^3.699.0
     "@aws-sdk/client-iot": ^3.699.0
     "@aws-sdk/client-lambda": ^3.699.0
-    "@aws-sdk/client-s3": ^3.703.0
+    "@aws-sdk/client-s3": ^3.705.0
     "@aws-sdk/client-sfn": ^3.699.0
     "@aws-sdk/client-sqs": ^3.699.0
     "@aws-sdk/client-sts": ^3.699.0
     "@aws-sdk/credential-providers": ^3.699.0
-    "@aws-sdk/lib-dynamodb": ^3.699.0
-    "@aws-sdk/lib-storage": ^3.703.0
-    "@aws-sdk/s3-presigned-post": ^3.703.0
-    "@aws-sdk/s3-request-presigner": ^3.703.0
-    "@aws-sdk/util-dynamodb": ^3.699.0
+    "@aws-sdk/lib-dynamodb": ^3.705.0
+    "@aws-sdk/lib-storage": ^3.705.0
+    "@aws-sdk/s3-presigned-post": ^3.705.0
+    "@aws-sdk/s3-request-presigner": ^3.705.0
+    "@aws-sdk/util-dynamodb": ^3.705.0
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/utils": 0.0.0
@@ -15659,14 +15661,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/project-utils@workspace:packages/project-utils"
   dependencies:
-    "@babel/cli": ^7.25.9
+    "@babel/cli": ^7.26.4
     "@babel/core": ^7.26.0
     "@babel/plugin-proposal-class-properties": ^7.18.6
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/plugin-proposal-throw-expressions": ^7.25.9
     "@babel/plugin-syntax-object-rest-spread": ^7.8.3
     "@babel/preset-env": ^7.26.0
-    "@babel/preset-react": ^7.25.9
+    "@babel/preset-react": ^7.26.3
     "@babel/preset-typescript": ^7.26.0
     "@babel/runtime": ^7.26.0
     "@elastic/elasticsearch": 7.12.0
@@ -15757,7 +15759,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-aws@workspace:packages/pulumi-aws"
   dependencies:
-    "@pulumi/aws": ^6.61.0
+    "@pulumi/aws": ^6.63.0
     "@pulumi/pulumi": ^3.142.0
     "@pulumi/random": ^4.16.7
     "@webiny/api-page-builder": 0.0.0
@@ -15783,7 +15785,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-sdk@workspace:packages/pulumi-sdk"
   dependencies:
-    "@pulumi/aws": ^6.61.0
+    "@pulumi/aws": ^6.63.0
     "@pulumi/pulumi": ^3.142.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
@@ -15907,7 +15909,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/serverless-cms-aws@workspace:packages/serverless-cms-aws"
   dependencies:
-    "@pulumi/aws": ^6.61.0
+    "@pulumi/aws": ^6.63.0
     "@pulumi/pulumi": ^3.142.0
     "@webiny/api-aco": 0.0.0
     "@webiny/api-apw": 0.0.0
@@ -34725,27 +34727,27 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@babel/cli": ^7.25.9
+    "@babel/cli": ^7.26.4
     "@babel/code-frame": ^7.26.2
-    "@babel/compat-data": ^7.26.2
+    "@babel/compat-data": ^7.26.3
     "@babel/core": ^7.26.0
     "@babel/helper-define-polyfill-provider": ^0.6.3
     "@babel/helper-environment-visitor": ^7.24.7
-    "@babel/parser": ^7.26.2
+    "@babel/parser": ^7.26.3
     "@babel/plugin-proposal-class-properties": ^7.18.6
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/plugin-proposal-throw-expressions": ^7.25.9
     "@babel/plugin-syntax-object-rest-spread": ^7.8.3
-    "@babel/plugin-transform-modules-commonjs": ^7.25.9
+    "@babel/plugin-transform-modules-commonjs": ^7.26.3
     "@babel/plugin-transform-runtime": ^7.25.9
     "@babel/preset-env": ^7.26.0
-    "@babel/preset-react": ^7.25.9
+    "@babel/preset-react": ^7.26.3
     "@babel/preset-typescript": ^7.26.0
     "@babel/register": ^7.25.9
     "@babel/runtime": ^7.26.0
     "@babel/template": ^7.25.9
-    "@babel/traverse": ^7.25.9
-    "@babel/types": ^7.26.0
+    "@babel/traverse": ^7.26.4
+    "@babel/types": ^7.26.3
     "@commitlint/cli": ^11.0.0
     "@commitlint/config-conventional": ^11.0.0
     "@grpc/grpc-js": ^1.11.1

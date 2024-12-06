@@ -8,8 +8,7 @@ export class CommandOptionFormatter {
             value: option.value,
             disabled: option.disabled,
             selected: option.selected,
-            separator: option.separator,
-            options: option.options.map(option => CommandOptionFormatter.format(option))
+            separator: option.separator
         };
     }
 }

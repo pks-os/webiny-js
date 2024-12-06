@@ -5,8 +5,8 @@ import { Icon } from "~/Icon";
 
 interface AutoCompleteInputIconsProps {
     hasValue: boolean;
-    toggleListOpenState: (state: boolean) => void;
-    resetValue: () => void;
+    onOpenChange: (open: boolean) => void;
+    onResetValue: () => void;
 }
 
 export const AutoCompleteInputIcons = (props: AutoCompleteInputIconsProps) => {
@@ -18,7 +18,7 @@ export const AutoCompleteInputIcons = (props: AutoCompleteInputIconsProps) => {
                     label={"Clear"}
                     onClick={event => {
                         event.stopPropagation();
-                        props.resetValue();
+                        props.onResetValue();
                     }}
                 />
             )}
@@ -27,7 +27,7 @@ export const AutoCompleteInputIcons = (props: AutoCompleteInputIconsProps) => {
                 label={"Open list"}
                 onClick={event => {
                     event.stopPropagation();
-                    props.toggleListOpenState(true);
+                    props.onOpenChange(true);
                 }}
             />
         </div>

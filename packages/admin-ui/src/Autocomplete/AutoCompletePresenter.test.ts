@@ -29,7 +29,6 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "Option 1",
                     label: "Option 1",
-                    options: [],
                     disabled: false,
                     selected: false,
                     separator: false
@@ -37,7 +36,6 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "Option 2",
                     label: "Option 2",
-                    options: [],
                     disabled: false,
                     selected: false,
                     separator: false
@@ -58,22 +56,16 @@ describe("AutoCompletePresenter", () => {
                     {
                         value: "option-2",
                         label: "Option 2",
-                        options: [
-                            {
-                                value: "option-3",
-                                label: "Option 3",
-                                options: [{ value: "option-4", label: "Option 4" }]
-                            }
-                        ]
+                        selected: true
                     },
                     {
-                        value: "option-5",
-                        label: "Option 5",
+                        value: "option-3",
+                        label: "Option 3",
                         disabled: true
                     },
                     {
-                        value: "option-6",
-                        label: "Option 6",
+                        value: "option-4",
+                        label: "Option 4",
                         separator: true
                     }
                 ]
@@ -83,7 +75,6 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "option-1",
                     label: "Option 1",
-                    options: [],
                     disabled: false,
                     selected: false,
                     separator: false
@@ -91,41 +82,20 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "option-2",
                     label: "Option 2",
-                    options: [
-                        {
-                            value: "option-3",
-                            label: "Option 3",
-                            options: [
-                                {
-                                    value: "option-4",
-                                    label: "Option 4",
-                                    options: [],
-                                    disabled: false,
-                                    selected: false,
-                                    separator: false
-                                }
-                            ],
-                            disabled: false,
-                            selected: false,
-                            separator: false
-                        }
-                    ],
                     disabled: false,
-                    selected: false,
+                    selected: false, // `selected` is overwritten by the presenter
                     separator: false
                 },
                 {
-                    value: "option-5",
-                    label: "Option 5",
-                    options: [],
+                    value: "option-3",
+                    label: "Option 3",
                     disabled: true,
                     selected: false,
                     separator: false
                 },
                 {
-                    value: "option-6",
-                    label: "Option 6",
-                    options: [],
+                    value: "option-4",
+                    label: "Option 4",
                     disabled: false,
                     selected: false,
                     separator: true
@@ -141,7 +111,6 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "Option 1",
                     label: "Option 1",
-                    options: [],
                     disabled: false,
                     selected: true,
                     separator: false
@@ -149,7 +118,6 @@ describe("AutoCompletePresenter", () => {
                 {
                     value: "Option 2",
                     label: "Option 2",
-                    options: [],
                     disabled: false,
                     selected: false,
                     separator: false
@@ -188,7 +156,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -196,7 +163,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -209,7 +175,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -217,7 +182,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: true,
                 separator: false
@@ -255,7 +219,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: true,
                 separator: false
@@ -263,7 +226,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -293,7 +255,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -301,7 +262,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -313,7 +273,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: true,
                 separator: false
@@ -321,7 +280,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -334,7 +292,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 1",
                 value: "option-1",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -342,7 +299,6 @@ describe("AutoCompletePresenter", () => {
             {
                 label: "Option 2",
                 value: "option-2",
-                options: [],
                 disabled: false,
                 selected: false,
                 separator: false
@@ -354,11 +310,18 @@ describe("AutoCompletePresenter", () => {
         expect(onValueReset).toHaveBeenCalled();
     });
 
-    it("should change `listVm` when `toggleListOpenState` is called", () => {
-        presenter.init({ onValueChange });
-        presenter.toggleListOpenState(true);
+    it("should change `listVm` and call `onOpenChange` when `setListOpenState` is called", () => {
+        const onOpenChange = jest.fn();
+
+        // let's open it
+        presenter.init({ onValueChange, onOpenChange });
+        presenter.setListOpenState(true);
         expect(presenter.vm.listVm.isOpen).toBe(true);
-        presenter.toggleListOpenState(false);
+        expect(onOpenChange).toHaveBeenCalledWith(true);
+
+        // let's close it
+        presenter.setListOpenState(false);
         expect(presenter.vm.listVm.isOpen).toBe(false);
+        expect(onOpenChange).toHaveBeenCalledWith(false);
     });
 });

@@ -7,13 +7,14 @@ import { IAutoCompleteInputPresenter } from "./AutoCompleteInputPresenter";
 export type Option = CommandOptionDto | string;
 
 interface AutoCompletePresenterParams {
-    options?: Option[];
-    value?: string;
-    placeholder?: string;
     emptyMessage?: string;
     isLoading?: boolean;
+    onOpenChange?: (open: boolean) => void;
     onValueChange: (value: string) => void;
     onValueReset?: () => void;
+    options?: Option[];
+    placeholder?: string;
+    value?: string;
 }
 
 class AutoCompletePresenter {
@@ -54,8 +55,9 @@ class AutoCompletePresenter {
         };
     }
 
-    public toggleListOpenState = (open: boolean) => {
+    public setListOpenState = (open: boolean) => {
         this.isListOpen = open;
+        this.params?.onOpenChange?.(open);
     };
 
     public setSelectedOption = (value?: string) => {

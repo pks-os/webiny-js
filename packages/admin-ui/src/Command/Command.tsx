@@ -6,7 +6,10 @@ const Command = ({
     className,
     ...props
 }: React.ComponentPropsWithoutRef<typeof CommandPrimitive>) => (
-    <CommandPrimitive className={cn("flex h-full w-full flex-col", className)} {...props} />
+    <CommandPrimitive
+        className={cn("flex h-full w-full flex-col outline-none", className)}
+        {...props}
+    />
 );
 
 export { Command };

@@ -1,7 +1,6 @@
 export interface CommandOptionFormatted {
     label: string;
-    value: string | null;
-    options: CommandOptionFormatted[];
+    value: string;
     disabled: boolean;
     selected: boolean;
     separator: boolean;

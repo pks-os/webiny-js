@@ -5,7 +5,8 @@ import { CommandOptionFormatted } from "./CommandOptionFormatted";
 import { CommandGroup } from "./CommandGroup";
 import { CommandItem } from "./CommandItem";
 import { CommandSeparator } from "./CommandSeparator";
-import { CommandLoading } from "~/Command/CommandLoading";
+import { CommandLoading } from "./CommandLoading";
+import { CommandEmpty } from "./CommandEmpty";
 
 interface CommandListProps extends React.ComponentPropsWithoutRef<typeof CommandPrimitive.List> {
     options: CommandOptionFormatted[];
@@ -29,36 +30,23 @@ const CommandList = ({
             return items.map((item, index) => {
                 const elements = [];
 
-                if (item.options.length > 0) {
-                    // Render as a group if there are nested options
-                    elements.push(
-                        <CommandGroup key={`group-${index}`} heading={item.label}>
-                            {renderOptions(item.options)}
-                        </CommandGroup>
-                    );
-                }
+                elements.push(
+                    <CommandItem
+                        key={`item-${item.value}`}
+                        value={item.value}
+                        keywords={[item.label]}
+                        disabled={item.disabled}
+                        selected={item.selected}
+                        onSelect={() => onOptionSelect(item.value)}
+                        onMouseDown={event => {
+                            event.preventDefault();
+                        }}
+                    >
+                        {item.label}
+                    </CommandItem>
+                );
 
-                if (typeof item.value === "string") {
-                    // Render as a select item if there are no nested options
-                    elements.push(
-                        <CommandItem
-                            key={`item-${item.value}`}
-                            value={item.value}
-                            keywords={[item.label]}
-                            disabled={item.disabled}
-                            selected={item.selected}
-                            onSelect={() => onOptionSelect(item.value as string)}
-                            onMouseDown={event => {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }}
-                        >
-                            {item.label}
-                        </CommandItem>
-                    );
-                }
-
-                // Conditionally render the separator if hasSeparator is true
+                // Conditionally render the separator if `separator` is true
                 if (item.separator) {
                     elements.push(<CommandSeparator key={`separator-${item.value ?? index}`} />);
                 }
@@ -83,7 +71,7 @@ const CommandList = ({
             {options.length > 0 && !isLoading ? (
                 <CommandGroup>{renderOptions(options)}</CommandGroup>
             ) : null}
-            {!isLoading ? <CommandPrimitive.Empty>{emptyMessage}</CommandPrimitive.Empty> : null}
+            {!isLoading ? <CommandEmpty>{emptyMessage}</CommandEmpty> : null}
         </CommandPrimitive.List>
     );
 };

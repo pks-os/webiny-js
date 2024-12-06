@@ -11,6 +11,7 @@ export const useAutoComplete = (props: AutoCompletePrimitiveProps & { inputValue
             value: props.value,
             placeholder: props.placeholder,
             emptyMessage: props.emptyMessage,
+            onOpenChange: props.onOpenChange,
             onValueChange: props.onValueChange,
             onValueReset: props.onValueReset
         }),
@@ -19,6 +20,7 @@ export const useAutoComplete = (props: AutoCompletePrimitiveProps & { inputValue
             props.value,
             props.placeholder,
             props.emptyMessage,
+            props.onOpenChange,
             props.onValueChange,
             props.onValueReset
         ]
@@ -48,6 +50,6 @@ export const useAutoComplete = (props: AutoCompletePrimitiveProps & { inputValue
         setSelectedOption: presenter.setSelectedOption,
         setInputValue: presenter.setInputValue,
         resetValue: presenter.resetValue,
-        toggleListOpenState: presenter.toggleListOpenState
+        setListOpenState: presenter.setListOpenState
     };
 };

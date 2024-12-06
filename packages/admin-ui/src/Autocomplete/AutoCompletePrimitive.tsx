@@ -5,54 +5,62 @@ import { cn, cva, type VariantProps } from "~/utils";
 import { inputVariants } from "~/Input";
 import { useAutoComplete } from "~/Autocomplete/useAutoComplete";
 import { AutoCompleteInputIcons } from "./AutoCompleteInputIcons";
+import { Icon as BaseIcon } from "~/Icon";
 
-const commandListVariants = cva("animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full", {
-    variants: {
-        open: {
-            true: "block",
-            false: "hidden"
+const commandListVariants = cva(
+    "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full outline-none",
+    {
+        variants: {
+            open: {
+                true: "block",
+                false: "hidden"
+            }
         }
     }
-});
+);
 
 export type Option = CommandOptionDto | string;
 
 type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
     disabled?: boolean;
     emptyMessage?: string;
-    endIcon?: React.ReactElement;
     invalid?: VariantProps<typeof inputVariants>["invalid"];
+    onOpenChange?: (open: boolean) => void;
     onValueChange: (value: string) => void;
     onValueReset?: () => void;
     options?: Option[];
     placeholder?: string;
     size?: VariantProps<typeof inputVariants>["size"];
-    startIcon?: React.ReactElement;
+    startIcon?: React.ReactElement<typeof BaseIcon> | React.ReactElement;
     variant?: VariantProps<typeof inputVariants>["variant"];
 };
 
 const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
-    const { vm, toggleListOpenState, setSelectedOption, setInputValue, resetValue } =
+    const { vm, setListOpenState, setSelectedOption, setInputValue, resetValue } =
         useAutoComplete(props);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-        const input = inputRef.current;
+    const handleKeyDown = React.useCallback(
+        (event: KeyboardEvent<HTMLDivElement>) => {
+            if (!vm.listVm.isOpen) {
+                setListOpenState(true);
+            }
 
-        if (!input) {
-            return;
-        }
+            if (event.key === "Escape") {
+                setListOpenState(false);
+                inputRef?.current?.blur();
+            }
+        },
+        [setListOpenState, vm.listVm.isOpen]
+    );
 
-        if (event.key === "Escape") {
-            input.blur();
-        }
-    };
-
-    const handleSelectOption = (value: string) => {
-        setSelectedOption(value);
-        // This is a hack to prevent the input from being focused after the user selects an option
-        inputRef?.current?.blur();
-    };
+    const handleSelectOption = React.useCallback(
+        (value: string) => {
+            setSelectedOption(value);
+            inputRef?.current?.blur();
+        },
+        [setSelectedOption]
+    );
 
     return (
         <Command onKeyDown={handleKeyDown}>
@@ -61,16 +69,20 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
                 value={vm.inputVm.value}
                 onValueChange={setInputValue}
                 placeholder={vm.inputVm.placeholder}
+                size={props.size}
+                variant={props.variant}
                 disabled={props.disabled}
-                onBlur={() => toggleListOpenState(false)}
-                onFocus={() => toggleListOpenState(true)}
+                invalid={props.invalid}
+                startIcon={props.startIcon}
                 endIcon={
                     <AutoCompleteInputIcons
                         hasValue={vm.inputVm.hasValue}
-                        resetValue={resetValue}
-                        toggleListOpenState={() => toggleListOpenState(!vm.listVm.isOpen)}
+                        onResetValue={resetValue}
+                        onOpenChange={() => setListOpenState(!vm.listVm.isOpen)}
                     />
                 }
+                onBlur={() => setListOpenState(false)}
+                onFocus={() => setListOpenState(true)}
             />
             <div className="relative mt-xs-plus">
                 <div className={cn(commandListVariants({ open: vm.listVm.isOpen }))}>

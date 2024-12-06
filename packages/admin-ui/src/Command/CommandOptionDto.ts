@@ -1,7 +1,6 @@
 export interface CommandOptionDto {
     label: string;
-    value?: string;
-    options?: CommandOptionDto[];
+    value: string;
     disabled?: boolean;
     selected?: boolean;
     separator?: boolean;

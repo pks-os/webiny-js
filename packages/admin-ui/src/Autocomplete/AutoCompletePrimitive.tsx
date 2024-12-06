@@ -1,4 +1,4 @@
-import React, { useRef, type KeyboardEvent } from "react";
+import React, { KeyboardEvent } from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { CommandList, CommandInput, Command, CommandOptionDto } from "~/Command";
 import { cn, cva, type VariantProps } from "~/utils";
@@ -8,7 +8,7 @@ import { AutoCompleteInputIcons } from "./AutoCompleteInputIcons";
 import { Icon as BaseIcon } from "~/Icon";
 
 const commandListVariants = cva(
-    "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full outline-none",
+    "animate-in fade-in-0 zoom-in-95 absolute top-xs-plus z-10 w-full outline-none",
     {
         variants: {
             open: {
@@ -38,7 +38,6 @@ type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandP
 const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
     const { vm, setListOpenState, setSelectedOption, setInputValue, resetValue } =
         useAutoComplete(props);
-    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleKeyDown = React.useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
@@ -48,7 +47,6 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
 
             if (event.key === "Escape") {
                 setListOpenState(false);
-                inputRef?.current?.blur();
             }
         },
         [setListOpenState, vm.listVm.isOpen]
@@ -57,7 +55,7 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
     const handleSelectOption = React.useCallback(
         (value: string) => {
             setSelectedOption(value);
-            inputRef?.current?.blur();
+            setListOpenState(false);
         },
         [setSelectedOption]
     );
@@ -65,7 +63,6 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
     return (
         <Command onKeyDown={handleKeyDown}>
             <CommandInput
-                inputRef={inputRef}
                 value={vm.inputVm.value}
                 onValueChange={setInputValue}
                 placeholder={vm.inputVm.placeholder}
@@ -84,7 +81,7 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
                 onBlur={() => setListOpenState(false)}
                 onFocus={() => setListOpenState(true)}
             />
-            <div className="relative mt-xs-plus">
+            <div className="relative">
                 <div className={cn(commandListVariants({ open: vm.listVm.isOpen }))}>
                     <CommandList
                         options={vm.listVm.options}

@@ -6,6 +6,6 @@ export * from "./CommandList";
 export * from "./CommandLoading";
 export * from "./CommandSeparator";
 export * from "./CommandOption";
-export * from "./CommandOptionTransformer";
+export * from "./CommandOptionFormatter";
 export * from "./CommandOptionFormatted";
 export * from "./CommandOptionDto";

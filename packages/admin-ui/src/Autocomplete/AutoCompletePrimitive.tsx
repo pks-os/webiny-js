@@ -1,13 +1,25 @@
-import React, { useRef, useCallback, type KeyboardEvent } from "react";
+import React, { useRef, type KeyboardEvent } from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { CommandList, CommandInput, Command, CommandOptionDto } from "~/Command";
-import { cn, type VariantProps } from "~/utils";
+import { cn, cva, type VariantProps } from "~/utils";
 import { inputVariants } from "~/Input";
 import { useAutoComplete } from "~/Autocomplete/useAutoComplete";
+import { AutoCompleteInputIcons } from "./AutoCompleteInputIcons";
+
+const commandListVariants = cva("animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full", {
+    variants: {
+        open: {
+            true: "block",
+            false: "hidden"
+        }
+    }
+});
 
 export type Option = CommandOptionDto | string;
 
 type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
+    disabled?: boolean;
+    emptyMessage?: string;
     endIcon?: React.ReactElement;
     invalid?: VariantProps<typeof inputVariants>["invalid"];
     onValueChange: (value: string) => void;
@@ -17,16 +29,12 @@ type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandP
     size?: VariantProps<typeof inputVariants>["size"];
     startIcon?: React.ReactElement;
     variant?: VariantProps<typeof inputVariants>["variant"];
-    disabled?: boolean;
-    emptyMessage?: string;
 };
 
-const AutoCompletePrimitive = React.forwardRef<
-    React.ElementRef<typeof CommandPrimitive>,
-    AutoCompletePrimitiveProps
->((props, ref) => {
+const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
+    const { vm, toggleListOpenState, setSelectedOption, setInputValue, resetValue } =
+        useAutoComplete(props);
     const inputRef = useRef<HTMLInputElement>(null);
-    const { vm, toggleListOpenState, setSelectedOption, setInputValue } = useAutoComplete(props);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
         const input = inputRef.current;
@@ -35,53 +43,47 @@ const AutoCompletePrimitive = React.forwardRef<
             return;
         }
 
-        // TODO: bring to Presenter
-        // This is not a default behaviour of the <input /> field
-        if (event.key === "Enter" && input.value !== "") {
-            console.log("input.value", input.value);
-            setSelectedOption(input.value);
-        }
-
         if (event.key === "Escape") {
             input.blur();
         }
     };
-    const handleBlur = useCallback(() => {
-        toggleListOpenState(false);
-    }, []);
 
     const handleSelectOption = (value: string) => {
         setSelectedOption(value);
-
         // This is a hack to prevent the input from being focused after the user selects an option
-        // We can call this hack: "The next tick"
-        setTimeout(() => {
-            inputRef?.current?.blur();
-        }, 0);
+        inputRef?.current?.blur();
     };
 
     return (
-        <Command onKeyDown={handleKeyDown} ref={ref}>
+        <Command onKeyDown={handleKeyDown}>
             <CommandInput
-                ref={inputRef}
+                inputRef={inputRef}
                 value={vm.inputVm.value}
                 onValueChange={setInputValue}
-                onBlur={handleBlur}
-                onFocus={() => toggleListOpenState(true)}
                 placeholder={vm.inputVm.placeholder}
                 disabled={props.disabled}
+                onBlur={() => toggleListOpenState(false)}
+                onFocus={() => toggleListOpenState(true)}
+                endIcon={
+                    <AutoCompleteInputIcons
+                        hasValue={vm.inputVm.hasValue}
+                        resetValue={resetValue}
+                        toggleListOpenState={() => toggleListOpenState(!vm.listVm.isOpen)}
+                    />
+                }
             />
-            <CommandList
-                options={vm.listVm.options}
-                onOptionSelect={handleSelectOption}
-                isLoading={vm.listVm.isLoading}
-                emptyMessage={vm.listVm.emptyMessage}
-                className={cn(vm.listVm.isOpen ? "block" : "hidden")}
-            />
+            <div className="relative mt-xs-plus">
+                <div className={cn(commandListVariants({ open: vm.listVm.isOpen }))}>
+                    <CommandList
+                        options={vm.listVm.options}
+                        onOptionSelect={handleSelectOption}
+                        isLoading={vm.listVm.isLoading}
+                        emptyMessage={vm.listVm.emptyMessage}
+                    />
+                </div>
+            </div>
         </Command>
     );
-});
-
-AutoCompletePrimitive.displayName = "AutoCompletePrimitive";
+};
 
 export { AutoCompletePrimitive, type AutoCompletePrimitiveProps };

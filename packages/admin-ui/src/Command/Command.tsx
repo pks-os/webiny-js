@@ -1,19 +1,12 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { cn, makeDecoratable } from "~/utils";
+import { cn } from "~/utils";
 
-const DecoratableCommand = React.forwardRef<
-    React.ElementRef<typeof CommandPrimitive>,
-    React.ComponentPropsWithoutRef<typeof CommandPrimitive>
->(({ className, ...props }, ref) => (
-    <CommandPrimitive
-        ref={ref}
-        className={cn("flex h-full w-full flex-col overflow-hidden", className)}
-        {...props}
-    />
-));
-DecoratableCommand.displayName = CommandPrimitive.displayName;
-
-const Command = makeDecoratable("Command", DecoratableCommand);
+const Command = ({
+    className,
+    ...props
+}: React.ComponentPropsWithoutRef<typeof CommandPrimitive>) => (
+    <CommandPrimitive className={cn("flex h-full w-full flex-col", className)} {...props} />
+);
 
 export { Command };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Icon as BaseIcon } from "~/Icon";
-import { cn, makeDecoratable } from "~/utils";
+import { cn } from "~/utils";
 
 /**
  * Icon
@@ -203,6 +203,7 @@ interface InputPrimitiveProps
     startIcon?: React.ReactElement<typeof BaseIcon> | React.ReactElement;
     endIcon?: React.ReactElement<typeof BaseIcon> | React.ReactElement;
     maxLength?: React.InputHTMLAttributes<HTMLInputElement>["size"];
+    inputRef?: React.Ref<HTMLInputElement>;
 }
 
 const getIconPosition = (
@@ -221,39 +222,37 @@ const getIconPosition = (
     return;
 };
 
-const DecoratableInputPrimitive = React.forwardRef<HTMLInputElement, InputPrimitiveProps>(
-    (
-        { className, disabled, invalid, startIcon, maxLength, size, endIcon, variant, ...props },
-        ref
-    ) => {
-        const iconPosition = getIconPosition(startIcon, endIcon);
+const InputPrimitive = ({
+    className,
+    disabled,
+    invalid,
+    startIcon,
+    maxLength,
+    size,
+    endIcon,
+    variant,
+    inputRef,
+    ...props
+}: InputPrimitiveProps) => {
+    const iconPosition = getIconPosition(startIcon, endIcon);
 
-        return (
-            <div className={cn("relative flex items-center w-full", className)}>
-                {startIcon && (
-                    <Icon
-                        disabled={disabled}
-                        icon={startIcon}
-                        inputSize={size}
-                        position={"start"}
-                    />
-                )}
-                <input
-                    className={cn(inputVariants({ variant, size, iconPosition, invalid }))}
-                    ref={ref}
-                    disabled={disabled}
-                    size={maxLength}
-                    {...props}
-                />
-                {endIcon && (
-                    <Icon disabled={disabled} icon={endIcon} inputSize={size} position={"end"} />
-                )}
-            </div>
-        );
-    }
-);
-DecoratableInputPrimitive.displayName = "InputPrimitive";
-
-const InputPrimitive = makeDecoratable("InputPrimitive", DecoratableInputPrimitive);
+    return (
+        <div className={cn("relative flex items-center w-full", className)}>
+            {startIcon && (
+                <Icon disabled={disabled} icon={startIcon} inputSize={size} position={"start"} />
+            )}
+            <input
+                ref={inputRef}
+                className={cn(inputVariants({ variant, size, iconPosition, invalid }))}
+                disabled={disabled}
+                size={maxLength}
+                {...props}
+            />
+            {endIcon && (
+                <Icon disabled={disabled} icon={endIcon} inputSize={size} position={"end"} />
+            )}
+        </div>
+    );
+};
 
 export { InputPrimitive, inputVariants, type InputPrimitiveProps };

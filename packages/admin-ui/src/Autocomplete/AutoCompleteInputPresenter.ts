@@ -3,7 +3,6 @@ import { makeAutoObservable } from "mobx";
 interface AutoCompleteInputPresenterParams {
     value?: string;
     placeholder?: string;
-    onChange?: (value: string) => void;
 }
 
 interface IAutoCompleteInputPresenter {
@@ -19,7 +18,6 @@ interface IAutoCompleteInputPresenter {
 class AutoCompleteInputPresenter implements IAutoCompleteInputPresenter {
     private value?: string = undefined;
     private placeholder?: string = undefined;
-    private onChange?: (value: string) => void;
 
     constructor() {
         makeAutoObservable(this);
@@ -28,7 +26,6 @@ class AutoCompleteInputPresenter implements IAutoCompleteInputPresenter {
     init(params?: AutoCompleteInputPresenterParams) {
         this.value = params?.value;
         this.placeholder = params?.placeholder;
-        this.onChange = params?.onChange;
     }
 
     get vm() {
@@ -41,7 +38,6 @@ class AutoCompleteInputPresenter implements IAutoCompleteInputPresenter {
 
     public setValue = (value = "") => {
         this.value = value;
-        this.onChange?.(value);
     };
 }
 

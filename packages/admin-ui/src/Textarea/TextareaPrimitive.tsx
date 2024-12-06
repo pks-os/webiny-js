@@ -61,20 +61,28 @@ const textareaVariants = cva(
     }
 );
 
-type TextareaPrimitiveProps = React.ComponentProps<"textarea"> &
-    VariantProps<typeof textareaVariants>;
+interface TextareaPrimitiveProps
+    extends React.ComponentProps<"textarea">,
+        VariantProps<typeof textareaVariants> {
+    textareaRef?: React.Ref<HTMLTextAreaElement>;
+}
 
-const DecoratableTextareaPrimitive = React.forwardRef<HTMLTextAreaElement, TextareaPrimitiveProps>(
-    ({ className, variant, invalid, size, ...props }, ref) => {
-        return (
-            <textarea
-                className={cn(textareaVariants({ variant, invalid, size }), className)}
-                ref={ref}
-                {...props}
-            />
-        );
-    }
-);
+const DecoratableTextareaPrimitive = ({
+    className,
+    variant,
+    invalid,
+    size,
+    textareaRef,
+    ...props
+}: TextareaPrimitiveProps) => {
+    return (
+        <textarea
+            ref={textareaRef}
+            className={cn(textareaVariants({ variant, invalid, size }), className)}
+            {...props}
+        />
+    );
+};
 DecoratableTextareaPrimitive.displayName = "TextareaPrimitive";
 const TextareaPrimitive = makeDecoratable("TextareaPrimitive", DecoratableTextareaPrimitive);
 

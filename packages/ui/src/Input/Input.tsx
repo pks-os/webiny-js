@@ -166,6 +166,7 @@ export const Input = (props: InputProps) => {
         trailingIcon,
         onEnter,
         required,
+        inputRef,
         ...rest
     } = props;
 
@@ -224,6 +225,7 @@ export const Input = (props: InputProps) => {
                 note={description}
                 required={required}
                 rows={rows}
+                textareaRef={inputRef as React.Ref<HTMLTextAreaElement> | undefined}
             />
         );
     }
@@ -245,6 +247,7 @@ export const Input = (props: InputProps) => {
             validation={validation}
             note={description}
             required={required}
+            inputRef={inputRef as React.Ref<HTMLInputElement> | undefined}
         />
     );
 };

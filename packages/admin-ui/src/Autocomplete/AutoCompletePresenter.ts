@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { CommandOption } from "~/Command/CommandOption";
 import { CommandOptionDto } from "~/Command/CommandOptionDto";
-import { CommandOptionTransformer } from "~/Command/CommandOptionTransformer";
+import { CommandOptionFormatter } from "~/Command/CommandOptionFormatter";
 import { IAutoCompleteInputPresenter } from "./AutoCompleteInputPresenter";
 
 export type Option = CommandOptionDto | string;
@@ -9,7 +9,6 @@ export type Option = CommandOptionDto | string;
 interface AutoCompletePresenterParams {
     options?: Option[];
     value?: string;
-    inputValue?: string;
     placeholder?: string;
     emptyMessage?: string;
     isLoading?: boolean;
@@ -29,14 +28,14 @@ class AutoCompletePresenter {
     }
 
     init(params: AutoCompletePresenterParams) {
-        console.log("AutoCompletePresenter initialize", params);
         this.params = params;
         this.options = this.mapOptions(params.options, params.value);
 
         const selected = this.getSelectedOption();
 
         this.inputPresenter.init({
-            value: selected ? CommandOptionTransformer.toFormatted(selected).label : ""
+            value: selected ? CommandOptionFormatter.format(selected).label : "",
+            placeholder: params.placeholder
         });
     }
 
@@ -46,11 +45,11 @@ class AutoCompletePresenter {
         return {
             inputVm: this.inputPresenter.vm,
             listVm: {
-                options: this.options.map(CommandOptionTransformer.toFormatted),
+                options: this.options.map(option => CommandOptionFormatter.format(option)),
                 emptyMessage,
+                isLoading,
                 isOpen: this.isListOpen,
-                isEmpty: this.options.length === 0,
-                isLoading
+                isEmpty: this.options.length === 0
             }
         };
     }
@@ -71,30 +70,22 @@ class AutoCompletePresenter {
     };
 
     public resetValue = () => {
-        this.updateSelectedOption("");
+        this.updateSelectedOption();
         this.inputPresenter.setValue("");
         this.params?.onValueChange?.("");
         this.params?.onValueReset?.();
     };
 
     private updateSelectedOption(value?: string) {
-        const selectedIndex = this.options.findIndex(option => option.value === value);
+        const optionToSelect = this.options.find(option => option.value === value);
+        this.options.forEach(option => (option.selected = false));
 
-        if (selectedIndex > -1) {
-            const selectedOption = this.options[selectedIndex];
-            selectedOption.selected = true;
-
-            console.log("Selected option", selectedOption);
-
-            this.options = [
-                ...this.options.slice(0, selectedIndex),
-                selectedOption,
-                ...this.options.slice(selectedIndex + 1)
-            ];
-
-            this.inputPresenter.setValue(selectedOption.label);
+        if (optionToSelect) {
+            optionToSelect.selected = true;
+            this.inputPresenter.setValue(optionToSelect.label);
+            return;
         } else {
-            this.inputPresenter.setValue(value);
+            this.inputPresenter.setValue(value || "");
         }
     }
 
@@ -109,7 +100,7 @@ class AutoCompletePresenter {
                     ? CommandOption.createFromString(option)
                     : CommandOption.create(option);
 
-            commandOption.selected = value === commandOption.value;
+            commandOption.selected = commandOption.value === value;
             return commandOption;
         });
     }

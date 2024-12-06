@@ -1,6 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ReactComponent as PencilIcon } from "@material-design-icons/svg/filled/edit.svg";
+import { ReactComponent as CloseIcon } from "@material-design-icons/svg/outlined/close.svg";
 import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -15,7 +16,7 @@ const meta: Meta<typeof Button> = {
             control: "select",
             options: ["primary", "secondary", "tertiary", "ghost", "ghost-negative"]
         },
-        size: { control: "select", options: ["sm", "md", "lg", "xl"] },
+        size: { control: "select", options: ["xxs", "xs", "sm", "md", "lg", "xl"] },
         disabled: { control: "boolean" },
         text: { control: "text" },
         // Note: after upgrading to Storybook 8.X, use `fn`from `@storybook/test` to spy on the onClick argument.
@@ -115,7 +116,7 @@ export const OnlyIcon: Story = {
     args: {
         ...Primary.args,
         text: null,
-        icon: <PencilIcon />,
+        icon: <CloseIcon />,
         iconPosition: "end"
     }
 };

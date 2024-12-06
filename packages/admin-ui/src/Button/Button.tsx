@@ -47,6 +47,8 @@ const buttonVariants = cva(
                 ]
             },
             size: {
+                xxs: ["text-sm border-sm rounded-xs w-sm-extra h-sm-extra"],
+                xs: ["text-sm border-sm rounded-xs w-md h-md"],
                 sm: [
                     "text-sm border-sm rounded-sm [&>svg]:size-md",
                     "py-[calc(theme(padding.xs)-theme(borderWidth.sm))] px-[calc(theme(padding.sm)-theme(borderWidth.sm))]"

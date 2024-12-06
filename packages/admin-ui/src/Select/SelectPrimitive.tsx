@@ -8,6 +8,7 @@ import { cn, makeDecoratable, cva, type VariantProps } from "~/utils";
 import { useSelect } from "./useSelect";
 import { SelectOptionDto } from "./SelectOptionDto";
 import { SelectOptionFormatted } from "./SelectOptionFormatted";
+import { Button } from "~/Button";
 
 const SelectRoot = SelectPrimitives.Root;
 
@@ -352,13 +353,13 @@ const DecoratableSelectTrigger = ({
 
         return (
             <SelectPrimitives.SelectIcon
-                className="bg-neutral-dimmed fill-neutral-xstrong pointer-events-auto"
                 onPointerDown={event => {
                     event.stopPropagation();
                     onValueReset();
                 }}
+                asChild
             >
-                <Close className="w-4 h-4" />
+                <Button size={"xs"} variant={"secondary"} icon={<Close />} />
             </SelectPrimitives.SelectIcon>
         );
     }, [hasValue, onValueReset]);

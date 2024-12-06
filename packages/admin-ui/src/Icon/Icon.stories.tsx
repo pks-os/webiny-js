@@ -16,9 +16,9 @@ type Story = StoryObj<typeof Icon>;
 export const Default: Story = {
     args: {
         icon: <XIcon />,
-        label: "Close",
+        label: "This is an icon",
         size: "md",
-        color: "primary"
+        color: "accent"
     },
     argTypes: {
         size: {
@@ -27,33 +27,63 @@ export const Default: Story = {
         },
         color: {
             control: "select",
-            options: ["primary", "dark", "light", "white"]
+            options: ["accent", "neutral", "neutral-strong", "neutral-light"]
         }
     }
 };
 
-export const ClickableIcon: Story = {
+export const ColorAccent: Story = {
     args: {
-        icon: <XIcon />,
-        label: "Close",
-        className: "cursor-pointer"
-    },
-    argTypes: {
-        // Note: after upgrading to Storybook 8.X, use `fn`from `@storybook/test` to spy on the onClick argument.
-        onClick: { action: "onClick" }
+        ...Default.args,
+        color: "accent"
     }
 };
 
-export const Sizes: Story = {
+export const ColorNeutral: Story = {
+    decorators: [
+        Story => (
+            <div className="bg-[#25292e] p-[300px] rounded-[5px]">
+                <Story />
+            </div>
+        )
+    ],
+    args: {
+        ...Default.args,
+        color: "neutral"
+    }
+};
+
+export const ColorNeutralStrong: Story = {
+    args: {
+        ...Default.args,
+        color: "neutral-strong"
+    }
+};
+
+export const ColorNeutralXStrong: Story = {
+    args: {
+        ...Default.args,
+        color: "neutral-strong"
+    }
+};
+
+export const SizeSm: Story = {
+    args: {
+        ...Default.args,
+        size: "sm"
+    }
+};
+
+export const SizeMd: Story = {
+    args: {
+        ...Default.args,
+        size: "md"
+    }
+};
+
+export const SizeLg: Story = {
     args: {
         ...Default.args,
         size: "lg"
-    }
-};
-
-export const Colors: Story = {
-    args: {
-        ...Default.args,
-        color: "light"
     }
 };

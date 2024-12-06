@@ -2,7 +2,6 @@ import { createTaskDefinition } from "@webiny/tasks";
 import { HcmsTasksContext } from "~/types";
 import { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
 import { createDeleteModelRunner } from "~/tasks/deleteModel/DeleteModelRunner";
-import { validateConfirmation } from "~/tasks/deleteModel/helpers/confirmation";
 import { DELETE_MODEL_TASK } from "./constants";
 import { createDeleteModelGraphQl } from "~/tasks/deleteModel/graphql";
 
@@ -16,9 +15,9 @@ const createDefinition = () => {
         async run(params) {
             try {
                 const deleteModelRunner = createDeleteModelRunner({
+                    taskId: params.store.getTask().id,
                     context: params.context,
-                    response: params.response,
-                    store: params.store
+                    response: params.response
                 });
                 return await deleteModelRunner.execute({
                     input: params.input,
@@ -30,20 +29,10 @@ const createDefinition = () => {
             }
         },
         createInputValidation: ({ validator }) => {
-            return validator
-                .object({
-                    modelId: validator.string(),
-                    cursor: validator.string().optional(),
-                    confirmation: validator.string()
-                })
-                .refine(
-                    schema => {
-                        return validateConfirmation(schema);
-                    },
-                    {
-                        message: `Confirmation input does not match the generated one.`
-                    }
-                );
+            return {
+                modelId: validator.string(),
+                lastDeletedId: validator.string().optional()
+            };
         }
     });
 };

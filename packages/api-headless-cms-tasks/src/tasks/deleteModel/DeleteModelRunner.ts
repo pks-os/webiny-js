@@ -1,25 +1,17 @@
-import {
-    ITaskManagerStore,
-    ITaskResponse,
-    ITaskResponseResult,
-    ITaskRunParams
-} from "@webiny/tasks";
+import { ITaskResponse, ITaskResponseResult, ITaskRunParams } from "@webiny/tasks";
 import { HcmsTasksContext } from "~/types";
 import { IDeleteModelTaskInput, IDeleteModelTaskOutput } from "./types";
-import {
-    MODEL_IS_GETTING_DELETED_TAG,
-    MODEL_IS_GETTING_DELETED_TASK_ID_TAG
-} from "~/tasks/deleteModel/constants";
-import { CmsModel } from "@webiny/api-headless-cms/types";
+import { CmsEntryListWhere, CmsModel } from "@webiny/api-headless-cms/types";
+import { containsTaskTag, createTaskTag, removeTag } from "~/tasks/deleteModel/helpers/tag";
 
 export interface IDeleteModelRunnerParams<
     C extends HcmsTasksContext,
     I extends IDeleteModelTaskInput,
     O extends IDeleteModelTaskOutput
 > {
+    taskId: string;
     context: C;
     response: ITaskResponse<I, O>;
-    store: ITaskManagerStore<I>;
 }
 
 export type IExecuteParams<
@@ -33,14 +25,14 @@ export class DeleteModelRunner<
     I extends IDeleteModelTaskInput,
     O extends IDeleteModelTaskOutput
 > {
+    private readonly taskId: string;
     private readonly context: C;
     private readonly response: ITaskResponse<I, O>;
-    private readonly store: ITaskManagerStore<I>;
 
     public constructor(params: IDeleteModelRunnerParams<C, I, O>) {
+        this.taskId = params.taskId;
         this.context = params.context;
         this.response = params.response;
-        this.store = params.store;
     }
 
     public async execute(params: IExecuteParams<C, I, O>): Promise<ITaskResponseResult<I, O>> {
@@ -50,12 +42,13 @@ export class DeleteModelRunner<
         /**
          * We need to mark model as getting deleted, so that we can prevent any further operations on it.
          */
-        if (!model.tags?.includes(MODEL_IS_GETTING_DELETED_TAG)) {
+        const tag = containsTaskTag(model.tags);
+        if (!tag) {
             model = await this.addDeletingTag(model);
         }
 
         let hasMoreItems = false;
-        let cursor: string | undefined = input.cursor;
+        let lastDeletedId: string | undefined = input.lastDeletedId;
         do {
             if (isAborted()) {
                 /**
@@ -66,29 +59,49 @@ export class DeleteModelRunner<
             } else if (isCloseToTimeout()) {
                 return this.response.continue({
                     ...input,
-                    cursor
+                    lastDeletedId
                 });
             }
+            let where: CmsEntryListWhere | undefined = undefined;
+            if (lastDeletedId) {
+                where = {
+                    entryId_gte: lastDeletedId
+                };
+            }
             const [items, meta] = await this.context.cms.listLatestEntries(model, {
-                limit: 100,
-                after: cursor,
+                limit: 1000,
+                where,
                 sort: ["id_ASC"]
             });
-
             for (const item of items) {
-                try {
-                    await this.context.cms.deleteEntry(model, item.id, {
-                        permanently: true,
-                        force: true
-                    });
-                } catch (ex) {
-                    console.log(`Failed to delete entry "${item.id}".`);
+                const result = await this.deleteEntry(model, item.id);
+                if (!result) {
+                    return this.response.error(
+                        new Error(`Failed to delete entry "${item.id}". Cannot continue.`)
+                    );
                 }
+                lastDeletedId = item.entryId;
             }
 
             hasMoreItems = meta.hasMoreItems;
-            cursor = meta.cursor || undefined;
         } while (hasMoreItems);
+        /**
+         * Let's do one more check. If there are items, continue the task with 5 seconds delay.
+         */
+        const [items] = await this.context.cms.listLatestEntries(model, {
+            limit: 1
+        });
+        if (items.length > 0) {
+            console.log("There are still items to be deleted. Continuing the task.");
+            return this.response.continue(
+                {
+                    ...input
+                },
+                {
+                    seconds: 5
+                }
+            );
+        }
         /**
          * When there is no more records to be deleted, let's delete the model.
          */
@@ -98,7 +111,6 @@ export class DeleteModelRunner<
             await this.removeDeletingTag(model);
             const message = `Failed to delete model "${model.modelId}".`;
             console.error(message);
-
             return this.response.error(ex);
         }
 
@@ -117,7 +129,7 @@ export class DeleteModelRunner<
         return await this.context.cms.updateModelDirect({
             model: {
                 ...model,
-                tags: [...(model.tags || []), MODEL_IS_GETTING_DELETED_TAG, this.getTaskTag()]
+                tags: [...(model.tags || []), createTaskTag(this.taskId)]
             },
             original: model
         });
@@ -127,21 +139,26 @@ export class DeleteModelRunner<
         return await this.context.cms.updateModelDirect({
             model: {
                 ...model,
-                tags: (model.tags || []).filter(tag => {
-                    if (tag === MODEL_IS_GETTING_DELETED_TAG) {
-                        return false;
-                    } else if (tag === this.getTaskTag()) {
-                        return false;
-                    }
-                    return true;
-                })
+                tags: removeTag(model.tags)
             },
             original: model
         });
     }
 
-    private getTaskTag(): string {
-        return `${MODEL_IS_GETTING_DELETED_TASK_ID_TAG}${this.store.getTask().id}`;
+    private async deleteEntry(model: CmsModel, id: string): Promise<boolean> {
+        try {
+            await this.context.cms.deleteEntry(model, id, {
+                permanently: true,
+                force: true
+            });
+            return true;
+        } catch (ex) {
+            console.warn("Failed to delete entry.", {
+                model: model.modelId,
+                id
+            });
+        }
+        return false;
     }
 }
 

@@ -2,8 +2,7 @@ import { ITaskResponseDoneResultOutput } from "@webiny/tasks";
 
 export interface IDeleteModelTaskInput {
     modelId: string;
-    cursor?: string;
-    confirmation: string;
+    lastDeletedId?: string;
 }
 
 export interface IDeleteModelTaskOutput extends ITaskResponseDoneResultOutput {

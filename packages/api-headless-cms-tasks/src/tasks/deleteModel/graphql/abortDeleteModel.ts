@@ -4,12 +4,10 @@ import {
     IDeleteModelTaskInput,
     IDeleteModelTaskOutput
 } from "~/tasks/deleteModel/types";
-import {
-    DELETE_MODEL_TASK,
-    MODEL_IS_GETTING_DELETED_TASK_ID_TAG
-} from "~/tasks/deleteModel/constants";
+import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants";
 import { WebinyError } from "@webiny/error";
 import { getStatus } from "~/tasks/deleteModel/graphql/status";
+import { getTaskIdFromTag, removeTag } from "~/tasks/deleteModel/helpers/tag";
 
 export interface IAbortDeleteModelParams {
     readonly context: Pick<HcmsTasksContext, "cms" | "tasks">;
@@ -33,13 +31,18 @@ export const abortDeleteModel = async (
         rwd: "w"
     });
 
-    const tag = (model.tags || []).find(tag =>
-        tag.startsWith(MODEL_IS_GETTING_DELETED_TASK_ID_TAG)
-    );
-    const taskId = tag ? tag.replace(MODEL_IS_GETTING_DELETED_TASK_ID_TAG, "") : null;
+    const taskId = getTaskIdFromTag(model.tags);
     if (!taskId) {
         throw new Error(`Model "${modelId}" is not being deleted.`);
     }
+
+    await context.cms.updateModelDirect({
+        model: {
+            ...model,
+            tags: removeTag(model.tags)
+        },
+        original: model
+    });
 
     const task = await context.tasks.getTask<IDeleteModelTaskInput, IDeleteModelTaskOutput>(taskId);
     if (task?.definitionId !== DELETE_MODEL_TASK) {

@@ -4,12 +4,12 @@ import {
     IDeleteModelTaskOutput
 } from "~/tasks/deleteModel/types";
 import { HcmsTasksContext } from "~/types";
-import {
-    DELETE_MODEL_TASK,
-    MODEL_IS_GETTING_DELETED_TASK_ID_TAG
-} from "~/tasks/deleteModel/constants";
+import { DELETE_MODEL_TASK } from "~/tasks/deleteModel/constants";
 import { WebinyError } from "@webiny/error";
 import { getStatus } from "~/tasks/deleteModel/graphql/status";
+import { NotFoundError } from "@webiny/handler-graphql";
+import { CmsModel } from "@webiny/api-headless-cms/types";
+import { getTaskIdFromTag } from "~/tasks/deleteModel/helpers/tag";
 
 export interface IGetDeleteModelProgress {
     readonly context: Pick<HcmsTasksContext, "cms" | "tasks">;
@@ -21,7 +21,21 @@ export const getDeleteModelProgress = async (
 ): Promise<IDeleteCmsModelTask> => {
     const { context, modelId } = params;
 
-    const model = await context.cms.getModel(modelId);
+    let model: CmsModel;
+    try {
+        model = await context.cms.getModel(modelId);
+    } catch (ex) {
+        if (ex instanceof NotFoundError === false) {
+            throw ex;
+        }
+        throw new WebinyError({
+            message: "Model not found. It must have been deleted already.",
+            code: "MODEL_ALREADY_DELETED_FOUND",
+            data: {
+                model: modelId
+            }
+        });
+    }
 
     await context.cms.accessControl.ensureCanAccessModel({
         model,
@@ -33,10 +47,7 @@ export const getDeleteModelProgress = async (
         rwd: "w"
     });
 
-    const tag = (model.tags || []).find(tag =>
-        tag.startsWith(MODEL_IS_GETTING_DELETED_TASK_ID_TAG)
-    );
-    const taskId = tag ? tag.replace(MODEL_IS_GETTING_DELETED_TASK_ID_TAG, "") : null;
+    const taskId = getTaskIdFromTag(model.tags);
     if (!taskId) {
         throw new Error(`Model "${modelId}" is not being deleted.`);
     }

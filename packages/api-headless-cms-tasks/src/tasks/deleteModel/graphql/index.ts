@@ -8,6 +8,7 @@ import { fullyDeleteModel } from "~/tasks/deleteModel/graphql/fullyDeleteModel";
 import { createZodError } from "@webiny/utils";
 import { IDeleteCmsModelTask } from "~/tasks/deleteModel/types";
 import { abortDeleteModel } from "~/tasks/deleteModel/graphql/abortDeleteModel";
+import { getDeleteModelProgress } from "~/tasks/deleteModel/graphql/getDeleteModelProgress";
 
 const deleteValidation = zod
     .object({
@@ -20,7 +21,7 @@ const deleteValidation = zod
         }
         context.addIssue({
             code: zod.ZodIssueCode.custom,
-            message: `Confirmation input does not match the generated one.`,
+            message: `Confirmation input does not match.`,
             fatal: true,
             path: ["confirmation"]
         });
@@ -28,6 +29,12 @@ const deleteValidation = zod
     .readonly();
 
 const abortValidation = zod
+    .object({
+        modelId: zod.string()
+    })
+    .readonly();
+
+const getValidation = zod
     .object({
         modelId: zod.string()
     })
@@ -50,6 +57,11 @@ export const createDeleteModelGraphQl = <T extends HcmsTasksContext = HcmsTasksC
                     total: Int!
                 }
 
+                type GetDeleteCmsModelProgressResponse {
+                    data: DeleteCmsModelTask
+                    error: CmsError
+                }
+
                 type FullyDeleteCmsModelResponse {
                     data: DeleteCmsModelTask
                     error: CmsError
@@ -58,6 +70,10 @@ export const createDeleteModelGraphQl = <T extends HcmsTasksContext = HcmsTasksC
                 type AbortDeleteCmsModelResponse {
                     data: DeleteCmsModelTask
                     error: CmsError
+                }
+
+                extend type Query {
+                    getDeleteModelProgress(modelId: ID!): GetDeleteCmsModelProgressResponse!
                 }
 
                 extend type Mutation {
@@ -69,6 +85,20 @@ export const createDeleteModelGraphQl = <T extends HcmsTasksContext = HcmsTasksC
                 }
             `,
             resolvers: {
+                Query: {
+                    getDeleteModelProgress: async (_, args, ctx) => {
+                        return resolve<IDeleteCmsModelTask>(async () => {
+                            const input = getValidation.safeParse(args);
+                            if (input.error) {
+                                throw createZodError(input.error);
+                            }
+                            return await getDeleteModelProgress({
+                                context: ctx,
+                                modelId: input.data.modelId
+                            });
+                        });
+                    }
+                },
                 Mutation: {
                     fullyDeleteModel: async (_, args, ctx) => {
                         return resolve<IDeleteCmsModelTask>(async () => {
@@ -78,8 +108,7 @@ export const createDeleteModelGraphQl = <T extends HcmsTasksContext = HcmsTasksC
                             }
                             return await fullyDeleteModel({
                                 context: ctx,
-                                modelId: input.data.modelId,
-                                confirmation: input.data.confirmation
+                                modelId: input.data.modelId
                             });
                         });
                     },

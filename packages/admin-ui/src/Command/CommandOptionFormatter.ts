@@ -8,7 +8,8 @@ export class CommandOptionFormatter {
             value: option.value,
             disabled: option.disabled,
             selected: option.selected,
-            separator: option.separator
+            separator: option.separator,
+            item: option.item
         };
     }
 }

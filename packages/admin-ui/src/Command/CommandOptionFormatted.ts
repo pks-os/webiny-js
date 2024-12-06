@@ -4,4 +4,5 @@ export interface CommandOptionFormatted {
     disabled: boolean;
     selected: boolean;
     separator: boolean;
+    item: any | null;
 }

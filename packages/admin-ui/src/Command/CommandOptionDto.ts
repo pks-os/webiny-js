@@ -3,4 +3,5 @@ export interface CommandOptionDto {
     value: string;
     disabled?: boolean;
     separator?: boolean;
+    item?: any;
 }

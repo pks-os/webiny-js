@@ -4,8 +4,9 @@ export class CommandOption {
     private readonly _label: string;
     private readonly _value: string;
     private readonly _disabled: boolean;
-    private _selected: boolean;
     private readonly _separator: boolean;
+    private readonly _item: any | null;
+    private _selected: boolean;
 
     protected constructor(data: {
         label: string;
@@ -13,12 +14,14 @@ export class CommandOption {
         disabled: boolean;
         selected: boolean;
         separator: boolean;
+        item: any | null;
     }) {
         this._label = data.label;
         this._value = data.value;
         this._disabled = data.disabled;
         this._selected = data.selected;
         this._separator = data.separator;
+        this._item = data.item;
     }
 
     static create(data: CommandOptionDto) {
@@ -27,7 +30,8 @@ export class CommandOption {
             value: data.value,
             disabled: data.disabled ?? false,
             selected: false,
-            separator: data.separator ?? false
+            separator: data.separator ?? false,
+            item: data.item ?? null
         });
     }
 
@@ -37,7 +41,8 @@ export class CommandOption {
             value: value,
             disabled: false,
             selected: false,
-            separator: false
+            separator: false,
+            item: null
         });
     }
 
@@ -63,5 +68,9 @@ export class CommandOption {
 
     get separator() {
         return this._separator;
+    }
+
+    get item() {
+        return this._item;
     }
 }

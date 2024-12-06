@@ -1,10 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { CommandOption } from "~/Command/CommandOption";
-import { CommandOptionDto } from "~/Command/CommandOptionDto";
-import { CommandOptionFormatter } from "~/Command/CommandOptionFormatter";
+import { CommandOption, CommandOptionFormatter } from "~/Command";
+import { AutoCompleteOption } from "./AutoCompletePrimitive";
 import { IAutoCompleteInputPresenter } from "./AutoCompleteInputPresenter";
-
-export type Option = CommandOptionDto | string;
 
 interface AutoCompletePresenterParams {
     emptyMessage?: string;
@@ -12,7 +9,7 @@ interface AutoCompletePresenterParams {
     onOpenChange?: (open: boolean) => void;
     onValueChange: (value: string) => void;
     onValueReset?: () => void;
-    options?: Option[];
+    options?: AutoCompleteOption[];
     placeholder?: string;
     value?: string;
 }
@@ -60,11 +57,9 @@ class AutoCompletePresenter {
         this.params?.onOpenChange?.(open);
     };
 
-    public setSelectedOption = (value?: string) => {
+    public setSelectedOption = (value: string) => {
         this.updateSelectedOption(value);
-        if (value) {
-            this.params?.onValueChange?.(value);
-        }
+        this.params?.onValueChange?.(value);
     };
 
     public setInputValue = (value: string) => {
@@ -95,7 +90,7 @@ class AutoCompletePresenter {
         return this.options.find(option => option.selected);
     }
 
-    private mapOptions(options: Option[] = [], value?: string): CommandOption[] {
+    private mapOptions(options: AutoCompleteOption[] = [], value?: string): CommandOption[] {
         return options.map(option => {
             const commandOption =
                 typeof option === "string"

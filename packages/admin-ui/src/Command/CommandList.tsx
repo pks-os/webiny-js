@@ -14,6 +14,7 @@ interface CommandListProps extends React.ComponentPropsWithoutRef<typeof Command
     isLoading?: boolean;
     loadingMessage?: React.ReactNode;
     onOptionSelect: (value: string) => void;
+    optionRenderer?: (item: any, index: number) => React.ReactNode;
 }
 
 const CommandList = ({
@@ -23,6 +24,7 @@ const CommandList = ({
     isLoading,
     loadingMessage,
     options,
+    optionRenderer,
     ...props
 }: CommandListProps) => {
     const renderOptions = React.useCallback(
@@ -42,7 +44,9 @@ const CommandList = ({
                             event.preventDefault();
                         }}
                     >
-                        {item.label}
+                        {optionRenderer && item.item
+                            ? optionRenderer.call(this, item.item, index)
+                            : item.label}
                     </CommandItem>
                 );
 

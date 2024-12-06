@@ -18,7 +18,7 @@ const commandListVariants = cva(
     }
 );
 
-export type Option = CommandOptionDto | string;
+type AutoCompleteOption = CommandOptionDto | string;
 
 type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> &
     InputPrimitiveProps & {
@@ -26,7 +26,8 @@ type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandP
         onOpenChange?: (open: boolean) => void;
         onValueChange: (value: string) => void;
         onValueReset?: () => void;
-        options?: Option[];
+        options?: AutoCompleteOption[];
+        optionRenderer?: (item: any, index: number) => React.ReactNode;
     };
 
 const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
@@ -41,11 +42,11 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
 
             if (event.key.toLowerCase() === "backspace") {
                 setListOpenState(true);
-                setSelectedOption(undefined);
+                setSelectedOption("");
                 setInputValue("");
             }
         },
-        [setListOpenState, setInputValue, vm.listVm.isOpen]
+        [setListOpenState, setSelectedOption, setInputValue, vm.listVm.isOpen]
     );
 
     const handleSelectOption = React.useCallback(
@@ -53,7 +54,7 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
             setSelectedOption(value);
             setListOpenState(false);
         },
-        [setSelectedOption]
+        [setSelectedOption, setListOpenState]
     );
 
     return (
@@ -84,6 +85,7 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
                         onOptionSelect={handleSelectOption}
                         isLoading={vm.listVm.isLoading}
                         emptyMessage={vm.listVm.emptyMessage}
+                        optionRenderer={props.optionRenderer}
                     />
                 </div>
             </div>
@@ -91,4 +93,4 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
     );
 };
 
-export { AutoCompletePrimitive, type AutoCompletePrimitiveProps };
+export { AutoCompletePrimitive, type AutoCompletePrimitiveProps, type AutoCompleteOption };

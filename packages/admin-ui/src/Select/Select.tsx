@@ -20,20 +20,18 @@ const DecoratableSelect = ({
     validation,
     ...props
 }: SelectGroupProps) => {
-    {
-        const { isValid: validationIsValid, message: validationMessage } = validation || {};
-        const invalid = useMemo(() => validationIsValid === false, [validationIsValid]);
+    const { isValid: validationIsValid, message: validationMessage } = validation || {};
+    const invalid = useMemo(() => validationIsValid === false, [validationIsValid]);
 
-        return (
-            <div className={"w-full"}>
-                <FormComponentLabel text={label} required={required} disabled={disabled} />
-                <FormComponentDescription text={description} />
-                <SelectPrimitive {...props} disabled={disabled} />
-                <FormComponentErrorMessage text={validationMessage} invalid={invalid} />
-                <FormComponentNote text={note} />
-            </div>
-        );
-    }
+    return (
+        <div className={"w-full"}>
+            <FormComponentLabel text={label} required={required} disabled={disabled} />
+            <FormComponentDescription text={description} />
+            <SelectPrimitive {...props} disabled={disabled} />
+            <FormComponentErrorMessage text={validationMessage} invalid={invalid} />
+            <FormComponentNote text={note} />
+        </div>
+    );
 };
 const Select = makeDecoratable("Select", DecoratableSelect);
 

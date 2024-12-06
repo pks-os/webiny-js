@@ -46,18 +46,21 @@ const separatorVariants = cva("shrink-0", {
 export type SeparatorProps = React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root> &
     VariantProps<typeof separatorVariants>;
 
-const SeparatorBase = React.forwardRef<
-    React.ElementRef<typeof SeparatorPrimitive.Root>,
-    SeparatorProps
->(({ className, orientation, margin, variant, decorative = true, ...props }, ref) => (
+const SeparatorBase = ({
+    className,
+    orientation,
+    margin,
+    variant,
+    decorative = true,
+    ...props
+}: SeparatorProps) => (
     <SeparatorPrimitive.Root
-        ref={ref}
         decorative={decorative}
         orientation={orientation}
         className={separatorVariants({ orientation, margin, variant, className })}
         {...props}
     />
-));
+);
 
 SeparatorBase.displayName = SeparatorPrimitive.Root.displayName;
 

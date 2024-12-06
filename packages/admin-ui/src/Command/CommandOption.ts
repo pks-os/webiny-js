@@ -26,7 +26,7 @@ export class CommandOption {
             label: data.label,
             value: data.value,
             disabled: data.disabled ?? false,
-            selected: data.selected ?? false,
+            selected: false,
             separator: data.separator ?? false
         });
     }

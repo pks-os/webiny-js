@@ -1,5 +1,5 @@
 import { AutoCompletePresenter } from "./AutoCompletePresenter";
-import { AutoCompleteInputPresenter } from "~/Autocomplete/AutoCompleteInputPresenter";
+import { AutoCompleteInputPresenter } from "~/AutoComplete/AutoCompleteInputPresenter";
 
 describe("AutoCompletePresenter", () => {
     const inputPresenter = new AutoCompleteInputPresenter();
@@ -55,8 +55,7 @@ describe("AutoCompletePresenter", () => {
                     },
                     {
                         value: "option-2",
-                        label: "Option 2",
-                        selected: true
+                        label: "Option 2"
                     },
                     {
                         value: "option-3",

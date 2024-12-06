@@ -1,11 +1,10 @@
 import React, { KeyboardEvent } from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { CommandList, CommandInput, Command, CommandOptionDto } from "~/Command";
-import { cn, cva, type VariantProps } from "~/utils";
-import { inputVariants } from "~/Input";
-import { useAutoComplete } from "~/Autocomplete/useAutoComplete";
+import { cn, cva } from "~/utils";
+import { InputPrimitiveProps } from "~/Input";
+import { useAutoComplete } from "./useAutoComplete";
 import { AutoCompleteInputIcons } from "./AutoCompleteInputIcons";
-import { Icon as BaseIcon } from "~/Icon";
 
 const commandListVariants = cva(
     "animate-in fade-in-0 zoom-in-95 absolute top-xs-plus z-10 w-full outline-none",
@@ -21,19 +20,14 @@ const commandListVariants = cva(
 
 export type Option = CommandOptionDto | string;
 
-type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> & {
-    disabled?: boolean;
-    emptyMessage?: string;
-    invalid?: VariantProps<typeof inputVariants>["invalid"];
-    onOpenChange?: (open: boolean) => void;
-    onValueChange: (value: string) => void;
-    onValueReset?: () => void;
-    options?: Option[];
-    placeholder?: string;
-    size?: VariantProps<typeof inputVariants>["size"];
-    startIcon?: React.ReactElement<typeof BaseIcon> | React.ReactElement;
-    variant?: VariantProps<typeof inputVariants>["variant"];
-};
+type AutoCompletePrimitiveProps = React.ComponentPropsWithoutRef<typeof CommandPrimitive> &
+    InputPrimitiveProps & {
+        emptyMessage?: string;
+        onOpenChange?: (open: boolean) => void;
+        onValueChange: (value: string) => void;
+        onValueReset?: () => void;
+        options?: Option[];
+    };
 
 const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
     const { vm, setListOpenState, setSelectedOption, setInputValue, resetValue } =
@@ -41,15 +35,17 @@ const AutoCompletePrimitive = (props: AutoCompletePrimitiveProps) => {
 
     const handleKeyDown = React.useCallback(
         (event: KeyboardEvent<HTMLDivElement>) => {
-            if (!vm.listVm.isOpen) {
-                setListOpenState(true);
-            }
-
-            if (event.key === "Escape") {
+            if (event.key.toLowerCase() === "escape") {
                 setListOpenState(false);
             }
+
+            if (event.key.toLowerCase() === "backspace") {
+                setListOpenState(true);
+                setSelectedOption(undefined);
+                setInputValue("");
+            }
         },
-        [setListOpenState, vm.listVm.isOpen]
+        [setListOpenState, setInputValue, vm.listVm.isOpen]
     );
 
     const handleSelectOption = React.useCallback(

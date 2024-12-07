@@ -8333,15 +8333,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/aws@npm:^6.63.0":
-  version: 6.63.0
-  resolution: "@pulumi/aws@npm:6.63.0"
+"@pulumi/aws@npm:^6.64.0":
+  version: 6.64.0
+  resolution: "@pulumi/aws@npm:6.64.0"
   dependencies:
     "@pulumi/pulumi": ^3.136.0
     builtin-modules: 3.0.0
     mime: ^2.0.0
     resolve: ^1.7.1
-  checksum: 2fd97e2474103086389cce4ff396e4e1c74420864be306bb474bb586f122c933d32e4206004be7d8d71eab387f48fd7993b42cef16a156de1033c39310de9074
+  checksum: 07c6811ee2b089276de789218d64355d05e5ec3cec47af82d05c285f541b3f355e57c76c629769038267778973d3ac15cc4e33499e8afe037b8de562a9c1ea09
   languageName: node
   linkType: hard
 
@@ -15759,7 +15759,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-aws@workspace:packages/pulumi-aws"
   dependencies:
-    "@pulumi/aws": ^6.63.0
+    "@pulumi/aws": ^6.64.0
     "@pulumi/pulumi": ^3.142.0
     "@pulumi/random": ^4.16.7
     "@webiny/api-page-builder": 0.0.0
@@ -15785,7 +15785,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/pulumi-sdk@workspace:packages/pulumi-sdk"
   dependencies:
-    "@pulumi/aws": ^6.63.0
+    "@pulumi/aws": ^6.64.0
     "@pulumi/pulumi": ^3.142.0
     "@types/lodash": ^4.14.190
     "@webiny/cli": 0.0.0
@@ -15909,7 +15909,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/serverless-cms-aws@workspace:packages/serverless-cms-aws"
   dependencies:
-    "@pulumi/aws": ^6.63.0
+    "@pulumi/aws": ^6.64.0
     "@pulumi/pulumi": ^3.142.0
     "@webiny/api-aco": 0.0.0
     "@webiny/api-apw": 0.0.0

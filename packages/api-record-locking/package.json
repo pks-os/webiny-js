@@ -12,7 +12,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@types/aws-lambda": "^8.10.131",
     "@webiny/api": "0.0.0",
     "@webiny/api-headless-cms": "0.0.0",
     "@webiny/api-websockets": "0.0.0",
@@ -45,15 +44,5 @@
     "build": "yarn webiny run build",
     "watch": "yarn webiny run watch"
   },
-  "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f",
-  "adio": {
-    "ignore": {
-      "src": [
-        "aws-lambda"
-      ],
-      "dependencies": [
-        "@types/aws-lambda"
-      ]
-    }
-  }
+  "gitHead": "8476da73b653c89cc1474d968baf55c1b0ae0e5f"
 }

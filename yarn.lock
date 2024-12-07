@@ -10249,17 +10249,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/aws-lambda@npm:^8.10.131, @types/aws-lambda@npm:^8.10.134":
-  version: 8.10.136
-  resolution: "@types/aws-lambda@npm:8.10.136"
-  checksum: a53e6c0eac973f739b3b5d03bb68ac249de7c6277e0e6329793a18380ad04d09c4ea7b2ac5f2430ea73f73fad4d889cc7986bc0bf1ef9bd5691d52eae0a6f1e2
+"@types/aws-lambda@npm:8.10.145":
+  version: 8.10.145
+  resolution: "@types/aws-lambda@npm:8.10.145"
+  checksum: 4beb4febe8eb7da3087e009b4d1df61de5e9a7336792424254ca1e24740e17ee701de21423a125dcd26afb499003557e717cc824e24c47c916d2de6b0c245482
   languageName: node
   linkType: hard
 
 "@types/aws-lambda@npm:^8.10.83":
-  version: 8.10.110
-  resolution: "@types/aws-lambda@npm:8.10.110"
-  checksum: 57be33940035f68c93ecb2c43d82b6f47a9f91f7f2114870d5fbab30c4b93084f12c4353da4aaffdfb0b612f2e7f13ee3ac53e0cc7b9f8e536b04bda0a593615
+  version: 8.10.146
+  resolution: "@types/aws-lambda@npm:8.10.146"
+  checksum: bc200f22c2914b9a81e7e52343ed6c0e829bed1af63a530d190ba6b65370656381763db10aebf8c4fba66d6e1b69fe1bd2b008fa58652b2ddf8c3edfbe1fa194
   languageName: node
   linkType: hard
 
@@ -12205,7 +12205,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-dynamodb-to-elasticsearch@workspace:packages/api-dynamodb-to-elasticsearch"
   dependencies:
-    "@types/aws-lambda": ^8.10.131
     "@webiny/api-elasticsearch": 0.0.0
     "@webiny/api-log": 0.0.0
     "@webiny/aws-sdk": 0.0.0
@@ -13128,7 +13127,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-record-locking@workspace:packages/api-record-locking"
   dependencies:
-    "@types/aws-lambda": ^8.10.131
     "@webiny/api": 0.0.0
     "@webiny/api-headless-cms": 0.0.0
     "@webiny/api-i18n": 0.0.0
@@ -13425,7 +13423,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/api-websockets@workspace:packages/api-websockets"
   dependencies:
-    "@types/aws-lambda": ^8.10.131
     "@webiny/api": 0.0.0
     "@webiny/api-headless-cms": 0.0.0
     "@webiny/api-i18n": 0.0.0
@@ -13443,7 +13440,6 @@ __metadata:
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/utils": 0.0.0
-    aws-lambda: ^1.0.7
     graphql: ^15.8.0
     rimraf: ^5.0.5
     ttypescript: ^1.5.13
@@ -14756,7 +14752,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/aws-helpers@workspace:packages/aws-helpers"
   dependencies:
-    "@types/aws-lambda": ^8.10.134
+    "@types/aws-lambda": 8.10.145
     "@webiny/project-utils": 0.0.0
     cheerio: ^1.0.0-rc.10
     srcset: ^4.0.0
@@ -14796,9 +14792,11 @@ __metadata:
     "@aws-sdk/s3-presigned-post": ^3.705.0
     "@aws-sdk/s3-request-presigner": ^3.705.0
     "@aws-sdk/util-dynamodb": ^3.705.0
+    "@types/aws-lambda": 8.10.145
     "@webiny/cli": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/utils": 0.0.0
+    aws-lambda: ^1.0.7
     rimraf: ^5.0.5
     typescript: 4.9.5
   languageName: unknown
@@ -15326,7 +15324,6 @@ __metadata:
     "@webiny/plugins": 0.0.0
     "@webiny/project-utils": 0.0.0
     "@webiny/utils": 0.0.0
-    aws-lambda: ^1.0.7
     fastify: 4.15.0
     rimraf: ^5.0.5
     ttypescript: ^1.5.13
@@ -15972,7 +15969,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@webiny/tasks@workspace:packages/tasks"
   dependencies:
-    "@types/aws-lambda": ^8.10.131
     "@webiny/api": 0.0.0
     "@webiny/api-headless-cms": 0.0.0
     "@webiny/api-i18n": 0.0.0

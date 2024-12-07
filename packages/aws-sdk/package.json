@@ -27,7 +27,9 @@
     "@aws-sdk/s3-presigned-post": "^3.705.0",
     "@aws-sdk/s3-request-presigner": "^3.705.0",
     "@aws-sdk/util-dynamodb": "^3.705.0",
-    "@webiny/utils": "0.0.0"
+    "@types/aws-lambda": "8.10.145",
+    "@webiny/utils": "0.0.0",
+    "aws-lambda": "^1.0.7"
   },
   "devDependencies": {
     "@webiny/cli": "0.0.0",
@@ -42,5 +44,12 @@
   "scripts": {
     "build": "yarn webiny run build",
     "watch": "yarn webiny run watch"
+  },
+  "adio": {
+    "ignore": {
+      "dependencies": [
+        "@types/aws-lambda"
+      ]
+    }
   }
 }

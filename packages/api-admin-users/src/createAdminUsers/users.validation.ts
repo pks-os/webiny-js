@@ -18,7 +18,7 @@ const createUserDataValidation = zod.object({
 
 const updateUserDataValidation = zod.object({
     displayName: zod.string().min(1).optional(),
-    avatar: zod.object({}).passthrough().optional(),
+    avatar: zod.object({}).passthrough().optional().nullable(),
     firstName: zod.string().min(1).optional(),
     lastName: zod.string().min(1).optional(),
     group: zod.string().optional(),

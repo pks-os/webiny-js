@@ -5,6 +5,7 @@ import chalk from "chalk";
 import { ArrayLiteralExpression, Node, Project } from "ts-morph";
 import { formatCode } from "@webiny/cli-plugin-scaffold/utils";
 import { updateDependencies, updateWorkspaces } from "~/utils";
+import Case from "case";
 
 export class ApiExtension extends AbstractExtension {
     async link() {
@@ -29,7 +30,7 @@ export class ApiExtension extends AbstractExtension {
         const indexTsxFilePath = `${extensionsFolderPath}/src/index.ts`;
 
         return [
-            `run ${chalk.green(watchCommand)} to start a new local development session`,
+            `run ${chalk.green(watchCommand)} to start local development`,
             `open ${chalk.green(indexTsxFilePath)} and start coding`,
             `to install additional dependencies, run ${chalk.green(
                 `yarn workspace ${this.params.packageName} add <package-name>`
@@ -38,11 +39,11 @@ export class ApiExtension extends AbstractExtension {
     }
 
     private async addPluginToApiApp() {
-        const { name, packageName } = this.params;
-
         const extensionsFilePath = path.join("apps", "api", "graphql", "src", "extensions.ts");
 
-        const extensionFactory = name + "ExtensionFactory";
+        const { packageName } = this.params;
+        const extensionFactory = Case.pascal(packageName) + "ExtensionFactory";
+
         const importName = "{ createExtension as " + extensionFactory + " }";
         const importPath = packageName;
 

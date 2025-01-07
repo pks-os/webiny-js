@@ -92,7 +92,9 @@ jobs:
   assignMilestone:
     name: Assign milestone
     needs: constants
-    if: needs.constants.outputs.is-fork-pr != 'true'
+    if: >-
+      needs.constants.outputs.is-fork-pr != 'true' &&
+      github.event.pull_request.milestone == null
     steps:
       - uses: actions/setup-node@v4
         with:

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { App, AppProps, Decorator, GenericComponent } from "@webiny/app";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { CacheProvider } from "@emotion/react";
-import { Page } from "./Page";
-import { createApolloClient, createEmotionCache } from "~/utils";
 import { ThemeProvider } from "@webiny/app-theme";
 import { PageBuilderProvider } from "@webiny/app-page-builder/contexts/PageBuilder";
+import { lexicalRendererDecorators } from "@webiny/app-page-builder/render/lexicalRendererDecorators";
 import { PageBuilder } from "@webiny/app-page-builder/render";
 import { RouteProps } from "@webiny/react-router";
+import { createApolloClient, createEmotionCache } from "~/utils";
+import { Page } from "./Page";
 import { LinkPreload } from "~/LinkPreload";
+import { WebsiteLoaderCache } from "~/utils/WebsiteLoaderCache";
 
 export interface WebsiteProps extends AppProps {
     apolloClient?: ReturnType<typeof createApolloClient>;
@@ -18,8 +20,12 @@ const PageBuilderProviderHOC: Decorator<
     GenericComponent<{ children: React.ReactNode }>
 > = PreviousProvider => {
     return function PageBuilderProviderHOC({ children }) {
+        const websiteLoaderCache = useMemo(() => {
+            return new WebsiteLoaderCache();
+        }, []);
+
         return (
-            <PageBuilderProvider>
+            <PageBuilderProvider loaderCache={websiteLoaderCache}>
                 <PreviousProvider>{children}</PreviousProvider>
             </PageBuilderProvider>
         );
@@ -48,6 +54,7 @@ export const Website = ({ children, routes = [], providers = [], ...props }: Web
                         debounceRender={debounceMs}
                         routes={appRoutes}
                         providers={[PageBuilderProviderHOC, ...providers]}
+                        decorators={[...lexicalRendererDecorators]}
                     >
                         <LinkPreload />
                         <PageBuilder />
